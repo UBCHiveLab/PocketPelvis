@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="MalePelvis"/>
+</Tracking>
+
+<Assembly name="MalePelviss_assembly">
+<Part name="MalePelvis" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="50.5997 390.901 2320.47" rotation="AD: 0.9999999999233053 0.0018969686647167246 -0.0067797648913412905 211.262">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

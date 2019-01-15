@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/test2.unity
+    guid: 9148cde08c53010478fb26be0450b300
+  - enabled: 0
+    path: Assets/Scenes/test3.unity
+    guid: 8fe34d801840055459beed061c5c0037
+  - enabled: 0
+    path: Assets/Scenes/test4.unity
+    guid: 47b135c62557fa348ba38a2425224d97
+  - enabled: 0
+    path: Assets/Scenes/test5.unity
+    guid: 85575296263c0254da4368cfb8ae6b01
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/_menu.unity
+    guid: 2327d0c01e90ced43a74c589b2d6874a
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/A.unity
+    guid: 17f1102c2a6df564c81e653c91ebba50
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/B.unity
+    guid: bbe4c78b9029d2c469d905d7e6fe000c
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/C.unity
+    guid: 29d5964ccee309447ba918aa1544f750
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/D.unity
+    guid: 7f20d780661a38f48932a22db0f9faec
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/E.unity
+    guid: 15f3ffc51e6e3db4f91c479447746119
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/F.unity
+    guid: 9574c2e8cf2204042b9947a070de5d56
+  - enabled: 0
+    path: Assets/Scenes/decisionmaking1/G.unity
+    guid: eccccd94a3c09e94ab8b756c4af924dd
+  - enabled: 1
+    path: Assets/Scenes/decisionmaking1/H.unity
+    guid: e1dc84b4c67a91448a663961be3d060c
+  m_configObjects: {}

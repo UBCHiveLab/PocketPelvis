@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikitude SDK Unity 7.2.1 Documentation</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/docs.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="css/github.min.css">
+    <link type="text/css" rel="stylesheet" href="css/default.min.css">
+    <link type="text/css" rel="stylesheet" href="css/lightbox.min-0.5.1.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery.treemenu.css">
+    <link type="text/css" rel="stylesheet" href="easytree-skin/ui.easytree.css">
+
+    
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/highlight-9.9.min.js"></script>
+    <script type="text/javascript" src="js/lunr.min-0.7.2.js"></script>
+    <script type="text/javascript" src="js/lightbox.min-0.5.1.js"></script>
+    <script type="text/javascript" src="js/jquery.easytree.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Every image referenced from a Markdown document
+            $("#content img").each(function() {
+                // Let's put a caption if there is one
+                if($(this).attr("alt"))
+                    $(this).wrap('<figure class="image"></figure>')
+                        .after('<figcaption>'+$(this).attr("alt")+'</figcaption>');
+                });
+
+            // 
+            document.getElementById("documentationSelect").onchange = function() {
+                var selectedOption = this.value;
+                //console.log(selectedOption);
+                if(selectedOption !== ""){
+                        window.top.location.href = "https://www.wikitude.com/external/doc/documentation/latest/" + selectedOption;
+                    }
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    <div id="page">
+        <a name="top" /></a>
+        <header>
+            <h1><a href="">Documentation</a></h1>
+        </header>
+        <nav id="page-tabs">
+            <div class="nav-link">
+                <a href="https://support.wikitude.com/support/home" class="">Forum</a>
+                <a href="https://support.wikitude.com/support/solutions" class="">FAQ</a>
+                <a href="https://www.wikitude.com/documentation" class="active">Documentation</a>
+                <a href="https://www.wikitude.com/download">Download</a>
+            </div>
+            <div class="nav-url">
+                <a href="https://www.wikitude.com/">www.wikitude.com</a>
+            </div>
+        </nav>
+         
+
+<div id="sidebar">
+
+    <div id="sidebarHeader">
+
+        
+        <select id="documentationSelect">
+            
+                <option value=""  > --- Android --- </option>
+            
+                <option value="android"  > Android Javascript API </option>
+            
+                <option value="androidnative"  > Android Native API </option>
+            
+                <option value=""  > --- iOS --- </option>
+            
+                <option value="ios"  > iOS Javascript API </option>
+            
+                <option value="iosnative"  > iOS Native API </option>
+            
+                <option value=""  > --- Extensions --- </option>
+            
+                <option value="phonegap"  > Cordova </option>
+            
+                <option value="titanium"  > Titanium </option>
+            
+                <option value="unity"  selected > Unity </option>
+            
+                <option value="xamarin"  > Xamarin </option>
+            
+                <option value=""  > --- Smart Glasses --- </option>
+            
+                <option value="epson"  > Epson </option>
+            
+                <option value="odg"  > ODG </option>
+            
+                <option value="vuzix"  > Vuzix </option>
+            
+                <option value=""  > --- Services --- </option>
+            
+                <option value="cloudrecognition"  > Cloud Recognition </option>
+            
+        </select>
+
+        
+
+        <h2>Wikitude SDK Unity</h2>
+
+        
+        <div id="version">version: 7.2.1</div>
+        
+        
+        <div id="api-type"></div>
+        
+
+    </div>
+
+    <input id="showNav" class="toggleNav" type="checkbox">
+    <label class="showNavLbl" for="showNav">Show Navigation</label>
+    <label class="hideNavLbl" for="showNav">Hide Navigation</label>
+
+    <div id="mainnav">
+        <form action="search.html"><input id="search" type="text" placeholder="Search documentation" name="q" /></form>
+        <nav id="toc">
+            
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#getting-started">Getting started</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#introduction-to-the-wikitude-sdk">Introduction to the Wikitude SDK</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#recommended-usage-of-this-documentation">Recommended Usage of this Documentation</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#the-wikitude-native-sdk-augmented-reality-for-your-own-app">The Wikitude Native SDK - Augmented Reality for your own app</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#architecture-of-the-wikitude-sdk">Architecture of the Wikitude SDK</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#the-wikitude-developer-portal">The Wikitude Developer Portal</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#feedback-and-contact">Feedback and Contact</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#setup-guide-unity-plugin">Setup Guide Unity Plugin</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="setupguideunity.html#import-the-wikitudeunitypackage">Import the Wikitude.unitypackage</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#use-the-wikitude-unity-plugin">Use the Wikitude Unity plugin</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#export-and-xcode-build-settings-changes">Export and Xcode Build Settings Changes</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#unity-requirements-and-supported-versions">Unity Requirements and supported versions</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="supporteddevicesunity.html#supported-devices">Supported Devices</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="triallicense.html#how-to-obtain-a-free-trial-license">How to obtain a free trial license</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="triallicense.html#where-should-i-enter-the-license-key">Where should I enter the license key</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="triallicense.html#unity-plugin">Unity Plugin</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#ios-app-store-submissions">iOS App Store submissions</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#removing-simulator-architectures">Removing simulator architectures</a>
+            
+        </li>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#bitcode">Bitcode</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="sampleunity.html#examples-tutorials">Examples &amp; Tutorials</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="sampleunity.html#structure">Structure</a>
+            
+        </li>
+    
+        <li>
+            <a href="sampleunity.html#usage">Usage</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetimages.html#target-images">Target Images</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetimages.html#image-recognition-samples">Image recognition samples</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetimages.html#object-recognition-samples">Object recognition samples</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#image-recognition">Image Recognition</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="imagerecognitionnative.html#simple-image-recognition-in-unity">Simple Image Recognition in Unity</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="imagerecognitionnative.html#wikitudecamera-prefab">WikitudeCamera Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#imagetracker-prefab">ImageTracker Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#define-custom-augmentations">Define custom augmentations</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#multiple-targets">Multiple Targets</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#extended-tracking">Extended Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#runtime-tracker">Runtime Tracker</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#multiple-trackers">Multiple Trackers</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#instant-tracking">Instant Tracking</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="instanttrackingnative.html#smart-seamless-ar-tracking">SMART - Seamless AR Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#introduction">Introduction</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#basic-instant-tracking">Basic Instant Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#instant-scene-picking">Instant Scene Picking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#object-tracking">Object Tracking</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttrackingnative.html#introduction-to-object-tracking">Introduction to Object Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#object-tracking-in-unity">Object Tracking in Unity</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttrackingnative.html#objecttracker-prefab">ObjectTracker Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#define-custom-augmentations">Define custom augmentations</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#cloud-recognition">Cloud Recognition</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#general-definitions">General Definitions</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#getting-started-with-the-cloud-recognition-service">Getting Started with the Cloud Recognition Service</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#regional-availability-of-wikitude-cloud-recognition-service">Regional availability of Wikitude Cloud Recognition Service</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#preparation">Preparation</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#first-steps-and-general-usage">First Steps and General Usage</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication">Authentication</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication-on-the-manager-api">Authentication on the Manager API</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication-on-the-client-api">Authentication on the Client API</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#quota-and-limits">Quota and Limits</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#general-upload-limit">General Upload Limit</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#limits-for-the-wikitude-cloud-recognition-service">Limits for the Wikitude Cloud Recognition Service</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#maximum-number-of-targets-in-a-target-collection">Maximum Number of Targets in a Target Collection</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#free-trial-license-for-cloud-recognition">Free Trial License for Cloud Recognition</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#commercial-licenses">Commercial Licenses</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#your-first-target-collections">Your first Target Collections</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#what-is-the-difference-between-cloud-archive-and-target-collection">What is the difference between Cloud Archive and Target Collection</a>
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#structure-of-a-targetcollection">Structure of a TargetCollection</a>
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#create-a-target-collection">Create a Target Collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#add-target-images">Add Target Images</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#structure-of-a-target">Structure of a Target</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#generate-a-cloud-archive">Generate a Cloud Archive</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#generate-a-wtc-file-via-api">Generate a WTC file via API</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#additional-calls">Additional calls</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionnative.html#cloud-recognition-sample">Cloud Recognition Sample</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionnative.html#cloud-recognition-in-unity">Cloud recognition in Unity</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="occludersunity.html#rendering">Rendering</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="occludersunity.html#occluders-in-unity">Occluders in Unity</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cameracontrolunity.html#camera-controls">Camera Controls</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cameracontrolunity.html#inspector-settings">Inspector Settings</a>
+            
+        </li>
+    
+        <li>
+            <a href="cameracontrolunity.html#script-only-settings">Script Only Settings</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#plugins-api">Plugins API</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="pluginsapiunity.html#unity-interface">Unity interface</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#sample-explanation">Sample explanation</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#native-code">Native code</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="pluginsapiunity.html#rebuilding-for-android">Rebuilding for Android</a>
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#rebuilding-for-ios">Rebuilding for iOS</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="inputpluginsapiunity.html#input-plugins-api">Input Plugins API</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="inputpluginsapiunity.html#unity-interface">Unity interface</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#target-management">Target Management</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#image-targets-create-and-manage">Image Targets: Create and Manage</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#wikitude-studio-manager">Wikitude Studio Manager</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#use-projects-wtc-file-in-your-app">Use project's WTC file in your app</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#image-targets-for-cloud-recognition">Image Targets for Cloud Recognition</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#physical-height-for-image-targets">Physical Height for Image Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#object-targets-create-and-manage">Object Targets: Create and Manage</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#create-a-video-of-your-object">Create a video of your object</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#convert-video-into-object-target-collection">Convert video into Object Target Collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#best-practice-for-image-targets">Best practice for Image Targets</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetguide.html#summary">Summary</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#optimal-image-dimensions">Optimal Image Dimensions</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#low-contrast-images">Low contrast images</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#distribution-of-textured-areas">Distribution of textured areas</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#images-with-whitespace">Images with whitespace</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#vector-based-graphics">Vector-based graphics</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#images-with-a-lot-of-text">Images with a lot of text</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#repetitive-patterns">Repetitive patterns</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttargetguide.html#best-practice-for-object-targets">Best practice for Object Targets</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttargetguide.html#characteristics-of-easy-trackable-objects">Characteristics of easy trackable objects</a>
+            
+        </li>
+    
+        <li>
+            <a href="objecttargetguide.html#how-to-create-a-video-as-input-for-object-targets">How to create a video as input for Object Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetversioning.html#targets-versioning">Targets Versioning</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetversioning.html#image-targets">Image Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#unity-wtc-editor">Unity WTC Editor</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="unitywtceditor.html#overview-of-wtc-editor">Overview of WTC Editor</a>
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#create-target-collection-in-wtc-editor">Create target collection in WTC Editor</a>
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#edit-target-collection">Edit target collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="reference.html#reference">Reference</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="reference.html#unity-plugin-reference">Unity Plugin Reference</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="reference.html#cloud-recognition-manager-api">Cloud Recognition Manager API</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migration-notes">Migration Notes</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-710-to-720">Migrate from 7.1.0 to 7.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-700-to-710">Migrate from 7.0.0 to 7.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-210-to-700">Migrate from 2.1.0 to 7.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-200-to-210">Migrate from 2.0.0 to 2.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-140-to-200">Migrate from 1.4.0 to 2.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-110-to-120">Migrate from 1.1.0 to 1.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-101-to-110">Migrate from 1.0.1 to 1.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#release-notes-wikitude-sdk">Release Notes Wikitude SDK</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-720">Wikitude SDK 7.2.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-710">Wikitude SDK 7.1.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-700">Wikitude SDK 7.0.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-210-210">Unity Plugin 2.1.0-2.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-201-201">Unity Plugin 2.0.1-2.0.1</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-200-200">Unity Plugin 2.0.0-2.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-141-130">Unity Plugin 1.4.1-1.3.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-140-130">Unity Plugin 1.4.0-1.3.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-130-120">Unity Plugin 1.3.0-1.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-121-110">Unity Plugin 1.2.1-1.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-101-100">Unity Plugin 1.0.1-1.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-100-100">Unity Plugin 1.0.0-1.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-100-100-beta">Unity Plugin 1.0.0-1.0.0 beta</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+        </nav>
+        
+        <nav id="links">
+            <ul>
+                
+            </ul>
+        </nav>
+        
+    </div>
+</div>
+        <div id="wrapper">
+            <div id="content">
+                <h1 id="migration-notes">Migration Notes</h1>
+<p>Migration notes for the Wikitude Unity Plugin</p>
+<h2 id="migrate-from-7-1-0-to-7-2-0">Migrate from 7.1.0 to 7.2.0</h2>
+<p>The minimum Unity version was increased to 5.4.2.</p>
+<p>Initialization of <code>WikitudeCamera</code> and the internal SDK was moved from <code>Awake</code> to <code>Start</code>. This means WikitudeCamera properties can now be easily changed from script, as long they are done before the <code>Start</code> method is called on the <code>WikitudeCamera</code>.</p>
+<p><code>ImageTracker</code> and <code>InstantTracker</code> now have a new option called <code>Legacy Scale</code>. In previous versions of the plugin, the augmentations needed to be scaled by a factor of 10 to match their targets. In the new version, this is no longer required. However, for backwards compatibility, the <code>Legacy Scale</code> allows developers to re-enable the old behavior. Keep in mind that this option will be removed in future versions and is only intended to ease the transition of existing projects.</p>
+<h2 id="migrate-from-7-0-0-to-7-1-0">Migrate from 7.0.0 to 7.1.0</h2>
+<p>No changes.</p>
+<h2 id="migrate-from-2-1-0-to-7-0-0">Migrate from 2.1.0 to 7.0.0</h2>
+<p>Version 7.0.0 increases the minimum required version for Unity to 5.4.0. Please make sure to also upgrade Unity if you are using an older version, otherwise the plugin will not work properly.
+Version 7.0.0 also increases the minimum iOS version to 9.0 and the minimum Android version to Android 4.4(19). Please update <code>minSdkVersion</code> to 19 in the manifest of your App or build.gradle if you export to a gradle project.</p>
+<p>To align the Unity API with that of the Wikitude Native SDK, the general <code>TrackableBehaviour</code> component has been deprecated, and was replaced with <code>ImageTrackable</code>, <code>ObjectTrackable</code> and <code>InstantTrackable</code>. These new trackables also have different events. So instead of the generic <code>OnEnterFieldOfVision</code> from the previous version, the <code>ImageTrackable</code> has an equivalent <code>OnImageRecognized</code> event, with an <code>ImageTarget</code> parameter, instead of just a string. Similar events are present in the other trackers.
+When you update to the new API, please make sure to never mix the new <code>Trackables</code> with the deprecated <code>TrackableBehaviour</code>, as this is not supported.</p>
+<p>The new <code>Trackable</code> components now have an additional <code>Drawable</code> field. This was added to support multiple targets for <code>ImageTrackers</code>, but the API is available for all <code>Trackables</code>. Please see the <a href="ImageRecognitionNative.html">Image Tracking</a> examples for more information about multiple targets.</p>
+<p>Additionally, some sample scripts were renamed. If you are upgrading and importing the samples as well, please check fo duplicate scripts, or for scripts that should not be present in the project anymore.</p>
+<h2 id="migrate-from-2-0-0-to-2-1-0">Migrate from 2.0.0 to 2.1.0</h2>
+<p>Version 2.1.0 adds a new value to the FrameColorSpace enum used for Plugins and Input Plugins. Because of this, when loading a scene that contains a WikitudeCamera component configured to use Input Plugins, the deserialized value of the enum will be incorrect. Please set it to the appropriate value for your use case after upgrading to 2.1.0.</p>
+<h2 id="migrate-from-1-4-0-to-2-0-0">Migrate from 1.4.0 to 2.0.0</h2>
+<p>Version 2.0.0 deprecates the <code>ClientTracker</code> and the <code>CloudTracker</code> classes. When before you used the <code>ClientTracker</code> to recognize images, it is recommended to switch to the new <code>ImageTracker</code>, in combination with a <code>TargetCollectionResource</code>. Instead of the <code>CloudTracker</code>, the same <code>ImageTracker</code> can be used, but with a <code>CloudRecognitionService</code>, instead. You can select between the <code>TargetCollectionResource</code> and the <code>CloudRecognitionService</code> in the <code>ImageTracker</code> inspector, in the first dropdown menu. Finally, if you used the <code>ClientTracker</code> to track 3D targets, you can now use the new <code>ObjectTracker</code> with a <code>TargetCollectionResource</code> for this.</p>
+<p>To help migrate your project to the new APIs, the inspectors of the old classes have a button that allows you to automatically upgrade the script component with the appropriate replacement.</p>
+<p><img src="images/unity_upgrade_deprecated_tracker.png" alt=""></p>
+<p>When you press the button, a warning message will appear, informing you that during the upgrade process, the properties set on the old tracker will be migrated to the new one, but events will <strong>not</strong>. This would not be possible, because in most cases you need to update the script functions receiving the events to the appropriate signature.</p>
+<p><img src="images/unity_upgrade_warning.png" alt=""></p>
+<p>After pressing OK, GameObject will have the new component instead. If you are not happy with the result, or something went wrong, you can undo this operation.</p>
+<p><img src="images/unity_after_upgrade.png" alt=""></p>
+<p>Keep in mind that you still need to update the source code, where references to the old trackers are used.</p>
+<p>For example, the <code>Runtime Tracker</code> sample used to create a <code>ClientTracker</code> with a custom remote URL.</p>
+<pre><code class="lang-csharp">GameObject trackerObject = new GameObject(&quot;ClientTracker&quot;);
+_currentTracker = trackerObject.AddComponent&lt;ClientTracker&gt;();
+_currentTracker.UseCustomUrl = true;
+_currentTracker.TargetPath = Url.text;
+
+_currentTracker.OnTrackerFinishedLoading.AddListener(OnTrackerFinishedLoading);
+_currentTracker.OnTrackerLoadingError.AddListener(OnTrackerLoadingError);
+</code></pre>
+<p>Here is how the sample would look like when using the new <code>ImageTracker</code> and APIs.</p>
+<pre><code class="lang-csharp">GameObject trackerObject = new GameObject(&quot;ImageTracker&quot;);
+_currentTracker = trackerObject.AddComponent&lt;ImageTracker&gt;();
+_currentTracker.TargetSourceType = TargetSourceType.TargetCollectionResource;
+_currentTracker.TargetCollectionResource = new TargetCollectionResource();
+_currentTracker.TargetCollectionResource.UseCustomURL = true;
+_currentTracker.TargetCollectionResource.TargetPath = Url.text;
+
+_currentTracker.TargetCollectionResource.OnFinishLoading.AddListener(OnFinishLoading);
+_currentTracker.TargetCollectionResource.OnErrorLoading.AddListener(OnErrorLoading);
+
+_currentTracker.OnTargetsLoaded.AddListener(OnTargetsLoaded);
+_currentTracker.OnErrorLoadingTargets.AddListener(OnErrorLoadingTargets);
+</code></pre>
+<p>The old trackers are still kept for backwards compatibility, but will be removed in a future version, so please update to the new ones.</p>
+<p>Additionally, the CloudTrackable was removed from the samples. If you are upgrading from an older version, please make sure that this script is no longer in your projects, otherwise you might encounter compilation errors.</p>
+<h2 id="migrate-from-1-1-0-to-1-2-0">Migrate from 1.1.0 to 1.2.0</h2>
+<p>Version 1.2.0 simplifies the <code>WikitudeCamera</code> prefab. It is now a single GameObject, without the hierarchy it previously had. If you had any changes to the prefab, except for the license key, please make sure to back it up first. </p>
+<p>Because the previous hierarchy is gone, the camera feed is no longer explicitly exposed in the editor, but you can still access it through the <code>CameraTexture</code> property on the <code>WikitudeCamera</code> script.</p>
+<h2 id="migrate-from-1-0-1-to-1-1-0">Migrate from 1.0.1 to 1.1.0</h2>
+<p>Version 1.1.0 contains <strong>many breaking changes to the plugin</strong>, so before upgrading, please backup your project, to prevent accidentally losing your work.</p>
+<p>Wikitude classes are now concrete and sealed and expose Unity events to communicate. This means that now you can add them directly to game objects and subscribe to their events through the editor or at runtime in code. When adding subscribers to events, make sure you use the dynamic version of your method, when there is a choice between static and dynamic (please see the <a href="clientrecognitionnative.html">Client Recognition</a> examples for more information on how to set up Client Trackers).</p>
+<p>Values that were set in the inspector for these classes will need to be reset because of the change in class name and their internal representation.</p>
+<p>The classes that previously derived from them will no longer work, so they need to be updated to receive events. On your game objects, you will get missing mono classes after updating. These should be replaced with the corresponding classes in the Wikitude plugin (Wikitude/Dependencies/WikitudeUnityPlugin) and the values need to be reintroduced. </p>
+<p>All function names in Wikitude classes now begin with a capital letter.</p>
+<p>When building for iOS, if you choose to append over a build made with a previous version, you will end up with two versions of the Wikitude plugin in your project, one located in Plugins/iOS and the new one in Plugins/Wikitude/iOS. Please make sure that only the new one is used. Alternatively, you can redo the build from scratch using the steps from the <a href="setupguideunity.html">Setup Guide</a> section.</p>
+<h4 id="migration-example">Migration Example</h4>
+<p>This section will show how to migrate the example project from version 1.0.1 to work with the new version of the plugin.</p>
+<ol>
+<li><code>(Optional)</code> Delete the <code>Dependencies</code>, <code>Editor</code> and <code>Plugins</code> folders. The plugin folder has changed drastically in this version. If you don&#39;t delete these folders, the correct files should still be replaced with the new version. However, the samples will not work correctly because magazine.wtc will be in <code>StreamingAssets</code> folder instead of <code>StreamingAssets/Wikitude</code>. Since we won&#39;t be using the samples in this example, this step can be skipped.</li>
+<li>Delete the <code>Wikitude/Samples</code> folder. The <code>Samples</code> folder is for illustration purposes only and is not needed in development.</li>
+<li>Update <code>ClientTracker</code> script. <code>Wikitude.IClientTracker</code> has been renamed to <code>Wikitude.ClientTracker</code> and is a sealed class. As such, the <code>ClientTracker</code> script should be changed to derive from <code>MonoBehaviour</code> instead and it&#39;s methods should be simple, instead of override. These methods will be set as callbacks in the Inspector. The class name should also be changed to avoid clashes with the Wikitude class.</li>
+<li>Similar steps should be taken to update the <code>CloudTracker</code> script. Additionally, since it no longer derives from <code>Wikitude.CloudTracker</code>, it will need a reference to it so that it can call <code>StartContinuousRecognition</code>.</li>
+<li>Similar steps should be taken to update the <code>SurferBehaviour</code> script.</li>
+<li>Delete <code>MagazineTracker</code>, <code>TrackableBehaviour</code> and <code>WikitudeCamera</code> scripts. Since Wikitude classes are concrete now, they can be assigned directly to GameObjects, so there is no need for these empty classes anymore.</li>
+<li>Open the scene called <code>main</code> from the <code>Scenes</code> folder.</li>
+<li>Select the <code>WikitudeCamera</code> GameObject from the Hierarchy and enter your license key in the appropriate field in the Inspector. If the script is missing, add the <code>WikitudeCamera</code> script from the <code>Dependencies/WikitudeUnityPlugin</code> dll.</li>
+<li>Create a new GameObject and add the script you updated at step 3 to it.</li>
+<li>Select the <code>ClientTracker</code> GameObject from the Hierarchy and from the <code>Target Collection</code> dropdown select <code>magazine.wtc</code>. Then, for each event you want to subscribe to, press the plus sign, set the GameObject created at step 9 to the field <code>None (Object)</code> and select the corresponding function callback. Please see <a href="clientrecognitionnative.html">Client Recognition</a> examples for more information on how to work with Unity Events.</li>
+<li>Select the <code>WikitudeEye</code> GameObject from the Hierarchy and add the script you updated at step 5 to it.</li>
+<li>Select the <code>Trackable</code> GameObject from the Hierarchy and in the <code>Target Pattern</code> field enter * to track all targets. In the events foldout, subscribe the script you added to WikitudeEye to both <code>On Enter Field Of Vision</code> and <code>On Exit Field Of Vision</code> events.</li>
+</ol>
+<p>The project should now work as before.</p>
+
+                <footer id="footer">
+                    &copy; 2012 -2017 <a href="https://www.wikitude.com">Wikitude GmbH</a> · <a href="https://www.wikitude.com/imprint">Imprint</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var storageKey = "unity" + "7.2.1";
+            function stateChanged(nodes, nodesJson) {
+                localStorage.setItem(storageKey, JSON.stringify(nodesJson));
+            }
+
+            function getData() {
+                var data = localStorage.getItem(storageKey);
+                if (data) return JSON.parse(data);
+            }
+
+            var easytree = $("#toc").easytree({
+                data: getData(),
+                stateChanged: stateChanged
+            });
+
+            $('.easytree-exp-e .easytree-title').each(function () {
+                let openItem = $(this).parent();
+                var openItemId = openItem.attr('id');
+                var activeChildItem = openItem.parent().find('ul li .easytree-active');
+
+                if (!activeChildItem.length) {
+                    easytree.toggleNode(openItemId);
+                }
+            });
+
+            var activeItem = $('.easytree-active.easytree-exp-c .easytree-title');
+
+            if (activeItem) {
+                var activeItemId = activeItem.closest('.easytree-active').attr('id');
+                easytree.toggleNode(activeItemId);
+            }
+        });
+    </script>
+
+</body>
+    <script>
+    var lightbox = new Lightbox();
+    lightbox.load();
+    hljs.initHighlightingOnLoad();
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-11754809-8', 'auto');
+		ga('require', 'displayfeatures');
+		ga('set', 'checkProtocolTask', null);
+		ga('send', 'pageview');
+
+</script>
+</html>

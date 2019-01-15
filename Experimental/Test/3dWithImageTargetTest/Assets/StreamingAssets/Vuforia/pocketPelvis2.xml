@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="7" size="0.020000 0.020000"/>
+        <ImageTarget name="6" size="0.020000 0.020000"/>
+        <ImageTarget name="5" size="0.020000 0.020000"/>
+        <ImageTarget name="4" size="0.020000 0.020000"/>
+        <ImageTarget name="2" size="0.020000 0.020000"/>
+        <ImageTarget name="3" size="0.020000 0.020000"/>
+        <ImageTarget name="1" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_35x35x35.Left" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_35x35x35.Right" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_35x35x35.Bottom" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_35x35x35.Back" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_35x35x35.Top" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_35x35x35.Front" size="0.035000 0.035000"/>
+        <ImageTarget name="cube_20x20x20.Left" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_20x20x20.Right" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_20x20x20.Bottom" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_20x20x20.Back" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_20x20x20.Top" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_20x20x20.Front" size="0.020000 0.020000"/>
+        <ImageTarget name="cube_.Left" size="0.025000 0.025000"/>
+        <ImageTarget name="cube_.Right" size="0.025000 0.025000"/>
+        <ImageTarget name="cube_.Bottom" size="0.025000 0.025000"/>
+        <ImageTarget name="cube_.Back" size="0.025000 0.025000"/>
+        <ImageTarget name="cube_.Top" size="0.025000 0.025000"/>
+        <ImageTarget name="cube_.Front" size="0.025000 0.025000"/>
+        <MultiTarget name="cube_35x35x35">
+            <Part name="cube_35x35x35.Left" translation="-0.017500000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="cube_35x35x35.Right" translation="0.017500000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="cube_35x35x35.Front" translation="0 0 0.017500000074505806" rotation="AD: 1 0 0 0"/>
+            <Part name="cube_35x35x35.Back" translation="0 0 -0.017500000074505806" rotation="AD: 0 1 0 180"/>
+            <Part name="cube_35x35x35.Top" translation="0 0.017500000074505806 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="cube_35x35x35.Bottom" translation="0 -0.017500000074505806 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="cube_20x20x20">
+            <Part name="cube_20x20x20.Left" translation="-0.009999999776482582 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="cube_20x20x20.Right" translation="0.009999999776482582 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="cube_20x20x20.Front" translation="0 0 0.009999999776482582" rotation="AD: 1 0 0 0"/>
+            <Part name="cube_20x20x20.Back" translation="0 0 -0.009999999776482582" rotation="AD: 0 1 0 180"/>
+            <Part name="cube_20x20x20.Top" translation="0 0.009999999776482582 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="cube_20x20x20.Bottom" translation="0 -0.009999999776482582 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="cube_">
+            <Part name="cube_.Left" translation="-0.012500000186264515 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="cube_.Right" translation="0.012500000186264515 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="cube_.Front" translation="0 0 0.012500000186264515" rotation="AD: 1 0 0 0"/>
+            <Part name="cube_.Back" translation="0 0 -0.012500000186264515" rotation="AD: 0 1 0 180"/>
+            <Part name="cube_.Top" translation="0 0.012500000186264515 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="cube_.Bottom" translation="0 -0.012500000186264515 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>

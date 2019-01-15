@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="6" size="0.020000 0.020000"/>
+    <ImageTarget name="5" size="0.020000 0.020000"/>
+    <ImageTarget name="4" size="0.020000 0.020000"/>
+    <ImageTarget name="3" size="0.020000 0.020000"/>
+    <ImageTarget name="1" size="0.020000 0.020000"/>
+    <ImageTarget name="2" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Right" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Bottom" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Top" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Front" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Left" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Back" size="0.020000 0.020000"/>
+    <MultiTarget name="multiTarget">
+      <Part name="multiTarget.Left" translation="0.0298 0.0031 0.0152" rotation="AD: 0 0 1 60.984; 1 0 0 47.851; 0 1 0 -25.018 "/> 
+      <Part name="multiTarget.Right" translation="-0.03037405 0.005288126 .01276144" rotation="AD: 0 0 1 -59.46799; 1 0 0 -314.803; 0 1 0 16.8275"/>
+      <Part name="multiTarget.Front" translation="-3.072142e-05 -0.006542035 -0.006837198" rotation="AD: 1 0 0 76.076; 0 1 0 -180"/>
+      <Part name="multiTarget.Back" translation="-0.0315 -0.0114 0.0067" rotation="AD: 0 0 1 -264.416; 1 0 0 -214.969; 0 1 0 31.98499"/>
+      <Part name="multiTarget.Top" translation="0.02980055 -0.01143884 0.00817747" rotation="AD: 0 0 1 79.92001; 1 0 0 44.628; 0 1 0 148.507"/>
+      <Part name="multiTarget.Bottom" translation="-0.000984519 -0.0193 0.0219" rotation="AD: 1 0 0 46.47"/>
+    </MultiTarget>
+  </Tracking>
+</QCARConfig>
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="6" size="0.020000 0.020000"/>
+    <ImageTarget name="5" size="0.020000 0.020000"/>
+    <ImageTarget name="4" size="0.020000 0.020000"/>
+    <ImageTarget name="3" size="0.020000 0.020000"/>
+    <ImageTarget name="1" size="0.020000 0.020000"/>
+    <ImageTarget name="2" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Right" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Bottom" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Top" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Front" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Left" size="0.020000 0.020000"/>
+    <ImageTarget name="multiTarget.Back" size="0.020000 0.020000"/>
+    <MultiTarget name="multiTarget">
+      <Part name="multiTarget.Left" translation="0.0298 0.0152 0.0031" rotation="AD: -47.851 60.984 25.018 1"/> or 272.836
+      <Part name="multiTarget.Right" translation="-0.03037405 01276144 0.005288126" rotation="AD: 314.803 -59.46799 -16.8275 1"/>
+      <Part name="multiTarget.Front" translation="-3.072142e-05 -0.006837198 -0.006542035" rotation="AD: -76.076 0 180 1"/>
+      <Part name="multiTarget.Back" translation="-0.0315 0.0067 -0.0114" rotation="AD: 145.188 -84.108 31.98499 1"/>
+      <Part name="multiTarget.Top" translation="0.02980055 0.00817747 -0.01143884" rotation="AD: -44.628 79.92001 -148.507 1"/>
+      <Part name="multiTarget.Bottom" translation="-0.000984519 0.0219 -0.0193" rotation="AD: -46.47 0 0 1"/>
+    </MultiTarget>
+  </Tracking>
+</QCARConfig>
+-->

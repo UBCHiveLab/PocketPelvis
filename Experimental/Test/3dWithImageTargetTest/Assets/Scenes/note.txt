@@ -1,0 +1,49 @@
+test: 
+- model recognition is unstable, so we have to come up with another way of recognition. 
+- took an existing printed pelvis (blue) and glued 3 QR code images generated online to here.
+- AR object placement on real model was inaccurate because image target is glued onto curved surface (needs flat).
+- however, found that it worked well enough to experiment more on.
+
+test2:
+- mehrdad's working on holocube with detachable faces, so we tried incorporating that idea into pocketpelvis.
+- addressed problems in test by making a flat-faced, form fitting chip to glued image target onto.
+- only that wing of the pelvis was printed (black), as well as a form fitting chip attached to pelvis wing by magnets (black).
+- recognition and accuracy of AR object placement on real model were good.
+
+test3:
+- expanded test2 concept to full pelvis.
+- 1 pelvis (clear) with 6 magnetic, form fitting, numbered image targets (black).
+- found that human error in gluing image target to chip, and gluing magnet to chip and pelvis cause significant inaccuracy (offset) in AR object placement.
+- also, QR code don't offer enough tracking points. 
+- for aesthetic, pelvis size is too small for 2x2cm target.
+- this problem not detected in test2 because only the wing was printed so the amount of deflection given the same angle offset was less.
+
+test3multitarget:
+- tried with multitarget in vuforia.
+- didn't work due to multitarget's need for precise location relations between targets.
+
+test4:
+- printed new pelvis (clear) to address problems in test3.
+- embed flat surfaces onto pelvis instead of making them detachable to reduce human error in gluing down magnets.
+- changed from QR codes to recommended images from vuforia's website. lost numbering, but recognition is better.
+- increased pelvis size to 1.6 times original, because 2x2cm image target fit perfectly on vertibrate at 1.6 scale.
+- implemented a code to better transition better image targets, as well as give user response in form of text on screen.
+- still has problems of inaccuracy, although problems not significant in the image targets closer to the center of the pelvis.
+- tried rescale reference pelvis of each image target individually to compensate for some size inaccuracy.
+
+test4_sameScale:
+- rescaled all reference pelvis by the same scale. 
+
+test5:
+- tried multitarget, with an external cube.
+- multitarget's chances of recognition is much less than single target, and size offset is a problem as well.
+- AR object placement is much less jittery than multiple single targets though.
+
+decisionmaking:
+- compiled these tests and tried different variations for claudia to make a decision.
+- we recommend H, and that was selected.
+- also, concluded to implement both model recogition and image recognition to add robustness.
+
+test6: 
+- in the meeting, being able to put model in anatomical position is very helpful, so it's implemented here.
+ 

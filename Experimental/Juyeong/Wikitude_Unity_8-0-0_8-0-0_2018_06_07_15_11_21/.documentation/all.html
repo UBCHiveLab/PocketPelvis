@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikitude SDK Unity 7.2.1 Documentation</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/docs.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="css/github.min.css">
+    <link type="text/css" rel="stylesheet" href="css/default.min.css">
+    <link type="text/css" rel="stylesheet" href="css/lightbox.min-0.5.1.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery.treemenu.css">
+    <link type="text/css" rel="stylesheet" href="easytree-skin/ui.easytree.css">
+
+    
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/highlight-9.9.min.js"></script>
+    <script type="text/javascript" src="js/lunr.min-0.7.2.js"></script>
+    <script type="text/javascript" src="js/lightbox.min-0.5.1.js"></script>
+    <script type="text/javascript" src="js/jquery.easytree.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Every image referenced from a Markdown document
+            $("#content img").each(function() {
+                // Let's put a caption if there is one
+                if($(this).attr("alt"))
+                    $(this).wrap('<figure class="image"></figure>')
+                        .after('<figcaption>'+$(this).attr("alt")+'</figcaption>');
+                });
+
+            // 
+            document.getElementById("documentationSelect").onchange = function() {
+                var selectedOption = this.value;
+                //console.log(selectedOption);
+                if(selectedOption !== ""){
+                        window.top.location.href = "https://www.wikitude.com/external/doc/documentation/latest/" + selectedOption;
+                    }
+            }
+        });
+    </script>
+
+
+</head>
+<body>
+    <div id="page">
+        <a name="top" /></a>
+        <header>
+            <h1><a href="">Documentation</a></h1>
+        </header>
+        <nav id="page-tabs">
+            <div class="nav-link">
+                <a href="https://support.wikitude.com/support/home" class="">Forum</a>
+                <a href="https://support.wikitude.com/support/solutions" class="">FAQ</a>
+                <a href="https://www.wikitude.com/documentation" class="active">Documentation</a>
+                <a href="https://www.wikitude.com/download">Download</a>
+            </div>
+            <div class="nav-url">
+                <a href="https://www.wikitude.com/">www.wikitude.com</a>
+            </div>
+        </nav>
+         
+
+<div id="sidebar">
+
+    <div id="sidebarHeader">
+
+        
+        <select id="documentationSelect">
+            
+                <option value=""  > --- Android --- </option>
+            
+                <option value="android"  > Android Javascript API </option>
+            
+                <option value="androidnative"  > Android Native API </option>
+            
+                <option value=""  > --- iOS --- </option>
+            
+                <option value="ios"  > iOS Javascript API </option>
+            
+                <option value="iosnative"  > iOS Native API </option>
+            
+                <option value=""  > --- Extensions --- </option>
+            
+                <option value="phonegap"  > Cordova </option>
+            
+                <option value="titanium"  > Titanium </option>
+            
+                <option value="unity"  selected > Unity </option>
+            
+                <option value="xamarin"  > Xamarin </option>
+            
+                <option value=""  > --- Smart Glasses --- </option>
+            
+                <option value="epson"  > Epson </option>
+            
+                <option value="odg"  > ODG </option>
+            
+                <option value="vuzix"  > Vuzix </option>
+            
+                <option value=""  > --- Services --- </option>
+            
+                <option value="cloudrecognition"  > Cloud Recognition </option>
+            
+        </select>
+
+        
+
+        <h2>Wikitude SDK Unity</h2>
+
+        
+        <div id="version">version: 7.2.1</div>
+        
+        
+        <div id="api-type"></div>
+        
+
+    </div>
+
+    <input id="showNav" class="toggleNav" type="checkbox">
+    <label class="showNavLbl" for="showNav">Show Navigation</label>
+    <label class="hideNavLbl" for="showNav">Hide Navigation</label>
+
+    <div id="mainnav">
+        <form action="search.html"><input id="search" type="text" placeholder="Search documentation" name="q" /></form>
+        <nav id="toc">
+            
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#getting-started">Getting started</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#introduction-to-the-wikitude-sdk">Introduction to the Wikitude SDK</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedunity.html#recommended-usage-of-this-documentation">Recommended Usage of this Documentation</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#the-wikitude-native-sdk-augmented-reality-for-your-own-app">The Wikitude Native SDK - Augmented Reality for your own app</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#architecture-of-the-wikitude-sdk">Architecture of the Wikitude SDK</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#the-wikitude-developer-portal">The Wikitude Developer Portal</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedunity.html#feedback-and-contact">Feedback and Contact</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#setup-guide-unity-plugin">Setup Guide Unity Plugin</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="setupguideunity.html#import-the-wikitudeunitypackage">Import the Wikitude.unitypackage</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#use-the-wikitude-unity-plugin">Use the Wikitude Unity plugin</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#export-and-xcode-build-settings-changes">Export and Xcode Build Settings Changes</a>
+            
+        </li>
+    
+        <li>
+            <a href="setupguideunity.html#unity-requirements-and-supported-versions">Unity Requirements and supported versions</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="supporteddevicesunity.html#supported-devices">Supported Devices</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="triallicense.html#how-to-obtain-a-free-trial-license">How to obtain a free trial license</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="triallicense.html#where-should-i-enter-the-license-key">Where should I enter the license key</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="triallicense.html#unity-plugin">Unity Plugin</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#ios-app-store-submissions">iOS App Store submissions</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#removing-simulator-architectures">Removing simulator architectures</a>
+            
+        </li>
+    
+        <li>
+            <a href="ios-framework-scripts-native.html#bitcode">Bitcode</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="sampleunity.html#examples-tutorials">Examples &amp; Tutorials</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="sampleunity.html#structure">Structure</a>
+            
+        </li>
+    
+        <li>
+            <a href="sampleunity.html#usage">Usage</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetimages.html#target-images">Target Images</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetimages.html#image-recognition-samples">Image recognition samples</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetimages.html#object-recognition-samples">Object recognition samples</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#image-recognition">Image Recognition</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="imagerecognitionnative.html#simple-image-recognition-in-unity">Simple Image Recognition in Unity</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="imagerecognitionnative.html#wikitudecamera-prefab">WikitudeCamera Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#imagetracker-prefab">ImageTracker Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#define-custom-augmentations">Define custom augmentations</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#multiple-targets">Multiple Targets</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#extended-tracking">Extended Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#runtime-tracker">Runtime Tracker</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="imagerecognitionnative.html#multiple-trackers">Multiple Trackers</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#instant-tracking">Instant Tracking</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="instanttrackingnative.html#smart-seamless-ar-tracking">SMART - Seamless AR Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#introduction">Introduction</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#basic-instant-tracking">Basic Instant Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="instanttrackingnative.html#instant-scene-picking">Instant Scene Picking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#object-tracking">Object Tracking</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttrackingnative.html#introduction-to-object-tracking">Introduction to Object Tracking</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#object-tracking-in-unity">Object Tracking in Unity</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttrackingnative.html#objecttracker-prefab">ObjectTracker Prefab</a>
+            
+        </li>
+    
+        <li>
+            <a href="objecttrackingnative.html#define-custom-augmentations">Define custom augmentations</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#cloud-recognition">Cloud Recognition</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#general-definitions">General Definitions</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#getting-started-with-the-cloud-recognition-service">Getting Started with the Cloud Recognition Service</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#regional-availability-of-wikitude-cloud-recognition-service">Regional availability of Wikitude Cloud Recognition Service</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#preparation">Preparation</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#first-steps-and-general-usage">First Steps and General Usage</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication">Authentication</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication-on-the-manager-api">Authentication on the Manager API</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#authentication-on-the-client-api">Authentication on the Client API</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#quota-and-limits">Quota and Limits</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#general-upload-limit">General Upload Limit</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#limits-for-the-wikitude-cloud-recognition-service">Limits for the Wikitude Cloud Recognition Service</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#maximum-number-of-targets-in-a-target-collection">Maximum Number of Targets in a Target Collection</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#free-trial-license-for-cloud-recognition">Free Trial License for Cloud Recognition</a>
+            
+        </li>
+    
+        <li>
+            <a href="gettingstartedcloudrecognition.html#commercial-licenses">Commercial Licenses</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#your-first-target-collections">Your first Target Collections</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#what-is-the-difference-between-cloud-archive-and-target-collection">What is the difference between Cloud Archive and Target Collection</a>
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#structure-of-a-targetcollection">Structure of a TargetCollection</a>
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#create-a-target-collection">Create a Target Collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#add-target-images">Add Target Images</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#structure-of-a-target">Structure of a Target</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#generate-a-cloud-archive">Generate a Cloud Archive</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#generate-a-wtc-file-via-api">Generate a WTC file via API</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionworkflow.html#additional-calls">Additional calls</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cloudrecognitionnative.html#cloud-recognition-sample">Cloud Recognition Sample</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cloudrecognitionnative.html#cloud-recognition-in-unity">Cloud recognition in Unity</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="occludersunity.html#rendering">Rendering</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="occludersunity.html#occluders-in-unity">Occluders in Unity</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="cameracontrolunity.html#camera-controls">Camera Controls</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="cameracontrolunity.html#inspector-settings">Inspector Settings</a>
+            
+        </li>
+    
+        <li>
+            <a href="cameracontrolunity.html#script-only-settings">Script Only Settings</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#plugins-api">Plugins API</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="pluginsapiunity.html#unity-interface">Unity interface</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#sample-explanation">Sample explanation</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#native-code">Native code</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="pluginsapiunity.html#rebuilding-for-android">Rebuilding for Android</a>
+            
+        </li>
+    
+        <li>
+            <a href="pluginsapiunity.html#rebuilding-for-ios">Rebuilding for iOS</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="inputpluginsapiunity.html#input-plugins-api">Input Plugins API</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="inputpluginsapiunity.html#unity-interface">Unity interface</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#target-management">Target Management</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#image-targets-create-and-manage">Image Targets: Create and Manage</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#wikitude-studio-manager">Wikitude Studio Manager</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#use-projects-wtc-file-in-your-app">Use project's WTC file in your app</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#image-targets-for-cloud-recognition">Image Targets for Cloud Recognition</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#physical-height-for-image-targets">Physical Height for Image Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#object-targets-create-and-manage">Object Targets: Create and Manage</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetmanagement.html#create-a-video-of-your-object">Create a video of your object</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetmanagement.html#convert-video-into-object-target-collection">Convert video into Object Target Collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#best-practice-for-image-targets">Best practice for Image Targets</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetguide.html#summary">Summary</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#optimal-image-dimensions">Optimal Image Dimensions</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#low-contrast-images">Low contrast images</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#distribution-of-textured-areas">Distribution of textured areas</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#images-with-whitespace">Images with whitespace</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#vector-based-graphics">Vector-based graphics</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#images-with-a-lot-of-text">Images with a lot of text</a>
+            
+        </li>
+    
+        <li>
+            <a href="targetguide.html#repetitive-patterns">Repetitive patterns</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="objecttargetguide.html#best-practice-for-object-targets">Best practice for Object Targets</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="objecttargetguide.html#characteristics-of-easy-trackable-objects">Characteristics of easy trackable objects</a>
+            
+        </li>
+    
+        <li>
+            <a href="objecttargetguide.html#how-to-create-a-video-as-input-for-object-targets">How to create a video as input for Object Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="targetversioning.html#targets-versioning">Targets Versioning</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="targetversioning.html#image-targets">Image Targets</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#unity-wtc-editor">Unity WTC Editor</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="unitywtceditor.html#overview-of-wtc-editor">Overview of WTC Editor</a>
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#create-target-collection-in-wtc-editor">Create target collection in WTC Editor</a>
+            
+        </li>
+    
+        <li>
+            <a href="unitywtceditor.html#edit-target-collection">Edit target collection</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="reference.html#reference">Reference</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="reference.html#unity-plugin-reference">Unity Plugin Reference</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="reference.html#cloud-recognition-manager-api">Cloud Recognition Manager API</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migration-notes">Migration Notes</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-710-to-720">Migrate from 7.1.0 to 7.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-700-to-710">Migrate from 7.0.0 to 7.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-210-to-700">Migrate from 2.1.0 to 7.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-200-to-210">Migrate from 2.0.0 to 2.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-140-to-200">Migrate from 1.4.0 to 2.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-110-to-120">Migrate from 1.1.0 to 1.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="migration-unity.html#migrate-from-101-to-110">Migrate from 1.0.1 to 1.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#release-notes-wikitude-sdk">Release Notes Wikitude SDK</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-720">Wikitude SDK 7.2.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-710">Wikitude SDK 7.1.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#wikitude-sdk-700">Wikitude SDK 7.0.0</a>
+            
+                
+    <ul>
+    
+        <li>
+            <a href="changelog.html#new">New</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#improved">Improved</a>
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#fixed">Fixed</a>
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-210-210">Unity Plugin 2.1.0-2.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-201-201">Unity Plugin 2.0.1-2.0.1</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-200-200">Unity Plugin 2.0.0-2.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-141-130">Unity Plugin 1.4.1-1.3.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-140-130">Unity Plugin 1.4.0-1.3.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-130-120">Unity Plugin 1.3.0-1.2.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-121-110">Unity Plugin 1.2.1-1.1.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-101-100">Unity Plugin 1.0.1-1.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-100-100">Unity Plugin 1.0.0-1.0.0</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+        <li>
+            <a href="changelog.html#unity-plugin-100-100-beta">Unity Plugin 1.0.0-1.0.0 beta</a>
+            
+                
+    <ul>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+            
+        </li>
+    
+</ul>
+
+        </nav>
+        
+        <nav id="links">
+            <ul>
+                
+            </ul>
+        </nav>
+        
+    </div>
+</div>
+        <div id="wrapper">
+            <div id="content">
+                <h1 id="getting-started">Getting started</h1>
+<h2 id="introduction-to-the-wikitude-sdk">Introduction to the Wikitude SDK</h2>
+<p class='intro' markdown='1'>Welcome to the Wikitude SDK. This document is designed to help you from your very first steps with the Wikitude SDK all the way through to advanced concepts and examples for developing your augmented reality project.</p>
+
+<div class="warning"> 
+Please note that the Wikitude Unity Plugin currently supports <br />
+<ul>
+<li><strong>Unity&nbsp; 5.4.5</strong> or higher</li>
+<li>Rendering engines</li>
+<ul>
+<li>OpenGL ES 2</li>
+<li>OpenGL ES 3.x</li>
+<li>Metal (iOS only)</li>
+</ul>
+
+<li>Because Unity currently doesn&#39;t support 64 bit libraries on Android, performance on such devices might be lower than similar devices running iOS 64 bit.</li>
+</ul>
+
+</div>
+
+
+
+
+<h3 id="recommended-usage-of-this-documentation">Recommended Usage of this Documentation</h3>
+<p>The documentation is arranged in a way to guide you through the various steps in your development process. We recommend following each of the steps outlined below and reading the documentation in the order displayed.</p>
+<div class="bigNumbers" markdown='1'>
+<div class='number'>1</div>
+<h4 id="setup-your-project-with-the-unity-plugin"><a href="setupguideunity.html">Setup your project with the Unity Plugin</a></h4>
+<p>In this section we describe the necessary steps to setup a project in a detailed guide.</p>
+<div class='number'>2</div>
+<h4 id="view-the-sample-application"><a href="sampleunity.html">View the sample application</a></h4>
+<p>Viewing the sample requires the corresponding reference image. It is available directly in the description of the sample. You can either view it on your monitor or print it.
+</div></p>
+<h3 id="the-wikitude-native-sdk-augmented-reality-for-your-own-app">The Wikitude Native SDK - Augmented Reality for your own app</h3>
+<p>The Wikitude Native SDK is a software library and framework for mobile apps used to create augmented reality experiences. The Native SDK supports use cases which require image recognition and tracking technology (vision based augmented reality).</p>
+<p>To use the Wikitude Native SDK within a Unity project, simply import the Wikitude.unitypackage into a existing Unity project and import all assets that are part of the .unitypackage. After the import is done, use the <code>WikitudeCamera</code> prefab in combination with one of the <code>Tracker</code> prefabs.</p>
+<h3 id="architecture-of-the-wikitude-sdk">Architecture of the Wikitude SDK</h3>
+<p><img src="images/sdk7_architecture.png" alt=""></p>
+<p>The image above shows the different components of the Wikitude SDK and possible approaches for creating augmented reality apps. Each of these approaches are based on a certain development environments (IDE) and platforms:</p>
+<ul>
+<li><strong>Computer Vision Engine:</strong> The computer vision engine is a core component of the Wikitude SDK and used by all platforms. It includes three major parts in its own: <strong>SLAM Engine</strong>, <strong>Image Recognition Engine</strong> and the <strong>Cloud Recognition engine</strong> It is not directly accessible, but wrapped either by the Native API (Java, Obj-C) or the JavaScript API.</li>
+<li><strong>Wikitude SDK  - Native API:</strong> Provides access to the Wikitude computer vision engine natively for Android (Java) and iOS (ObjC). It also can load plugins via the Wikitude Plugins API. </li>
+<li><strong>Wikitude SDK  - JavaScript API:</strong> Allows to build augmented reality worlds on basis of HTML and JavaScript. It is available for Android and iOS. The JavaScript API provides access to the functionality of the computer vision engine, location based AR, the Plugins API and dedicated rendering functionality.</li>
+<li><strong>Wikitude SDK  - Plugins API:</strong> An API to connect your own plugins to the Wikitude SDK. (NOTE: Wikitude SDK plugins have nothing to do with the Cordova or Unity Plugin concept.)</li>
+<li><strong>Wikitude SDK  - Cordova Plugin:</strong> On top of the JavaScript API the Cordova plugin allows to use the Wikitude SDK in combination with Apache Cordova.</li>
+<li><strong>Wikitude SDK  - Titanium Module:</strong> On top of the JavaScript API the Titanium module allows to use the Wikitude SDK in combination with Titanium.</li>
+<li><strong>Wikitude SDK  - Unity3D Plugin:</strong> On top of the Native API the Unity plugin allows to use the Wikitude SDK in combination with Unity.</li>
+<li><strong>Wikitude SDK  - Xamarin Component:</strong> On top of the JavaScript API the Xamarin component allows to use the Wikitude SDK in combination with Xamarin.</li>
+</ul>
+<h3 id="the-wikitude-developer-portal">The Wikitude Developer Portal</h3>
+<p>The Wikitude Developer Section should be your first stop when you have specific development related questions. The portal hosts a very active <a href="https://support.wikitude.com/support/home" target="_top">Developer Community Forum</a> where Wikitude staff members are constantly assisting other developers with helpful tips and advice. You can find How-To&#39;s and a constantly evolving FAQ section there as well.</p>
+<h3 id="feedback-and-contact">Feedback and Contact</h3>
+<p>We are always interested in your feedback and suggestions how we can improve this documentation. Please use the <a href="http://www.wikitude.com/contact" target="_top">contact form</a> on our website or visit us on <a href="https://plus.google.com/103004921345651739447/" target="_top">Google+</a>,  <a href="https://www.facebook.com/WIKITUDE" target="_top">Facebook</a> or <a href="https://www.twitter.com/wikitude" target="_top">Twitter</a>.</p>
+
+<h2 id="setup-guide-unity-plugin">Setup Guide Unity Plugin</h2>
+<p>There are only a few steps necessary to add the Wikitude Unity Plugin to your existing Unity project. This guide will explain them in detail.
+In general the steps are </p>
+<ul>
+<li>Import the Wikitude.unitypackage into your project</li>
+<li>Add the <code>WikitudeCamera</code> and one of the <code>Tracker</code> prefabs to the Unity scene hierarchy and configure their properties</li>
+<li>Add a custom augmentation to the tracker as child GameObject to the <code>Trackable</code></li>
+<li>Export your project and change Xcode Build Settings in order to fully integrate the Wikitude Native API in your Unity project</li>
+</ul>
+<h3 id="import-the-wikitude-unitypackage">Import the Wikitude.unitypackage</h3>
+<p>The Wikitude Unity Plugin comes as a standard .unitypackage and can be imported through the usual Unity package import procedure.
+In your Assets inspector, right click and choose <code>Import Package -&gt; Custom Package</code>. 
+<img src="images/unity_import_package_menu.png" alt="">
+Select the downloaded Wikitude.unitypackage in the presented open file browser and click <code>open</code>. You should import all items that are part of the Wikitude.unitypackage.
+<img src="images/unity_import_package_button.png" alt=""></p>
+<h3 id="use-the-wikitude-unity-plugin">Use the Wikitude Unity plugin</h3>
+<p>After the Wikitude.unitypackage was imported, its components and scripts can be used to define a custom augmented reality experience. The <a href="sampleunity.html">example section</a> describes in more detail how those prefabs and scripts can be used to do so.</p>
+<h3 id="export-and-xcode-build-settings-changes">Export and Xcode Build Settings Changes</h3>
+<p>Once the application is setup in Unity and ready for testing on a real device, it needs to be exported as an Xcode project for iOS or built for Android either directly by creating an .apk file using Unity or by exporting an Android Studio project.</p>
+<h4 id="export-to-xcode">Export to Xcode</h4>
+<p>iOS developers need to open the exported project and manually do the steps listed below.</p>
+<ul>
+<li>Before exporting, make sure the <code>Target minimum iOS version</code> is set to 9.0 or later in the Unity in Player Settings. This can also be done in the Xcode project, but setting it in Unity will ensure it doesn&#39;t get overwritten when rebuilding your project.</li>
+<li>The <code>WikitudeNativeSDK</code> framework has to be added as an <code>Embedded Binary</code>. Please refer to the <a href="http://www.wikitude.com/external/doc/documentation/latest/iosnative/setupguideiosnative.html#setup-guide-ios-native-api">Wikitude iOS Native SDK</a> setup guide for more information.</li>
+<li>In the <code>Info.plist</code> file, make sure there is an entry for <code>NSCameraUsageDescription</code> with an appropriate value if you plan to deploy to iOS 10 or higher. Not doing so will lead to a runtime crash on the device. If you are using Unity 5.4.2 or higher, this setting can be done directly in Player Settings.</li>
+</ul>
+<p>After these steps are done once, building with <code>Append</code> or by pressing <code>Cmd + B</code> will ensure that the settings are kept.</p>
+<h4 id="export-an-apk-file">Export an .apk file</h4>
+<p>If you don&#39;t need an Android Studio project, building directly from Unity is the fastest way to run your app on an Android device.</p>
+<ol>
+<li>In Unity open <code>File | Build Settings...</code>
+<img src="images/unity_build_settings_menu.png" alt=""></li>
+<li>Make sure <code>Android</code> is the current build target. If not, select <code>Android</code> from the list and click <code>Switch Platform</code></li>
+<li>Click <code>Build And Run</code> and choose where to save the .apk file. If you have an Android device connected, it will also install the app on it.
+<img src="images/unity_build_settings_run.png" alt=""></li>
+</ol>
+<p>After this is done once, pressing <code>Ctrl + B</code> (Windows) or <code>Cmd + B</code> (Mac) will automatically create the .apk file and install it on your device, if it is connected.</p>
+<h4 id="export-to-android-studio">Export to Android Studio</h4>
+<p>Unfortunately Unity projects exported as Android Studio projects do not work out of the box. Some manual work is required which we described in detail below:</p>
+<ol>
+<li>In Unity open <code>File | Build Settings...</code>, check <code>Google Android Project</code> and click <code>Export</code>
+<img src="images/unity_build_settings_export.png" alt=""></li>
+<li>Open Android Studio and click <code>Import Project (Eclipse ADT, Gradle, etc.)</code>
+<img src="images/unity_android_import.png" alt=""></li>
+<li>Within the file selection dialog, navigate to the folder where you exported the project and select the folder named after your app</li>
+<li>In the next step choose a new, empty folder to import and click on <code>Next</code></li>
+<li>Finish importing by clicking <code>Finish</code> on the next screen</li>
+<li>In Android Studio open <code>File | New | New Module ...</code>
+<img src="images/unity_android_new_module.png" alt=""></li>
+<li>Select <code>Import .JAR/.AAR Package</code> and click on <code>Next</code>
+<img src="images/unity_android_import_aar.png" alt=""></li>
+<li>For <code>File name:</code> navigate to the folder where you originally exported the project from Unity and then to the sub-folder named after your app</li>
+<li>Select the file <code>wikitude-unity-bridge.aar</code> under libs and click on <code>Finish</code>
+<img src="images/unity_android_path_aar.png" alt=""></li>
+<li>Open the file <code>build.gradle (Module: YOUR_APP_NAME)</code> and add the line <code>compile project(&#39;:wikitude-unity-bridge&#39;)</code> under dependencies
+<img src="images/unity_android_gradle.png" alt=""></li>
+<li>The project is now running in Android Studio</li>
+</ol>
+<h3 id="unity-requirements-and-supported-versions">Unity Requirements and supported versions</h3>
+<div class="warning"> 
+Please note that the Wikitude Unity Plugin currently supports <br />
+<ul>
+<li><strong>Unity&nbsp; 5.4.5</strong> or higher</li>
+<li>Rendering engines</li>
+<ul>
+<li>OpenGL ES 2</li>
+<li>OpenGL ES 3.x</li>
+<li>Metal (iOS only)</li>
+</ul>
+
+<li>Because Unity currently doesn&#39;t support 64 bit libraries on Android, performance on such devices might be lower than similar devices running iOS 64 bit.</li>
+</ul>
+
+</div>
+
+
+
+<h2 id="supported-devices">Supported Devices</h2>
+<p>Wikitude SDK is running on devices fulfilling the following requirements:</p>
+<table class="supported-devices-table">
+        <tr>
+        <th class="hide-on-mobile"></th>
+        <th>Sensor-based AR (Geo-AR)</th>
+        <th>Image recognition and tracking</th>
+        <th>Instant and Object tracking</th>
+    </tr>
+    <tr class="table-mobile-subheader">  <td colspan="3"><a name="android-native-api"></a><h4>Android (Native API)</h4></td>
+</tr> 
+<tr>
+<td class="table-vertical-subheader"><h4 class="rotate">Android (Native API)</h4></td>
+<td>
+ <ul>
+     <li>not available</li>
+ </ul>
+</td>
+<td>
+ <ul>
+ <li>Android 4.4+ (API Level 19+)</li>
+  <li><a href="http://developer.android.com/guide/practices/screens_support.html" target="_top">High resolution devices (hdpi)</a></li>
+   <li>Camera</li>
+ <li>Devices with a capable CPU (armv7a with NEON support or armv8a) e.g.</li>
+ <ul><li>Samsung Galaxy S3 or newer</li>
+ <li>Nexus 4 or newer</li>
+ <li>Nexus 10 (2012) or newer</li>
+</ul>
+ </ul>
+
+</td>
+<td>
+ <ul>
+  <li>Android 4.4+ (API Level 19+)</li>
+  <li><a href="http://developer.android.com/guide/practices/screens_support.html" target="_top">High resolution devices (hdpi)</a></li>
+  <li>Camera</li>
+  <li>Devices with a quad-core CPU (armv7a with NEON support or armv8a) e.g.</li>
+  <ul><li>Samsung Galaxy S3 or newer</li>
+   <li>Nexus 4 or newer</li>
+   <li>Nexus 7 (2013)</li>
+  </ul>
+ </ul>
+
+ <strong>Additional for Instant Tracking:</strong>
+ <ul>
+  <li>Compass</li>
+  <li>Accelerometer</li>
+ </ul>
+
+</td>
+</tr>
+    <tr class="table-mobile-subheader">  <td colspan="3"><a name="ios-native-api"></a><h4>iOS (Native API)</h4></td>
+</tr> 
+<tr>
+<td class="table-vertical-subheader"><h4 class="rotate">iOS (Native API)</h4></td>
+<td>
+ <ul>
+     <li>not available</li>
+ </ul>
+ </td>
+<td>
+ <ul>
+ <li>Devices running iOS 9.0 and up</li>
+  <li>Camera</li>
+ <li>Devices with a capable CPU (minimum Apple A4 SoC) e.g.</li>
+ <ul><li>iPhone 4 or newer</li>
+ <li>iPad2 or newer</li>
+ <li>iPod Touch 5th gen</li></ul>
+ </ul>
+</td>
+<td>
+ <ul>
+ <li>Devices running iOS 9.0 and up</li>
+  <li>Camera</li>
+ <li>Devices with a capable CPU (minimum Apple A4 SoC) e.g.</li>
+ <ul><li>iPhone 4 or newer</li>
+ <li>iPad2 or newer</li>
+ <li>iPod Touch 5th gen</li></ul>
+ </ul>
+</td>
+</tr>
+
+
+</table>
+
+<h2 id="how-to-obtain-a-free-trial-license">How to obtain a free trial license</h2>
+<p>The Wikitude SDK requires a valid license key to be able to run properly. An empty or missing license key will block the augmented reality view from showing any meaningful content. You will see a watermark across the screen with the words <code>License Key Missing</code>. All JavaScript API calls will be ignored and not interpreted.</p>
+<p>When downloading the Wikitude SDK you will be forwarded to the <a href="http://www.wikitude.com/developer/licenses">license generation page</a>, where a trial license key is automatically generated for you. </p>
+<p><img src="images/trial_key_license_page.png" alt=""></p>
+<p>Copy the key into your app, which will unlock the trial mode of the Wikitude SDK. The trial mode of the Wikitude SDK contains the full feature set of the Wikitude SDK but will show a <code>Trial</code> watermark across the screen.</p>
+<p>Each trial license key is valid for every application ID on every operating system. You can use the same trial license key in multiple apps. </p>
+<h2 id="where-should-i-enter-the-license-key">Where should I enter the license key</h2>
+<h3 id="unity-plugin">Unity Plugin</h3>
+<p>To use the Wikitude Unity Plugin with a certain license key, paste your license key into the text field of the WikitudeCamera prefab.
+<img src="images/unity_license_key_field.png" alt=""></p>
+
+<h2 id="ios-app-store-submissions">iOS App Store submissions</h2>
+<h3 id="removing-simulator-architectures">Removing simulator architectures</h3>
+<p>To work around an Xcode <a href='http://www.openradar.me/radar?id=6409498411401216' target='_blank'>App Store submission bug</a>, the WikitudeNativeSDK.framework contains a shell script that removes the simulator architectures from the .framework. This script can either be run from the <code>Terminal</code> application or a <code>Run Script Phase</code> in Xcode.</p>
+<p>Here is a snippet for the <code>Terminal</code> application. Note that the path to the script and the path to the WikitudeNativeSDK.framework needs to be known.</p>
+<pre><code class="lang-sh">sh *PATH/TO/THE/WIKITUDE/SDK/PACKAGE*/Tools/Scripts/strip_wikitude_framework.sh -s -p *PATH/TO/THE/WikitudeNativeSDK.framework
+</code></pre>
+<p>To run this script in a <code>Run Script Phase</code>, simply copy the following snippet into a new <code>Run Script Phase</code> text field. Please make sure that the <code>Run Script Phase</code> is positioned right after the <code>Embed Frameworks</code> build phase (You can reorder individual build phases).</p>
+<pre><code class="lang-sh">sh &quot;${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/WikitudeNativeSDK.framework/strip_wikitude_framework.sh&quot; -s -p &quot;${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/WikitudeNativeSDK.framework&quot;
+</code></pre>
+<p><img src="images/ios_setup_6__run_script_text_field.png" alt=" "></p>
+<h3 id="bitcode">Bitcode</h3>
+<p>The WikitudeNativeSDK.framework contains <code>Bitcode</code> information to support <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html" target="_blank">App Thinning</a>. Building a .framework with bitcode enabled leads to a larger file size. In case the application that uses the WikitudeNativeSDK.framework does not support bitcode and file size is a problem, bitcode information can be removed using the <code>wikitude_bitcode.sh</code> shell script. This script can either be run from the <code>Terminal</code> application or a <code>Run Script Phase</code> in Xcode. Wikitude recommends to use the <code>Terminal</code> application to not unnecessarily increase build time.</p>
+<p>Here is a snippet for the <code>Terminal</code> application. Note that the path to the script and the path to the WikitudeNativeSDK.framework needs to be known.</p>
+<pre><code class="lang-sh">sh *PATH/TO/THE/WIKITUDE/SDK/PACKAGE*/Tools/Scripts/wikitude_bitcode.sh -s -p *PATH/TO/THE/WikitudeNativeSDK.framework
+</code></pre>
+<p>Here is a snippet for the <code>Run Script Phase</code>. Simply copy this snippet into the script phase text field:</p>
+<pre><code class="lang-sh">sh &quot;${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/WikitudeNativeSDK.framework/wikitude_bitcode.sh&quot; -s -p &quot;${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/WikitudeNativeSDK.framework&quot;
+</code></pre>
+
+<h2 id="examples-tutorials">Examples &amp; Tutorials</h2>
+<p>The Wikitude Unity example project gives you a quick overview of the capabilities offered by the Wikitude Native SDK in combination with Unity. You can find the project in the Wikitude Unity download package. Once the .zip file is extracted, the project is located in the <code>/Examples</code> folder. In the <code>Assets/Wikitude/Samples/Scenes</code> folder you will find scenes focused on specific parts of the SDK. The examples are also included in the Unity package located in the <code>/Package</code> folder.</p>
+<h3 id="structure">Structure</h3>
+<p>Each example focuses on a part of the SDK specified by its name. Each example follows a similar structure. They all include the <code>WikitudeCamera</code> prefab, a <code>UI</code> root GameObject and a <code>Controller</code> GameObject with a corresponding script used to provide the custom behaviour for each sample. Most samples also include an <code>ImageTracker</code>, <code>CloudTracker</code>, <code>ObjectTracker</code> or <code>InstantTracker</code> prefab, while some create them it during runtime.</p>
+<h3 id="usage">Usage</h3>
+<p>To run the application, open the Unity scene called <code>Main Menu</code> which is located in the <code>Assets/Scenes</code> folder. Once the project is loaded, it needs to be exported as either Xcode project (iOS) or Android Studio project (Android). Alternatively, you can build an Android .apk directly.</p>
+<p>Please see the <a href="setupguideunity.html">Setup Guide</a> page for more info on the build steps required for each platform.</p>
+
+<h2 id="target-images">Target Images</h2>
+<h3 id="image-recognition-samples">Image recognition samples</h3>
+<p><a href='images/wikitude_sample_app_target_images.zip'>Click here to download all target images</a></p>
+<p><img class="jslghtbx-thmb" src="images/magazine_page_one.jpeg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='imagerecognitionnative.html'>Image Recognition</a>">
+<img class="jslghtbx-thmb" src="images/magazine_page_two.jpeg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='imagerecognitionnative.html'>Image Recognition</a>">
+<img class="jslghtbx-thmb" src="images/target_face.jpeg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='advancedimagerecognitionnative.html'>Image Recognition</a>">
+<img class="jslghtbx-thmb" src="images/iot_target.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='imagerecognitionnative.html'>Client Extended Recognition</a>">
+<img class="jslghtbx-thmb" src="images/multiple-targets.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='imagerecognitionnative.html'>Multiple Targets</a>">
+<img class="jslghtbx-thmb" src="images/schloss_johannisberg.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='cloudrecognitionnative.html'>Cloud Recognition</a>">
+<img class="jslghtbx-thmb" src="images/brazil.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='cloudrecognitionnative.html'>Cloud Recognition</a>">
+<img class="jslghtbx-thmb" src="images/barone.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='cloudrecognitionnative.html'>Cloud Recognition</a>">
+<img class="jslghtbx-thmb" src="images/etiquette_ermitage.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='cloudrecognitionnative.html'>Cloud Recognition</a>">
+<img class="jslghtbx-thmb" src="images/gw_bf2011.jpg" data-jslghtbx data-jslghtbx-group="group1" data-jslghtbx-caption="Sample: <a href='cloudrecognitionnative.html'>Cloud Recognition</a>">
+<img class="jslghtbx-thmb" src="images/barcode_wikitude.png" data-jslghtbx data-jslghtbx-group="group2" data-jslghtbx-caption="Sample: <a href='pluginsapi.html'>Plugins API barcode reader</a>">
+<img class="jslghtbx-thmb" src="images/hello_wikitude_qr.png" data-jslghtbx data-jslghtbx-group="group2" data-jslghtbx-caption="Sample: <a href='pluginsapi.html'>Plugins API QR reader</a>"></p>
+<h3 id="object-recognition-samples">Object recognition samples</h3>
+<p><img class="jslghtbx-thmb" src="images/firetruck.jpg" data-jslghtbx data-jslghtbx-group="group2" data-jslghtbx-caption="Sample: <a href='objecttrackingnative.html'>Object recognition</a>&nbsp;<a href='http://www.wikitude.com/external/doc/samples/fire_truck/' target='_blank'>360° view of the truck</a>">
+<br />
+<a href='http://www.wikitude.com/external/doc/samples/fire_truck/' target='_blank'>360° view of the truck</a></p>
+
+<h1 id="image-recognition">Image Recognition</h1>
+<p>This example shows how to recognize images in the viewfinder and overlay it with images. </p>
+<p>For a better understanding, here are some terms that will be used in the following and other section of this documentation related to vision-based augmented reality.</p>
+<ul>
+<li><p><strong>Target</strong>: A 2D target image and its associated extracted data that is used by the tracker to recognize an image.</p>
+</li>
+<li><p><strong>Target Collection</strong>: An archive storing a collection of 2D targets that can be recognized by the tracker. A target collection can hold up to 1000 targets. Target collections are stored as <code>.wtc</code> files</p>
+</li>
+<li><p><strong>ImageTracker</strong>: The tracker analyzes the live camera image and detects the 2D targets stored in its associated target collection. Multiple trackers can be created, however only one tracker can be active for recognition at any given time.</p>
+</li>
+</ul>
+<p><a id="SimpleImageRecognitionUnity"></a></p>
+<h2 id="simple-image-recognition-in-unity">Simple Image Recognition in Unity</h2>
+<p>The Wikitude Unity Plugin is based on pre-configured prefabs. There are two types of prefabs available. One is the <code>WikitudeCamera</code> prefab and the other ones are tracker prefabs.</p>
+<h3 id="wikitudecamera-prefab">WikitudeCamera Prefab</h3>
+<p>The <code>WikitudeCamera</code> prefab takes care about rendering the live camera stream fullscreen behind all your augmentations. Attached to this prefab is a script component which has one parameter that is not pre filled. This parameter is for the Wikitude SDK license key and has to be filled with your very own license key. You can either buy a commercial license from our webpage or <a href="triallicense.html">download a free trial license key</a> and play around with our Native SDK in combination with Unity. </p>
+<h3 id="imagetracker-prefab">ImageTracker Prefab</h3>
+<p>To add a tracker prefab to the scene, simply drag the <code>ImageTracker</code> prefab into the scene hierarchy.</p>
+<p>An <code>ImageTracker</code> itself needs a Wikitude Target Collection (.wtc file) which contains information needed to detect those reference images. Target collections can be generated and downloaded from the <a href="https://targetmanager.wikitude.com" target="_top">Wikitude Target Manager</a> - a free web based tool, that you can access with your developer account. You can also generate .wtc files right inside Unity with the <a href="unitywtceditor.html">WTC Editor</a>. Place the .wtc file into the <code>StreamingAssets</code> folder, so that the Wikitude Native SDK can load them at runtime. To specify which .wtc file should be used, select the <code>ImageTracker</code> game object in the scene. Make sure that the <code>Target Source</code> is set to <code>Target Collection Resource</code> and using the dropdown next to <code>Target Collection</code> you can choose the desired one.</p>
+<p>To react on events like successfully loading of a .wtc file, you can use the Unity Events listed in in the inspector of the <code>ImageTracker</code>. These events are split into two groups. The first group contains events triggered by the <code>TargetCollectionResource</code> when the wtc file was loaded of if there was an error. The second group are events triggered by the <code>ImageTracker</code> itself if it was successfully initialized with the desired .wtc file or not. On the desired event, click the plus sign to add a new subscriber, drag the GameObject that should receive the event over the <code>None (Object)</code> field and select the function you want to be called from the <code>No Function</code> dropdown. </p>
+<p>When subscribing to events that have a single basic parameter type, make sure to select your function from top list marked with <code>Dynamic</code>, rather than the static version from the bottom. This ensures that the parameters are passed correctly from the Wikitude plugin and are not overwritten by Unity.</p>
+<p><img src="images/select_callback.png" alt="Setting callbacks"></p>
+<p>For more information on working with Unity Events, please check the <a href="http://docs.unity3d.com/Manual/UnityEvents.html" target="_top">Unity Manual</a>  and <a href="https://unity3d.com/learn/tutorials/modules/intermediate/live-training-archive/events-creating-simple-messaging-system" target="_top">Events Tutorial</a>.</p>
+<h3 id="define-custom-augmentations">Define custom augmentations</h3>
+<p>Also part of the <code>ImageTracker</code> prefab is an <code>ImageTrackable</code> object. A trackable defines which targets from your collection you want to be tracked.
+If the tracker is using a .wtc file located in the <code>StreamingAssets</code> folder, the <code>ImageTrackable</code> inspector will show a list of all the targets in the .wtc file. By toggling the <code>Active</code> button, you can select which targets will be tracked by this trackable, or you can choose <code>Select All</code> at the top to include all the targets. You can similarly choose which targets should use extended tracking.</p>
+<p><img style="width: 350px" src="images/unity_trackable_interface.png"></p>
+<p>By pressing the <code>Preview</code> button, the target will be displayed in the 3D view of the scene, providing a convenient way to place your augmentation relative to the target.</p>
+<p><img style="width: 350px" src="images/unity_trackable_target_preview.png"></p>
+<p>If the .wtc file is located somewhere else, for example if you are downloading it at runtime, or when using <code>CloudRecognitionService</code> instead, you can still select which targets will be included by entering the target name into the <code>TargetPattern</code> text field. Possible values are full target image names (e.g. <code>pageOne</code>, <code>pageTwo</code>) or wildcards (<code>page*</code>). You can use <code>*</code> if you want to include all targets.</p>
+<div class="warning"> 
+If the .wtc file you are using is not located in the StreamingAssets folder, kindly make sure that the <code>targetName</code> used with the <code>ImageTrackable</code> component correspond to one of the target names in your target collection. You can also use wildcards to match any target or only a specific subset of targets.
+</div>
+
+<p>In order to place 3D objects at the location where the reference image was found in the camera stream, add any GameObject as a child to the <code>ImageTrackable</code> object. During runtime, only the transform of the camera will be changed, so you can place and scale the <code>ImageTrackable</code> GameObject and its children however it is most convenient for you. Keep in mind that if you move the <code>ImageTrackable</code> GameObject during runtime, the camera will follow it, so you won&#39;t see any effective changes. If you need to move augmentations relative to the camera, for example when dragging augmentations based on user input, please make sure not to move <code>Trackable</code> GameObject, but its children.</p>
+<p>The <code>Auto Toggle Visibility</code> toggle is enabled by default. When this is checked, the <code>ImageTrackable</code> GameObject will be automatically disabled when the target is out of view and enabled back when a target is tracked again.</p>
+<p>To handle visibility manually, you can turn this toggle off and subscribe to the <code>OnImageRecognized</code> and <code>OnImageLost</code> events on the trackable. This can be useful when you want to show different augmentations based on which target was tracked. The string parameter of these events will indicate which target was tracked or lost.</p>
+<p>The <code>OnImageRecognized</code> and <code>OnImageLost</code> events are called even when the <code>Auto Toggle Visibility</code> toggle is turned on. As an example, the <code>Image Recognition - Extended Tracking</code> updates the UI when the target is lost by handling <code>OnImageLost</code>.</p>
+<p><a id="MultipleTargetsUnity"></a></p>
+<h2 id="multiple-targets">Multiple Targets</h2>
+<p>An image tracker can track multiple targets at the same time. This can be configured in the <code>ImageTracker</code> inspector, by setting the <code>Concurrent Targets</code> to a value larger than 1. However, keep in mind that if you don&#39;t plan to use multiple targets, it is best to leave the value at 1 for optimal performance.</p>
+<p>To define augmentations for multiple targets, you will need to set a prefab to the <code>Drawable</code> field in the <code>ImageTrackable</code> inspector. At runtime, when a new target is recognized the <code>Drawable</code> prefab will be instantiated and placed in the scene as a child of the <code>Trackable</code> and when the target is lost, it will be destroyed. When multiple targets are being tracked, their corresponding <code>Drawables</code> are positioned in the game world to match what the camera sees. This also means that you can infer the relative positions between targets directly in the game world.</p>
+<p>This behaviour was designed to allow easy setup for simple use cases, but if you may need more control over the lifetime of the augmentations. If that is the case, you can leave the <code>Drawable</code> field empty in the <code>ImageTrackable</code> inspector and add callbacks to the <code>OnImageRecognized</code> and <code>OnImageLost</code> events. When <code>OnImageRecognized</code> is called, the <code>ImageTarget</code> that is passed as a parameter will contain a <code>Drawable</code> GameObject property. This empty GameObject behaves the same way as the <code>Drawable</code> described above and you should use it as a parent for your augmentations, to make sure they are positioned properly.</p>
+<pre><code class="lang-csharp">public void OnImageRecognized(ImageTarget recognizedTarget) {
+    // Create the custom augmentation.
+    // You can use recognizedTarget.Name and recognizedTarget.ID 
+    // if you need custom augmentations for each target and instance.
+    GameObject newAugmentation = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+    // Set the newAugmentation to be a child of the Drawable.
+    newAugmentation.transform.parent = recognizedTarget.Drawable.transform;
+
+    // Position the augmentation relative to the Drawable by using the localPosition.
+    newAugmentation.transform.localPosition = Vector3.zero;
+}
+</code></pre>
+<p>Keep in mind that the <code>Drawable</code> is still destroyed when the target is lost, so if you still have the augmentations attached to it, they will be destroyed as well. The <code>OnImageLost</code> event is called before the <code>Drawable</code> is destroyed, so you can use that event to move the augmentations somewhere else if they need to persist after the target was lost.</p>
+<p>In case the same target is detected multiple times simultaneously, the ID property in the <code>ImageTarget</code> parameter will help you distinguish between them.</p>
+<p><a id="ExtendedImageTrackingUnity"></a></p>
+<h2 id="extended-tracking">Extended Tracking</h2>
+<p>Extended tracking is an optional mode you can set for each target separately. In this mode the Wikitude SDK will continue to scan the environment even if the original target image is not in view anymore. So the tracking extends beyond the limits of the original target image. The performance of this feature depends on various factors like computing power of the device, background texture and objects.</p>
+<p>If the .wtc file containing the targets is located in the <code>StreamingAssets</code> folder, you should be able to see a list of all the targets in the inspector of the <code>Image Trackable</code>. To enable extended tracking, simply tick the <code>Extended tracking</code> option next to each target you want to extend, or select <code>Extend All</code> at the top of the list to extend all the targets.
+If the .wtc file is loaded at runtime from a custom location, the <code>Image Trackable</code> will have a simpler interface, that will allow you to enable extended tracking manually and specify the names of the targets you would want to be extended. You can set the first name in the list to the wildcard <code>*</code> to extend all targets in the collection.</p>
+<p>When Extended Tracking is enabled, the <code>ImageTracker</code> will fire <code>OnExtendedTrackingQualityChangedEvents</code>, which will let you know how well extended tracking is working based on the factors mentioned above.</p>
+<p><a id="RuntimeTrackerUnity"></a></p>
+<h2 id="runtime-tracker">Runtime Tracker</h2>
+<p>Image trackers can be created at runtime with no restrictions on the location of the target collection used. To do this, simply create a new GameObject and add the <code>ImageTracker</code> component to it, select <code>TargetCollectionResource</code> as the <code>TargetSourceType</code> and create a new <code>TargetCollectionResource</code> object. If you are using a collection located in the <code>StreamingAssets</code> folder, the <code>TargetPath</code> property should be the path relative to the <code>StreamingAssets</code> folder and <code>UseCustomUrl</code> property should be false. </p>
+<p>If you want to use a collection located elsewhere on the device or on the web, the <code>TargetPath</code> property should be set to the absolute path to the target, prefixed by the protocol <code>file://</code>, <code>http://</code> or <code>https://</code> as appropriate. The <code>UseCustomUrl</code> in this case should be set to true. Please see the sample <code>Client Tracker - Runtime Tracker</code> as an example of how to set this up.</p>
+<p>Trackables can also be created at runtime, but make sure to add them as a child of the tracker before the <code>Start()</code> method is called on the parent tracker, otherwise it won&#39;t get registered in time.</p>
+<pre><code class="lang-csharp">GameObject trackerObject = new GameObject(&quot;ImageTracker&quot;);
+ImageTracker imageTracker = trackerObject.AddComponent&lt;ImageTracker&gt;();
+
+imageTracker.TargetSourceType = TargetSourceType.TargetCollectionResource;
+imageTracker.TargetCollectionResource = new TargetCollectionResource();
+imageTracker.TargetCollectionResource.UseCustomURL = true;
+imageTracker.TargetCollectionResource.TargetPath = &quot;https://url.to.your.collection/collection.wtc&quot;;
+
+GameObject trackableObject = GameObject.Instantiate(TrackablePrefab);
+trackableObject.transform.SetParent(imageTracker.transform, false);
+</code></pre>
+<p>Creating trackers at runtime is also possible when using the <code>CloudRecognitionService</code> instead of a <code>TargetCollectionResource</code></p>
+<p><a id="MultipleTrackersUnity"></a></p>
+<h2 id="multiple-trackers">Multiple Trackers</h2>
+<p>You can have multiple trackers in the same scene, but only one can be active at a time. If you enable a second one, the first one will be automatically disabled by the plugin.</p>
+
+<h1 id="instant-tracking">Instant Tracking</h1>
+<p>The following sections detail the instant tracking feature of the Wikitude Native SDK by introducing a minimal implementation, showcasing the simplicity the Wikitude Native SDK provides.</p>
+<h2 id="smart-seamless-ar-tracking">SMART - Seamless AR Tracking</h2>
+<p>SMART is a seamless API which integrates ARKit, ARCore and Wikitude’s SLAM in a single augmented reality SDK, cross-platform, for any device. It ensures the delivery of the best possible augmented reality experience on a wider range of devices, covering 92,6% of iOS devices and about 35% of Android devices available in the market.</p>
+<p>SMART is enabled by default but can be disabled by unchecking the <code>SMART Enabled</code> checkbox located at the top of the <code>Instant Tracker</code> inspector.
+Alternatively, it can be disabled in code using the <code>SMARTEnabled</code> property on the <code>InstantTracker</code>. Please keep in mind that this needs to happen before the <code>InstantTracker</code> initializes its native counterpart, which happens during the <code>OnEnable</code> method.</p>
+<pre><code class="lang-csharp">public InstantTracker tracker;
+
+void Awake() {
+    tracker.SMARTEnabled = false;
+}
+</code></pre>
+<p>To check if the device supports platform assistance for tracking, <code>WikitudeSDK.IsPlatformAssistedTrackingSupported</code> can be called. Please keep in mind that this needs to be called after the <code>Start</code> method of the <code>WikitudeCamera</code> was executed, to make sure that the native components are properly initialized.</p>
+<pre><code class="lang-csharp">if (WikitudeCamera.IsPlatformAssistedTrackingSupported) {
+    // Device offers platform tracking capabilities (ARKit or ARCore)
+}
+</code></pre>
+<p>SMART provides improved tracking capabilities at the expense of control. Because of that some Wikitude SDK features are not available when platform tracking capabilities are used by enabling SMART.</p>
+<table>
+<thead>
+<tr>
+<th>Features</th>
+<th style="text-align:center">SMART ON and  platform assisted tracking supported</th>
+<th style="text-align:center">SMART OFF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Improved Tracking</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">x</td>
+</tr>
+<tr>
+<td>Plane Orientation</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">✓</td>
+</tr>
+<tr>
+<td>Camera Control</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">✓</td>
+</tr>
+</tbody>
+</table>
+<p><a id="introduction"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>Instant tracking is an algorithm that, contrary to those previously introduced in the Wikitude SDK, does not aim to recognize a predefined target and start the tracking procedure thereafter, but immediately start tracking in an arbitrary environment. This enables very specific use cases to be implemented.</p>
+<p>The algorithm works in two distinct states; the first of which is the initialization state. In this state the user is required to define the origin of the tracking procedure by simply pointing the device and thereby aligning an indicator. Once the alignment is found to be satisfactory by the user (which the users needs to actively confirm), a transition to the tracking state is performed. In this state, the environment is being tracked, which allows for augmentations to be placed within the scene.</p>
+<p>The instant tracking algorithm requires another input value to be provided in the initialization state. Specifically, the height of the tracking device above ground is required in order to accurately adjust the scale of augmentations within the scene. To this end, the example features a range input element that allows the height to be set in meters.</p>
+<p>During the initialization, another parameter can be set which influences the alignment of the instant tracking ground plane. This ground plane is represented by the initialization indicator and can be rotated in order to start instant tracking at e.g. a wall instead of the floor. </p>
+<p><a id="basicinstanttracking"></a></p>
+<h2 id="basic-instant-tracking">Basic Instant Tracking</h2>
+<p>The <em>Instant Tracking</em> example provides a simple implementation of an application that allows users to place furniture in their environment.</p>
+<h4 id="scene-setup">Scene Setup</h4>
+<p>The scene consists mainly of the following parts:</p>
+<ul>
+<li><code>WikitudeCamera</code>: the standard prefab for the <code>WikitudeCamera</code> is used, with the exception that it is running in SD at 30 FPS. This is the recommended setup for <code>Instant Tracking</code>, as the algorithm is computationally intense and users might experience slowdowns on older devices.</li>
+<li><code>UI</code>: the root of the <code>UI</code> we will be using in this sample. Since <code>Instant Tracking</code> works in two distinct phases, the <code>UI</code> is also split in two, allowing to completely switch the interface. When the <code>Instant Tracker</code> is in <code>Initializing</code> mode, the <code>UI</code> only displays a slider to control the height, as explained previously and a button to switch to <code>Tracking</code> mode. After the switch is done, the <code>UI</code> will display a button for each furniture model that can be added to the scene. Each button has an <code>OnBeginDrag</code> event trigger on it that notifies the controller when a new furniture model needs to be added to the scene. The event trigger also has an <code>int</code> parameter, specifying which model should be created.</li>
+<li><code>Controller</code>: container for multiple custom script components:<ul>
+<li><code>InstantTrackerController</code>: coordinates the activity between the <code>Instant Tracker</code>, the <code>UI</code>, the augmentations and the touch input.</li>
+<li><code>Gesture Controllers</code>: react to touch input events and move or scale the augmentations accordingly.</li>
+<li><code>Grid Renderer</code>: renders a grid with 25 cm spacing that can be helpful during initialization and tracking</li>
+</ul>
+</li>
+<li><code>Ground</code>: a simple transparent plane with a custom shader that enables shadows on it. The plane also has a collider on it and can be used for physics interaction.</li>
+<li><code>Instant Tracker</code>: the component that actually does all the tracking.</li>
+</ul>
+<p><img src="images/unity_instant_tracker_scene.png" alt="Instant Tracker scene"></p>
+<h4 id="instant-tracker-controller">Instant Tracker Controller</h4>
+<p>The controller script coordinates all the other components of the scene. It contains references to all the UI elements and responds to events from them. </p>
+<p>In the <code>Awake</code> function, the <code>Application.targetFrameRate</code> is set to 60. Even though the camera and tracking is running only at 30 FPS, having Unity running at a higher FPS allows for smoother user interaction.</p>
+<p>When a drag is detected and the <code>OnBeginDrag</code> callback is called, we create a new model based on the index we receive and place it at the touch position, facing the camera.</p>
+<pre><code class="lang-csharp">// Select the correct prefab based on the modelIndex passed by the Event Trigger.
+GameObject modelPrefab = Models[modelIndex];
+// Instantiate that prefab into the scene and add it in our list of visible models.
+Transform model = Instantiate(modelPrefab).transform;
+_activeModels.Add(model.gameObject);
+// Set model position by casting a ray from the touch position and finding where it intersects with the ground plane
+var cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+Plane p = new Plane(Vector3.up, Vector3.zero);
+float enter;
+if (p.Raycast(cameraRay, out enter)) {
+    model.position = cameraRay.GetPoint(enter);
+}
+
+// Set model orientation to face toward the camera
+Quaternion modelRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(-Camera.main.transform.forward, Vector3.up), Vector3.up);
+model.rotation = modelRotation;
+</code></pre>
+<p>When the tracker loses the scene, which can happen when moving the device too fast, we make sure that all the models and the grid are hidden. Because the camera is not moved anymore when tracking is lost, the augmentations would appear to be frozen on the screen if they were not hidden. We also need to disable the furniture buttons, to prevent users from adding new objects. </p>
+<p>While the SDK doesn&#39;t currently work in Edit Mode, you can still test the demo in the Editor by using <a href="https://docs.unity3d.com/Manual/UnityRemote5.html" target="_top">Unity Remote</a>. The SDK will also send most of the callbacks you expect in Edit Mode as well, allowing you to prototype gesture interaction without constantly building on a device.</p>
+<p><img src="images/unity_instant_tracker_sample.png" alt="Instant Tracker sample running on a device"></p>
+<p><a id="instantscenepicking"></a></p>
+<h2 id="instant-scene-picking">Instant Scene Picking</h2>
+<p>The <em>Scene Picking</em> example how you can convert a touch position to a 3D position that maps to the environment. When using this API, users could for example place objects not only on the ground plane, but also on top of real world objects.</p>
+<h4 id="scene-setup">Scene Setup</h4>
+<p>The scene structure is similar to the one described in the <em>Instant Tracking</em> example, but has been simplified a bit. Specifically, the UI doesn&#39;t contain any furniture related controls, and there are no Gesture Controllers anymore.</p>
+<h4 id="scene-picking-controller">Scene Picking Controller</h4>
+<p>The controller script is also much simpler than that of the <em>Instant Tracking</em> example. Its main concerns are listening for touch inputs, converting those inputs to 3D coordinates and placing an augmentation there. It is also responsible for the managing the state of the <code>InstantTracker</code>.</p>
+<p>To convert input touch positions to 3D coordinates, the script calls the <code>ConvertScreenCoordinate</code> method on the <code>InstantTracker</code>, passing it the touch position as Unity provides it.</p>
+<pre><code class="lang-csharp">void Update() {
+    if (_isTracking &amp;&amp; Input.GetMouseButtonUp(0)) {
+        Tracker.ConvertScreenCoordinate(Input.mousePosition);
+    }
+}
+</code></pre>
+<p>Because the conversion can take a long time, it is done on a separate thread and a callback event is provided in the <code>InstantTracker</code> to let you know when the results are available. The example script registers to this event in the <code>Awake</code> method.</p>
+<pre><code class="lang-csharp">void Awake() {
+    Tracker.OnScreenConversionComputed.AddListener(OnScreenConversionComputed);
+}
+</code></pre>
+<p>Finally, when the conversion was computed, it adds the augmentation to the specified location. It firsts needs to check if the conversion was successful, as it can fail if there is not enough information in the point cloud where the touch event happened. It adds the augmentation as a child of the _trackable, because the coordinates are in the local space of the <code>InstantTrackable</code>.</p>
+<pre><code class="lang-csharp">public void OnScreenConversionComputed(bool success, Vector2 screenCoordinate, Vector3 pointCloudCoordinate) {
+    if (success) {
+        var newAugmentation = GameObject.Instantiate(Augmentation, _trackable.transform) as GameObject;
+        // The pointCloudCoordinate values are in the local space of the trackable.
+        newAugmentation.transform.localPosition = pointCloudCoordinate;
+        _augmentations.Add(newAugmentation);
+    }
+}
+</code></pre>
+
+<h1 id="object-tracking">Object Tracking</h1>
+<h2 id="introduction-to-object-tracking">Introduction to Object Tracking</h2>
+<p>Object Recognition and Tracking extends the capabilities of the Wikitude SDK to recognize and track arbitrary objects for augmented reality experiences. The feature is based on Wikitude&#39;s SLAM engine that is also used for Instant Tracking. 
+Object Tracking let you detect objects, that were pre-defined by you. Suitable objects include</p>
+<ul>
+<li>Toys</li>
+<li>Monuments and statues</li>
+<li>Industrial objects</li>
+<li>Tools</li>
+<li>Household supplies</li>
+</ul>
+<p>Objects can be best successfully recongnized if they don&#39;t consist of many dynamic parts. 
+<a id="ObjectTrackingUnity"></a></p>
+<h2 id="object-tracking-in-unity">Object Tracking in Unity</h2>
+<p>Before proceeding with the Object Tracking sample, please make sure you are familiar with how Image Tracking works first by reading about the <a href="imagerecognitionnative.html">Image Tracking</a> samples. Most concepts described there work in a similar way for Object Tracking.</p>
+<h3 id="objecttracker-prefab">ObjectTracker Prefab</h3>
+<p>To add a tracker prefab to the scene, simply drag the <code>ObjectTracker</code> prefab into the scene hierarchy.</p>
+<p>An <code>ObjectTracker</code> itself needs a Wikitude Object Collection (.wto file) which contains information needed to detect the reference objects. Target collections can be generated and downloaded from the <a href="https://targetmanager.wikitude.com" target="_top">Wikitude Target Manager</a> - a free web based tool, that you can access with your developer account. You can use the .wto file in the same way as .wtc files are used for the <code>ImageTracker</code>.</p>
+<p>Recognition events also work exactly like recognition events for the <code>ImageTracker</code>.</p>
+<h3 id="define-custom-augmentations">Define custom augmentations</h3>
+<p>Because an <code>ObjectTracker</code> can only recognize and track a single object at a time, you can define augmentations either by defining a <code>Drawable</code> prefab in the <code>ObjectTrackable</code>, or by placing them directly as child objects to the trackable and enabling <code>Auto Toggle Visibility</code>.</p>
+<p>In the <code>Object Tracking - Object Tracking</code> scene, the <code>Drawable</code> prefab workflow is illustrated. A <code>FiretruckAugmentation</code> prefab was created in the <code>SamplePrefabs</code> folder and assigned to the <code>ObjectTrackable</code>. The transform of the prefab has been modified so that the augmentations will match the real object during tracking. </p>
+<p>Within the <code>FiretruckAugmentation</code> prefab you will also find the <code>FiretruckOccluder</code> GameObject which contains two meshes that are used as occluders. You can read more about occluders and how they work in Unity <a href="occludersunity.html">here</a>.</p>
+
+<h1 id="cloud-recognition">Cloud Recognition</h1>
+<p class='intro' markdown='1'>The Wikitude Cloud Recognition service is a cloud-based service provided by Wikitude, which recognizes images sent from Android and iOS apps using the Wikitude SDK. The recognized images are then tracked in the live camera feed and can be used for augmented reality experiences.</p>
+
+<p>This documentation focuses on the RESTful API called Manager API, which is used to interact on a backend level with the Cloud Recognition service.</p>
+<h2 id="general-definitions">General Definitions</h2>
+<ul>
+<li><p><strong>Target</strong>: An image and its associated extracted data that is used to recognize an image.</p>
+</li>
+<li><p><strong>Target Collection</strong>: A group of <code>targets</code> that are searched together. Think of it as a directory, which contains all your images you want to search. The Wikitude SDK can work with two different sorts of <code>TargetCollections</code></p>
+<ul>
+<li>On-device Target Collection: a static <code>wtc</code> file containing the extracted data of your images. Can consist of up to 1,000 images.</li>
+<li>Cloud Target Collection: A target collection stored on the Wikitude server. See <code>Cloud Archive</code> below. </li>
+</ul>
+</li>
+<li><p><strong>Cloud Archive</strong>: An archive stored on the server that is optimized for cloud-based recognition. It is generated from a <code>TargetCollection</code> and is used in combination with the Wikitude SDK <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a>.</p>
+</li>
+<li><p><strong>ImageTracker</strong>: Instead of analysing and computing the live camera feed directly on the device like the combination of <a href="../Reference/JavaScript%20API/classes/ImageTracker.html"><code>AR.ImageTracker</code></a> and <a href="../Reference/JavaScript%20API/classes/TargetCollectionResource.html"><code>AR.TargetCollectionResource</code></a>, the combination of <a href="../Reference/JavaScript%20API/classes/ImageTracker.html"><code>AR.ImageTracker</code></a> and <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a> will send the image(s) taken by the camera to the Wikitude Cloud Recognition server. The server will then do the hard work of trying to match the image with your targets in the specified cloud archive. Beside the benefit of searching in large image database using the <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a> instead of <a href="../Reference/JavaScript%20API/classes/TargetCollectionResource.html"><code>AR.TargetCollectionResource</code></a> has also a positive impact on the general performance in most cases. Especially when using a large target collection and on older devices.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>Manager API</strong>: A RESTful web API allowing developers to interact with the Cloud Recognition server for managing <code>Targets</code>, <code>TargetCollections</code> and <code>Cloud Archives</code>. Only you as a developer uses this API. None of your users of your app will interact with this API.</p>
+</li>
+<li><p><strong>Client API</strong>: The Client API is the interface between the Wikitude SDK and the Cloud Recognition Service. The API itself is encapsulated in the Wikitude SDK class <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a> and not directly accessible. Calls on the client API are called <code>Scans</code>.</p>
+</li>
+<li><p><strong>Region</strong>: Wikitude is providing several hosting locations for its Cloud Recognition services to cut down unwanted network latency. As a developer you need to choose on which <code>Region</code> you and your customers want to operate. </p>
+</li>
+</ul>
+<h2 id="getting-started-with-the-cloud-recognition-service">Getting Started with the Cloud Recognition Service</h2>
+<h3 id="regional-availability-of-wikitude-cloud-recognition-service">Regional availability of Wikitude Cloud Recognition Service</h3>
+<p>As as a developer using Wikitude Cloud Recognition Service you need to choose which server location you want to use for your projects. Wikitude operates several servers running Wikitude Cloud Recognition Service in different locations world-wide.</p>
+<p>As the region servers are separated, content which is stored on one region server is only available on this particular server. <strong>Content is not synced across regions</strong>. You can choose from the following <code>Regions</code></p>
+<ul>
+<li><code>Americas</code></li>
+<li><code>Europe</code></li>
+</ul>
+<p>The servers for each region have separate dedicated domain names and therefore different configurations. </p>
+<p><a id="targetmanagerregional"></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Region</th>
+<th style="text-align:center">Target Manager</th>
+<th>Manager API</th>
+<th>SDK Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Americas</td>
+<td style="text-align:center"><a href="https://targetmanager-us.wikitude.com">targetmanager&#8209;us.wikitude.com</a></td>
+<td><a href="https://api-us.wikitude.com">https://api-us.wikitude.com</a></td>
+<td><code>Americas</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Europe</td>
+<td style="text-align:center"><a href="https://targetmanager.wikitude.com">targetmanager.wikitude.com</a></td>
+<td><a href="https://api.wikitude.com">https://api.wikitude.com</a> or <a href="https://api-eu.wikitude.com">https://api-eu.wikitude.com</a></td>
+<td><code>Europe</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="preparation">Preparation</h3>
+<ol>
+<li><a href="http://www.wikitude.com/c/portal/login?p_l_id=533165">Create a free</a> Wikitude developer account or <a href="http://www.wikitude.com/c/portal/login?p_l_id=533165">log-in</a> if you are a returning developer</li>
+<li>Get the <a href="http://www.wikitude.com/developer/licenses">API tokens</a> for the Manager API and the Client API to start your project. <a href="#authentication">Read more on authentication</a></li>
+<li>Test the API for free using Wikitude&#39;s <a href="https://github.com/Wikitude/wikitude-cloud-recognition-api-samples">sample integrations</a></li>
+<li>Once you finished your integration, <a href="https://www.wikitude.com/products/wikitude-cloud-recognition/">purchase</a> a commercial token.</li>
+</ol>
+<h3 id="first-steps-and-general-usage">First Steps and General Usage</h3>
+<ol>
+<li>Get familiar with the Manager API calls in the <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html">API Reference</a>. </li>
+<li>Create a first Target Collection using the <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-TargetCollection-CreateTargetCollection"><code>Create Target Collection</code></a> endpoint and note down the ID of the Target Collection    </li>
+<li>Create targets using the <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-Target-CreateTarget"><code>Create Target</code></a> endpoint for that particular Target Collection</li>
+<li>Important: <a href="index.html#api-TargetCollection-GenerateCloudArchive"><code>Generate a Cloud Archive</code></a> for your Target Collection</li>
+<li>Go to the Wikitude SDK and create an Android or iOS project</li>
+<li>Use the Client API token to authenticate your Android or iOS project</li>
+<li>Use your Target Collection ID to recognize images</li>
+</ol>
+<p>For more information on the available endpoints and how to work with the Manager API see the <a href="cloudrecognitionworkflow.html">workflow section</a>.</p>
+<p>Instead of creating a <code>TargetCollection</code>, adding one or more <code>Targets</code>, and generating a <code>Cloud Archive</code> by calling the REST API, the <a href="#targetmanagerregional">Wikitude Targetmanager</a> can be used to perform these steps (1-4) in the browser alternatively.</p>
+<p>In case you would like to immediately test the API calls we recommend the tool <a href="https://www.getpostman.com/">Postman</a>. It helps you to quickly construct the requests and analyze the responses.</p>
+<h2 id="authentication">Authentication</h2>
+<p>The Cloud Recognition Service knows two authentication tokens, that you need in order to work with the service</p>
+<ul>
+<li><p><strong>Manager API token</strong> You need this token to authenticate yourself against the RESTful Manager API. The Manager API is used to create, add and delete targets and target collections. The token identifies your developer account. Calls to the Manager API do not count towards your quota limits.</p>
+</li>
+<li><p><strong>Client API token</strong> You need this token to authenticate calls from the Wikitude SDK to the Cloud Recognition services. It again authenticates calls as legitimate. The token is bound to your developer account. Calls from the Wikitude SDK to the service with a wrong or missing token can not access your target collections. </p>
+</li>
+</ul>
+<h3 id="authentication-on-the-manager-api">Authentication on the Manager API</h3>
+<p>The <strong>Manager API token</strong> must be added to each call towards the Wikitude Cloud Recognition Manager API. The token authenticates the user account that is using the API. </p>
+<h3 id="authentication-on-the-client-api">Authentication on the Client API</h3>
+<p>The <strong>Client API token</strong> must be added to your app project using the Wikitude SDK. This token is needed additionally beside the SDK license key when working with the <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a> class.</p>
+<h2 id="quota-and-limits">Quota and Limits</h2>
+<h3 id="general-upload-limit">General Upload Limit</h3>
+<p>The Wikitude Cloud Recognition <strong>will not accept images bigger than 1024kB</strong> (1 MB). Trying to upload images exceeding this file size will result in a HTTP status code <code>400</code> together with an error message <code>FILE_SIZE_LIMIT_EXCEED</code>.</p>
+<h3 id="limits-for-the-wikitude-cloud-recognition-service">Limits for the Wikitude Cloud Recognition Service</h3>
+<p>There are two main limitations for the Wikitude Cloud Recognition service that you need to be aware of:</p>
+<ul>
+<li><p><strong>Targets</strong> Your token has a certain number of targets that you can upload and store on the cloud service under your developer account. The limit is always counted for your entire developer account and not for a single target collection. The service is not counting single uploads, but how many targets are currently stored in target collections under your account. </p>
+</li>
+<li><p><strong>Scans</strong> Scans are in effect calls from the Wikitude SDK via the Client API to the Cloud Recognition servers. All commercial license come with an allowance of 1,000,000 scans per month per developer account. <strong>Note:</strong> When using Continuous Search mode multiple calls are made to the server.</p>
+</li>
+</ul>
+<h3 id="maximum-number-of-targets-in-a-target-collection">Maximum Number of Targets in a Target Collection</h3>
+<p>A target collection can&#39;t exceed 50,000 targets.</p>
+<h3 id="free-trial-license-for-cloud-recognition">Free Trial License for Cloud Recognition</h3>
+<p>Wikitude provides a trial token for each developer account to try out the Cloud Recognition for free. This trial token has set a quota limit that allows developers to try and test the functionality of the service. Limitations for trial accounts</p>
+<ul>
+<li>Targets: 50,000</li>
+<li>Scans: 1,000 per month</li>
+</ul>
+<p>To get your trial token for the REST API, please visit the <a href="http://www.wikitude.com/developer/licenses">License page</a>. The trial token is directly integrated into the Studio Manager.</p>
+<h3 id="commercial-licenses">Commercial Licenses</h3>
+<p>For production systems, we offer commercial licenses with various quota limits for <a href="https://www.wikitude.com/store">purchase</a>.</p>
+
+<h2 id="your-first-target-collections">Your first Target Collections</h2>
+<p>Target Collections are central to working with Cloud Recognition service. They keep all your target images and are the base for the cloud archive.</p>
+<p>Think of TargetCollection as a directory, where your images are stored. A TargetCollection forms a logical group, which is searched as a whole. Of course you can have several TargetCollections in your account, each consisting up to 50,000 images each. </p>
+<h3 id="what-is-the-difference-between-cloud-archive-and-target-collection">What is the difference between Cloud Archive and Target Collection</h3>
+<div class="warning">A Cloud Archive is an optimized version of your Target Collection for cloud-based recognition. Cloud Archives are in internal structure, that keeps all necessary data for performing image recognition on the server. </div>
+
+<h3 id="structure-of-a-targetcollection">Structure of a TargetCollection</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>id</strong></td>
+<td style="text-align:left">(String)</td>
+<td>An ID that uniquely identifies the TargetCollection</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>name</strong></td>
+<td style="text-align:left">(String)</td>
+<td>The Name of the TargetCollection, as defined by the user</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>creDat</strong></td>
+<td style="text-align:left">(Number)</td>
+<td>A timestamp when the TargetCollection was created (as returned by JavaScript&#39;s <code>Date.now()</code> function)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>modDat</strong></td>
+<td style="text-align:left">(Number)</td>
+<td>A timestamp when the TargetCollection was last modified (as returned by JavaScript&#39;s <code>Date.now()</code> function)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="create-a-target-collection">Create a Target Collection</h3>
+<p>Creating a Target Collection is easy and can be done without any prerequisites in your account. In general it is your starting point and most likely your very first action.</p>
+<p>Call the endpoint (using the domain of one of the <a href="gettingstartedcloudrecognition.html#targetmanagerregional">regional servers</a>)</p>
+<pre><code>/cloudrecognition/targetCollection
+</code></pre><p>with the mandatory <code>name</code> field as a <code>POST</code> request and you will create a new TargetCollection. The response will contain a TargetCollection object, where the ID is most important parameter. You can also add <code>metadata</code> to a TargetCollection in case you want to some additional descriptive information. The next step is to add images to your TargetCollection, so they can be recognized.</p>
+<h2 id="add-target-images">Add Target Images</h2>
+<p>A Target is an plain image that can be recognized by the Wikitude Cloud Recognition service. Adding or creating a target means to provide a URL to your image to the server, which then downloads the image, analyzes it  and adds it to the TargetCollection. To add an image call the endpoint</p>
+<pre><code>/cloudrecognition/targetCollection/:tcId/target
+</code></pre><p>with the <code>ID</code> of the TargetCollection, where you want to add the image. You need to add the a field <code>imageUrl</code> to your request. The image must be publicly accessible. 
+Pay attention to the optional fields <code>name</code> and <code>metadata</code>. <code>name</code> is a unique identifier for your target within the TargetCollection. It is up to you to set and use this. The same is true for the <code>metadata</code> object, which takes a full JSON object and can be filled with any value you like. The <code>metadata</code> object will be present in the recognition response. </p>
+<div class="tip"><strong>Important: </strong>You are not done yet. As a next step you need to Generate the Cloud Archive of your TargetCollection.</div>
+
+<h3 id="structure-of-a-target">Structure of a Target</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">(String)</td>
+<td>An ID that uniquely identifies the Target</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">(String)</td>
+<td>The Name of the Target, as defined by the user</td>
+</tr>
+<tr>
+<td style="text-align:left">imageUrl</td>
+<td style="text-align:left">(String)</td>
+<td>The URL pointing to the original, uncompressed and uncropped Target binary file</td>
+</tr>
+<tr>
+<td style="text-align:left">thumbnailUrl</td>
+<td style="text-align:left">(String)</td>
+<td>The URL pointing to a thumbnail representation of the Target</td>
+</tr>
+<tr>
+<td style="text-align:left">rating</td>
+<td style="text-align:left">(Number)</td>
+<td>The rating (from 0 to 3) of the Target</td>
+</tr>
+<tr>
+<td style="text-align:left">fileSize</td>
+<td style="text-align:left">(Number)</td>
+<td>The file size of the original Target binary image file, in bytes</td>
+</tr>
+<tr>
+<td style="text-align:left">physicalHeight</td>
+<td style="text-align:left">(Number)</td>
+<td>The physical (real world) height of the target, in millimeters</td>
+</tr>
+<tr>
+<td style="text-align:left">creDat</td>
+<td style="text-align:left">(Number)</td>
+<td>A timestamp when the Target was created (as returned by JavaScript&#39;s Date.now() function)</td>
+</tr>
+<tr>
+<td style="text-align:left">modDat</td>
+<td style="text-align:left">(Number)</td>
+<td>A timestamp when the Target was last modified (as returned by JavaScript&#39;s Date.now() function)</td>
+</tr>
+<tr>
+<td style="text-align:left">metadata</td>
+<td style="text-align:left">(JSON)</td>
+<td>Arbitrary JSON data that is stored together with the target.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generate-a-cloud-archive">Generate a Cloud Archive</h2>
+<p>Once you are done with adding targets you need to tell the server that it should generate your TargetCollection into a Cloud Archive. Call</p>
+<pre><code>/cloudrecognition/targetCollection/:tcId/generation
+</code></pre><p>again with the <code>ID</code> of your TargetCollection and the process will be started. Since this call is asynchronous you will receive the response immediately with a path in the Location-property in the header of the response. By calling the url with the path, for example</p>
+<pre><code>/cloudrecognition/targetCollection/:tcId/generation/wtc/:generationId
+</code></pre><p>with a GET-method request, you will see the <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-TargetCollection-GetGenerationInformation">status of the progress</a> of the cloud archive generation in the response body as a JSON object. When the generation is completed, the cloud archive is available for recognition. Note that the generation process can take a while when generating a large TargetCollection for the first time. Small additions to existing cloud archives are processed a lot faster.</p>
+<div class="warning"> Everytime you changed a target (add/delete) you need to manually call Generate Cloud Archive for your target collection. Otherwise 
+<ul><li>your newly added image will not be recognized </li>
+<li>your deleted image will still be recognized</li></ul></div>
+
+<p>Your Cloud Archive is now ready on the server and can be used in combination with the Wikitude SDK from your app. See the SDK sample called <a href="cloudrecognitionnative.html">Cloud Recognition</a> for more details.</p>
+<h2 id="generate-a-wtc-file-via-api">Generate a WTC file via API</h2>
+<p>You can create and download a wtc file of a Target Collection (<a href="../Reference/Cloud%20Recognition%20REST%20API/#api-TargetCollection-GenerateWTC">Generate WTC</a>) with up to 1000 targets by calling</p>
+<pre><code>/cloudrecognition/targetCollection/:tcId/generation/wtc
+</code></pre><p>with method POST. You have to specify the SDK version the wtc file should be built for in the request body. Valid values for the version are <code>3.x</code>, <code>4.0</code>, <code>4.1</code>,  <code>5.0</code>,<code>5.1</code>,<code>5.2</code>,<code>5.3</code>,<code>6.0</code>. Optionally, an email address can be added. The email is used for a notification once the generation of the wtc file has finished. Example for the request body:</p>
+<pre><code>{
+    &quot;sdkVersion&quot;: &quot;6.0&quot;,
+    &quot;iwantmywtcfile@wikitude-user.com&quot;
+}
+</code></pre><p>Similar to the cloud archive generation this call is asynchronous, so the response header (<code>Location</code>) contains a path useful for requesting the <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-TargetCollection-GetWTCGenerationInformation">status of the wtc creation</a>. Once the status is <code>COMPLETED</code> the link to the actual wtc file can be requested from the <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-TargetCollection-GetTargetCollection">TargetCollection</a>. The received <code>TargetCollection</code> object (in the body of the response) contains an additional property called <code>wtc</code>, which is an array of wtc objects. Those objects consists of the following properties:</p>
+<ul>
+<li>the <code>url</code> to the wtc file, </li>
+<li>the number of targets (<code>nrOfTargets</code>),</li>
+<li>the <code>version</code>,</li>
+<li>the creation date (<code>creDat</code>)</li>
+</ul>
+<h2 id="additional-calls">Additional calls</h2>
+<p>Beside the above described steps the Manager API also offers to <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-TargetCollection-DeleteTargetCollection">Delete TargetCollections</a> and <a href="../Reference/Cloud%20Recognition%20REST%20API/index.html#api-Target-DeleteTarget">Delete Targets</a>. </p>
+<p>Using <code>GET</code> request you can query details about a <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-TargetCollection-GetTargetCollection">single TargetCollection</a>, <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-TargetCollection-GetAllTargetCollections">all Target Collections</a> in your account, a <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-Target-GetTarget">single Target</a> and <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-Target-GetAllTargets">all Targets within a TargetCollection</a>.</p>
+<p>The physical height and the metadata of an existing target can be <a href="../Reference/Cloud%20Recognition%20REST%20API/#api-Target-UpdateTarget">updated</a>.</p>
+
+<h2 id="cloud-recognition-sample">Cloud Recognition Sample</h2>
+<p>This example shows how to recognize images on a cloud server and then overlay it with augmentations utilizing the <code>ImageTracker</code> and <code>CloudRecognitionService</code> classes. </p>
+<p>For a better understanding, here are some terms that will be used in the following and other sections of this documentation related to vision-based augmented reality.</p>
+<ul>
+<li><p><strong>Target</strong>: An image and its associated extracted data that is used to recognize an image.</p>
+</li>
+<li><p><strong>Target Collection</strong>: A group of <code>targets</code> that are searched together. Think of it as a directory, which contains all your images you want to search. The Wikitude SDK can work with two different sorts of <code>Target Collections</code></p>
+<ul>
+<li>On-device Target Collection: a static <code>wtc</code> file containing the extracted data of your images. Can consist of up to 1,000 images.</li>
+<li>Cloud Target Collection: A target collection stored on the Wikitude server. See <code>Cloud Archive</code> below. Can consist of up to 50,000 images.</li>
+</ul>
+</li>
+<li><p><strong>Cloud Archive</strong>: An archive stored on the server that is optimized for cloud-based recognition. It is generated from a <code>Target Collection</code> and is used in combination with <code>CloudRecognitionService</code> . </p>
+</li>
+<li><p><strong>CloudRecognitionService</strong>: Instead of analysing and computing the live camera feed directly on the device, the <code>CloudRecognitionService</code> will send the image(s) taken by the camera to the Wikitude Cloud Recognition server. The server will then do the hard work of trying to match the image with your targets in the specified cloud archive. Beside the benefit of searching in large image database, using the <code>CloudRecognitionService</code> has also a positive impact on the general performance in most cases. Especially when using a large target collection and on older devices.</p>
+</li>
+</ul>
+<p><a id="OnClickCloudTracking"></a></p>
+<h3 id="cloud-recognition-in-unity">Cloud recognition in Unity</h3>
+<h4 id="cloudtracker-prefab">CloudTracker Prefab</h4>
+<p>To add a tracker prefab to the scene, simply drag the <code>CloudTracker</code> prefab into the scene hierarchy. The <code>CloudTracker</code> prefab also has the <code>ImageTracker</code> script, but is preconfigured to use the <code>CloudRecognitionService</code> instead of a <code>TargetCollectionResource</code>.</p>
+<p>A <code>CloudRecognitionService</code> needs to know which cloud archive should be loaded. This is done by entering a <code>TargetCollectionId</code> into the appropriate text field of the <code>ImageTracker</code> script component, in the <code>CloudRecognitionService</code> section. To identify the SDK user, the field called <code>ClientToken</code> needs to be entered as well. With those values in place, the <code>CloudRecognitionService</code> knows which image targets have to be searched for on the cloud recognition server.</p>
+<p>To react on events like successfully loading a cloud archive, you can use the Unity Events listed in in the inspector of the <code>ImageTracker</code>. Please refer to the <a href="imagerecognitionnative.html">Image Recognition</a> examples for more information on how to use <code>UnityEvents</code>. When the <code>ImageTracker</code> is using the <code>CloudRecognitionService</code> additional events that are specific to it are shown in the inspector.</p>
+<p>To start a server recognition, call the <code>Recognize</code> or <code>StartContinuousRecognition</code> methods of the <code>Wikitude.CloudRecognitionService</code> script assigned to the <code>ImageTracker</code>. To evaluate the server response and evaluate which target was recognized and which meta information are associated with this particular image target, you can use the <code>OnRecognitionResponse</code> event on the <code>ImageTracker</code> component, in the <code>Cloud Recognition Service Events</code> section.</p>
+<p>In case a continuous recognition was started, it needs to be stopped after either a image target was recognized or the application is about to quit. You can restart the continuous recognition after the target was lost to start tracking it again. Please see the <code>Cloud Recognition - Continuous Mode</code> sample for an example on how to do this.</p>
+<h4 id="regional-server-endpoints">Regional server endpoints</h4>
+<p>The cloud recognition server region can be selected by changing the <code>Server Region</code> option in the <code>ImageTracker</code> inspector, in the <code>Cloud Recognition Service</code> section.</p>
+<h4 id="define-custom-augmentations">Define custom augmentations</h4>
+<p>Augmentations are placed exactly like when using a normal <code>ImageTracker</code>, so please refer to the <a href="imagerecognitionnative.html">Image Recognition</a> examples for more information.</p>
+
+<h1 id="rendering">Rendering</h1>
+<h2 id="occluders-in-unity">Occluders in Unity</h2>
+<p>These steps will help you create an object that hides all geometry behind it, but is still transparent:</p>
+<ul>
+<li>In the Project tab, create a new shader asset and name it <code>Occluder</code></li>
+<li>Open the shader and paste the following code in it:</li>
+</ul>
+<pre><code class="lang-c">Shader &quot;Unlit/Occluder&quot; {
+    SubShader {
+        Tags { &quot;Queue&quot; = &quot;Geometry-1&quot; }
+        ColorMask 0 
+        ZWrite On
+        Pass { }
+    }
+}
+</code></pre>
+<ul>
+<li>Create a new material and name it <code>Occluder</code> as well</li>
+<li>In the material inspector<ul>
+<li>Set the shader to <code>Unlit/Occluder</code></li>
+<li>Make sure that the <code>Render Queue</code> is set to <code>From Shader</code>. It should have a value of 1999</li>
+</ul>
+</li>
+<li>Create a new object that should act as an occluder.</li>
+<li>In the <code>Mesh Renderer</code> component of the new occluder object, set the material to the <code>Occluder</code> material we just created.</li>
+<li>The occluder object should hide all other objects behind it, but still draw the background.</li>
+</ul>
+<p>If you want more control over which objects get hidden and which don&#39;t, you can set the <code>Render Queue</code> value of the occluder object to 2001 and the <code>Render Queue</code> value of the objects that should be occluded to 2002. This will keep all defaults objects visible and allow you to set the occlusion effect on just some objects. To set the <code>Render Queue</code> on other objects, you can either create a custom shader or add the following script to the objects:</p>
+<pre><code class="lang-csharp">using UnityEngine;
+
+public class SetRenderQueue : MonoBehaviour {
+
+    [SerializeField]
+    protected int[] m_queues = new int[] { 2002 };
+
+    protected void Awake() {
+        Material[] materials = renderer.materials;
+        for (int i = 0; i &lt; materials.Length &amp;&amp; i &lt; m_queues.Length; ++i) {
+            materials[i].renderQueue = m_queues[i];
+        }
+    }
+}
+</code></pre>
+<p>Tested on Unity 5.5</p>
+
+<h2 id="camera-controls">Camera Controls</h2>
+<p>The <code>WikitudeCamera</code> also provides APIs to change the settings on the device camera.</p>
+<p>The first category of settings are visible and editable directly in the inspector of the <code>WikitudeCamera</code>, while the second category can only be changed through scripting. Please also see the <code>Camera Controls - Camera Settings</code> scene for an example on how to use them.</p>
+<h3 id="inspector-settings">Inspector Settings</h3>
+<p><img style="width: 500px" src="images/unity_camera_settings_inspector.png"></p>
+<h4 id="camera-resolution">Camera Resolution</h4>
+<p>The <code>Camera Resolution</code> setting indicates which resolution you would like to use. Available options are <code>SD</code>, <code>HD</code> and <code>FullHD</code>. If the desired resolution is not available, the closest available resolution will be used instead. You can also select <code>Auto</code> and the SDK will select a resolution based on the capabilities of the device.</p>
+<h4 id="camera-framerate">Camera Framerate</h4>
+<p>The <code>Camera Framerate</code> setting allows you to select between <code>30 FPS</code> and <code>60 FPS</code>. If <code>60 FPS</code> is selected, but the device doesn&#39;t support it, <code>30 FPS</code> will be used instead. You can also select <code>Auto</code> and the SDK will select a framerate based on the capabilities of the device.</p>
+<h4 id="enable-camera-rendering">Enable Camera Rendering</h4>
+<p>By default, the WikitudeCamera script will render the camera frames in the background of your scene. By disabling this option, the Wikitude SDK will stop doing any kind of rendering. This also means that the WikitudeCamera script doesn&#39;t need a camera component to be attached to the same GameObject.</p>
+<h4 id="static-camera">Static Camera</h4>
+<p>By default, the WikitudeCamera script will move its GameObject in world space to correspond what the real camera is seeing. When the <code>Static Camera</code> option is enabled, the WikitudeCamera GameObject will never move and all the trackables will be moved relative to the camera instead. Additionally, you can move the WikitudeCamera GameObject yourself and the trackables will follow it accordingly.</p>
+<h3 id="script-only-settings">Script Only Settings</h3>
+<h4 id="camera-position">Camera position</h4>
+<p>The <code>DevicePosition</code> property enables you to change between the back and front camera of the device.</p>
+<h4 id="focus-mode">Focus Mode</h4>
+<p>The <code>FocusMode</code> property can change the camera focus mode between <code>Locked</code>, which will keep the current focus, <code>Once</code>, which will try to focus the camera only once and <code>Continuous</code> which will constantly adapt the focus of the camera to changes in the view.</p>
+<h4 id="manual-focus">Manual Focus</h4>
+<p>The <code>ManualFocus</code> property allows the focal length to be set at a custom distance when the <code>FocusMode</code> is set to <code>Locked</code>. The property accepts values from 0 to 1, where 0 means focusing the camera as close as possible.</p>
+<h4 id="flash-mode">Flash Mode</h4>
+<p>The <code>FlashMode</code> property allows you to turn on the camera flash.</p>
+<h4 id="zoom-level">Zoom Level</h4>
+<p>The <code>ZoomLevel</code> property changes the zoom level used by the camera. Valid values are between 1.0 and <code>MaxZoomLevel</code>. Be sure tu query the <code>MaxZoomLevel</code> property first. A <code>MaxZoomLevel</code> value of 1.0 indicates that the device doesn&#39;t support zooming.</p>
+<h4 id="auto-focus-restriction-ios-only-">Auto Focus Restriction (iOS only)</h4>
+<p>The <code>AutoFocusRestriction</code> property let&#39;s you restrict the auto focus on the camera to either <code>Near</code> or <code>Far</code>. By default it is not restricted.</p>
+<h4 id="ignore-trackable-scale">Ignore Trackable Scale</h4>
+<p>When the <code>IgnoreTrackableScale</code> property is enabled, the camera ignores the scaling of the trackable for tracking purposes and assumes it to be 1.0f.
+When doing a <code>TransformOverride</code> that also changes the scale of the trackables, this should be set to true.</p>
+<h4 id="transform-override">Transform Override</h4>
+<p>The <code>ActiveOverride</code> allows a custom <code>TransformOverride</code> to be applied before any Transform changes are made to the <code>WikitudeCamera</code> or any <code>Trackables</code>.</p>
+
+<h1 id="plugins-api">Plugins API</h1>
+<p>The Plugins API provides access to the camera frame as a native pointer. This allows you to do additional processing on it, either in C#, or in native code (C++, Objective C, Java).
+This guide is split into two parts. First, we will discuss how to enable and use plugins in your Unity project. In the second part, we&#39;ll go through the steps required to build and use a native library.</p>
+<h2 id="unity-interface">Unity interface</h2>
+<p>To enable plugins, you need to add the <code>PluginManager</code> script to a GameObject. Then, you simply subscribe to the <code>On Camera Frame Available</code> event and you will be notified when a new camera frame is ready for additional processing.</p>
+<p><img src="images/unity_plugins_api_plugin_manager.png" alt=""></p>
+<p>You will receive as a parameter to the callback a <code>Wikitude.Frame</code> struct which contains the native pointer to the raw data, as well as additional information about the frame.</p>
+<pre><code>public struct Frame
+{
+    public IntPtr Data;
+    public int DataSize;
+    public int Width;
+    public int Height;
+    public FrameColorSpace ColorSpace;
+}
+</code></pre><p>The <code>ColorSpace</code> field provides information about the format of the frame you are receiving.</p>
+<pre><code>public enum FrameColorSpace : int {
+    /// &lt;summary&gt;
+    /// Represents a color space where image data is given in a YUV 420 format, arranged to be compliant to the NV21 standard.
+    //  The data size is frame width * frame height * 3/2, meaning full luminance resolution and half the size for chroma red * chroma blue
+    //
+    //  On iOS this is represented by the kCVPixelFormatType_420YpCbCr8BiPlanarFullRange constant
+    //  On Android this is represented by the ImageFormat.YUV_420_888 constant. After that the frame needs to be converted to the NV21 format (replace U and V)
+    /// &lt;/summary&gt;
+    YUV_420_NV21 = 0,
+
+    /// &lt;summary&gt;
+    /// Represents a color space where image data is given in a RGB format.
+    /// The data size is frame width * frame height * 3 (R, G and B channel).
+    ///
+    /// On iOS this is represented by the kCVPixelFormatType_24RGB constant
+    /// On Android this is represented by the ImageFormat.FLEX_RGB_888 constant
+    /// &lt;/summary&gt;
+    RGB
+}
+</code></pre><p>The native pointer is only valid during the duration of the current update and you should never delete or change the data it&#39;s pointing to. You can pass this pointer to your own native plugins, or transfer the data in C# using <code>Marshal.Copy</code> functions.</p>
+<pre><code>using UnityEngine;
+using System;
+using Wikitude;
+using System.Runtime.InteropServices;
+
+public class PluginController : MonoBehaviour
+{
+    public void OnCameraFrameAvailable(Frame frame) {
+
+        // Example of how to transfer data from native memory
+        // to a C# array
+
+        byte[] data = new byte[frame.DataSize];
+        Marshal.Copy(frame.Data, data, 0, frame.DataSize);
+    }
+}
+</code></pre><h2 id="sample-explanation">Sample explanation</h2>
+<p>The <code>Plugins - Barcode</code> sample shows  how to integrate the popular barcode library ZBar into Unity and use the Plugins API to send camera frames to it for processing.</p>
+<p>ZBar is an open source software suite for reading bar codes from various sources, such as video streams, image files and raw intensity sensors. It supports many popular symbologies (types of bar codes) including EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code.</p>
+<p>The <code>BarcodePlugin.cs</code> script manages the native C++ library, forwards calls to it and returns scanning results. First, the script declares the functions available in the native C++ library, so that they are available in C#</p>
+<pre><code>[DllImport(&quot;barcode&quot;)]
+private static extern void initialize(int width, int height);
+
+[DllImport(&quot;barcode&quot;)]
+private static extern string get_barcode(int width, int height, IntPtr buffer);
+
+[DllImport(&quot;barcode&quot;)]
+private static extern void destroy();
+</code></pre><p>After that, it provides C# methods that simply forward the call to C++ and return any result directly.</p>
+<pre><code>public void Initialize(int width, int height) {
+    initialize(width, height);
+}
+
+public string GetBarcode(Wikitude.Frame frame) {
+    return get_barcode(frame.Width, frame.Height, frame.Data);
+}
+
+public void Destroy() {
+    destroy();
+}
+</code></pre><p>The <code>PluginController.cs</code> script controls the sample. It is registered in the editor to receive <code>OnCameraFrameAvailable</code>. First, initializes the barcode scanner when the first frame is received, then forwards the pointer to the data to the scanner and prints the result it receives from it.</p>
+<pre><code>public void OnCameraFrameAvailable(Frame frame) {
+    if (!_initialized) {
+        _plugin.Initialize(frame.Width, frame.Height);
+        _initialized = true;
+    }
+
+    string barcode = _plugin.GetBarcode(frame);
+
+    if (barcode != null) {
+        ResultText.text = barcode;
+    } else {
+        ResultText.text = &quot;Could not detect any barcodes&quot;;
+    }
+}
+</code></pre><h2 id="native-code">Native code</h2>
+<p>In the project you will also find source code for the barcode plugin. It is contained in a single .cpp file named barcode.cpp in Assets/Wikitude/Samples/NativeCode/BarcodePlugin/src.</p>
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &quot;zbar.h&quot;
+
+zbar::Image* _image;
+zbar::ImageScanner* _imageScanner;
+
+extern &quot;C&quot; {
+    void initialize(int width, int height);
+    const char* get_barcode(int width, int height, unsigned char* data);
+    void destroy();
+}
+
+void initialize(int width, int height)
+{
+    _image = new zbar::Image(width, height, &quot;Y800&quot;, nullptr, 0);
+    _imageScanner = new zbar::ImageScanner();
+    _imageScanner-&gt;set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 1);
+}
+
+const char* get_barcode(int width, int height, unsigned char* data)
+{
+    _image-&gt;set_data(data, width * height);
+    int n = _imageScanner-&gt;scan(*_image);
+
+    if (n)
+    {
+        zbar::Image::SymbolIterator symbol = _image-&gt;symbol_begin();
+        return strdup(symbol-&gt;get_data().c_str());
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
+void destroy()
+{
+    _image-&gt;set_data(nullptr, 0);
+
+    delete _image;
+    delete _imageScanner;
+}
+
+</code></pre><p>All the exported functions need to be declared with &quot;C&quot; linkage so that they can be linked with the C# code.</p>
+<h3 id="rebuilding-for-android">Rebuilding for Android</h3>
+<p>If you need to rebuild the plugin, you can use the included .mk files for Android located in the <code>Assets/Wikitude/Samples/NativeCode/BarcodePlugin/project/android/</code> folder. After the build is done, copy the resulting .so file in the <code>Assets/Wikitude/Samples/Plugins/Android/</code> folder, overwriting the current one.</p>
+<p>Please check the <a href="https://developer.android.com/ndk/guides/build.html">Android documentation</a> for how to build mk files using ndk-build.</p>
+<h3 id="rebuilding-for-ios">Rebuilding for iOS</h3>
+<p>For iOS, you will need to create a new library project and name it <code>barcodeplugin</code>.</p>
+<p><img src="images/unity_plugins_api_create_library.png" alt=""></p>
+<p><img src="images/unity_plugins_api_name_library.png" alt=""></p>
+<p>In the <code>Build Settings</code> tab, set <code>Other Librarian Flags</code> to <code>-lzbar</code> and the <code>Library Search Paths</code> to include the path where the <code>libzbar.a</code> libary for iOS is located. You can find it in <code>Assets/Wikitude/Samples/NativeCode/BarcodePlugin/lib/ios</code>.</p>
+<p><img src="images/unity_plugins_api_librarian_flags.png" alt=""></p>
+<p><img src="images/unity_plugins_api_library_search_path.png" alt=""></p>
+<p>Then, you need to include the <code>Assets/Wikitude/Samples/NativeCode/BarcodePlugin/src</code> folder into the project.</p>
+<p><img src="images/unity_plugins_api_add_files_1.png" alt=""></p>
+<p><img src="images/unity_plugins_api_add_files_2.png" alt=""></p>
+<p>Finally, the library needs to be build for <code>Generic iOS Device</code>.</p>
+<p><img src="images/unity_plugins_api_build_target.png" alt=""></p>
+<p>After it is done, you can copy the product <code>libbarcodeplugin.a</code> in the <code>Assets/Wikitude/Samples/Plugins/iOS/</code> folder, overwriting the current one.</p>
+
+<h2 id="input-plugins-api">Input Plugins API</h2>
+<p>The input plugins API provides a means to alter the inputs and outputs of the Wikitude Native SDK. For the input case specifically, custom frame data of arbitrary sources can be supplied as an input to the Wikitude SDK Native API for processing. Complementary, for the output case, the default rendering of the Wikitude SDK Native API can be substituted with more advanced implementations. Both cases are illustrated in two separate samples.</p>
+<h3 id="unity-interface">Unity interface</h3>
+<p>Input plugins are enabled by setting the <code>Enable Input Plugins</code> toggle in the <code>WikitudeCamera</code> script to true. Once you do that, a number of additional options will appear, allowing you to configure how the input plugin behaves.</p>
+<p><img src="images/unity_input_plugins_wikitude_camera.png" alt=""></p>
+<ol>
+<li><code>Mirroring</code> will flip the frame horizontally before any processing and rendering is done. This is useful when you want to process the feed from the front facing camera.</li>
+<li><code>Inverted Frame</code> will flip the frame vertically. The SDK expects the that the first row of pixels to correspond to the top of the image, because this is how the native cameras provide the data. However, when accessing the texture data from a Unity texture (including <code>WebCamTexture</code>) with <code>GetPixels32()</code>, the first row of the data will correspond to the bottom of the image. You can set this toggle to automatically flip image to convert from Unity format to the one expected by the SDK. This option is available only when the <code>ColorSpace</code> is <code>RGBA</code>.</li>
+<li><code>ColorSpace</code> tells the SDK what the format of the frame is. Supported values are the following:<ul>
+<li><code>YUV_420_NV21</code>: Represents a color space where image data is given in a YUV 420 format, arranged to be compliant to the NV21 standard. The data size is frame width * frame height * 3/2, meaning full luminance resolution and half the size for chroma red * chroma blue.</li>
+<li><code>RGB</code>: Represents a color space where image data is given in a RGB format. The data size is frame width * frame height * 3 (R, G and B channel).</li>
+<li><code>RGBA</code>: Represents a color space where image data is given in a RGBA format. The data size is frame width * frame height * 4 (R, G, B, A channel). This is provided for convenience since this is the way Unity will return pixel data from a texture.</li>
+</ul>
+</li>
+<li><code>Width</code> of the frame.</li>
+<li><code>Height</code> of the frame.</li>
+<li><code>Horizontal Angle</code> or FOV of the device used to capture the image.</li>
+<li><code>Rendering</code> toggle controls if the SDK will display the image on the screen.</li>
+<li><code>On Input Plugin Registered</code> callback will let you know when the registration of the plugin is complete and it is safe to open the device camera. Before this callback is called, the SDK might still be using the camera and you will get errors when trying to access it.</li>
+</ol>
+<p>Please keep in mind that the <code>Mirroring</code> and <code>ColorSpace</code> properties cannot be changed while the input plugin is running. To change them after the scene has started, you will need to recreate the <code>Wikitude Camera</code> with the new settings.</p>
+<h4 id="custom-camera-sample">Custom Camera sample</h4>
+<p>The first sample shows how to grab the camera feed with Unity and send it to the Wikitude SDK for processing and rendering. The logic of the sample is contained in the <code>CustomCameraController.cs</code> script.</p>
+<p>When the <code>OnInputPluginRegistered</code> event is called, we initialize the buffer required to store the frame data. In the Update function, once we get a valid frame, we get the pixels from it using the <code>GetPixels32(Color32[])</code> method provided by the <code>WebCamTexture</code> class. To avoid additional copies of the data, we can obtain the native pointer to the data directly and send this to the SDK. The SDK will only read from this pointer during the duration of the call, so you don&#39;t need to keep the pointer around.</p>
+<pre><code>private void SendNewCameraFrame() {
+    GCHandle handle = default(GCHandle);
+    try {
+        handle = GCHandle.Alloc(_pixels, GCHandleType.Pinned);
+        IntPtr frameData = handle.AddrOfPinnedObject();
+        WikitudeCam.NewCameraFrame(++_frameIndex, _frameDataSize, frameData);
+    } finally {
+        if (handle != default(GCHandle)) {
+            handle.Free();
+        }
+    }
+</code></pre><h4 id="custom-rendering-samples">Custom Rendering samples</h4>
+<p>The second sample works very similarly to the first one, except that the frame is also sent to the another script called <code>CustomCameraRenderer.cs</code>, which handles rendering of the camera frame with a custom edge detection shader. This script is placed on the camera and uses a <code>CommandBuffer</code> to instruct Unity to blit the camera texture to the screen using a custom material.</p>
+<pre><code>_drawFrameBuffer = new CommandBuffer();
+_drawFrameBuffer.Blit(_currentFrame, BuiltinRenderTextureType.CameraTarget, EffectMaterial);
+camera.AddCommandBuffer(eventForBlit, _drawFrameBuffer);
+</code></pre><p>The script also handles how to draw the camera frame when the aspect ratio of the feed doesn&#39;t match the aspect ratio of the screen.</p>
+
+<h1 id="target-management">Target Management</h1>
+<h2 id="image-targets-create-and-manage">Image Targets: Create and Manage</h2>
+<p>This guide gives you an overview of how to create a target collection that you can use to detect and track images within your augmented reality experience.</p>
+<p>In general the conversion can be done via four different tools:</p>
+<ol>
+<li><strong><a href="#wikitude-studio-manager">Wikitude Studio Manager</a></strong>: A browser based tool to convert your images to a wtc file. You can find the tool under:  <a href="https://targetmanager.wikitude.com" target="_blank">https://targetmanager.wikitude.com</a>. You need your free developer account to log-in. This tool is described in more detail further below.</li>
+<li><strong>WTC Editor within Unity Editor</strong>: The Wikitude Unity plugin installs a WTC Editor as extension of the Unity Editor. Unity developers can manage all their targets and target collections directly within Unity Editor. Please consult the Unity documentation on more details.</li>
+<li><strong>RESTful API</strong>: The Cloud Recognition Manager API provides a RESTful API to upload target images and convert them to wtc files. Read more details in the <a href="cloudrecognitionworkflow.html#generate-a-wtc-file">section about Cloud Recognition API</a></li>
+<li><strong>Targets Enterprise Script</strong>: A binary shell script available for Mac OS X and Linux converting images to target collections. Pleases <a href="mailto:sales@wikitude.com">contact Wikitude Sales</a> team for technical requirements and pricing.</li>
+</ol>
+<p>The following images describes the relationship between the above mentioned methods and the Wikitude Cloud Recognition Service, which is not scope of this documentation. </p>
+<p><img style="width: 500px" src="images/150212_WT_Infografik_OfflineOnlineRecognition_01.jpg"></p>
+<h3 id="wikitude-studio-manager">Wikitude Studio Manager</h3>
+<h4 id="add-a-project">Add a project</h4>
+<ul>
+<li>Open <a href="https://targetmanager.wikitude.com" target="_blank">https://targetmanager.wikitude.com</a> and login with your Wikitude developer account</li>
+<li>Add a new project to your project collection</li>
+</ul>
+<p><img style="width: 500px" src="images/tmt_CreateProject.png"></p>
+<h4 id="add-target-images">Add target images</h4>
+<ul>
+<li>Enter an existing project </li>
+<li>Add new target images to the project either by clicking on <code>Add Targets</code> or drag  &amp; drop them on the empty area. Supported file formats include PNG and JPEG. If you are using PNG images, please make sure that it does not contain any transparent pixels, only solid coloured images are supported.</li>
+</ul>
+<p><img style="width: 500px" src="images/tmt_AddTargets.png">    </p>
+<ul>
+<li>When uploading a target the file name is used as <code>target name</code>. It identifies a target in your experience. If the <code>target name</code> is not completely visible, hover over it to reveal the full name or double click the target to enter edit-mode.</li>
+</ul>
+<div class="warning">
+<strong>Important</strong> <br />
+If you add your own target images  you need the target name to set them in <a href="../Reference/JavaScript%20API/classes/ImageTrackable.html"><code>AR.ImageTrackable</code></a>.</div>
+
+
+<h4 id="star-rating">Star Rating</h4>
+<ul>
+<li><strong>0 stars:</strong> Not suitable for tracking. This target image cannot be tracked because it lacks textured features with high local contrast. Please consider choosing another target image.</li>
+<li><strong>1 star:</strong>  Limited tracking ability. This target image provides basic tracking performance in good lightning conditions. Please consider improving the image</li>
+<li><strong>2 stars:</strong> Good tracking ability. This target image will track well in most conditions.</li>
+<li><strong>3 stars:</strong> Very good tracking ability. This target image will track very well in most conditions.</li>
+</ul>
+<p>General advice for reference images</p>
+<ul>
+<li>Good image characteristics:<ul>
+<li>Diversely textured image with high local contrast</li>
+</ul>
+</li>
+<li>Bad image characteristics:<ul>
+<li>Large areas with solid color or smooth color transitions</li>
+<li>Repetitive patterns</li>
+<li>Logos, signs        </li>
+</ul>
+</li>
+</ul>
+<h4 id="create-a-wtc-file">Create a WTC file</h4>
+<ul>
+<li>AR.TargetCollectionResource WTC (Wikitude Target Collection) file which contains all information of the targets that should be recognized. Enter the project you need the file for and click the <em>WTC icon</em> in the toolbar.</li>
+</ul>
+<p><img style="width: 500px" src="images/tmt_CreateTargetCollection.png"></p>
+<ul>
+<li>Select the Wikitude SDK version you&#39;re using and click <em>Generate</em> to trigger the creation of the WTC file. You will be notified via e-Mai once the file is available for download.</li>
+</ul>
+<p><img style="width: 500px" src="images/tmt_TargetCollections.png"></p>
+<h3 id="use-project-s-wtc-file-in-your-app">Use project&#39;s WTC file in your app</h3>
+<p>Look at one of the <a href="clientrecognitionnative.html">client recognition examples</a> or refer to the relevant reference for instructions on how to use the created target collection for augmentations in your ARchitect Worlds.</p>
+<h3 id="image-targets-for-cloud-recognition">Image Targets for Cloud Recognition</h3>
+<p>Any existing project may also be published to the Cloud to make it accessible for [<code>AR.CloudRecognitionService</code>] (../Reference/JavaScript%20API/classes/CloudRecognitionService.html).</p>
+<p>Click the <em>Cloud icon</em> in the toolbar for more details.</p>
+<p><img style="width: 500px" src="images/tmt_CloudIcon.png"></p>
+<p>Cloud Recognition is available for free in your testing process but you must purchase a license for productive use. <a href="http://www.wikitude.com/external/doc/documentation/latest/cloudrecognition/gettingstartedcloudrecognition.html#quota-and-limits">Learn more</a></p>
+<p><img style="width: 500px" src="images/tmg_CloudPublishing.png"></p>
+<p>Once a project is published it is accessible via Wiktiude SDK using &#39;Client Token&#39; and &#39;Target Collection ID&#39; (compare <a href="../Reference/JavaScript%20API/classes/CloudRecognitionService.html"><code>AR.CloudRecognitionService</code></a>)</p>
+<p><img style="width: 500px" src="images/tmt_CloudTracker.png"></p>
+<p>Hints</p>
+<ul>
+<li><p>You may unpublish a project at any time but be aware that this action has immediate effect on your application(s) making use of the credentials.</p>
+</li>
+<li><p><strong>Metadata</strong> in the &#39;Edit Target&#39; dialog is solely relevant for Cloud Recognition whereat <strong>Physical Height</strong> is only relevant for distanceToTarget feature.</p>
+</li>
+<li><p>Leave <strong>Physical Height</strong> empty if you do not use the distanceToTarget feature of <a href="../Reference/JavaScript%20API/classes/ImageTrackable.html"><code>AR.ImageTrackable</code></a>.</p>
+</li>
+<li><p>The <strong>Metadata</strong> field is very useful. It allows you to attach JSON data to a target. That way you can define any kind of additional data and react on it dynamically in the SDK to e.g. let a button refer to a details page which is defined in the Metadata JSON.</p>
+</li>
+</ul>
+<p><img style="width: 500px" src="images/tmt_CloudTargetEdit.png"></p>
+<h3 id="physical-height-for-image-targets">Physical Height for Image Targets</h3>
+<p>For several features of the Wikitude SDK it is necessary to know the actual physical size of the Image target that is recognized. This information is used in</p>
+<ul>
+<li>Distance to target calculation</li>
+<li>Calibrated wearable devices like Epson BT series or ODG R series devices</li>
+</ul>
+<p>The Wikitude SDK only requires the actual height of the target image as information. The width of the actual image will be determined automatically. </p>
+<p>There are three ways to provide that information to the Wikitude SDK</p>
+<ol>
+<li>Using Wikitude Studio</li>
+<li>Using the JavaScript API</li>
+<li>Using Unity WTC Editor</li>
+</ol>
+<h4 id="setting-physical-target-height-using-wikitude-studio">Setting physical target height using Wikitude Studio</h4>
+<p>Wikitude Studio is the most universal way to add target height information. The tool allows to add the value for each image. The height information (<code>physical target height</code>) is then stored as part of the Image Target Collection (.wtc) and will be then automatically applied in the SDK. </p>
+<ol>
+<li>Add a target image</li>
+<li>Click <code>Properties</code></li>
+<li>Add the value in the properties dialog</li>
+<li>Click Save</li>
+<li>Export as .wtc file</li>
+</ol>
+<p><img src="images/targetmanager_target_height.jpg" alt=""></p>
+<h4 id="setting-physical-target-height-using-javascript-api">Setting physical target height using JavaScript API</h4>
+<p>The JavaScript API allows you to set the value for target images dynamically using the <a href="../Reference/JavaScript%20API/classes/ImageTracker.html#property_physicalTargetImageHeights"><code>physicalTargetImageHeights</code></a> option of the <code>ImageTracker</code>.</p>
+<h4 id="setting-physical-target-height-using-unity-wtc-editor">Setting physical target height using Unity WTC Editor</h4>
+<p>The WTC Editor included in the Unity Plugin of the Wikitude SDK also includes an option to set the physical target height (Target Height), which then stores the value into the .wtc file. </p>
+<p><img src="images/unity_wtc_editor_window.png" alt=""></p>
+<h2 id="object-targets-create-and-manage">Object Targets: Create and Manage</h2>
+<p>The object recognition feature in the Wikitude SDK works in a similar way than image recognition. It tries to find and match a pre-created reference in the live camera image. This pre-created reference is called <strong>Object Target</strong>. Sometimes we refer to it as a <em>map</em> as it is a pre-recorded SLAM map. Object Targets are created from videos files, that show the object. The video is converted into <strong>Wikitude Object Target Collection</strong>, which is stored as <code>.wto</code> file.</p>
+<p>The standard process looks like the following:</p>
+<ol>
+<li>Create a video of the object </li>
+<li>Convert the video into a Wikitude Object Target Collection (<code>.wto</code>)</li>
+<li>Use the <code>.wto</code> file in your app project.
+Let&#39;s have a closer look at the first two steps:</li>
+</ol>
+<h3 id="create-a-video-of-your-object">Create a video of your object</h3>
+<p>This part is essential, as the ObjectTarget can only be as good as the source video material. You shoot videos on your own or have them generated as part of your 3D/CAD modeling software. Supported video formats are </p>
+<ul>
+<li>mp4</li>
+<li>mov</li>
+</ul>
+<p><a href="objecttargetguide.html">Please refer to this guide for an optimal video</a></p>
+<h3 id="convert-video-into-object-target-collection">Convert video into Object Target Collection</h3>
+<p>There are two ways to convert a video into a Object Target Collection</p>
+<ol>
+<li>Use Studio Manager web front-end</li>
+<li>Use RESTful APIs of the Cloud Recognition Manager API</li>
+</ol>
+<p>Both ways correspond to how you generate Image Target Collections.  </p>
+<h4 id="using-studio-manager">Using Studio Manager</h4>
+<p>You might have used Studio Manager already when working with Image Targets. Studio Manager is a free web-tool that helps you manage your Targets that are used in combination with the Wikitude SDK. </p>
+<p><img src="images/targetmgmr_object_project.png" alt=""></p>
+<ol>
+<li>Log-in to <a href="https://targetmanager.wikitude.com">Studio Manager</a> with your Wikitude developer account</li>
+<li>Create Project for Object Targets by selecting <code>Object</code> as type for the new project</li>
+</ol>
+<p><img src="images/targetmgmr_object_type.png" alt=""></p>
+<ol>
+<li>Enter the project</li>
+<li>Add a new <em>Object Target</em> and </li>
+<li>Upload a video from the object (see previous chapter)</li>
+</ol>
+<p><img src="images/targetmgmr_upload_video.png" alt=""></p>
+<ol>
+<li>Select recording device or FOV - For creating the Object Target file the service needs to know, which device the video was taken on. The relevant piece of information is the <em>Field of View</em> or <em>FoV</em> of the camera, which tells how much a camera can see. Wikitude provides a list of common devices, where this value is already known. So either select the device or manually enter this value under the option <code>Custom</code><ul>
+<li>When you enter the FoV manually, make sure you enter the <strong>horizontal FoV</strong>. Vendors tend to to show-off their devices with a combined <em>diagonal FoV</em>, which is the largest value. Do not use <em>diagonal FoV</em> but only <strong> horizontal FoV</strong>. </li>
+</ul>
+</li>
+</ol>
+<p><img src="images/targetmgmr_fov.png" alt=""></p>
+<ol>
+<li>Wait for conversion to be finished - the service is performing several runs in the background to find the best possible configuration for your video. Conversion will minimum take 3-times the video run length. So a 50 seconds video will take minimum take nearly 3 minutes to finish. Depending on the current load, this can also take longer. You will be notified via email once the process has finished. </li>
+<li>Download <code>.wto</code> file and embed it into your application (see the <a href="objecttracking.html">sample</a> for details how to use it.)</li>
+</ol>
+<p><img src="images/targetmgmr_download_wto.png" alt=""></p>
+<h4 id="using-restful-manager-api">Using RESTful Manager API</h4>
+<p>Studio Manager can also be accessed through a RESTful API. The API is part of the Cloud Recognition Manager API.</p>
+
+<h2 id="best-practice-for-image-targets">Best practice for Image Targets</h2>
+<p>This guide gives you an overview of how to create a target collection that you can use to detect and track images within your ARchitect World.</p>
+<h3 id="summary">Summary</h3>
+<p><strong>Preferred images have:</strong></p>
+<ul>
+<li>between 500 to 1000 pixels in each dimension</li>
+<li>Rich contrast</li>
+<li>Evenly distributed textured areas</li>
+<li>Many corner like structures</li>
+</ul>
+<p><strong>Unsuitable images have:</strong></p>
+<ul>
+<li>Smaller dimensions than 500 pixels</li>
+<li>Larger than 1000 pixels as they do not provide more accurate results</li>
+<li>Large amounts of text</li>
+<li>Many repetitive patterns</li>
+<li>Large single-colored areas </li>
+<li>Color contrast only e.g. green to red edge), because all images are processed as grayscale images</li>
+</ul>
+<h3 id="optimal-image-dimensions">Optimal Image Dimensions</h3>
+<ul>
+<li>Optimal images are sized between 500 and 1000 pixels in each dimension</li>
+<li>Small images do not contain enough graphical information to extract so called feature points. The uniqueness, amount and distribution of features points are the key indicators for good detection and tracking quality</li>
+<li>Larger images do not improve the tracking quality
+<img src="images/guide_dimension_wrong.png" alt="Target image too small">
+<img src="images/guide_dimension_good.png" alt="Optimal size of target image"></li>
+</ul>
+<h3 id="low-contrast-images">Low contrast images</h3>
+<ul>
+<li>Images with high local contrast and large amount of rich textured areas is best suited for reliable detection and tracking</li>
+<li>Color contrast only (i.e. green to red edge) appears as high contrast to the human eye but is not discriminative to computer vision algorithms as they are operating on grayscale images
+<strong><em>Tip</em></strong>: For low contrast images, try to increase the contrast of your target image with an image editing tool like Gimp or PhotoShop to improve detection and tracking quality</li>
+</ul>
+<p><img src="images/low_contrast_wrong.png" alt="Target image with low contrast">
+<img src="images/low_contrast_good.png" alt="Target image with good contrast"></p>
+<h3 id="distribution-of-textured-areas">Distribution of textured areas</h3>
+<ul>
+<li>Images with evenly distributed textured areas are good candidates for reliable detection and tracking</li>
+<li>This might be the hardest part to be in control of and often can’t be changed.
+<strong><em>Tip</em></strong>: Try to crop the most prominent part of your image and use only this as target image.</li>
+</ul>
+<p><img src="images/texture_distribution_wrong.png" alt="Target image with not optimal distribution">
+<img src="images/texture_distribution_good.png" alt="Even distribution of features"></p>
+<h3 id="images-with-whitespace">Images with whitespace</h3>
+<ul>
+<li>Single-colored areas or smooth color transitions often found in backgrounds do not exhibit graphical information suitable for detection and tracking. 
+<strong><em>Tip</em></strong>: Try to crop the most prominent part of your image and use only this as target image.</li>
+</ul>
+<p><img src="images/whitespace_wrong.png" alt="Too much whitespace">
+<img src="images/whitespace_good.png" alt="Image reduced to the most relevant part"></p>
+<h3 id="vector-based-graphics">Vector-based graphics</h3>
+<ul>
+<li>Logos and vector-based graphics usually consist of very few areas with high local contrast and textured structures and are therefore hard to detect and track. </li>
+</ul>
+<p><strong><em>Tip</em></strong>: Try to add additional elements to the graphic like your logotype or any other specific elements, which can go along with your graphic.</p>
+<p><img src="images/vector_wrong.png" alt="Vector-based image">
+<img src="images/vector_good.png" alt="Target image mixed with graphic elements"></p>
+<h3 id="images-with-a-lot-of-text">Images with a lot of text</h3>
+<ul>
+<li>Images consisting primarily of large areas of text are hard to detect and track.</li>
+</ul>
+<p><strong><em>Tip</em></strong>: Try to have at least some graphical material and images next to your text for your target image.</p>
+<p><img src="images/text_wrong.png" alt="Pure text">
+<img src="images/text_good.png" alt="Text mixed with graphic elements"></p>
+<h3 id="repetitive-patterns">Repetitive patterns</h3>
+<ul>
+<li>Repetitive patterns exhibit the same graphical information information at each feature point and therefore cannot be localized reliably</li>
+<li>Images with slightly irregular structures can convey a similar information to the target audience while providing enough unique feature points to be detected (second image)</li>
+</ul>
+<p><strong><em>Tip</em></strong>: Try a different selection of your image including non pattern parts or use images with irregular patterns</p>
+<p><img src="images/patterns_wrong.png" alt="Repetitive patterns that do not track">
+<img src="images/patterns_good.png" alt="Pattern with irregular structures"></p>
+
+<h2 id="best-practice-for-object-targets">Best practice for Object Targets</h2>
+<h3 id="characteristics-of-easy-trackable-objects">Characteristics of easy trackable objects</h3>
+<ul>
+<li>Structure and size of the object are very important. Very small objects (&lt; 5cm/2-inch) are challenging as well.</li>
+<li>Object should be more or less static. Dynamic and deformable parts are ok, as long as the majority of the object stays static. Try to record only the static parts of your object.</li>
+<li>Shiny and glossy surfaces on the objects are challenging. Again it depends on the amount of glossy surfaces in the object.</li>
+</ul>
+<h3 id="how-to-create-a-video-as-input-for-object-targets">How to create a video as input for Object Targets</h3>
+<h4 id="general-information">General information</h4>
+<p>This article should help you with the creation of a video which is needed for Wikitude’s Object Recognition feature. We want to explain how to make sure the object is lightened properly, how to avoid disturbing scenery around the object and how to make sure you can capture the object from all sides.</p>
+<h4 id="setup">Setup</h4>
+<p>Make sure you find a room with enough space to move around freely and a table, where you can place your object on.</p>
+<h4 id="lighting">Lighting</h4>
+<p>One of the major factors to get a good working Object Target for object recognition is proper lighting. To achieve this soft boxes work really well. They are also rather cheap and easy available. We recommend soft boxes with a tripod and 3 boxes to place them around the object for homogeneous light conditions.</p>
+<p><img src="images/objreco_softboxes.jpg" alt="Softboxes give proper light"></p>
+<h4 id="background">Background</h4>
+<p>To avoid tracking items in the background, it is helpful to mount a photo studio background behind and beneath the object. It is important to have a soft curve from the wall to the table or floor, to avoid edges in the background.</p>
+<p><img src="images/objreco_background.jpg" alt="White noise-free background"></p>
+<h4 id="rotating-turntable">Rotating turntable</h4>
+<p>To be able to recognize the object from all sides it is necessary to capture it from all sides. This is much easier if you place the object on a rotating turntable, a rotating cake stand or something similar and which works for the size of your object. Make sure that the surface is non-reflecting and in the same color as the background.</p>
+<p><img src="images/objreco_turntable.jpg" alt="DIY rotating platform"></p>
+<h4 id="filming">Filming</h4>
+<p>For the filming make sure you find a good camera. A newer smartphone should work well and if you can change the exposure value, even better. Sometimes it is necessary to reduce the exposure value to stop flickering because of fluorescent light bulbs. You will recognize this immediately watching your video.</p>
+<h4 id="re-encode-for-smaller-file-size">Re-encode for smaller file size</h4>
+<p>We recommend to re-encode the video before uploading to video. Make sure you keep aspect-ratio of the video while doing so. There are several tools that re-encode videos reliably and fast. We have been using <a href="https://handbrake.fr/">Handbrake for Mac</a>, which shows pretty good results. Again make sure you don&#39;t change the aspect-ratio of the video while re-encoding.</p>
+<p><strong>Some important general advices:</strong>
+Please read carefully!</p>
+<ul>
+<li>Start with a sideway movement in the beginning, that is parallel to the object.</li>
+<li>Objects should be placed in the center (as big as possible to reduce background noise)</li>
+<li>Move slowly when capturing the object</li>
+<li>If you don&#39;t want to recognize the object from a particular side you also don&#39;t have to capture it.</li>
+<li>Film from different distances if you want to recognize the object from different distances.</li>
+<li>Recording should be done in landscape</li>
+<li>The video should be a few seconds long (10 seconds or longer)</li>
+<li>Shadows in the video are treated like they belong to the object.</li>
+<li>While moving closer will get you more details, try not to capture the object at close range.</li>
+<li>Just capture the sides that you actually want the object to be recognizable from. </li>
+<li>Do not crop the video frame and by that change the aspect ratio of the video.</li>
+<li>Re-encoding into a different codec is fine. Also scaling the video, while keeping the same aspect ratio is fine.</li>
+</ul>
+<p>Make sure you place the object stable on the rotating turntable, choose a side of the object with some structure and start capturing the video. Move close to the object to get some details, move back, get the upper part of the object and cover the whole surface of the current side. Now start rotating the object and capture the object from all sides. While rotating try to get some interesting details with good structure, this will increase the stability of the recognition and tracking. When you captured the object from all sides stop recording and check if there is no flickering and the video is looking good.</p>
+<p><img src="images/WT_ObjectRecording.jpg" alt="Infographic of recording"></p>
+<p><img src="images/objreco_filming.jpg" alt="Overall setup with object"></p>
+<p><img src="images/objreco_full_setup.jpg" alt="Overall setup"></p>
+<h4 id="using-3d-or-cad-software">Using 3D or CAD software</h4>
+<p>Of course you don&#39;t have to shoot the video of your object on your own, but can use a rendered video from any 3D modeling or CAD software. If you do so, choose a similar rendering path as described above. </p>
+<ul>
+<li>First few seconds parallel movement (translation)</li>
+<li>Rotation around the object</li>
+<li>Capturing top-side</li>
+<li>Zoom out and in again</li>
+</ul>
+<p>Make sure you export your rendering in one of the supported formats (<code>mp4</code> or <code>mov</code>).</p>
+<h4 id="sample-of-a-video">Sample of a video</h4>
+<p>This is the video we were using as source for creating an Object Target for our sample application (the fire toy truck).</p>
+<p><a href="https://www.youtube.com/watch?v=eY8B2A_OYF8"><img src="images/video_youtube_object_reco.png" alt=""></a></p>
+
+<h2 id="targets-versioning">Targets Versioning</h2>
+<h3 id="image-targets">Image Targets</h3>
+<p>Over time the format and the capabilities of Wikitude&#39;s target collection data format have changed. The following table summarizes which version of the Wikitude SDK can handle which wtc version. Wikitude Studio Manager is capable of producing wtc files compatible with all mentioned versions. If you need to re-create a target collection go there and select the appropriate SDK version.</p>
+<table>
+    <tr>
+        <th></th>
+        <th>Wikitude SDK 3.x</th>
+        <th>Wikitude SDK 4.0</th>
+        <th>Wikitude SDK 4.1</th>
+        <th>Wikitude SDK 5.0&nbsp;&#8209;&nbsp;5.3</th>
+        <th>Wikitude SDK 6.0&nbsp;&#8209;&nbsp;7.2</th>
+    </tr>
+    <tr>
+        <td>wtc&nbsp;3.x</td>
+        <td class="supported">supported</td>
+        <td class="supported">supported</td>
+        <td class="supported">supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>
+    </tr>
+    <tr>
+        <td>wtc&nbsp;4.0</td>
+        <td class="not-supported">not supported</td>
+        <td class="supported">supported</td>
+        <td class="supported">supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>    </tr>
+     <tr>
+        <td>wtc&nbsp;4.1</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="supported">supported</td>
+        <td class="supported">supported</td>
+        <td class="supported">supported</td>    </tr>
+     <tr>
+        <td>wtc&nbsp;5.0</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="not-supported">not supported</td>
+        <td class="supported">supported</td> 
+    </tr>
+</table>
+
+
+
+<h2 id="unity-wtc-editor">Unity WTC Editor</h2>
+<p>Version 1.2.0 of the Unity plugin includes a brand new <code>WTC Editor</code> that allows you to create and modify wtc collections right inside the Unity Editor without the need to go through Wikitude Studio.</p>
+<h3 id="overview-of-wtc-editor">Overview of WTC Editor</h3>
+<p>To open the WTC Editor, click on the <code>Window</code> menu item and select <code>WTC Editor</code>. </p>
+<p><img style="width: 100px" src="images/unity_wtc_editor_menu.png"></p>
+<p>This will open a new dockable window that allows you to manage all your target collections.</p>
+<p><img style="width: 500px" src="images/unity_wtc_editor_window.png"></p>
+<p>On the left side you will find the project panel, which contains a tree view of all the wtc files found in the <code>StreamingAssets</code> folder. Selecting any of these will display a grid of all the targets in that collection in the middle view. Clicking any of these targets will display additional info about it on the right side of the editor window.</p>
+<h3 id="create-target-collection-in-wtc-editor">Create target collection in WTC Editor</h3>
+<p>To create a new collection, click the <code>Create</code> button in the upper part of the left panel.</p>
+<p><img style="width: 200px" src="images/unity_wtc_editor_create.png"></p>
+<p>A new window will appear prompting you to select an image from your project. </p>
+<p><img style="width: 300px" src="images/unity_wtc_editor_creation_select.png"></p>
+<p>A new collection will be created in the <code>StreamingAssets</code> folder with the same name as the selected image. To rename the collection, simply rename the file in the Unity editor project view or in Windows Explorer / Finder. The collection will initially contain only the selected image, but you can edit it further by adding new ones.</p>
+<p><img style="width: 200px" src="images/unity_wtc_editor_creation_after.png"></p>
+<h3 id="edit-target-collection">Edit target collection</h3>
+<h4 id="add-images-to-a-target-collection">Add images to a target collection</h4>
+<p>You can add new images to a target collection by clicking the <code>Add</code> button from the upper part of the middle panel. This will open a new window asking you to select which image to add. You can also drag and drop multiple images at once from the Unity editor project view.</p>
+<p><img style="width: 400px" src="images/unity_wtc_editor_add.png"></p>
+<h4 id="remove-images-from-a-target-collection">Remove images from a target collection</h4>
+<p>You can select targets by clicking on them in the middle panel. Using Shift and Ctrl/Cmd allows you to select multiple images at once. You can delete the selected targets by pressing the <code>Delete</code> button in the upper part of the middle panel.</p>
+<p><img style="width: 400px" src="images/unity_wtc_editor_remove.png"></p>
+<h4 id="modify-target-collections">Modify target collections</h4>
+<p>When a single target is selected, additional info about it will be displayed in the right panel. Here you can also rename the target and change it&#39;s physical height, specified in millimeters. The default value of <code>-1</code> means that the physical height is not set.</p>
+<p><img style="width: 300px" src="images/unity_wtc_editor_target_info.png"></p>
+<h4 id="save-and-discard-changes">Save and discard changes</h4>
+<p>All modifications made to the collection are cached and applied to the actual collection only when you hit the <code>Apply</code> button in the upper part of the window. You can also discard any changes made to a collection by pressing the <code>Revert</code> button. </p>
+<p><img style="width: 500px" src="images/unity_wtc_editor_apply.png"></p>
+<p>If a collection has unsaved modifications, an asterisk symbol <code>*</code> will appear next to its name in the left panel.</p>
+<p><img style="width: 200px" src="images/unity_wtc_editor_modified.png"></p>
+<div class="warning">
+<strong>Important</strong> <br />
+Make sure you save all your modifications before closing Unity or your changes will be lost!</div>
+
+<h1 id="reference">Reference</h1>
+<h2 id="unity-plugin-reference">Unity Plugin Reference</h2>
+<p>Go to <a href="../Reference/Unity%20API/annotated.html">Unity Plugin Reference</a> for a complete reference of all Unity Wikitude Plugin objects and functions.</p>
+<p>The Unity scripting reference can be found <a href="http://docs.unity3d.com/Documentation/ScriptReference/index.html">here.</a></p>
+<h2 id="cloud-recognition-manager-api">Cloud Recognition Manager API</h2>
+<p>Go to <a href="https://www.wikitude.com/documentation/latest/Reference/Cloud%20Recognition%20REST%20API/index.html">REST API Reference</a> for a complete reference of all REST API calls for the Manager API.</p>
+
+<h1 id="migration-notes">Migration Notes</h1>
+<p>Migration notes for the Wikitude Unity Plugin</p>
+<h2 id="migrate-from-7-1-0-to-7-2-0">Migrate from 7.1.0 to 7.2.0</h2>
+<p>The minimum Unity version was increased to 5.4.2.</p>
+<p>Initialization of <code>WikitudeCamera</code> and the internal SDK was moved from <code>Awake</code> to <code>Start</code>. This means WikitudeCamera properties can now be easily changed from script, as long they are done before the <code>Start</code> method is called on the <code>WikitudeCamera</code>.</p>
+<p><code>ImageTracker</code> and <code>InstantTracker</code> now have a new option called <code>Legacy Scale</code>. In previous versions of the plugin, the augmentations needed to be scaled by a factor of 10 to match their targets. In the new version, this is no longer required. However, for backwards compatibility, the <code>Legacy Scale</code> allows developers to re-enable the old behavior. Keep in mind that this option will be removed in future versions and is only intended to ease the transition of existing projects.</p>
+<h2 id="migrate-from-7-0-0-to-7-1-0">Migrate from 7.0.0 to 7.1.0</h2>
+<p>No changes.</p>
+<h2 id="migrate-from-2-1-0-to-7-0-0">Migrate from 2.1.0 to 7.0.0</h2>
+<p>Version 7.0.0 increases the minimum required version for Unity to 5.4.0. Please make sure to also upgrade Unity if you are using an older version, otherwise the plugin will not work properly.
+Version 7.0.0 also increases the minimum iOS version to 9.0 and the minimum Android version to Android 4.4(19). Please update <code>minSdkVersion</code> to 19 in the manifest of your App or build.gradle if you export to a gradle project.</p>
+<p>To align the Unity API with that of the Wikitude Native SDK, the general <code>TrackableBehaviour</code> component has been deprecated, and was replaced with <code>ImageTrackable</code>, <code>ObjectTrackable</code> and <code>InstantTrackable</code>. These new trackables also have different events. So instead of the generic <code>OnEnterFieldOfVision</code> from the previous version, the <code>ImageTrackable</code> has an equivalent <code>OnImageRecognized</code> event, with an <code>ImageTarget</code> parameter, instead of just a string. Similar events are present in the other trackers.
+When you update to the new API, please make sure to never mix the new <code>Trackables</code> with the deprecated <code>TrackableBehaviour</code>, as this is not supported.</p>
+<p>The new <code>Trackable</code> components now have an additional <code>Drawable</code> field. This was added to support multiple targets for <code>ImageTrackers</code>, but the API is available for all <code>Trackables</code>. Please see the <a href="ImageRecognitionNative.html">Image Tracking</a> examples for more information about multiple targets.</p>
+<p>Additionally, some sample scripts were renamed. If you are upgrading and importing the samples as well, please check fo duplicate scripts, or for scripts that should not be present in the project anymore.</p>
+<h2 id="migrate-from-2-0-0-to-2-1-0">Migrate from 2.0.0 to 2.1.0</h2>
+<p>Version 2.1.0 adds a new value to the FrameColorSpace enum used for Plugins and Input Plugins. Because of this, when loading a scene that contains a WikitudeCamera component configured to use Input Plugins, the deserialized value of the enum will be incorrect. Please set it to the appropriate value for your use case after upgrading to 2.1.0.</p>
+<h2 id="migrate-from-1-4-0-to-2-0-0">Migrate from 1.4.0 to 2.0.0</h2>
+<p>Version 2.0.0 deprecates the <code>ClientTracker</code> and the <code>CloudTracker</code> classes. When before you used the <code>ClientTracker</code> to recognize images, it is recommended to switch to the new <code>ImageTracker</code>, in combination with a <code>TargetCollectionResource</code>. Instead of the <code>CloudTracker</code>, the same <code>ImageTracker</code> can be used, but with a <code>CloudRecognitionService</code>, instead. You can select between the <code>TargetCollectionResource</code> and the <code>CloudRecognitionService</code> in the <code>ImageTracker</code> inspector, in the first dropdown menu. Finally, if you used the <code>ClientTracker</code> to track 3D targets, you can now use the new <code>ObjectTracker</code> with a <code>TargetCollectionResource</code> for this.</p>
+<p>To help migrate your project to the new APIs, the inspectors of the old classes have a button that allows you to automatically upgrade the script component with the appropriate replacement.</p>
+<p><img src="images/unity_upgrade_deprecated_tracker.png" alt=""></p>
+<p>When you press the button, a warning message will appear, informing you that during the upgrade process, the properties set on the old tracker will be migrated to the new one, but events will <strong>not</strong>. This would not be possible, because in most cases you need to update the script functions receiving the events to the appropriate signature.</p>
+<p><img src="images/unity_upgrade_warning.png" alt=""></p>
+<p>After pressing OK, GameObject will have the new component instead. If you are not happy with the result, or something went wrong, you can undo this operation.</p>
+<p><img src="images/unity_after_upgrade.png" alt=""></p>
+<p>Keep in mind that you still need to update the source code, where references to the old trackers are used.</p>
+<p>For example, the <code>Runtime Tracker</code> sample used to create a <code>ClientTracker</code> with a custom remote URL.</p>
+<pre><code class="lang-csharp">GameObject trackerObject = new GameObject(&quot;ClientTracker&quot;);
+_currentTracker = trackerObject.AddComponent&lt;ClientTracker&gt;();
+_currentTracker.UseCustomUrl = true;
+_currentTracker.TargetPath = Url.text;
+
+_currentTracker.OnTrackerFinishedLoading.AddListener(OnTrackerFinishedLoading);
+_currentTracker.OnTrackerLoadingError.AddListener(OnTrackerLoadingError);
+</code></pre>
+<p>Here is how the sample would look like when using the new <code>ImageTracker</code> and APIs.</p>
+<pre><code class="lang-csharp">GameObject trackerObject = new GameObject(&quot;ImageTracker&quot;);
+_currentTracker = trackerObject.AddComponent&lt;ImageTracker&gt;();
+_currentTracker.TargetSourceType = TargetSourceType.TargetCollectionResource;
+_currentTracker.TargetCollectionResource = new TargetCollectionResource();
+_currentTracker.TargetCollectionResource.UseCustomURL = true;
+_currentTracker.TargetCollectionResource.TargetPath = Url.text;
+
+_currentTracker.TargetCollectionResource.OnFinishLoading.AddListener(OnFinishLoading);
+_currentTracker.TargetCollectionResource.OnErrorLoading.AddListener(OnErrorLoading);
+
+_currentTracker.OnTargetsLoaded.AddListener(OnTargetsLoaded);
+_currentTracker.OnErrorLoadingTargets.AddListener(OnErrorLoadingTargets);
+</code></pre>
+<p>The old trackers are still kept for backwards compatibility, but will be removed in a future version, so please update to the new ones.</p>
+<p>Additionally, the CloudTrackable was removed from the samples. If you are upgrading from an older version, please make sure that this script is no longer in your projects, otherwise you might encounter compilation errors.</p>
+<h2 id="migrate-from-1-1-0-to-1-2-0">Migrate from 1.1.0 to 1.2.0</h2>
+<p>Version 1.2.0 simplifies the <code>WikitudeCamera</code> prefab. It is now a single GameObject, without the hierarchy it previously had. If you had any changes to the prefab, except for the license key, please make sure to back it up first. </p>
+<p>Because the previous hierarchy is gone, the camera feed is no longer explicitly exposed in the editor, but you can still access it through the <code>CameraTexture</code> property on the <code>WikitudeCamera</code> script.</p>
+<h2 id="migrate-from-1-0-1-to-1-1-0">Migrate from 1.0.1 to 1.1.0</h2>
+<p>Version 1.1.0 contains <strong>many breaking changes to the plugin</strong>, so before upgrading, please backup your project, to prevent accidentally losing your work.</p>
+<p>Wikitude classes are now concrete and sealed and expose Unity events to communicate. This means that now you can add them directly to game objects and subscribe to their events through the editor or at runtime in code. When adding subscribers to events, make sure you use the dynamic version of your method, when there is a choice between static and dynamic (please see the <a href="clientrecognitionnative.html">Client Recognition</a> examples for more information on how to set up Client Trackers).</p>
+<p>Values that were set in the inspector for these classes will need to be reset because of the change in class name and their internal representation.</p>
+<p>The classes that previously derived from them will no longer work, so they need to be updated to receive events. On your game objects, you will get missing mono classes after updating. These should be replaced with the corresponding classes in the Wikitude plugin (Wikitude/Dependencies/WikitudeUnityPlugin) and the values need to be reintroduced. </p>
+<p>All function names in Wikitude classes now begin with a capital letter.</p>
+<p>When building for iOS, if you choose to append over a build made with a previous version, you will end up with two versions of the Wikitude plugin in your project, one located in Plugins/iOS and the new one in Plugins/Wikitude/iOS. Please make sure that only the new one is used. Alternatively, you can redo the build from scratch using the steps from the <a href="setupguideunity.html">Setup Guide</a> section.</p>
+<h4 id="migration-example">Migration Example</h4>
+<p>This section will show how to migrate the example project from version 1.0.1 to work with the new version of the plugin.</p>
+<ol>
+<li><code>(Optional)</code> Delete the <code>Dependencies</code>, <code>Editor</code> and <code>Plugins</code> folders. The plugin folder has changed drastically in this version. If you don&#39;t delete these folders, the correct files should still be replaced with the new version. However, the samples will not work correctly because magazine.wtc will be in <code>StreamingAssets</code> folder instead of <code>StreamingAssets/Wikitude</code>. Since we won&#39;t be using the samples in this example, this step can be skipped.</li>
+<li>Delete the <code>Wikitude/Samples</code> folder. The <code>Samples</code> folder is for illustration purposes only and is not needed in development.</li>
+<li>Update <code>ClientTracker</code> script. <code>Wikitude.IClientTracker</code> has been renamed to <code>Wikitude.ClientTracker</code> and is a sealed class. As such, the <code>ClientTracker</code> script should be changed to derive from <code>MonoBehaviour</code> instead and it&#39;s methods should be simple, instead of override. These methods will be set as callbacks in the Inspector. The class name should also be changed to avoid clashes with the Wikitude class.</li>
+<li>Similar steps should be taken to update the <code>CloudTracker</code> script. Additionally, since it no longer derives from <code>Wikitude.CloudTracker</code>, it will need a reference to it so that it can call <code>StartContinuousRecognition</code>.</li>
+<li>Similar steps should be taken to update the <code>SurferBehaviour</code> script.</li>
+<li>Delete <code>MagazineTracker</code>, <code>TrackableBehaviour</code> and <code>WikitudeCamera</code> scripts. Since Wikitude classes are concrete now, they can be assigned directly to GameObjects, so there is no need for these empty classes anymore.</li>
+<li>Open the scene called <code>main</code> from the <code>Scenes</code> folder.</li>
+<li>Select the <code>WikitudeCamera</code> GameObject from the Hierarchy and enter your license key in the appropriate field in the Inspector. If the script is missing, add the <code>WikitudeCamera</code> script from the <code>Dependencies/WikitudeUnityPlugin</code> dll.</li>
+<li>Create a new GameObject and add the script you updated at step 3 to it.</li>
+<li>Select the <code>ClientTracker</code> GameObject from the Hierarchy and from the <code>Target Collection</code> dropdown select <code>magazine.wtc</code>. Then, for each event you want to subscribe to, press the plus sign, set the GameObject created at step 9 to the field <code>None (Object)</code> and select the corresponding function callback. Please see <a href="clientrecognitionnative.html">Client Recognition</a> examples for more information on how to work with Unity Events.</li>
+<li>Select the <code>WikitudeEye</code> GameObject from the Hierarchy and add the script you updated at step 5 to it.</li>
+<li>Select the <code>Trackable</code> GameObject from the Hierarchy and in the <code>Target Pattern</code> field enter * to track all targets. In the events foldout, subscribe the script you added to WikitudeEye to both <code>On Enter Field Of Vision</code> and <code>On Exit Field Of Vision</code> events.</li>
+</ol>
+<p>The project should now work as before.</p>
+
+<h1 id="release-notes-wikitude-sdk">Release Notes Wikitude SDK</h1>
+<h2 id="wikitude-sdk-7-2-0">Wikitude SDK 7.2.0</h2>
+<p>Release Date: 05.02.2017</p>
+<h3 id="new">New</h3>
+<ul>
+<li>SMART - Wikitude&#39;s integration of ARKit and ARCore</li>
+</ul>
+<h3 id="improved">Improved</h3>
+<ul>
+<li>Added option to disable camera rendering</li>
+<li>Added option to make the WikitudeCamera static</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fixes issues when building for Android using IL2CPP</li>
+</ul>
+<h2 id="wikitude-sdk-7-1-0">Wikitude SDK 7.1.0</h2>
+<p>Release Date: 19.09.2017</p>
+<h3 id="new">New</h3>
+<ul>
+<li>New APIs to get the point cloud for InstantTracking</li>
+</ul>
+<h3 id="improved">Improved</h3>
+<ul>
+<li>Improved OpenGL ES resource handling</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fixes an object tracker issue where the <code>onTargetsLoaded</code> callback was called before all object targets were extracted</li>
+<li>Fixes an issue where <code>Plugin::pause</code> was not called in case it was unregistered from the SDK</li>
+<li>Fixes an issue where the SDK could crash in case a new tracker was created while another one was already tracking</li>
+<li>Fixes an issue where loading .wto files could have happened on the main thread</li>
+<li>Fixes an issue where the SDK could have crashed in case a target collection resource was released</li>
+<li>Fixes an issue where the SDK could have crashed in case a cloud recognition service was released</li>
+<li>Fixes an issue where the camera frames would not be rendered when using Metal with Unity 2017.1</li>
+<li>Fixes an issue where the WTC Editor would not work properly on Unity 2017.1</li>
+<li>Fixes an occasional camera stuttering and frame sync issues when using Metal</li>
+<li>Fixes an issue where the auto frame rate setting would not work properly on iOS</li>
+<li>Fixes an issue where cloud recognition would not call OnRecognitionResponse when metadata was missing on iOS or Android</li>
+</ul>
+<h2 id="wikitude-sdk-7-0-0">Wikitude SDK 7.0.0</h2>
+<p>Release Date: 13.07.2017</p>
+<h3 id="new">New</h3>
+<ul>
+<li>Object Recognition and Tracking</li>
+<li>Support for multiple Image Targets</li>
+<li>New hit-testing API for SLAM engine</li>
+<li>Option for Extended Range for Image Recognition</li>
+<li>Option for InstantTracker to choose initial plane orientation</li>
+<li>Support for Metal Graphics API</li>
+</ul>
+<h3 id="improved">Improved</h3>
+<ul>
+<li>Updated SLAM engine improves performance and accuracy for InstantTracker and Extended Tracking</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Issue where TargetRectangleInFrame returned the wrong position and size with HD frames</li>
+<li>OpenGL ES 3 rendering issues</li>
+</ul>
+<h2 id="unity-plugin-2-1-0-2-1-0">Unity Plugin 2.1.0-2.1.0</h2>
+<p>Release Date: 28.03.2017</p>
+<h4 id="new">New</h4>
+<ul>
+<li>Support for OpenGL ES 3.x</li>
+<li>New supported FrameColorSpace YV12 for input plugins</li>
+<li>New plugin registration error callback that contains more information why an input plugin could not be registered</li>
+<li>New Frame methods <code>hasStrides()</code> and <code>getFrameStrides()</code> to get stride information of frames provided by plugins</li>
+</ul>
+<h4 id="improved">Improved</h4>
+<ul>
+<li>Trial licenses now support instant tracking</li>
+</ul>
+<h2 id="unity-plugin-2-0-1-2-0-1">Unity Plugin 2.0.1-2.0.1</h2>
+<p>Release Date: 15.02.2017</p>
+<h4 id="fixed">Fixed</h4>
+<ul>
+<li>Fixed a watermark rendering issue that occurred on certain Android devices</li>
+<li>Fixed an issue where complex json metadata was not handled correctly</li>
+</ul>
+<h2 id="unity-plugin-2-0-0-2-0-0">Unity Plugin 2.0.0-2.0.0</h2>
+<p>Release Date: 25.01.2017</p>
+<h4 id="new">New</h4>
+<ul>
+<li>The new instant tracking feature allows users to place augmentations without any markers in any surrounding. Instant tracking uses Wikitudes own SLAM-based 3D engine.</li>
+<li>Added advanced camera settings like HD and 60 fps camera rendering and a manual focus control</li>
+<li>Unified computer vision related class names</li>
+<li>Added support for x86 on Android</li>
+</ul>
+<h4 id="improved">Improved</h4>
+<ul>
+<li>Updated target collection format (.wtc) which improves the robustness and performance of 2D image recognition.</li>
+<li>Extended tracking improved significant using the new SLAM technology </li>
+<li>Custom camera example now shows how to sync 2d tracking and camera frame rendering</li>
+</ul>
+<h4 id="fixed">Fixed</h4>
+<ul>
+<li>Fix inverted camera view on some Android devices</li>
+</ul>
+<h2 id="unity-plugin-1-4-1-1-3-0">Unity Plugin 1.4.1-1.3.0</h2>
+<p>Release Date: 24.11.2016<br/>
+Unity Plugin: 1.3.0<br/>
+Native API: 1.4.1</p>
+<h4 id="new">New</h4>
+<ul>
+<li>Includes Native API version 1.4.1 (see separate for detailed changes <a href="http://www.wikitude.com/external/doc/documentation/latest/iosnative/changelog.html">iOS</a>, <a href="http://www.wikitude.com/external/doc/documentation/latest/androidnative/changelog.html">Android</a>)</li>
+</ul>
+<h2 id="unity-plugin-1-4-0-1-3-0">Unity Plugin 1.4.0-1.3.0</h2>
+<p>Release Date: 13.09.2016<br/>
+Unity Plugin: 1.3.0<br/>
+Native API: 1.4.0</p>
+<h4 id="new">New</h4>
+<ul>
+<li>Plugins enable additional processing to be done on the camera feed directly in Unity, or in custom native plugins</li>
+<li>Input Plugins allow developers to use the Wikitude SDK with an external camera feed</li>
+<li>Includes Native API version 1.4.0 (see separate for detailed changes <a href="http://www.wikitude.com/external/doc/documentation/latest/iosnative/changelog.html">iOS</a>, <a href="http://www.wikitude.com/external/doc/documentation/latest/androidnative/changelog.html">Android</a>)</li>
+</ul>
+<h4 id="improved">Improved</h4>
+<ul>
+<li>Cloud Tracker now includes an option to change the server region</li>
+</ul>
+<h4 id="fixed">Fixed</h4>
+<ul>
+<li>Fixed bug where extended tracking was not properly enabled</li>
+<li>Fixed bug where augmentations were not placed properly when using the front facing camera</li>
+</ul>
+<h2 id="unity-plugin-1-3-0-1-2-0">Unity Plugin 1.3.0-1.2.0</h2>
+<p>Release Date: 14.07.2016<br/>
+Unity Plugin: 1.2.0<br/>
+Native API: 1.3.0</p>
+<h4 id="new">New</h4>
+<ul>
+<li>WTC Editor inside Unity</li>
+<li>Includes Native API version 1.3.0 (see separate for detailed changes <a href="http://www.wikitude.com/external/doc/documentation/latest/iosnative/changelog.html">iOS</a>, <a href="http://www.wikitude.com/external/doc/documentation/latest/androidnative/changelog.html">Android</a>)</li>
+</ul>
+<h4 id="improved">Improved</h4>
+<ul>
+<li>Trackable inspector can now view local wtc file contents and can preview targets inside the 3D view to make placing augmentations easier</li>
+<li>Trackable transform is no longer changed during tracking</li>
+<li>Camera prefab has been simplified</li>
+</ul>
+<h4 id="fixed">Fixed</h4>
+<ul>
+<li>Fixed bug on Windows machines where choosing a wtc file not placed in the StreamingAssets folder directly would cause the app to not track anymore</li>
+<li>Fixed issue with loading pre-recorded .wtm files</li>
+<li>Fixed issue with some shaders not working correctly</li>
+<li>Fixed shadow rendering on Android</li>
+<li>Fixed missing camera feed on Android when the Standard shader was not present in the project</li>
+<li>Fixed errors when no wtc files were present in the project</li>
+</ul>
+<h2 id="unity-plugin-1-2-1-1-1-0">Unity Plugin 1.2.1-1.1.0</h2>
+<p>Release Date: 21.03.2016</p>
+<h4 id="new">New</h4>
+<ul>
+<li>3D Tracking and 3D Map Recording</li>
+<li>Extended Tracking quality feedback</li>
+<li>Camera Controls API</li>
+<li>Extended examples illustrating all the available API</li>
+<li>Unity editor events for all callbacks</li>
+<li>Ability to create and destroy trackers at runtime</li>
+</ul>
+<h4 id="fixed">Fixed</h4>
+<ul>
+<li>Crashes when reloading scenes</li>
+</ul>
+<h2 id="unity-plugin-1-0-1-1-0-0">Unity Plugin 1.0.1-1.0.0</h2>
+<p>Release Date: 12.11.2015</p>
+<h4 id="improved">Improved</h4>
+<ul>
+<li>Android based app packages can now be exported to Android Studio</li>
+<li>64-bit applications for Android now choose the correct library version</li>
+</ul>
+<h2 id="unity-plugin-1-0-0-1-0-0">Unity Plugin 1.0.0-1.0.0</h2>
+<p>Release Date: 27.08.2015</p>
+<h4 id="new">New</h4>
+<ul>
+<li>Initial public release of Unity Plugin</li>
+<li>Added Android as supported platform</li>
+<li>Fixed limited interface orientations</li>
+</ul>
+<h2 id="unity-plugin-1-0-0-1-0-0-beta">Unity Plugin 1.0.0-1.0.0 beta</h2>
+<p>Release Date: 30.07.2015</p>
+<h4 id="new">New</h4>
+<ul>
+<li>Initial Public Beta Release of Unity Plugin</li>
+</ul>
+
+
+                <footer id="footer">
+                    &copy; 2012 -2017 <a href="https://www.wikitude.com">Wikitude GmbH</a> · <a href="https://www.wikitude.com/imprint">Imprint</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var storageKey = "unity" + "7.2.1";
+            function stateChanged(nodes, nodesJson) {
+                localStorage.setItem(storageKey, JSON.stringify(nodesJson));
+            }
+
+            function getData() {
+                var data = localStorage.getItem(storageKey);
+                if (data) return JSON.parse(data);
+            }
+
+            var easytree = $("#toc").easytree({
+                data: getData(),
+                stateChanged: stateChanged
+            });
+
+            $('.easytree-exp-e .easytree-title').each(function () {
+                let openItem = $(this).parent();
+                var openItemId = openItem.attr('id');
+                var activeChildItem = openItem.parent().find('ul li .easytree-active');
+
+                if (!activeChildItem.length) {
+                    easytree.toggleNode(openItemId);
+                }
+            });
+
+            var activeItem = $('.easytree-active.easytree-exp-c .easytree-title');
+
+            if (activeItem) {
+                var activeItemId = activeItem.closest('.easytree-active').attr('id');
+                easytree.toggleNode(activeItemId);
+            }
+        });
+    </script>
+
+</body>
+    <script>
+    var lightbox = new Lightbox();
+    lightbox.load();
+    hljs.initHighlightingOnLoad();
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-11754809-8', 'auto');
+		ga('require', 'displayfeatures');
+		ga('set', 'checkProtocolTask', null);
+		ga('send', 'pageview');
+
+</script>
+</html>

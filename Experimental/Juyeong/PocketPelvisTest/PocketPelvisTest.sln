@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketPelvisTest", "PocketPelvisTest.csproj", "{12ED638C-EB7A-F470-9B87-4BAD4F770504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketPelvisTest.Editor", "PocketPelvisTest.Editor.csproj", "{44CD6BE4-7D8D-D446-82A1-8019D4C56876}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12ED638C-EB7A-F470-9B87-4BAD4F770504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12ED638C-EB7A-F470-9B87-4BAD4F770504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12ED638C-EB7A-F470-9B87-4BAD4F770504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12ED638C-EB7A-F470-9B87-4BAD4F770504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44CD6BE4-7D8D-D446-82A1-8019D4C56876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44CD6BE4-7D8D-D446-82A1-8019D4C56876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44CD6BE4-7D8D-D446-82A1-8019D4C56876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44CD6BE4-7D8D-D446-82A1-8019D4C56876}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['id',['ID',['../class_wikitude_1_1_image_target.html#a9102be291c5e3f99033e56971dd40d74',1,'Wikitude::ImageTarget']]],
+  ['ignoretrackablescale',['IgnoreTrackableScale',['../class_wikitude_1_1_wikitude_camera.html#a5543f77d8ecfaaa9892c8d1aebc416d6',1,'Wikitude::WikitudeCamera']]],
+  ['imagepreviewoverride',['ImagePreviewOverride',['../class_wikitude_1_1_transform_override.html#a68a49dcc017014fdbad7ff913595031e',1,'Wikitude::TransformOverride']]],
+  ['imagerecognitionrangeextension',['ImageRecognitionRangeExtension',['../namespace_wikitude.html#a147485c6c206ebdb78f237400f6de9eb',1,'Wikitude']]],
+  ['imagetarget',['ImageTarget',['../class_wikitude_1_1_image_target.html',1,'Wikitude']]],
+  ['imagetrackable',['ImageTrackable',['../class_wikitude_1_1_image_trackable.html',1,'Wikitude']]],
+  ['imagetracker',['ImageTracker',['../class_wikitude_1_1_image_tracker.html',1,'Wikitude']]],
+  ['info',['Info',['../class_wikitude_1_1_cloud_recognition_service_response.html#a0b1b06c4b627c15b87455a34b81bd4c3',1,'Wikitude::CloudRecognitionServiceResponse']]],
+  ['initializing',['Initializing',['../namespace_wikitude.html#a63c60e3290f2409e8055cf4a0873ccb1a32b169f72b293ef80d35435e9894f8e2',1,'Wikitude']]],
+  ['inputframecolorspace',['InputFrameColorSpace',['../class_wikitude_1_1_wikitude_camera.html#ac1ddd1e9826fedd2df4a0ef2d41cb52c',1,'Wikitude::WikitudeCamera']]],
+  ['inputframeheight',['InputFrameHeight',['../class_wikitude_1_1_wikitude_camera.html#ad2f6b3720923cef942bbd2b47c85ed05',1,'Wikitude::WikitudeCamera']]],
+  ['inputframewidth',['InputFrameWidth',['../class_wikitude_1_1_wikitude_camera.html#afba989165bcd5055f490c15538fe2b5c',1,'Wikitude::WikitudeCamera']]],
+  ['instanttarget',['InstantTarget',['../class_wikitude_1_1_instant_target.html',1,'Wikitude']]],
+  ['instanttrackable',['InstantTrackable',['../class_wikitude_1_1_instant_trackable.html',1,'Wikitude']]],
+  ['instanttracker',['InstantTracker',['../class_wikitude_1_1_instant_tracker.html',1,'Wikitude']]],
+  ['instanttrackingplaneorientation',['InstantTrackingPlaneOrientation',['../namespace_wikitude.html#a5d32508a0fe59d66bd90453f3ef35b6a',1,'Wikitude']]],
+  ['instanttrackingstate',['InstantTrackingState',['../namespace_wikitude.html#a63c60e3290f2409e8055cf4a0873ccb1',1,'Wikitude']]],
+  ['invertedframe',['InvertedFrame',['../class_wikitude_1_1_wikitude_camera.html#a4564e6dea9359e0e4b02d86407c4d6fa',1,'Wikitude::WikitudeCamera']]],
+  ['ismanualfocusavailable',['IsManualFocusAvailable',['../class_wikitude_1_1_wikitude_camera.html#a9668ecdaea5fea48aef211570307d068',1,'Wikitude::WikitudeCamera']]]
+];
