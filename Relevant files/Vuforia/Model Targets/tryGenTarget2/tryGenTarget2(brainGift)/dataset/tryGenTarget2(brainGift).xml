@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="tryGenTarget2(brainGift)"/>
+</Tracking>
+
+<Assembly name="tryGenTarget2(brainGift)s_assembly">
+<Part name="tryGenTarget2(brainGift)" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="0.000645289 0.021723 0.188913" rotation="AD: 0.013641625690242213 2.147184341256283 -1.1300051871387304 181.224">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

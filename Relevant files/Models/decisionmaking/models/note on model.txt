@@ -1,0 +1,6 @@
+since pelvis is older version, it's smaller and cant be changed because of how scaling works in blender, it'll screw up ishan's muscle positions
+
+we'll do it this way:
+- when making parts in inventor, etc. make it 1.0 scale
+- when import to blender, use 1.0/1.6 scale
+- when export whole thing as fbx, use 1.6 scale

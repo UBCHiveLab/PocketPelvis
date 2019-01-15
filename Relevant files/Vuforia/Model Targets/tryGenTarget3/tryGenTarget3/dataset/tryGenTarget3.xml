@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="tryGenTarget3"/>
+</Tracking>
+
+<Assembly name="tryGenTarget3s_assembly">
+<Part name="tryGenTarget3" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="202.847 1340.49 13540.6" rotation="AD: -1.60007815282033e-16 -1.082392200292394 2.613125929752753 180">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>
