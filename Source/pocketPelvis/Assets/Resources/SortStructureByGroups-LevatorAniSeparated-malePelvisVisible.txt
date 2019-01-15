@@ -1,0 +1,8 @@
+Muscles:Levator Ani,L-Iliacus,L-ObturatorInternus,L-Piriformis,R-Iliacus,R-ObturatorInternus,R-Piriformis
+Bones:L-Femur,R-Femur,Male Pelvis
+Landmarks:L-AnteriorSuperiorIliacSpine,L-IliacCrest,L-IschialSpine,L-IschialTuberosity,L-PubicTubercle,PubicSymphysis,R-AnteriorSuperiorIliacSpine,R-IliacCrest,R-IschialSpine,R-IschialTuberosity,R-PubicTubercle
+Ligaments:L-SacrospinousLigament,R-SacrospinousLigament,Sacrotuberous Ligament
+Levator Ani:L-Pubococcygeus,L-Iliococcygeus,Puborectalis,R-Pubococcygeus,R-Iliococcygeus
+Nerves:L-PerinealNerve,R-PerinealNerve
+Spaces:L-GreaterSciaticForamen,L-LesserSciaticForamen,L-ObturatorCanal,L-ObturatorForamen,R-GreaterSciaticForamen,R-LesserSciaticForamen,R-ObturatorCanal,R-ObturatorForamen
+All:L-Iliacus,L-ObturatorInternus,L-Piriformis,R-Iliacus,R-ObturatorInternus,R-Piriformis,L-Femur,R-Femur,Male Pelvis,L-AnteriorSuperiorIliacSpine,L-IliacCrest,L-IschialSpine,L-IschialTuberosity,L-PubicTubercle,PubicSymphysis,R-AnteriorSuperiorIliacSpine,R-IliacCrest,R-IschialSpine,R-IschialTuberosity,R-PubicTubercle,L-SacrospinousLigament,R-SacrospinousLigament,Sacrotuberous Ligament,L-Pubococcygeus,L-Iliococcygeus,Puborectalis,R-Pubococcygeus,R-Iliococcygeus,L-PerinealNerve,R-PerinealNerve,L-GreaterSciaticForamen,L-LesserSciaticForamen,L-ObturatorCanal,L-ObturatorForamen,R-GreaterSciaticForamen,R-LesserSciaticForamen,R-ObturatorCanal,R-ObturatorForamen

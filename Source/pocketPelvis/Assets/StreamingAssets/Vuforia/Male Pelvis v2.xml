@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Male Pelvis v2"/>
+</Tracking>
+
+<Assembly name="Male Pelvis v2s_assembly">
+<Part name="Male Pelvis v2" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="0 1.59204e-14 130" rotation="AD: 1 0 0 180">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

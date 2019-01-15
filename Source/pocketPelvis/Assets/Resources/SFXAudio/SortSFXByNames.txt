@@ -1,0 +1,4 @@
+CLICKYES:ClickYes
+CLICKNO:ClickNo
+RECOGYES:RecogYes
+RECOGNO:RecogNo
