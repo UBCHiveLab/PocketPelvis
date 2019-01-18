@@ -69,35 +69,36 @@
     <Compile Include="Assets\Resources\OutlineEffect\LinkedSet.cs" />
     <Compile Include="Assets\Resources\OutlineEffect\Outline.cs" />
     <Compile Include="Assets\Resources\OutlineEffect\OutlineEffect.cs" />
-    <Compile Include="Assets\Scripts\AudioHandler.cs" />
-    <Compile Include="Assets\Scripts\AudioInfoStructureNameManager.cs" />
-    <Compile Include="Assets\Scripts\AudioSFXManager.cs" />
-    <Compile Include="Assets\Scripts\AudioToggle.cs" />
-    <Compile Include="Assets\Scripts\BasicStructure.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioInfoStructureNameManager.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioSFXManager.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioToggle.cs" />
     <Compile Include="Assets\Scripts\DepthMaskBehaviour.cs" />
     <Compile Include="Assets\Scripts\disabledDevicePositionalTracker.cs" />
-    <Compile Include="Assets\Scripts\GroupedStructure.cs" />
     <Compile Include="Assets\Scripts\InitializeAllInstances.cs" />
-    <Compile Include="Assets\Scripts\InteractionGazeLight.cs" />
-    <Compile Include="Assets\Scripts\InteractionGroup.cs" />
-    <Compile Include="Assets\Scripts\InteractionGroupSorter.cs" />
-    <Compile Include="Assets\Scripts\InteractionGuideView.cs" />
-    <Compile Include="Assets\Scripts\InteractionPanel.cs" />
-    <Compile Include="Assets\Scripts\InteractionPanelFactory.cs" />
-    <Compile Include="Assets\Scripts\InteractionPanelManager.cs" />
-    <Compile Include="Assets\Scripts\InteractionSearchHandler.cs" />
-    <Compile Include="Assets\Scripts\InteractionStructure.cs" />
-    <Compile Include="Assets\Scripts\InteractionStructureWithAudio.cs" />
-    <Compile Include="Assets\Scripts\InteractionToggle.cs" />
-    <Compile Include="Assets\Scripts\InteractionToggleRecolor.cs" />
-    <Compile Include="Assets\Scripts\InteractionTypeName.cs" />
-    <Compile Include="Assets\Scripts\ModelStatePanelUpdate.cs" />
-    <Compile Include="Assets\Scripts\ResetToggle.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionGazeLight.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionGroup.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionGroupSorter.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionGuideView.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionPanel.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionPanelFactory.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionPanelManager.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionSearchHandler.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionStructure.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionStructureWithAudio.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionToggle.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionToggleRecolor.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionTypeName.cs" />
+    <Compile Include="Assets\Scripts\Interactions\ModelStatePanelUpdate.cs" />
+    <Compile Include="Assets\Scripts\Interactions\ResetToggle.cs" />
+    <Compile Include="Assets\Scripts\Interactions\TutorialToggle.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\InteractionLoader.cs" />
     <Compile Include="Assets\Scripts\Singletons\ParserForAll.cs" />
-    <Compile Include="Assets\Scripts\StructureFactory.cs" />
-    <Compile Include="Assets\Scripts\StructureManager.cs" />
+    <Compile Include="Assets\Scripts\Structures\BasicStructure.cs" />
+    <Compile Include="Assets\Scripts\Structures\GroupedStructure.cs" />
+    <Compile Include="Assets\Scripts\Structures\StructureFactory.cs" />
+    <Compile Include="Assets\Scripts\Structures\StructureManager.cs" />
     <Compile Include="Assets\Scripts\test\Class1.cs" />
     <Compile Include="Assets\Scripts\test\subclass.cs" />
     <Compile Include="Assets\Scripts\test\superclass.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour.cs" />
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour2.cs" />
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour3.cs" />
-    <Compile Include="Assets\Scripts\TutorialToggle.cs" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
     <None Include="Assets\StreamingAssets\Vuforia\malePelvis.xml" />
@@ -140,19 +140,19 @@
     <None Include="Assets\Resources\SFXAudio\SortSFXByNames.txt" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -356,19 +356,19 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Frienddo/Desktop/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>

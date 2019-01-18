@@ -97,7 +97,14 @@ public sealed class EventManager {
 
     public void publishRecognitionStateChangedEvent(string foundOrLost)
     {
-        RecognitionStateChangedEvent(foundOrLost);
+        try
+        {
+            RecognitionStateChangedEvent(foundOrLost);
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.Log("Nothing listens to Vuforia recognition state changed. \nIgnore if this is thrown during scene loading (some items gets initialized after Vuforia targets). \nDebug otherwise. \n");
+        }
     }
 
     public void publishAudioEvent(AudioClip audioToPlay)
