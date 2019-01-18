@@ -16,6 +16,9 @@ public class InteractionGroupSorter {
 
     Dictionary<string, List<string>> structureGroup;
 
+
+    OrderedDictionary interactionAndGroupings;
+
     private static readonly InteractionGroupSorter INSTANCE = new InteractionGroupSorter();
 
     private InteractionGroupSorter()
@@ -23,6 +26,7 @@ public class InteractionGroupSorter {
         names = new List<string>();
 
         structureGroup = ParserForAll.Instance.SortStructureNamesByGroups;
+        interactionAndGroupings = ParserForAll.Instance.SortGroupsByInteractionTypes_ordered;
 
         EventManager.Instance.InteractionEvent += OnInteractionEvent;
         EventManager.Instance.ExpandedGroupEvent += OnExpandedGroupEvent;
@@ -36,12 +40,13 @@ public class InteractionGroupSorter {
         }
     }
     
-    void OnInteractionEvent(string interactionType, List<string> groupings)
+    void OnInteractionEvent(string interactionType)
     {
         names = new List<string>();
-
-        if (interactionType != "GAZELIGHT" && interactionType != "SEARCH")
+        
+        if (interactionAndGroupings.Contains(interactionType))
         {
+            List<string> groupings = (List<string>)interactionAndGroupings[interactionType];
             foreach (string group in groupings)
             {
                 if (structureGroup.ContainsKey(group))

@@ -14,34 +14,52 @@ public class InteractionToggle : MonoBehaviour {
     Button thisButton;
     string currentInteraction;
     List<string> currentGroupings;
-    OrderedDictionary interactionAndGroupings;
-    IDictionaryEnumerator interactionAndGroupingsEnumerator;
+
+    List<string> activeRooms;
+    IEnumerator activeRoomsEnum;
+
 
     enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
 
     // Use this for initialization
     void Start () {
-        interactionAndGroupings = ParserForAll.Instance.SortGroupsByInteractionTypes_ordered;
-        interactionAndGroupingsEnumerator = interactionAndGroupings.GetEnumerator();
+        activeRooms = getActiveRooms();
+        activeRoomsEnum = activeRooms.GetEnumerator();
 
         thisButton = this.gameObject.GetComponent<Button>();
         thisButton.onClick.AddListener(getNextInteraction);
         getNextInteraction();
 	}
 
+    private List<string> getActiveRooms()
+    {
+        OrderedDictionary roomTypes = ParserForAll.Instance.SortOnOffStatesByRoomTypes;
+
+        List<string> activeRooms = new List<string>();
+
+        foreach (DictionaryEntry de in roomTypes)
+        {
+            if ((bool)de.Value)
+            {
+                activeRooms.Add((string)de.Key);
+            }
+        }
+
+        return activeRooms;
+    }
+
     void getNextInteraction()
     {
         
-        if (interactionAndGroupingsEnumerator.MoveNext() == false)
+        if (activeRoomsEnum.MoveNext() == false)
         {
-            interactionAndGroupingsEnumerator.Reset();
-            interactionAndGroupingsEnumerator.MoveNext();
+            activeRoomsEnum.Reset();
+            activeRoomsEnum.MoveNext();
         }
 
-        currentInteraction = (string)interactionAndGroupingsEnumerator.Key;
-        currentGroupings = (List<string>)interactionAndGroupingsEnumerator.Value;
-
-        EventManager.Instance.publishInteractionEvent(currentInteraction, currentGroupings);
+        currentInteraction = (string)activeRoomsEnum.Current;
+        
+        EventManager.Instance.publishInteractionEvent(currentInteraction);
 
         EventManager.Instance.publishAudioSFXEvent("CLICKYES");
     }

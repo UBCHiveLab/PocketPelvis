@@ -17,6 +17,7 @@ public class ParserForAll {
     public Dictionary<string, List<string>> SortInteractionTypesByGroups { get; set; }
     public Dictionary<string, AudioClip> SortAudioNamesByStructureNames { get; set; }
     public Dictionary<string, AudioClip> SortSFXByNames { get; set; }
+    public OrderedDictionary SortOnOffStatesByRoomTypes { get; set; }
 
     private static readonly ParserForAll INSTANCE = new ParserForAll();
 
@@ -28,6 +29,7 @@ public class ParserForAll {
         SortGroupsByInteractionTypes_ordered = ParseGroupsByInteractionTypes_ordered();
         SortAudioNamesByStructureNames = ParseAudioNamesByStructureNames();
         SortSFXByNames = ParseSFXByNames();
+        SortOnOffStatesByRoomTypes = ParseRoomOnOff();
     }
 
     public static ParserForAll Instance
@@ -158,6 +160,20 @@ public class ParserForAll {
                 AudioClip audio = Resources.Load<AudioClip>(fileLocation);
                 parsedGroups.Add(stringTrimmer(structureGroups[0]), audio);
             }
+        }
+        return parsedGroups;
+    }
+
+    private OrderedDictionary ParseRoomOnOff()
+    {
+        OrderedDictionary parsedGroups = new OrderedDictionary();
+        TextAsset structureGroupsTextAsset = Resources.Load<TextAsset>("SortOnOffStatesByRoomTypes");
+        String structureGroupsRaw = structureGroupsTextAsset.text;
+        string[] structures = structureGroupsRaw.Split('\n');
+        foreach (string structure in structures)
+        {
+            string[] structureGroups = structure.Split(':');
+            parsedGroups.Add(stringTrimmer(structureGroups[0]), Convert.ToBoolean(stringTrimmer(structureGroups[1])));
         }
         return parsedGroups;
     }

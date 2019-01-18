@@ -13,17 +13,13 @@ public class InteractionGazeLight : MonoBehaviour {
     Collider thisCollider;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         currentCollisions = new List<string>();
         EventManager.Instance.InteractionEvent += OnStructureInteractionEvent;
         thisCollider = this.GetComponent<MeshCollider>();
         //Debug.Log("started gaze light");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		//
-	}
 
     void OnTriggerEnter(Collider col)
     {
@@ -49,9 +45,9 @@ public class InteractionGazeLight : MonoBehaviour {
         }
     }
 
-    public void OnStructureInteractionEvent(string interaction, List<string> groupings)
+    public void OnStructureInteractionEvent(string interaction)
     {
-        if (interaction == "GAZELIGHT")
+        if (interaction == "Gazelight")
         {
             gazeLightObjectToggle(true);
         } else

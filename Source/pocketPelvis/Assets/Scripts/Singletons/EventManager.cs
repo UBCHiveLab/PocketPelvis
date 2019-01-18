@@ -21,7 +21,7 @@ public sealed class EventManager {
     public delegate void InfoDisplayDelegate(string name, string type);
     public event InfoDisplayDelegate InfoDisplayEvent;
 
-    public delegate void InteractionDelegate(string interactionType, List<string> groupings);
+    public delegate void InteractionDelegate(string interactionType);
     public event InteractionDelegate InteractionEvent;
 
     public delegate void StateChangedDelegate(string name, string state);
@@ -80,9 +80,9 @@ public sealed class EventManager {
         InfoDisplayEvent(name, type);
     }
 
-    public void publishInteractionEvent(string interaction, List<string> groupings)
+    public void publishInteractionEvent(string interaction)
     {
-        InteractionEvent(interaction, groupings);
+        InteractionEvent(interaction);
     }
 
     public void publishStateChangedEvent(string name, string state)

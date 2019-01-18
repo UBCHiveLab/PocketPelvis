@@ -68,9 +68,9 @@ public class InteractionSearchHandler {
         //whatever user typed is automatically saved to mainInputField
     }
 
-    private void OnInteractionEvent(string interactionType, List<string> groupings)
+    private void OnInteractionEvent(string interactionType)
     {
-        if (interactionType == "SEARCH")
+        if (interactionType == "Search")
         {
             canvasRT.offsetMax = newMax;
             searchInteraction.SetActive(true);

@@ -121,6 +121,7 @@
     <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
     <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Emissive Diffuse.shader" />
     <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
+    <None Include="Assets\Resources\SortOnOffStatesByRoomTypes.txt" />
     <None Include="Assets\Resources\SortStructureByGroups-LevatorAniSeparated-malePelvisVisible.txt" />
     <None Include="Assets\StreamingAssets\Vuforia\Male Pelvis v2.xml" />
     <None Include="Assets\Resources\SortStructureByGroups.txt" />

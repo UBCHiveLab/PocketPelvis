@@ -19,7 +19,7 @@ public class InteractionTypeName {
         //OnInteractionEvent("GAZELIGHT", null);
     }
 
-    private void OnInteractionEvent(string interactionType, List<string> groupings)
+    private void OnInteractionEvent(string interactionType)
     {
         interactionTypeName.text = interactionType;
     }
