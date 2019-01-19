@@ -10,8 +10,6 @@ public class InteractionGroupSorter {
     //Show list of buttons according to groupings
     //Doesn't handle gazelight and search interactions
     
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO}
-
     List<string> names;
 
     Dictionary<string, List<string>> structureGroup;
@@ -68,12 +66,10 @@ public class InteractionGroupSorter {
         if (indexOfGroup + 1 >= names.Count || structureGroup.ContainsKey(names[indexOfGroup + 1]))
         {
             AddNamesToList(group, indexOfGroup);
-            EventManager.Instance.publishAudioSFXEvent("CLICKYES");
         }
         else
         {
             RemoveNamesFromList(group, indexOfGroup);
-            EventManager.Instance.publishAudioSFXEvent("CLICKNO");
         }
         
         EventManager.Instance.publishCollisionEvent(names);

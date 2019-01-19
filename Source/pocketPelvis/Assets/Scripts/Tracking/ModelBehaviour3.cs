@@ -21,8 +21,6 @@ public class ModelBehaviour3 : MonoBehaviour {
     TRACKINGSTATE currentTrackingState;
     enum TRACKINGSTATE { NO, YES }
 
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
-
     StringBuilder update;
 
     // Use this for initialization

@@ -21,8 +21,6 @@ public class InteractionSearchHandler {
 
     enum INTERACTION { STRUCTURE, GROUP, NONE };
 
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
-
     private InteractionSearchHandler()
     {
         canvas = GameObject.Find("structureInteractionsPanel");
@@ -60,7 +58,6 @@ public class InteractionSearchHandler {
             }
         }
         EventManager.Instance.publishCollisionEvent(lon);
-        EventManager.Instance.publishAudioSFXEvent("CLICKYES");
     }
 
     private void GetNameFromUser(InputField mainInputField)

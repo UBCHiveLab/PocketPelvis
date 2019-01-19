@@ -15,8 +15,6 @@ public class InteractionStructure : InteractionPanel {
     private Color fadeColor;
     private Color hideColor;
 
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
-
     public InteractionStructure(string name) : base(name)
     {
         SetUpButton(name);
@@ -52,7 +50,6 @@ public class InteractionStructure : InteractionPanel {
             {
                 case STATE.DEFAULT:
                     defaultState();
-                    EventManager.Instance.publishAudioSFXEvent("CLICKYES");
                     break;
                 case STATE.HIGHLIGHT:
                     highlightState();
@@ -62,7 +59,6 @@ public class InteractionStructure : InteractionPanel {
                     break;
                 case STATE.HIDE:
                     hideState();
-                    EventManager.Instance.publishAudioSFXEvent("CLICKNO");
                     break;
             }
         }

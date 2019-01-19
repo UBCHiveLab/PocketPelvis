@@ -34,11 +34,9 @@ public class ModelStatePanelUpdate : MonoBehaviour {
         if (update == "YES")
         {
             modelState.color = yesColor;
-            EventManager.Instance.publishAudioSFXEvent("RECOGYES");
         } else
         {
             modelState.color = noColor;
-            EventManager.Instance.publishAudioSFXEvent("RECOGNO");
         }
         
     }

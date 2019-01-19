@@ -8,8 +8,6 @@ public class AudioToggle : MonoBehaviour {
     bool onoff;
     Text text;
 
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
-
     // Use this for initialization
     void Start () {
         this.gameObject.GetComponent<Button>().onClick.AddListener(soundonoff);
@@ -32,7 +30,6 @@ public class AudioToggle : MonoBehaviour {
             onoff = true;
             text.text = "Mute";
             EventManager.Instance.publishAudioActiveEvent(onoff);
-            EventManager.Instance.publishAudioSFXEvent("CLICKYES");
         }
     }
 }

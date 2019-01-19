@@ -36,9 +36,6 @@ public sealed class EventManager {
     public delegate void AudioEventDelegate(AudioClip audioToPlay);
     public event AudioEventDelegate AudioEvent;
 
-    public delegate void AudioSFXEventDelegate(string soundType);
-    public event AudioSFXEventDelegate AudioSFXEvent;
-
     public delegate void AudioActiveEventDelegate(bool activeOrNot);
     public event AudioActiveEventDelegate AudioActiveEvent;
 
@@ -110,11 +107,6 @@ public sealed class EventManager {
     public void publishAudioEvent(AudioClip audioToPlay)
     {
         AudioEvent(audioToPlay);
-    }
-
-    public void publishAudioSFXEvent(string soundType)
-    {
-        AudioSFXEvent(soundType);
     }
 
     public void publishAudioActiveEvent(bool activeOrNot)

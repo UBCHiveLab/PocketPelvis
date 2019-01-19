@@ -17,10 +17,7 @@ public class InteractionToggle : MonoBehaviour {
 
     List<string> activeRooms;
     IEnumerator activeRoomsEnum;
-
-
-    enum SFXTYPE { CLICKYES, CLICKNO, RECOGYES, RECOGNO }
-
+    
     // Use this for initialization
     void Start () {
         activeRooms = getActiveRooms();
@@ -60,8 +57,6 @@ public class InteractionToggle : MonoBehaviour {
         currentInteraction = (string)activeRoomsEnum.Current;
         
         EventManager.Instance.publishInteractionEvent(currentInteraction);
-
-        EventManager.Instance.publishAudioSFXEvent("CLICKYES");
     }
 
     
