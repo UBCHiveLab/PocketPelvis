@@ -14,7 +14,6 @@ public class InteractionGroupSorter {
 
     Dictionary<string, List<string>> structureGroup;
 
-
     OrderedDictionary interactionAndGroupings;
 
     private static readonly InteractionGroupSorter INSTANCE = new InteractionGroupSorter();

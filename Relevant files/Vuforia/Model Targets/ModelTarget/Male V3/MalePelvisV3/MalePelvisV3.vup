@@ -1,0 +1,43 @@
+<vuforiaproject version="3">
+  <project id="954cfee40ad04e0b939141af4e941eab" assemblyId="5df7d4974b464d1c9a0ce7d8fc0fbc5f">
+    <source file="C:\Users\Frienddo\Desktop\PP_\PocketPelvis\Relevant files\Vuforia\Model Targets\model.obj" date="1551734085077"/>
+    <converted file=".converted\model.pvz" date="1551734354819"/>
+    <units length="Meters"/>
+  </project>
+  <camera>
+    <position x="0" y="0" z="0"/>
+    <quaternion x="0" y="0" z="0" w="1"/>
+    <up x="0" y="0" z="0"/>
+    <setup x="0" y="0" z="0"/>
+  </camera>
+
+  <detectionpointcamera>
+    <position x="0" y="0" z="0"/>
+    <quaternion x="0" y="0" z="0" w="1"/>
+    <up x="0" y="0" z="0"/>
+    <setup x="0" y="0" z="0"/>
+  </detectionpointcamera>
+
+  <detectionpoints>
+  </detectionpoints>
+  <trackingarea active="true">
+    <position x="0" y="0" z="0"/>
+    <quaternion x="0" y="0" z="0" w="1"/>
+    <scale x="1" y="1" z="1"/>
+    <corners>
+    </corners>
+  </trackingarea>
+  <dlproject active="false"/>
+  <targetvolumes>
+  </targetvolumes>
+  <camrendervols>
+  </camrendervols>
+  <orbitcontrols>
+    <target x="0" y="0" z="0"/>
+    <worldUpVector x="0" y="1" z="0"/>
+  </orbitcontrols>
+  <orbitdetection>
+    <target x="0" y="0" z="0"/>
+    <worldUpVector x="0" y="1" z="0"/>
+  </orbitdetection>
+</vuforiaproject>

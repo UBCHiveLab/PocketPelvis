@@ -127,11 +127,14 @@
     <None Include="Assets\Resources\SortStructureByGroups.txt" />
     <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
     <None Include="Assets\Vuforia\Databases\Emulator\VuforiaEmulator.xml" />
+    <None Include="Assets\Models\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump.shader" />
+    <None Include="Assets\Models\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Emissive Diffuse.shader" />
     <None Include="Assets\StreamingAssets\Vuforia\pocketPelvis_.xml" />
     <None Include="Assets\Resources\SortGroupsByInteractionTypes.txt" />
     <None Include="Assets\UI Design\OpenSans\LICENSE.txt" />
     <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
     <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
+    <None Include="Assets\Models\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\Resources\StructureNameAudio\StructureNameAndAudio.txt" />
     <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
@@ -140,6 +143,7 @@
     <None Include="Assets\ModelTarget\Male\malePelvis\dataset\malePelvis.xml" />
     <None Include="Assets\Resources\SFXAudio\SortSFXByNames.txt" />
     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
+    <None Include="Assets\Models\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -1,4 +1,1 @@
-Coccygeus:Coccyx
-LevatorAni:Levator Ani
-SacrospinousLigament:Sacrospinous ligament
-Sacrotuberous Ligament:Sacrotuberous ligament
+Piriformis:None

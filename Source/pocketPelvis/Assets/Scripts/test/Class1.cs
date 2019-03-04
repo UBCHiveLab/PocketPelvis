@@ -10,32 +10,26 @@ using UnityEngine.UI;
 //class attached to UI, used to yell at console to test stuff
 //feel free to edit anything
 public class Class1 : MonoBehaviour {
-    /*
-    public InputField mainInputField;
-
-    // Checks if there is anything entered into the input field.
-    void LockInput(InputField input)
-    {
-        if (input.text.Length > 0)
-        {
-            Debug.Log("Text has been entered: " + input.text);
-        }
-        else if (input.text.Length == 0)
-        {
-            Debug.Log("Main Input Empty");
-        }
-    }
+    List<string> nums;
+    List<string> seg;
 
     public void Start()
     {
-        //Adds a listener that invokes the "LockInput" method when the player finishes editing the main input field.
-        //Passes the main input field into the method when "LockInput" is invoked
-        mainInputField.onEndEdit.AddListener(delegate { LockInput(mainInputField); });
-    }
-    */
+        nums = new List<string> {"0000","0001","0010","0011",
+            "0100","0101","0110","0111","1000","1001" };
+        seg = new List<string> { "0000001", "1001111","0010010","0000110","1001100",
+            "0100100","0100000","0001111","0000000","0001100" };
 
-    public void Start()
-    {
-        subclass subby = new subclass();
+        string table = "";
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                table = table + "when " + nums[i] + nums[j] + "=> Hex1Temp <= " + seg[i] + "; Hex0Temp <= " + seg[j] + "a \n";
+            }
+        }
+
+        Debug.Log(table);
     }
 }

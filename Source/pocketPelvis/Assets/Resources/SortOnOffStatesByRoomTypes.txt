@@ -1,3 +1,4 @@
 Structure Groups:true
 Search:true
-Gazeligh:false
+Gazelight:false
+Quiz:true

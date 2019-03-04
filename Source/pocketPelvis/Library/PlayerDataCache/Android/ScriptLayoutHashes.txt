@@ -1,8 +1,8 @@
 Android
 PlayerPath?
-C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Builds/17012019_yesUIyesInitializer_testSpeed.apk
+C:/Users/Frienddo/Desktop/PP_/PocketPelvis/Source/pocketPelvis/Builds/04032019_oneMode_forDemo.apk
 SceneListBegin?
-Assets/Scenes/MalePelvis.unity
+Assets/Scenes/MalePelvis_minimal.unity
 SceneListEnd?
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ModelBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f VuforiaScripts.dll:.BoundingBoxRenderer
