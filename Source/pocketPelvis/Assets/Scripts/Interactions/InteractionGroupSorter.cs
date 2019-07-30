@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionGroupSorter {
 
     //Show list of buttons according to groupings
     //Doesn't handle gazelight and search interactions
+    RectTransform canvasRT;
+    Vector2 originalMax;
     
     List<string> names;
 
     Dictionary<string, List<string>> structureGroup;
-
 
     OrderedDictionary interactionAndGroupings;
 
@@ -22,6 +24,8 @@ public class InteractionGroupSorter {
     private InteractionGroupSorter()
     {
         names = new List<string>();
+        canvasRT = GameObject.Find("structureInteractionsPanel").GetComponent<RectTransform>();
+        originalMax = new Vector2(canvasRT.offsetMax.x, canvasRT.offsetMax.y);
 
         structureGroup = ParserForAll.Instance.SortStructureNamesByGroups;
         interactionAndGroupings = ParserForAll.Instance.SortGroupsByInteractionTypes_ordered;
@@ -44,6 +48,7 @@ public class InteractionGroupSorter {
         
         if (interactionAndGroupings.Contains(interactionType))
         {
+            readjustCanvas();
             List<string> groupings = (List<string>)interactionAndGroupings[interactionType];
             foreach (string group in groupings)
             {
@@ -58,6 +63,11 @@ public class InteractionGroupSorter {
         }
         
         EventManager.Instance.publishCollisionEvent(names);
+    }
+
+    private void readjustCanvas()
+    {
+        canvasRT.offsetMax = originalMax;
     }
 
     void OnExpandedGroupEvent(string group)

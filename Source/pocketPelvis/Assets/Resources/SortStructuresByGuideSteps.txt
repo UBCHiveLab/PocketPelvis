@@ -1,0 +1,14 @@
+1.3:L-Femur,R-Femur
+1.4:SacrospinousLigament
+1.5:Sacrotuberous Ligament
+1.6:L-ObturatorForamen,R-ObturatorForamen
+1.7:L-Femur,R-Femur,SacrospinousLigament,Sacrotuberous Ligament,L-ObturatorForamen,R-ObturatorForamen
+1.8:Iliacus
+1.9:LevatorAni
+1.10:Piriformis
+1.11:ObturatorInternus
+1.12:Coccygeus
+1.13:Iliacus,LevatorAni,Piriformis,ObturatorInternus,Coccygeus
+1.14:L-Femur,R-Femur,SacrospinousLigament,Sacrotuberous Ligament,L-ObturatorForamen,R-ObturatorForamen,Iliacus,LevatorAni,Piriformis,ObturatorInternus,Coccygeus
+1.15:SacrospinousLigament,Sacrotuberous Ligament,PudendalNerve
+1.16:L-Femur,R-Femur,SacrospinousLigament,Sacrotuberous Ligament,L-ObturatorForamen,R-ObturatorForamen,Iliacus,LevatorAni,Piriformis,ObturatorInternus,Coccygeus,PudendalNerve

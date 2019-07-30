@@ -18,6 +18,9 @@ public class ParserForAll {
     public Dictionary<string, AudioClip> SortAudioNamesByStructureNames { get; set; }
     public Dictionary<string, AudioClip> SortSFXByNames { get; set; }
     public OrderedDictionary SortOnOffStatesByRoomTypes { get; set; }
+    public OrderedDictionary SortGuideStepsByGuideRooms_ordered { get; set; }
+    public OrderedDictionary SortStructuresByGuideSteps_ordered { get; set; }
+    public Dictionary<string, string> SortTextInfoByStructure { get; set; }
 
     private static readonly ParserForAll INSTANCE = new ParserForAll();
 
@@ -30,6 +33,10 @@ public class ParserForAll {
         SortAudioNamesByStructureNames = ParseAudioNamesByStructureNames();
         SortSFXByNames = ParseSFXByNames();
         SortOnOffStatesByRoomTypes = ParseRoomOnOff();
+        SortGuideStepsByGuideRooms_ordered = ParseGuideSteps();
+        SortStructuresByGuideSteps_ordered = ParseGuidedStructures();
+        SortTextInfoByStructure = ParseTextInfo();
+
     }
 
     public static ParserForAll Instance
@@ -121,6 +128,7 @@ public class ParserForAll {
 
         //interactionAndGroupings.Add("GAZELIGHT", new List<string>()); //NOTE gazelight is disabled for now
         interactionAndGroupings.Add("SEARCH", new List<string>()); //NOTE search function is hardcoded in
+        interactionAndGroupings.Add("GUIDE", new List<string>()); //NOTE guide mode is hardcoded, its functionality is handled differently than structure groups
 
         return interactionAndGroupings;
     }
@@ -178,6 +186,52 @@ public class ParserForAll {
         return parsedGroups;
     }
 
+    private OrderedDictionary ParseGuideSteps()
+    {
+        OrderedDictionary interactionAndGroupings = new OrderedDictionary();
+
+        TextAsset structureGroupsSortingTextAsset = Resources.Load<TextAsset>("SortGuideStepsByGuideRooms");
+        string[] groupsSortings = structureGroupsSortingTextAsset.text.Split('\n');
+        foreach (string groupsSorting in groupsSortings)
+        {
+            string[] sortingAndCorrespondingGroups = groupsSorting.Split(':');
+            interactionAndGroupings.Add(stringTrimmer(sortingAndCorrespondingGroups[0]), new LinkedList<string>(LOSTrimmer(sortingAndCorrespondingGroups[1].Split(',').ToList())));
+        }
+
+        return interactionAndGroupings;
+    }
+
+    private OrderedDictionary ParseGuidedStructures()
+    {
+        OrderedDictionary interactionAndGroupings = new OrderedDictionary();
+
+        TextAsset structureGroupsSortingTextAsset = Resources.Load<TextAsset>("SortStructuresByGuideSteps");
+        string[] groupsSortings = structureGroupsSortingTextAsset.text.Split('\n');
+        foreach (string groupsSorting in groupsSortings)
+        {
+            string[] sortingAndCorrespondingGroups = groupsSorting.Split(':');
+            interactionAndGroupings.Add(stringTrimmer(sortingAndCorrespondingGroups[0]), LOSTrimmer(sortingAndCorrespondingGroups[1].Split(',').ToList()));
+        }
+
+        return interactionAndGroupings;
+    }
+
+
+    private Dictionary<string, string> ParseTextInfo()
+    {
+        Dictionary<string, string> parsedGroups = new Dictionary<string, string>();
+        TextAsset structureGroupsTextAsset = Resources.Load<TextAsset>("SortTextInfoByStructure");
+        String structureGroupsRaw = structureGroupsTextAsset.text;
+        string[] structures = structureGroupsRaw.Split('\n');
+        foreach (string structure in structures)
+        {
+            string[] structureGroups = structure.Split(':');
+            parsedGroups.Add(stringTrimmer(structureGroups[0]), stringTrimmer(structureGroups[1]));
+        }
+        return parsedGroups;
+    }
+
+    // helpers
     public string stringTrimmer(string str)
     {
         str = new string(str.Where(c => !char.IsControl(c)).ToArray());

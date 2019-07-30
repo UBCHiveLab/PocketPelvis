@@ -19,6 +19,7 @@ public class InitializeAllInstances : MonoBehaviour {
         InteractionSearchHandler stubby = InteractionSearchHandler.Instance;
         AudioHandler stubbyy = AudioHandler.Instance;
         AudioSFXManager stubbss = AudioSFXManager.Instance;
+        InteractionGuideMode stubbsss = InteractionGuideMode.Instance;
 
         EventManager.Instance.publishStateEvent("All", "HIDE");
         //EventManager.Instance.publishStateEvent("All", "DEFAULT");

@@ -75,7 +75,6 @@ public class InteractionSearchHandler {
 
         } else
         {
-            canvasRT.offsetMax = originalMax;
             searchInteraction.SetActive(false);
         }
     }

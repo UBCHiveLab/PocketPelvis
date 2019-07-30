@@ -79,7 +79,9 @@
     <Compile Include="Assets\Scripts\Interactions\InteractionGazeLight.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionGroup.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionGroupSorter.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionGuideMode.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionGuideView.cs" />
+    <Compile Include="Assets\Scripts\Interactions\InteractionInfoPanel.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionPanel.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionPanelFactory.cs" />
     <Compile Include="Assets\Scripts\Interactions\InteractionPanelManager.cs" />
@@ -116,6 +118,7 @@
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
     <None Include="Assets\Resources\OutlineEffect\Resources\OutlineShader.shader" />
     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
+    <None Include="Assets\Resources\SortStructuresByGuideSteps.txt" />
     <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\Resources\OutlineEffect\Resources\OutlineBufferShader.shader" />
     <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
@@ -127,11 +130,13 @@
     <None Include="Assets\Resources\SortStructureByGroups.txt" />
     <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
     <None Include="Assets\Vuforia\Databases\Emulator\VuforiaEmulator.xml" />
+    <None Include="Assets\Resources\SortTextInfoByStructure.txt" />
     <None Include="Assets\StreamingAssets\Vuforia\pocketPelvis_.xml" />
     <None Include="Assets\Resources\SortGroupsByInteractionTypes.txt" />
     <None Include="Assets\UI Design\OpenSans\LICENSE.txt" />
     <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
     <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
+    <None Include="Assets\Resources\SortGuideStepsByGuideRooms.txt" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\Resources\StructureNameAudio\StructureNameAndAudio.txt" />
     <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
