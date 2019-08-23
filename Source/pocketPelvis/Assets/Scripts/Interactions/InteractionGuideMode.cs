@@ -17,7 +17,7 @@ public class InteractionGuideMode
     OrderedDictionary guidedRooms;
     LinkedList<string> currentModules;
     LinkedListNode<string> currentModule;
-    OrderedDictionary guideSteps;
+    Dictionary<string, List<string>> guideSteps;
     LinkedList<string> currentSteps;
     LinkedListNode<string> currentStep;
     Text currentStepStatus;
@@ -32,7 +32,7 @@ public class InteractionGuideMode
     private InteractionGuideMode()
     {
         guidedRooms = ParserForAll.Instance.SortGuideStepsByGuideRooms_ordered;
-        guideSteps = ParserForAll.Instance.SortStructuresByGuideSteps_ordered;
+        guideSteps = ParserForAll.Instance.SortStructuresByGuideSteps;
         initializeRoomsAndSteps();
 
         canvas = GameObject.Find("structureInteractionsPanel");
@@ -65,7 +65,6 @@ public class InteractionGuideMode
     private void initializeGuideInteraction()
     {
         guideInteraction.transform.SetParent(canvas.transform);
-        Debug.Log("1");
         guideInteraction.transform.localPosition = new Vector2(10f, canvasRT.rect.height / 2f);
 
         currentStepStatus = guideInteraction.transform.Find("currentStep").GetComponentInChildren<Text>();
@@ -138,11 +137,11 @@ public class InteractionGuideMode
 
     private void changeCurrentStructuresStatus()
     {
-        EventManager.Instance.publishCollisionEvent((List<string>)guideSteps[currentStep.Value]);
-        EventManager.Instance.publishStateEvent("All", Enum.GetName(typeof(STATE), STATE.HIDE));
-        foreach (string s in (List<string>)guideSteps[currentStep.Value])
+        EventManager.Instance.publishCollisionEvent(guideSteps[currentStep.Value]);
+        EventManager.Instance.publishStateEvent("All", "HIDE");
+        foreach (string s in guideSteps[currentStep.Value])
         {
-            EventManager.Instance.publishStateEvent(s, Enum.GetName(typeof(STATE), STATE.DEFAULT));
+            EventManager.Instance.publishStateEvent(s, "DEFAULT");
         }
     }
 
@@ -157,7 +156,7 @@ public class InteractionGuideMode
         {
             canvasRT.offsetMax = newMax;
             guideInteraction.SetActive(true);
-            EventManager.Instance.publishCollisionEvent((List<string>)guideSteps[currentStep.Value]);
+            EventManager.Instance.publishCollisionEvent(guideSteps[currentStep.Value]);
         }
         else
         {

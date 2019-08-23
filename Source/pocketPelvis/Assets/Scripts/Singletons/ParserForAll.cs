@@ -20,6 +20,7 @@ public class ParserForAll {
     public OrderedDictionary SortOnOffStatesByRoomTypes { get; set; }
     public OrderedDictionary SortGuideStepsByGuideRooms_ordered { get; set; }
     public OrderedDictionary SortStructuresByGuideSteps_ordered { get; set; }
+    public Dictionary<string, List<string>> SortStructuresByGuideSteps { get; set; }
     public Dictionary<string, string> SortTextInfoByStructure { get; set; }
 
     private static readonly ParserForAll INSTANCE = new ParserForAll();
@@ -33,8 +34,9 @@ public class ParserForAll {
         SortAudioNamesByStructureNames = ParseAudioNamesByStructureNames();
         SortSFXByNames = ParseSFXByNames();
         SortOnOffStatesByRoomTypes = ParseRoomOnOff();
-        SortGuideStepsByGuideRooms_ordered = ParseGuideSteps();
-        SortStructuresByGuideSteps_ordered = ParseGuidedStructures();
+        SortGuideStepsByGuideRooms_ordered = ParseGuideSteps_linkedlist();
+        SortStructuresByGuideSteps_ordered = ParseGuidedStructures_ordered();
+        SortStructuresByGuideSteps = ParseGuidedStructures();
         SortTextInfoByStructure = ParseTextInfo();
 
     }
@@ -186,7 +188,7 @@ public class ParserForAll {
         return parsedGroups;
     }
 
-    private OrderedDictionary ParseGuideSteps()
+    private OrderedDictionary ParseGuideSteps_linkedlist()
     {
         OrderedDictionary interactionAndGroupings = new OrderedDictionary();
 
@@ -201,7 +203,7 @@ public class ParserForAll {
         return interactionAndGroupings;
     }
 
-    private OrderedDictionary ParseGuidedStructures()
+    private OrderedDictionary ParseGuidedStructures_ordered()
     {
         OrderedDictionary interactionAndGroupings = new OrderedDictionary();
 
@@ -214,6 +216,20 @@ public class ParserForAll {
         }
 
         return interactionAndGroupings;
+    }
+
+    private Dictionary<string, List<string>> ParseGuidedStructures()
+    {
+        Dictionary<string, List<string>> parsedGroups = new Dictionary<string, List<string>>();
+        TextAsset structureGroupsTextAsset = Resources.Load<TextAsset>("SortStructuresByGuideSteps");
+        String structureGroupsRaw = structureGroupsTextAsset.text;
+        string[] structures = structureGroupsRaw.Split('\n');
+        foreach (string structure in structures)
+        {
+            string[] structureGroups = structure.Split(':');
+            parsedGroups.Add(stringTrimmer(structureGroups[0]), LOSTrimmer(structureGroups[1].Split(',').ToList()));
+        }
+        return parsedGroups;
     }
 
 
