@@ -402,6 +402,13 @@
     <None Include="Assets\Editor\Vuforia\Emulator\VuforiaEmulator.xml" />
     <None Include="Assets\Editor\Vuforia\Male Pelvis v2\authoringinfo.xml" />
     <None Include="Assets\Editor\Vuforia\malePelvis\authoringinfo.xml" />
+    <None Include="Assets\Materials\Shaders\CustomOutline-CameraIndependent.shader" />
+    <None Include="Assets\Materials\Shaders\CustomOutline-ConstantWidth.shader" />
+    <None Include="Assets\Materials\Shaders\CustomOutline.shader" />
+    <None Include="Assets\Materials\Shaders\OutlineShader.shader" />
+    <None Include="Assets\Materials\Shaders\RegularOutline.shader" />
+    <None Include="Assets\Materials\Shaders\UniformOutline.shader" />
+    <None Include="Assets\Materials\Shaders\triangleOutline.shader" />
     <None Include="Assets\ModelTarget\Male Pelvis v2\dataset\Male Pelvis v2.xml" />
     <None Include="Assets\ModelTarget\Male\malePelvis\dataset\malePelvis.xml" />
     <None Include="Assets\QuickOutline\Readme.txt" />

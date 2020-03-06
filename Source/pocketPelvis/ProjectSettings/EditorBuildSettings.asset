@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Home.unity
     guid: 966336df4b794934d869343ce057ee79
   - enabled: 1
+    path: Assets/Scenes/GuideMode.unity
+    guid: 37286175bd65a36498ff07e03c478190
+  - enabled: 1
     path: Assets/Scenes/MalePelvis.unity
     guid: 9be693fb43e03a547be95f0ac3f16347
   m_configObjects: {}
