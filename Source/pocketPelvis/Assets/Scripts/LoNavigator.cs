@@ -49,7 +49,7 @@ public class LoNavigator : MonoBehaviour
         LearningObjectives.instance.ResetLOs();
         buttonText.text = "START LEARNING";
     }
-    public void DisplayLoUI()
+    public void DisplayLoInfo()
     {
         GameObject uiGroup = GameObject.Find("LearningObjectives");
         foreach(Transform loUI in uiGroup.transform)
@@ -122,6 +122,7 @@ public class LoNavigator : MonoBehaviour
                     //if 
                     setCurrentLO(LO+1, 1);
                     DisplayStepButtons();
+                    DisplayLoInfo();
                 }
             }
             
@@ -138,6 +139,7 @@ public class LoNavigator : MonoBehaviour
                 {
                     setCurrentLO(LO - 1, LearningObjectives.instance.learningObject.learningObjects[LO-2].learningObjectAchievement.Count);
                     DisplayStepButtons();
+                    DisplayLoInfo();
                 }
             }
             
