@@ -29,7 +29,7 @@ public class LearningObjectives : MonoBehaviour
             ResetLOs();
             SaveLOs();
         }
-        
+        Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
     }
     public void SaveLOs()
     {
@@ -49,7 +49,7 @@ public class LearningObjectives : MonoBehaviour
         }
         else
         {
-            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/saveAchievements.json");
+            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
         }
         
         learningObject= JsonUtility.FromJson<LearningObject>(load);
@@ -63,12 +63,18 @@ public class LearningObjectives : MonoBehaviour
                 lobject.learningObjectAchievement[i] = false;
             }
         }
+        learningObject.isNewUser = true;
+        learningObject.lastLO = 0;
+        learningObject.lastStep = 0;
+        SaveLOs();
     }
 }
 [System.Serializable]
 public class LearningObject
 {
     public bool isNewUser;
+    public int lastLO;
+    public int lastStep;
     public List<LOs> learningObjects = new List<LOs>();
     
 }
