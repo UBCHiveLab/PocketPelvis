@@ -98,6 +98,8 @@
     <Compile Include="Assets\Scripts\Interactions\TutorialToggle.cs" />
     <Compile Include="Assets\Scripts\LearningObjectives.cs" />
     <Compile Include="Assets\Scripts\LoNavigator.cs" />
+    <Compile Include="Assets\Scripts\ObjectComparison.cs" />
+    <Compile Include="Assets\Scripts\SaveRotation.cs" />
     <Compile Include="Assets\Scripts\SceneSwitcher.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\InteractionLoader.cs" />
