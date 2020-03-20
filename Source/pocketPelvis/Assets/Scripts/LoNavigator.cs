@@ -7,19 +7,24 @@ using UnityEngine.UI;
 
 public class LoNavigator : MonoBehaviour
 {
-    public Text buttonText;
+    public Text buttonTextV,buttonTextH;
     private GameObject stepButtons;
     private Button[] buttons;
-    
+    public static LoNavigator instance;
+    public GameObject tutorialPage;
+
     private void Start()
     {
+        instance = this;
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
-            buttonText.text = "START LEARNING";
+            buttonTextV.text = "START LEARNING";
+            buttonTextH.text = "START LEARNING";
         }
         else
         {
-            buttonText.text = "RESUME LEARNING";
+            buttonTextV.text = "RESUME LEARNING";
+            buttonTextH.text = "RESUME LEARNING";
         }
         
         
@@ -32,7 +37,11 @@ public class LoNavigator : MonoBehaviour
         //update data
         setCurrentLO(LO, step);
         if (LearningObjectives.instance.learningObject.isNewUser)
+        {
             LearningObjectives.instance.learningObject.isNewUser = false;
+            tutorialPage.SetActive(true);
+        }
+            
         LearningObjectives.instance.SaveLOs();
     }
     public void LearningButton()
@@ -47,7 +56,8 @@ public class LoNavigator : MonoBehaviour
     public void ResetUser()
     {
         LearningObjectives.instance.ResetLOs();
-        buttonText.text = "START LEARNING";
+        buttonTextV.text = "START LEARNING";
+        buttonTextH.text = "START LEARNING";
     }
     public void DisplayLoInfo()
     {
