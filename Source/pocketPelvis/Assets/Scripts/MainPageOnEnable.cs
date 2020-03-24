@@ -7,8 +7,8 @@ public class MainPageOnEnable : MonoBehaviour
    
     private void OnEnable()
     {
-       
-        LoNavigator.instance.DisplayStepButtons();
-        LoNavigator.instance.DisplayLoInfo();
+
+        LoNavigator.displayLOUI();
+        
     }
 }

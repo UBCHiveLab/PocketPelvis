@@ -8,7 +8,7 @@ public class LearningObjectives : MonoBehaviour
 
     public LearningObject learningObject = new LearningObject();
     private string jsonSavePath;
-    public static LearningObjectives instance;
+    public static LearningObjectives instance; 
 
     private void Awake()
     {
