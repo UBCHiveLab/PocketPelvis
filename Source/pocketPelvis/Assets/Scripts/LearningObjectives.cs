@@ -29,7 +29,7 @@ public class LearningObjectives : MonoBehaviour
             ResetLOs();
             SaveLOs();
         }
-        Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
+        //Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
     }
     public void SaveLOs()
     {

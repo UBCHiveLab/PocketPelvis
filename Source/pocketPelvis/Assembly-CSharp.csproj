@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour.cs" />
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour2.cs" />
     <Compile Include="Assets\Scripts\Tracking\ModelBehaviour3.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
     <None Include="Assets\StreamingAssets\Vuforia\malePelvis.xml" />

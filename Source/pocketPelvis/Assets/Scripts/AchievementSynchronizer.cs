@@ -19,7 +19,7 @@ public class AchievementSynchronizer : MonoBehaviour
 
         for(int i = 0; i < LO.learningObjects.Count; i++)
         {
-            Debug.Log(LO.learningObjects[i]);
+            
             for(int j=0;j< LO.learningObjects[i].learningObjectAchievement.Count; j++)
             {
                 if (LO.learningObjects[i].learningObjectAchievement[j])

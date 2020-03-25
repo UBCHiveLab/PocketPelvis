@@ -16,8 +16,9 @@ public class LoNavigator : MonoBehaviour
     public static event setCurrentLODelegate setCurrentLO;
     public delegate void displayLOUIDelegate ();
     public static displayLOUIDelegate displayLOUI;
+    private bool watchedTutorial;
     [SerializeField]
-    private Text infoText;
+    private Text infoText,fitText;
     [SerializeField]
     private GameObject buttonForward, buttonBackward;
     private InfoTexts infoTexts;
@@ -29,11 +30,13 @@ public class LoNavigator : MonoBehaviour
         {
             buttonTextV.text = "START LEARNING";
             buttonTextH.text = "START LEARNING";
+            watchedTutorial = false;
         }
         else
         {
             buttonTextV.text = "RESUME LEARNING";
             buttonTextH.text = "RESUME LEARNING";
+            watchedTutorial = true;
         }
         setCurrentLO += saveCurrentLO;
         setCurrentLO += ChangeInfoTextBasedOnLO;
@@ -41,6 +44,10 @@ public class LoNavigator : MonoBehaviour
         displayLOUI += DisplayLoInfo;
         displayLOUI += DisplayStepButtons;
         LoadInfoText();
+    }
+    public void TutorialWatched()
+    {
+        watchedTutorial = true;
     }
     private void OnDisable()
     {
@@ -64,7 +71,9 @@ public class LoNavigator : MonoBehaviour
             tutorialPage.SetActive(true);
         }
         setCurrentLO(LO, step);
-        
+        displayLOUI();
+
+
     }
     public void LearningButton()
     {
@@ -84,6 +93,7 @@ public class LoNavigator : MonoBehaviour
         LearningObjectives.instance.ResetLOs();
         buttonTextV.text = "START LEARNING";
         buttonTextH.text = "START LEARNING";
+        watchedTutorial = false;
     }
     public void DisplayLoInfo()
     {
@@ -92,6 +102,7 @@ public class LoNavigator : MonoBehaviour
         {
             loUI.gameObject.SetActive(false);
         }
+        if(watchedTutorial)
         uiGroup.transform.GetChild(LearningObjectives.instance.learningObject.lastLO - 1)
             .gameObject.SetActive(true);
     }
@@ -102,26 +113,30 @@ public class LoNavigator : MonoBehaviour
         int step = LearningObjectives.instance.learningObject.lastStep;
         int count = LearningObjectives.instance.learningObject.learningObjects[LO-1]
             .learningObjectAchievement.Count;
-        // looking throuhg all the step buttons and enable gameobjects based on number of steps it has for each LO
-        foreach (Transform loUI in stepButtons.transform)
+        if (stepButtons != null)
         {
-            if (count > 0)
+            // looking throuhg all the step buttons and enable gameobjects based on number of steps it has for each LO
+            foreach (Transform loUI in stepButtons.transform)
             {
-                loUI.gameObject.SetActive(true);
-                count--;
-            }
-            else
-            {
-                loUI.gameObject.SetActive(false);
-            }
+                if (count > 0)
+                {
+                    loUI.gameObject.SetActive(true);
+                    count--;
+                }
+                else
+                {
+                    loUI.gameObject.SetActive(false);
+                }
 
+            }
+            buttons = stepButtons.GetComponentsInChildren<Button>();
+            foreach (Button button in buttons)
+            {
+                button.interactable = true;
+            }
+            buttons[step - 1].interactable = false;
         }
-        buttons = stepButtons.GetComponentsInChildren<Button>();
-        foreach (Button button in buttons)
-        {
-            button.interactable = true;
-        }
-        buttons[step-1].interactable = false;
+        
     }
     public void StepButtonPressDown(Button clickedButton)
     {
@@ -203,13 +218,21 @@ public class LoNavigator : MonoBehaviour
     }
     public void ChangeInfoTextBasedOnLO(int LO, int step)
     {
-        string foundText = infoTexts.FindText(LO, step);
+        List<string> foundText = infoTexts.FindText(LO, step);
         //Debug.Log(foundText);
         if (foundText!=null){
             
-            infoText.text = foundText;
+            infoText.text = foundText[0];
+            if (foundText[1] != "")
+            {
+                fitText.text = "Please fit the 3D pelvis with the 2D shape!\n" + foundText[1];
+            }
+            else
+            {
+                fitText.text = "Please fit the 3D pelvis with the 2D shape!";
+            }
             
-            if (infoText.gameObject.activeSelf)
+            if (infoText.gameObject.activeInHierarchy)
             {
                 //force refreshing auto layout 
                 LayoutRebuilder.ForceRebuildLayoutImmediate(infoText.rectTransform); 
