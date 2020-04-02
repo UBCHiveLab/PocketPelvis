@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     {
         if(LOv.activeInHierarchy|| LOh.activeInHierarchy)
         {
-            Debug.Log(Input.deviceOrientation);
+            //Debug.Log(Input.deviceOrientation);
             if(Input.deviceOrientation==DeviceOrientation.Portrait|| Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown)
             {
                 LOv.SetActive(false);
