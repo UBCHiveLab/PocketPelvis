@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/decisionmaking1/B.unity
-  isLoaded: 1
-  isActive: 1
