@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class InfoText
+public class LoText
 {
     public int LO;
+    public string introductionText;
     public List<string> stepInfoText;
     public List<string> fitInfo;
 }
 [System.Serializable]
-public class InfoTexts
+public class LoTexts
 {
-    public List<InfoText> infoTexts;
+    public List<LoText> infoTexts;
 
-    public List<string> FindText(int LO,int step)
+    public List<string> FindInfoText(int LO,int step)
     {
         List<string> result = new List<string>();
-        foreach(InfoText infotext in infoTexts)
+        foreach(LoText infotext in infoTexts)
         {
             if (infotext.LO == LO&&step<= infotext.stepInfoText.Count)
             {
@@ -28,5 +29,18 @@ public class InfoTexts
             }
         }
         return null;
+    }
+
+    public string GetIntroductionForLO(int learningObjective)
+    {
+        foreach(LoText loTextContent in infoTexts)
+        {
+            if (loTextContent.LO == learningObjective)
+            {
+                return loTextContent.introductionText;
+            }
+        }
+
+        return "";
     }
 }

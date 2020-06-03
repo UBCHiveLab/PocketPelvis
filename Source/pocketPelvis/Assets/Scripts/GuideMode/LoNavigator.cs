@@ -27,13 +27,13 @@ public class LoNavigator : MonoBehaviour
     // private variable
     private bool watchedTutorial;
     [SerializeField]
-    private Text infoText, fitText;
+    private Text introductionText, infoText, fitText;
     [SerializeField]
     private GameObject buttonForward, buttonBackward;
     [SerializeField]
-    private GameObject panelWellDone,panelAlldone,panelFit;
+    private GameObject panelWellDone,panelAlldone,panelFit,panelIntro;
     
-    private InfoTexts infoTexts;
+    private LoTexts loTexts;
     private GameObject stepButtons;
     private Button[] buttons;
     private int currentLO, currentStep;
@@ -60,9 +60,9 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO += resetProgress;
         //setCurrentLO += DisplayFitPanel;
 
-        displayLOUI += DisplayLoInfo;
-        displayLOUI += DisplayStepButtons;
         displayLOUI += HideAllPanel;
+        displayLOUI += DisplayLOIntroduction;
+        displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanel;
         finishCurrentLO += saveProgress;
@@ -89,7 +89,8 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= resetProgress;
-        displayLOUI -= DisplayLoInfo;
+        displayLOUI -= HideAllPanel;
+        displayLOUI -= DisplayLOIntroduction;
         displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanel;
         finishCurrentLO -= saveProgress;
@@ -143,23 +144,11 @@ public class LoNavigator : MonoBehaviour
         buttonTextH.text = "START LEARNING";
         watchedTutorial = false;
     }
-    public void DisplayLoInfo()
+    public void DisplayLOIntroduction()
     {
-        
-        foreach (Transform loUI in uiGroup.transform)
-        {
-            loUI.gameObject.SetActive(false);
-        }
-
-        if (watchedTutorial)
-        {
-            uiGroup.transform.GetChild(LearningObjectives.instance.learningObject.lastLO - 1)
-                .gameObject.SetActive(true);
-            
-        }
-
-        
-            
+        // set the introduction text for the lo's intro and make the intro panel visible
+        introductionText.text = loTexts.GetIntroductionForLO(currentLO);
+        panelIntro.SetActive(true);   
     }
     public void HideAllPanel()
     {
@@ -278,7 +267,7 @@ public class LoNavigator : MonoBehaviour
     private void LoadInfoText()
     {
         string load;
-        string jsonSavePath = Application.dataPath + "/SaveData/LOInfoText.json";
+        string jsonSavePath = Application.dataPath + "/SaveData/LOText.json";
         if (System.IO.File.Exists(jsonSavePath))
         {
             load = System.IO.File.ReadAllText(jsonSavePath);
@@ -288,9 +277,8 @@ public class LoNavigator : MonoBehaviour
             load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
         }
 
-        infoTexts = JsonUtility.FromJson<InfoTexts>(load);
+        loTexts = JsonUtility.FromJson<LoTexts>(load);
     }
-
 
     public void saveCurrentLO(int LO, int step)
     {
@@ -302,7 +290,7 @@ public class LoNavigator : MonoBehaviour
     }
     public void ChangeInfoTextBasedOnLO(int LO, int step)
     {
-        List<string> foundText = infoTexts.FindText(LO, step);
+        List<string> foundText = loTexts.FindInfoText(LO, step);
         //Debug.Log(foundText);
         if (foundText != null) {
 
