@@ -20,7 +20,8 @@ public class LoTexts
         List<string> result = new List<string>();
         foreach(LoText infotext in infoTexts)
         {
-            if (infotext.LO == LO&&step<= infotext.stepInfoText.Count)
+            int infoTextIndex = step - 1;
+            if (infotext.LO == LO && infoTextIndex >= 0 && infoTextIndex < infotext.stepInfoText.Count)
             {
                 //return a list of string that has the texts of corresponding step
                 result.Add(infotext.stepInfoText[step - 1]);

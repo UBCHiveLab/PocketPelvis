@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+public enum StepControl
+{
+    Backward,
+    Forward
+}
 
 public class LoNavigator : MonoBehaviour
 {
@@ -29,15 +34,18 @@ public class LoNavigator : MonoBehaviour
     [SerializeField]
     private Text introductionText, infoText, fitText;
     [SerializeField]
-    private GameObject buttonForward, buttonBackward;
+    private Button buttonForward, buttonBackward;
+    [SerializeField]
+    private GameObject stepButtons;
     [SerializeField]
     private GameObject panelWellDone,panelAlldone,panelFit,panelIntro;
     
     private LoTexts loTexts;
-    private GameObject stepButtons;
     private Button[] buttons;
     private int currentLO, currentStep;
-    private GameObject uiGroup, panelGroup;
+    private GameObject panelGroup;
+
+    const int INTRO_STEP = 0;
 
     private void Start()
     {
@@ -58,10 +66,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += resetProgress;
-        //setCurrentLO += DisplayFitPanel;
-
-        displayLOUI += HideAllPanel;
-        displayLOUI += DisplayLOIntroduction;
+        displayLOUI += DisplayFitPanel;
         displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanel;
@@ -69,8 +74,11 @@ public class LoNavigator : MonoBehaviour
         finishCurrentLO += displayFinishMessage;
         LoadInfoText();
         currentProgress = progress.notStarted;
-        uiGroup = GameObject.Find("LearningObjectives");
         panelGroup= GameObject.Find("Panels");
+
+        // set listeners for the buttons that enable navigation through the LOs
+        buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
+        buttonForward.onClick.AddListener(() => GoToNextStep(StepControl.Forward));
     }
     private void Update()
     {
@@ -89,8 +97,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= resetProgress;
-        displayLOUI -= HideAllPanel;
-        displayLOUI -= DisplayLOIntroduction;
+        displayLOUI -= DisplayFitPanel;
         displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanel;
         finishCurrentLO -= saveProgress;
@@ -111,7 +118,6 @@ public class LoNavigator : MonoBehaviour
         }
         setCurrentLO(LO, step);
         displayLOUI();
-
     }
     public void LearningButton()
     {
@@ -146,6 +152,9 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayLOIntroduction()
     {
+        HideAllPanel();
+        stepButtons.SetActive(false);
+
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
         panelIntro.SetActive(true);   
@@ -159,20 +168,14 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayFitPanel()
     {
-        foreach(Transform introPanel in uiGroup.transform)
-        {
-            if (introPanel.gameObject.activeSelf)
-            {
-                return;
-            }
-        }
+        HideAllPanel();
+
         if(panelFit!=null)
         panelFit.SetActive(true);
 
     }
     public void DisplayStepButtons()
     {
-        stepButtons = GameObject.Find("StepButtons");
         //int LO = LearningObjectives.instance.learningObject.lastLO;
         //int step = LearningObjectives.instance.learningObject.lastStep;
         int count = LearningObjectives.instance.learningObject.learningObjects[currentLO - 1]
@@ -202,8 +205,12 @@ public class LoNavigator : MonoBehaviour
             buttons[currentStep - 1].interactable = false;
         }
 
+        if (!stepButtons.activeSelf)
+        {
+            stepButtons.SetActive(true);
+        }
     }
-    public void StepButtonPressDown(Button clickedButton)
+    public void PressDownStepButton(Button clickedButton)
     {
         //buttons = stepButtons.GetComponentsInChildren<Button>();
 
@@ -211,56 +218,52 @@ public class LoNavigator : MonoBehaviour
         {
             button.interactable = true;
         }
-        int buttonIndex = System.Array.IndexOf(buttons, clickedButton);
-        //LearningObjectives.instance.learningObject.lastStep = buttonIndex + 1;
-        //LearningObjectives.instance.SaveLOs();
-        setCurrentLO(LearningObjectives.instance.learningObject.lastLO, buttonIndex + 1);
         clickedButton.interactable = false;
-        HideAllPanel();
-        DisplayFitPanel();
     }
-    /// <summary>
-    /// + for going to previous lo step
-    /// - for going to next lo step
-    /// </summary>
-    /// <param name="control"></param>
-    public void StepsControl(string control)
+
+    public void GoToNextStep(StepControl control)
     {
-        
-        if (control == "+")
+        if (control == StepControl.Forward)
         {
-            if (buttons.Length > currentStep)
+            if (currentStep == INTRO_STEP)
             {
-                StepButtonPressDown(buttons[currentStep]);
-                
+                // if we are on the introduction step, then go to the next step in the current LO and display the LO content
+                setCurrentLO(currentLO, currentStep + 1);
+                displayLOUI();
             }
-            else
+            else if (buttons.Length > currentStep)
             {
-                if (currentLO < LearningObjectives.instance.learningObject.learningObjects.Count)
-                {
-                    //if 
-                    setCurrentLO(currentLO + 1, 1);
-                    displayLOUI();
-                }
+                // if there are still steps that we haven't gone to in the current LO, go to the next step
+                PressDownStepButton(buttons[currentStep]);
+                setCurrentLO(currentLO, currentStep + 1);
             }
-
+            else if (currentLO < LearningObjectives.instance.learningObject.learningObjects.Count)
+            {
+                // otherwise, if there is a LO after the current LO, go to the introduction of the next LO
+                setCurrentLO(currentLO + 1, INTRO_STEP);
+                DisplayLOIntroduction();
+            }
         }
-        else if (control == "-")
+        else if (control == StepControl.Backward)
         {
-            if (currentStep - 2 >= 0)
+            int prevStep = currentStep - 1;
+            if (prevStep == INTRO_STEP)
             {
-                StepButtonPressDown(buttons[currentStep - 2]);
-                
-            }
-            else
+                // if the previous step is the current LO's introduction, set that step to the current step and display the introduction
+                setCurrentLO(currentLO, prevStep);
+                DisplayLOIntroduction();
+            } else if (prevStep > INTRO_STEP && buttons.Length > prevStep)
             {
-                if (currentLO > 1)
-                {
-                    setCurrentLO(currentLO - 1, LearningObjectives.instance.learningObject.learningObjects[currentLO - 2].learningObjectAchievement.Count);
-                    displayLOUI();
-                }
+                // the previous step is a step in the current LO, so go to that step
+                PressDownStepButton(buttons[prevStep - 1]);
+                setCurrentLO(currentLO, prevStep);
             }
-
+            else if (currentLO > 1)
+            {
+                // otherwise, we have seen all the steps in the current LO, so go back to the last step in the previous LO, if possible
+                setCurrentLO(currentLO - 1, LearningObjectives.instance.learningObject.learningObjects[currentLO - 2].learningObjectAchievement.Count);
+                displayLOUI();
+            }
         }
         //HideAllPanel();
     }
@@ -314,20 +317,23 @@ public class LoNavigator : MonoBehaviour
     }
     public void ButtonDisplayBasedOnLO(int LO, int step)
     {
-        if (LO == 1 && step == 1)
+        GameObject backBttnGameObj = buttonBackward.gameObject;
+        GameObject forwardBttnGameObj = buttonForward.gameObject;
+
+        if (LO == 1 && step == INTRO_STEP)
         {
-            buttonBackward.SetActive(false);
+            backBttnGameObj.SetActive(false);
         }
         else if (LO == 10 && step == 3)
         {
-            buttonForward.SetActive(false);
+            forwardBttnGameObj.SetActive(false);
         }
         else
         {
-            if (buttonBackward.activeSelf || buttonForward.activeSelf)
+            if (backBttnGameObj.activeSelf || forwardBttnGameObj.activeSelf)
             {
-                buttonBackward.SetActive(true);
-                buttonForward.SetActive(true);
+                backBttnGameObj.SetActive(true);
+                forwardBttnGameObj.SetActive(true);
             }
         }
     }
@@ -338,7 +344,7 @@ public class LoNavigator : MonoBehaviour
    
     public void saveProgress()
     {
-        LearningObjectives.instance.learningObject.learningObjects[currentLO - 1].learningObjectAchievement[currentStep - 1] = true;
+        LearningObjectives.instance.learningObject.learningObjects[currentLO - 1].learningObjectAchievement[currentStep] = true;
         LearningObjectives.instance.SaveLOs();
     }
     public void displayFinishMessage()
