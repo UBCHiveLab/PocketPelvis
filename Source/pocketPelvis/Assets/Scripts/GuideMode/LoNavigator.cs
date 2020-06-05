@@ -212,13 +212,21 @@ public class LoNavigator : MonoBehaviour
     }
     public void PressDownStepButton(Button clickedButton)
     {
-        //buttons = stepButtons.GetComponentsInChildren<Button>();
-
         foreach (Button button in buttons)
         {
             button.interactable = true;
         }
         clickedButton.interactable = false;
+    }
+
+    public void OnClickStepButton(Button clickedButton)
+    {
+        // show the pressed down graphic and go to that button's step
+        PressDownStepButton(clickedButton);
+
+        // since arrays are 0-base indexed, the step of the clicked buttton will be the index of the button plus 1
+        int step = System.Array.IndexOf(buttons, clickedButton) + 1;
+        setCurrentLO(currentLO, step);
     }
 
     public void GoToNextStep(StepControl control)
