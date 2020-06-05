@@ -10,28 +10,28 @@
             ""
          ]
       },
-      {
-         "LO":2,
-         "introductionText":"Learning Objective 2: Bones and ligaments of the pelvis \nStep 1: Pelvic bones \nStep 2: Landmarks of pelvic bones- Front view \nStep 3: Landmarks of pelvic bones- Back view \nStep 4: Ligaments- Sacroiliac ligament \nStep 5: Ligaments- Sacrotuberous ligament",
-         "stepInfoText":[
-            "The pelvis articulates with the femur in the acetabulum, which is comprised of portions of the ilium, ischium, pubic bones.",
-            "-The sacrum articulates with the coccyx at sacrococcygeal joint.\n-The sacrum articulates with the bony pelvis via the ilia, at the sacral and ileal auricular surfaces.\n-The pubis, ilium and ischium are fused and all join in the acetabulum.\n -The superior margin of the obturator foramen is comprised of the pubic bone, while the inferior margin is comprised of ischial bone.",
-            "-The sacrum articulates with the coccyx at sacrococcygeal joint.\n-The sacrum articulates with the bony pelvis via the ilia, at the sacral and ileal auricular surfaces.\n-The pubis, ilium and ischium are fused and all join in the acetabulum. \n-The superior margin of the obturator foramen is comprised of the pubic bone, while the inferior margin is comprised of ischial bone. ",
-            "Attachments: posteriorly it attaches the sacrum via the sacral tubercles to ileal tuberosity and PSIS.\nAnteriorly it attaches the anterior surface of lateral aspect of the sacrum to the ilium at the margin of the auricular surface.",
-            "Attachments: attaches sacrum (transverse sacral tubercles) and coccyx to PSIS and blends into the posterior sacroiliac ligaments.",
-            "Attachments: attaches base of sacrum and coccyx to the ischial spine.",
-            "Closes the obturator foramen leaving a small canal (obturator canal) allowing the obturator nerve, artery and vein to pass through."
-         ],
-         "fitInfo":[
-            "Pelvic bones",
-            "Landmarks of pelvic bones- Front view",
-            "Landmarks of pelvic bones- Back view",
-            "Ligaments- Sacroiliac ligament",
-            "Ligaments- Sacrotuberous ligament",
-            "Ligaments- Sacrospinous ligament",
-            "Ligaments- Obturator membrane"
-         ]
-      },
+    {
+      "LO": 2,
+      "introductionText": "Learning Objective 2: Bones and ligaments of the pelvis \nStep 1: Pelvic bones \nStep 2: Landmarks of pelvic bones- Front view \nStep 3: Landmarks of pelvic bones- Back view \nStep 4: Ligaments- Sacroiliac ligament \nStep 5: Ligaments- Sacrotuberous ligament \nStep 6: Ligaments- Sacrospinous ligament \nStep 7: Ligaments- Obturator membrane",
+      "stepInfoText": [
+        "The pelvis articulates with the femur in the acetabulum, which is comprised of portions of the ilium, ischium, pubic bones.",
+        "-The sacrum articulates with the coccyx at sacrococcygeal joint.\n-The sacrum articulates with the bony pelvis via the ilia, at the sacral and ileal auricular surfaces.\n-The pubis, ilium and ischium are fused and all join in the acetabulum.\n -The superior margin of the obturator foramen is comprised of the pubic bone, while the inferior margin is comprised of ischial bone.",
+        "-The sacrum articulates with the coccyx at sacrococcygeal joint.\n-The sacrum articulates with the bony pelvis via the ilia, at the sacral and ileal auricular surfaces.\n-The pubis, ilium and ischium are fused and all join in the acetabulum. \n-The superior margin of the obturator foramen is comprised of the pubic bone, while the inferior margin is comprised of ischial bone. ",
+        "Attachments: posteriorly it attaches the sacrum via the sacral tubercles to ileal tuberosity and PSIS.\nAnteriorly it attaches the anterior surface of lateral aspect of the sacrum to the ilium at the margin of the auricular surface.",
+        "Attachments: attaches sacrum (transverse sacral tubercles) and coccyx to PSIS and blends into the posterior sacroiliac ligaments.",
+        "Attachments: attaches base of sacrum and coccyx to the ischial spine.",
+        "Closes the obturator foramen leaving a small canal (obturator canal) allowing the obturator nerve, artery and vein to pass through."
+      ],
+      "fitInfo": [
+        "Pelvic bones",
+        "Landmarks of pelvic bones- Front view",
+        "Landmarks of pelvic bones- Back view",
+        "Ligaments- Sacroiliac ligament",
+        "Ligaments- Sacrotuberous ligament",
+        "Ligaments- Sacrospinous ligament",
+        "Ligaments- Obturator membrane"
+      ]
+    },
       {
          "LO":3,
          "introductionText":"Learning Objective 3: Nerves and vessels of the pelvis \nStep 1: Sacral plexus gives rise to the pudendal nerve \nStep 2: Pudendal nerve relates to other musculoskeletal structures \nStep 3: Pudendal nerve enters the anal triangle to innervate perineal structures \nStep 4: Pudendal artery follows the pudendal nerve",
