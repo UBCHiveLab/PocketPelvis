@@ -371,5 +371,4 @@ public class LoNavigator : MonoBehaviour
         }
         PanelManager.Instance.ShowPanel(PanelType.AllDone);
     }
-    
 }

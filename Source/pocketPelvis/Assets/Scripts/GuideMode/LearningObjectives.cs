@@ -82,6 +82,7 @@ public class LearningObject
 [System.Serializable]
 public class LOs
 {
+    public int id;
     public string objective;
     public List<bool> learningObjectAchievement = new List<bool>();
 }
