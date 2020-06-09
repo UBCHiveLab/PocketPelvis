@@ -38,12 +38,11 @@ public class LoNavigator : MonoBehaviour
     [SerializeField]
     private GameObject stepButtons;
     [SerializeField]
-    private GameObject panelWellDone,panelAlldone,panelFit,panelIntro;
+    private PanelManager panelManager;
     
     private LoTexts loTexts;
     private Button[] buttons;
     private int currentLO, currentStep;
-    private GameObject panelGroup;
 
     const int INTRO_STEP = 0;
 
@@ -69,12 +68,11 @@ public class LoNavigator : MonoBehaviour
         displayLOUI += DisplayFitPanel;
         displayLOUI += DisplayStepButtons;
 
-        finishCurrentLO += HideAllPanel;
+        finishCurrentLO += panelManager.HideAllPanels;
         finishCurrentLO += saveProgress;
         finishCurrentLO += displayFinishMessage;
         LoadInfoText();
         currentProgress = progress.notStarted;
-        panelGroup= GameObject.Find("Panels");
 
         // set listeners for the buttons that enable navigation through the LOs
         buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
@@ -82,7 +80,7 @@ public class LoNavigator : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.L) && currentStep != INTRO_STEP)
         {
             finishCurrentLO();
         }
@@ -99,7 +97,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= resetProgress;
         displayLOUI -= DisplayFitPanel;
         displayLOUI -= DisplayStepButtons;
-        finishCurrentLO -= HideAllPanel;
+        finishCurrentLO -= panelManager.HideAllPanels;
         finishCurrentLO -= saveProgress;
         finishCurrentLO -= displayFinishMessage;
     }
@@ -152,27 +150,16 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayLOIntroduction()
     {
-        HideAllPanel();
         stepButtons.SetActive(false);
 
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
-        panelIntro.SetActive(true);   
+        panelManager.ShowPanel(Panel.Introduction);
     }
-    public void HideAllPanel()
-    {
-        foreach (Transform panel in panelGroup.transform)
-        {
-            panel.gameObject.SetActive(false);
-        }
-    }
+
     public void DisplayFitPanel()
     {
-        HideAllPanel();
-
-        if(panelFit!=null)
-        panelFit.SetActive(true);
-
+        panelManager.ShowPanel(Panel.Fit);
     }
     public void DisplayStepButtons()
     {
@@ -274,7 +261,6 @@ public class LoNavigator : MonoBehaviour
                 displayLOUI();
             }
         }
-        //HideAllPanel();
     }
     private void LoadInfoText()
     {
@@ -353,12 +339,16 @@ public class LoNavigator : MonoBehaviour
    
     public void saveProgress()
     {
-        LearningObjectives.instance.learningObject.learningObjects[currentLO - 1].learningObjectAchievement[currentStep] = true;
+        if (currentStep == INTRO_STEP)
+        {
+            // have achieved no additional progress since last save if only on the introductory step
+            return;
+        }
+        LearningObjectives.instance.learningObject.learningObjects[currentLO - 1].learningObjectAchievement[currentStep - 1] = true;
         LearningObjectives.instance.SaveLOs();
     }
     public void displayFinishMessage()
     {
-        //HideAllPanel();
         foreach (LOs lo in LearningObjectives.instance.learningObject.learningObjects)
         {
             
@@ -366,14 +356,12 @@ public class LoNavigator : MonoBehaviour
             {
                 if (!isFinished)
                 {
-                    if(panelWellDone!=null)
-                    panelWellDone.SetActive(true);
+                    panelManager.ShowPanel(Panel.WellDone);
                     return;
                 }
             }
         }
-        if (panelAlldone != null)
-            panelAlldone.SetActive(true);
+        panelManager.ShowPanel(Panel.AllDone);
     }
     
 }
