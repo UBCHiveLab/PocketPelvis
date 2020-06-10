@@ -202,6 +202,7 @@ public class LoNavigator : MonoBehaviour
             {
                 button.interactable = true;
             }
+            if(currentStep != INTRO_STEP)
             buttons[currentStep - 1].interactable = false;
         }
 
