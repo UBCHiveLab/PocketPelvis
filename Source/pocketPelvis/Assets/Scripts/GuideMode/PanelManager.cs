@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public enum Panel
+public enum PanelType
 {
     Menu,
     Info,
@@ -13,61 +14,48 @@ public enum Panel
     Introduction
 }
 
-public class PanelManager : MonoBehaviour
+public class PanelManager : Singleton<PanelManager>
 {
-    [SerializeField]
-    private GameObject[] panels;
+    
+    private List<PanelController> panelControllers;
+
+    private void Awake()
+    {
+        //get all panel controllers component in children including inactive ones
+        panelControllers = GetComponentsInChildren<PanelController>(true).ToList();
+    }
 
     public void HideAllPanels()
     {
-        foreach (GameObject panel in panels)
-        {
-            panel.SetActive(false);
-        }
+        panelControllers.ForEach(x => x.gameObject.SetActive(false));
     }
 
-    public void ShowPanel(Panel panel)
+    public void ShowPanel(PanelType _panelType)
     {
-        int panelIndex = GetPanelIndex(panel);
-        if (panelIndex < 0)
-        {
-            return;
-        }
-
         HideAllPanels();
 
-        panels[panelIndex].SetActive(true);
+        PanelController foundPanel= panelControllers.Find(x => x.panelType == _panelType);
+
+        if (foundPanel!=null)
+        foundPanel.gameObject.SetActive(true);
     }
 
     // used by buttons in the Unity editor to toggle the visiblity of a panel
-    public void TogglePanel(GameObject panel)
+    public void TogglePanel(PanelController panel)
     {
-        if (panel == null)
-        {
-            return;
-        }
 
-        bool panelIsVisible = panel.activeSelf;
+        bool panelIsVisible = panel.gameObject.activeSelf;
 
         HideAllPanels();
 
         // set the panel's visibilty to the opposite of what it was before
-        panel.SetActive(!panelIsVisible);
+        panel.gameObject.SetActive(!panelIsVisible);
 
         if (panelIsVisible)
         {
             // if no panel is visible, make the fit panel visible
-            ShowPanel(Panel.Fit);
+            ShowPanel(PanelType.Fit);
         }
     }
 
-    private int GetPanelIndex(Panel panel)
-    {
-        int panelIndex = (int) panel;
-        if (panelIndex >= panels.Length)
-        {
-            panelIndex = -1;
-        }
-        return panelIndex;
-    }
 }

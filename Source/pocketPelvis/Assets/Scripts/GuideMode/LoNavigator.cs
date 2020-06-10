@@ -37,8 +37,6 @@ public class LoNavigator : MonoBehaviour
     private Button buttonForward, buttonBackward;
     [SerializeField]
     private GameObject stepButtons;
-    [SerializeField]
-    private PanelManager panelManager;
     
     private LoTexts loTexts;
     private Button[] buttons;
@@ -68,7 +66,7 @@ public class LoNavigator : MonoBehaviour
         displayLOUI += DisplayFitPanel;
         displayLOUI += DisplayStepButtons;
 
-        finishCurrentLO += panelManager.HideAllPanels;
+        finishCurrentLO += HideAllPanels;
         finishCurrentLO += saveProgress;
         finishCurrentLO += displayFinishMessage;
         LoadInfoText();
@@ -97,7 +95,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= resetProgress;
         displayLOUI -= DisplayFitPanel;
         displayLOUI -= DisplayStepButtons;
-        finishCurrentLO -= panelManager.HideAllPanels;
+        finishCurrentLO -= HideAllPanels;
         finishCurrentLO -= saveProgress;
         finishCurrentLO -= displayFinishMessage;
     }
@@ -154,12 +152,12 @@ public class LoNavigator : MonoBehaviour
 
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
-        panelManager.ShowPanel(Panel.Introduction);
+        PanelManager.Instance.ShowPanel(PanelType.Introduction);
     }
 
     public void DisplayFitPanel()
     {
-        panelManager.ShowPanel(Panel.Fit);
+        PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
     public void DisplayStepButtons()
     {
@@ -336,7 +334,10 @@ public class LoNavigator : MonoBehaviour
     {
         currentProgress = progress.inProgress;
     }
-   
+   public void HideAllPanels()
+    {
+        PanelManager.Instance.HideAllPanels();
+    }
     public void saveProgress()
     {
         if (currentStep == INTRO_STEP)
@@ -356,12 +357,12 @@ public class LoNavigator : MonoBehaviour
             {
                 if (!isFinished)
                 {
-                    panelManager.ShowPanel(Panel.WellDone);
+                    PanelManager.Instance.ShowPanel(PanelType.WellDone);
                     return;
                 }
             }
         }
-        panelManager.ShowPanel(Panel.AllDone);
+        PanelManager.Instance.ShowPanel(PanelType.AllDone);
     }
     
 }
