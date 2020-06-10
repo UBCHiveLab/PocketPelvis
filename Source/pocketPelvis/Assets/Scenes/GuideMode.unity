@@ -870,6 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330728060}
+  - component: {fileID: 330728061}
   m_Layer: 5
   m_Name: PanelIntro
   m_TagString: Untagged
@@ -897,6 +898,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &330728061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330728059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 5
 --- !u!1 &375153327
 GameObject:
   m_ObjectHideFlags: 0
@@ -8112,6 +8126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743761657750880}
+  - component: {fileID: 4236743761657750884}
   m_Layer: 5
   m_Name: Panels
   m_TagString: Untagged
@@ -8119,6 +8134,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4236743761657750884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743761657750883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91700a21ba2fbb94f835f173949ee5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4236743761660194000
 GameObject:
   m_ObjectHideFlags: 0
@@ -11793,6 +11820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743761755433653}
+  - component: {fileID: 4236743761755433654}
   m_Layer: 5
   m_Name: PanelMenu
   m_TagString: Untagged
@@ -11823,6 +11851,19 @@ RectTransform:
   m_AnchoredPosition: {x: 1487, y: -454}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4236743761755433654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743761755433652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 0
 --- !u!114 &4236743761758948800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18827,12 +18868,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4236743763610907384}
+      - m_Target: {fileID: 4236743761657750884}
         m_MethodName: TogglePanel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 4236743761755433652}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 4236743761755433654}
+          m_ObjectArgumentAssemblyTypeName: PanelController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -36491,6 +36532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743762423146674}
+  - component: {fileID: 4236743762423146686}
   m_Layer: 5
   m_Name: PanelWelldone!
   m_TagString: Untagged
@@ -36498,6 +36540,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4236743762423146686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743762423146685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 3
 --- !u!114 &4236743762424922960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46806,6 +46861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743762713088780}
+  - component: {fileID: 4236743762713088784}
   m_Layer: 5
   m_Name: PanelAllDone!
   m_TagString: Untagged
@@ -46813,6 +46869,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4236743762713088784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743762713088783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 2
 --- !u!224 &4236743762715440712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58273,12 +58342,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4236743763610907384}
+      - m_Target: {fileID: 4236743761657750884}
         m_MethodName: TogglePanel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 4236743763656462603}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 4236743763656462604}
+          m_ObjectArgumentAssemblyTypeName: PanelController, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -64543,6 +64612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743763271390853}
+  - component: {fileID: 4236743763271390854}
   m_Layer: 5
   m_Name: PanelFit
   m_TagString: Untagged
@@ -64568,9 +64638,22 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 415}
+  m_AnchoredPosition: {x: 0, y: 410}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4236743763271390854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743763271390852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 4
 --- !u!1 &4236743763272850393
 GameObject:
   m_ObjectHideFlags: 0
@@ -75621,7 +75704,6 @@ GameObject:
   - component: {fileID: 4236743763610907377}
   - component: {fileID: 4236743763610907378}
   - component: {fileID: 4236743763610907379}
-  - component: {fileID: 4236743763610907384}
   m_Layer: 5
   m_Name: UI-G 2
   m_TagString: Untagged
@@ -75680,7 +75762,6 @@ MonoBehaviour:
   buttonForward: {fileID: 4236743763467148492}
   buttonBackward: {fileID: 4236743762514862618}
   stepButtons: {fileID: 758424412}
-  panelManager: {fileID: 4236743763610907384}
 --- !u!224 &4236743763610907380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75752,25 +75833,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &4236743763610907384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4236743763610907376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91700a21ba2fbb94f835f173949ee5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panels:
-  - {fileID: 4236743761755433652}
-  - {fileID: 4236743763656462603}
-  - {fileID: 4236743762713088783}
-  - {fileID: 4236743762423146685}
-  - {fileID: 4236743763271390852}
-  - {fileID: 330728059}
 --- !u!114 &4236743763612978338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77897,6 +77959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4236743763656462600}
+  - component: {fileID: 4236743763656462604}
   m_Layer: 5
   m_Name: PanelInfo
   m_TagString: Untagged
@@ -77904,6 +77967,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &4236743763656462604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743763656462603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340ac18ae3eeccd48a838000181eaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelType: 1
 --- !u!114 &4236743763656743960
 MonoBehaviour:
   m_ObjectHideFlags: 0
