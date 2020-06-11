@@ -14,7 +14,7 @@ public enum PanelType
     Introduction
 }
 
-public class PanelManager : Singleton<PanelManager>
+public class PanelManager : SceneSingleton<PanelManager>
 {
     
     private List<PanelController> panelControllers;

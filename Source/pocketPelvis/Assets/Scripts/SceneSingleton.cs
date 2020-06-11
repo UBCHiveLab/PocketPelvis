@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Inherit from this base class to create a singleton.
-/// e.g. public class MyClassName : Singleton<MyClassName> {}
+/// Inherit from this base class to create a singleton for the scene.
+/// e.g. public class MyClassName : SceneSingleton<MyClassName> {}
+/// The lifetime of this singleton is the duration that the scene is active.
+/// When a scene is loaded, the singleton is destroyed.
 /// </summary>
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     // Check to see if we're about to be destroyed.
     private static bool m_ShuttingDown = false;
@@ -20,7 +22,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (m_ShuttingDown)
             {
-                Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
+                Debug.LogWarning("[SceneSingleton] Instance '" + typeof(T) +
                     "' already destroyed. Returning null.");
                 return null;
             }
@@ -38,10 +40,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         // Need to create a new GameObject to attach the singleton to.
                         var singletonObject = new GameObject();
                         m_Instance = singletonObject.AddComponent<T>();
-                        singletonObject.name = typeof(T).ToString() + " (Singleton)";
-
-                        // Make instance persistent.
-                        DontDestroyOnLoad(singletonObject);
+                        singletonObject.name = typeof(T).ToString() + " (SceneSingleton)";
                     }
                 }
 
@@ -51,13 +50,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     }
 
 
+
     private void OnApplicationQuit()
-    {
-        m_ShuttingDown = true;
-    }
-
-
-    private void OnDestroy()
     {
         m_ShuttingDown = true;
     }
