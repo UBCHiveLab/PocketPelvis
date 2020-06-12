@@ -34,28 +34,38 @@ public class PanelManager : Singleton<PanelManager>
     {
         HideAllPanels();
 
-        PanelController foundPanel= panelControllers.Find(x => x.panelType == _panelType);
+        PanelController foundPanel= FindPanelWithType(_panelType);
 
         if (foundPanel!=null)
         foundPanel.gameObject.SetActive(true);
     }
 
-    // used by buttons in the Unity editor to toggle the visiblity of a panel
-    public void TogglePanel(PanelController panel)
+    public void TogglePanel(PanelType _panelType)
     {
+        PanelController foundPanel = FindPanelWithType(_panelType);
 
-        bool panelIsVisible = panel.gameObject.activeSelf;
+        if (foundPanel == null)
+        {
+            return;
+        }
+
+        bool panelIsVisible = foundPanel.gameObject.activeSelf;
 
         HideAllPanels();
 
         // set the panel's visibilty to the opposite of what it was before
-        panel.gameObject.SetActive(!panelIsVisible);
+        foundPanel.gameObject.SetActive(!panelIsVisible);
 
         if (panelIsVisible)
         {
             // if no panel is visible, make the fit panel visible
             ShowPanel(PanelType.Fit);
         }
+    }
+
+    private PanelController FindPanelWithType(PanelType type)
+    {
+        return panelControllers.Find(panel => panel.panelType == type);
     }
 
 }
