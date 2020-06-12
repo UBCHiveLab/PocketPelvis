@@ -1,23 +1,14 @@
-/*==============================================================================
-Copyright (c) 2017 PTC Inc. All Rights Reserved.
-
-Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
-All Rights Reserved.
-Confidential and Proprietary - Protected under copyright and other laws.
-==============================================================================*/
-
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
 /// <summary>
-/// A custom handler that implements the ITrackableEventHandler interface.
-///
-/// Changes made to this file could be overwritten when upgrading the Vuforia version.
-/// When implementing custom event handler behavior, consider inheriting from this class instead.
+/// custom vuforia trackable event handler, copied and modified directly from the default tracakable event handler script
 /// </summary>
-public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
+public class CustomTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
-  
+
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -99,6 +90,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+
+        //set progress to win
+        SetCurrentProgress(Progress.win);
     }
 
 
@@ -119,8 +113,17 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
+        SetCurrentProgress(Progress.inProgress);
     }
 
     #endregion // PROTECTED_METHODS
+
+    #region CUSTOM_METHODS
+    void SetCurrentProgress(Progress progress)
+    {
+        LoNavigator.SetProgress(progress);
+    }
+    #endregion
 
 }

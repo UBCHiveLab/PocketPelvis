@@ -9,26 +9,31 @@ public enum StepControl
     Backward,
     Forward
 }
+public enum Progress { notStarted, inProgress, win }
 
 public class LoNavigator : MonoBehaviour
 {
     // singeleton instance
     public static LoNavigator instance;
 
-    public enum progress { notStarted, inProgress, win };
-    public progress currentProgress;
-
+    
+    public Progress currentProgress;
     public GameObject tutorialPage;
     public Text buttonTextV, buttonTextH;
 
-    // public delegate classes
+    #region DELEGATE_METHODS
+    
     public delegate void setCurrentLODelegate(int LO, int step);
     public static event setCurrentLODelegate setCurrentLO;
     public delegate void displayLOUIDelegate();
     public static displayLOUIDelegate displayLOUI;
     public delegate void finishCurrentLODelegate();
     public static finishCurrentLODelegate finishCurrentLO;
+    public delegate void SetProgressDelegate(Progress progress);
+    public static SetProgressDelegate SetProgress;
+    #endregion // PUBLIC DELEGATE METHODS
 
+    #region PRIVATE_VARIABLES
     // private variable
     private bool watchedTutorial;
     [SerializeField]
@@ -37,12 +42,11 @@ public class LoNavigator : MonoBehaviour
     private Button buttonForward, buttonBackward;
     [SerializeField]
     private GameObject stepButtons;
-    
     private LoTexts loTexts;
     private Button[] buttons;
     private int currentLO, currentStep;
-
     const int INTRO_STEP = 0;
+    #endregion
 
     private void Start()
     {
@@ -59,18 +63,22 @@ public class LoNavigator : MonoBehaviour
             buttonTextH.text = "RESUME LEARNING";
             watchedTutorial = true;
         }
+        #region DELEGATE_METHODS_SUBSCRIBING
         setCurrentLO += saveCurrentLO;
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
-        setCurrentLO += resetProgress;
         displayLOUI += DisplayFitPanel;
         displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanels;
         finishCurrentLO += saveProgress;
         finishCurrentLO += displayFinishMessage;
+
+        SetProgress += ChangeCurrentProgress;
+        #endregion
+
         LoadInfoText();
-        currentProgress = progress.notStarted;
+        currentProgress = Progress.notStarted;
 
         // set listeners for the buttons that enable navigation through the LOs
         buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
@@ -89,15 +97,17 @@ public class LoNavigator : MonoBehaviour
     }
     private void OnDisable()
     {
+        #region DELEGATE_METHODS_UNSUBSCRIBING
         setCurrentLO -= saveCurrentLO;
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
-        setCurrentLO -= resetProgress;
+        SetProgress += ChangeCurrentProgress;
         displayLOUI -= DisplayFitPanel;
         displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanels;
         finishCurrentLO -= saveProgress;
         finishCurrentLO -= displayFinishMessage;
+        #endregion
     }
     public void StarButtonOnClick(string array)
     {
@@ -259,6 +269,7 @@ public class LoNavigator : MonoBehaviour
                 displayLOUI();
             }
         }
+        SetProgress(Progress.inProgress);
     }
     private void LoadInfoText()
     {
@@ -330,10 +341,7 @@ public class LoNavigator : MonoBehaviour
             }
         }
     }
-    public void resetProgress(int LO, int step)
-    {
-        currentProgress = progress.inProgress;
-    }
+
    public void HideAllPanels()
     {
         PanelManager.Instance.HideAllPanels();
@@ -364,5 +372,8 @@ public class LoNavigator : MonoBehaviour
         }
         PanelManager.Instance.ShowPanel(PanelType.AllDone);
     }
-    
+    void ChangeCurrentProgress(Progress progress)
+    {
+        currentProgress = progress;
+    }
 }
