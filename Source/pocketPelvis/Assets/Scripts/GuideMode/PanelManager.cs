@@ -11,18 +11,22 @@ public enum PanelType
     AllDone,
     WellDone,
     Fit,
-    Introduction
+    Introduction,
+    UserVertical,
+    UserHorizontal
 }
 
 public class PanelManager : Singleton<PanelManager>
 {
     
     private List<PanelController> panelControllers;
+    private PageManager pageManager;
 
     private void Awake()
     {
         //get all panel controllers component in children including inactive ones
         panelControllers = GetComponentsInChildren<PanelController>(true).ToList();
+        pageManager = PageManager.Instance;
     }
 
     public void HideAllPanels()
@@ -56,11 +60,18 @@ public class PanelManager : Singleton<PanelManager>
         // set the panel's visibilty to the opposite of what it was before
         foundPanel.gameObject.SetActive(!panelIsVisible);
 
-        if (panelIsVisible)
+        if (panelIsVisible && PanelIsOnMainPage())
         {
-            // if no panel is visible, make the fit panel visible
+            // if we are on the main page and no panel is visible, make the fit panel visible
             ShowPanel(PanelType.Fit);
         }
+    }
+
+    private bool PanelIsOnMainPage()
+    {
+        // if the main page is currently active, then the panel will
+        // be displayed on the main page
+        return pageManager.GetActivePageType() == PageType.Main;
     }
 
     private PanelController FindPanelWithType(PanelType type)

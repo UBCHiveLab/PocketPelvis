@@ -18,7 +18,6 @@ public class LoNavigator : MonoBehaviour
     public enum progress { notStarted, inProgress, win };
     public progress currentProgress;
 
-    public GameObject tutorialPage;
     public Text buttonTextV, buttonTextH;
 
     // public delegate classes
@@ -63,7 +62,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += resetProgress;
-        displayLOUI += DisplayFitPanel;
+        displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanels;
@@ -93,7 +92,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= resetProgress;
-        displayLOUI -= DisplayFitPanel;
+        displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanels;
         finishCurrentLO -= saveProgress;
@@ -104,38 +103,46 @@ public class LoNavigator : MonoBehaviour
         string[] splitArray = array.Split(char.Parse("-"));
         int LO = int.Parse(splitArray[0]);
         int step = int.Parse(splitArray[1]);
+
         //update data
+        setCurrentLO(LO, step);
 
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
-            LearningObjectives.instance.learningObject.isNewUser = false;
-            LearningObjectives.instance.SaveLOs();
-            tutorialPage.SetActive(true);
+            DisplayTutorialPage();
+        } else
+        {
+            PageManager.Instance.MakePageActive(PageType.Main);
+            displayLOUI();
         }
-        setCurrentLO(LO, step);
-        displayLOUI();
     }
     public void LearningButton()
-    {
-        Debug.Log("working");
+    {;
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
             setCurrentLO(1, 1);
-            LearningObjectives.instance.learningObject.isNewUser = false;
-            LearningObjectives.instance.SaveLOs();
-            tutorialPage.SetActive(true);
-            //StarButtonOnClick("1-1");
+            DisplayTutorialPage();
         }
         else
         {
-            /*int LO = LearningObjectives.instance.learningObject.lastLO;
-            int step = LearningObjectives.instance.learningObject.lastStep;
-            StarButtonOnClick(LO.ToString() + "-" + step.ToString());*/
-            setCurrentLO(LearningObjectives.instance.learningObject.lastLO, LearningObjectives.instance.learningObject.lastStep);
-
+            setCurrentLO(
+                LearningObjectives.instance.learningObject.lastLO,
+                LearningObjectives.instance.learningObject.lastStep
+            );
+            displayLOUI();
         }
-        displayLOUI();
     }
+
+    private void DisplayTutorialPage()
+    {
+        // prevent panels from obstructing the tutorial page view
+        PanelManager.Instance.HideAllPanels();
+
+        LearningObjectives.instance.learningObject.isNewUser = false;
+        LearningObjectives.instance.SaveLOs();
+        PageManager.Instance.MakePageActive(PageType.Tutorial);
+    }
+
     /// <summary>
     ///  Reset all user record
     /// </summary>
@@ -155,8 +162,9 @@ public class LoNavigator : MonoBehaviour
         PanelManager.Instance.ShowPanel(PanelType.Introduction);
     }
 
-    public void DisplayFitPanel()
+    public void DisplayLOContent()
     {
+        PageManager.Instance.MakePageActive(PageType.Main);
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
     public void DisplayStepButtons()
