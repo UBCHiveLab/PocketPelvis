@@ -11,8 +11,14 @@ public class MainPageButtonManager : MonoBehaviour
     void Start()
     {
         LoNavigator.SetProgress += ChangeBasedOnProgress;
+        LoNavigator.SetProgress += DisplayWinMessage;
         InfoButton.interactable = false;
         LabelButton.interactable = false;
+    }
+    private void OnDisable()
+    {
+        LoNavigator.SetProgress -= ChangeBasedOnProgress;
+        LoNavigator.SetProgress -= DisplayWinMessage;
     }
     public void ChangeBasedOnProgress(Progress progress)
     {
@@ -28,6 +34,24 @@ public class MainPageButtonManager : MonoBehaviour
             LabelButton.interactable = false;
         }
     }
-
+    public void DisplayWinMessage(Progress progress)
+    {
+        if(progress == Progress.win)
+        {
+            StartCoroutine(WinMessage());
+        }
+        else
+        {
+            StopCoroutine(WinMessage());
+            PanelManager.Instance.ShowPanel(PanelType.Fit);
+        }
+    }
+    IEnumerator WinMessage()
+    {
+        PanelManager.Instance.ShowPanel(PanelType.WellDone);
+        //display win panel and close it after 1 second
+        yield return new WaitForSeconds(1f);
+        PanelManager.Instance.ShowPanel(PanelType.Info);
+    } 
     
 }

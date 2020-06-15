@@ -9,16 +9,17 @@ public class LoText
     public string introductionText;
     public List<string> stepInfoText;
     public List<string> fitInfo;
+    public List<string> guideViewOrientation;
 }
 [System.Serializable]
 public class LoTexts
 {
     public List<LoText> infoTexts;
 
-    public List<string> FindInfoText(int LO,int step)
+    public List<string> FindInfoText(int LO, int step)
     {
         List<string> result = new List<string>();
-        foreach(LoText infotext in infoTexts)
+        foreach (LoText infotext in infoTexts)
         {
             int infoTextIndex = step - 1;
             if (infotext.LO == LO && infoTextIndex >= 0 && infoTextIndex < infotext.stepInfoText.Count)
@@ -34,7 +35,7 @@ public class LoTexts
 
     public string GetIntroductionForLO(int learningObjective)
     {
-        foreach(LoText loTextContent in infoTexts)
+        foreach (LoText loTextContent in infoTexts)
         {
             if (loTextContent.LO == learningObjective)
             {
@@ -43,5 +44,31 @@ public class LoTexts
         }
 
         return "";
+    }
+
+    public GuideViewOrientation GetGuideViewOrientation(int LO, int step){
+        GuideViewOrientation result;
+        LoText foundLO = infoTexts[LO - 1];
+        if (foundLO != null && step <= foundLO.guideViewOrientation.Count && step != 0)
+        {
+            if (foundLO.guideViewOrientation[step - 1] != null)
+            {
+                result = ParseGuideViewOrientation(foundLO.guideViewOrientation[step - 1]);
+                Debug.Log("Current Guide View:" + result.ToString());
+
+                return result;
+            }
+
+        }
+        return GuideViewOrientation.Back;
+        
+
+   }
+    private GuideViewOrientation ParseGuideViewOrientation(string text)
+    {
+        //determine if the string can be parsed
+        if(System.Enum.IsDefined(typeof(GuideViewOrientation), text))
+        return (GuideViewOrientation)System.Enum.Parse(typeof(GuideViewOrientation), text);
+        else return GuideViewOrientation.Back;
     }
 }

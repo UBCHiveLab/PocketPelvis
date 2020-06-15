@@ -16,7 +16,7 @@ public enum GuideViewOrientation
     MidSaggital,
     AngledSide
 }
-public class ModelRecognitionManager : MonoBehaviour
+public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
 {
     [SerializeField]
     private ModelTargetBehaviour modelTargetBehaviour;
