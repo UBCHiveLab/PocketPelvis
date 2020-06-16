@@ -40,7 +40,6 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
             objectTracker = trackerManager.GetTracker<ObjectTracker>();
 
         }
-        StopTracking();
     }
     private void OnEnable()
     {
@@ -52,15 +51,16 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
     }
     public void SetGuideView(GuideViewOrientation guideViewOrientation)
     {
+        if (modelTargetBehaviour != null)
+            modelTarget = modelTargetBehaviour.ModelTarget;
 
         //restart tracking before set up guide view
-        StopTracking();
-        StartTracking();
+        
 
         //ReseTracking();
-
-        if(modelTargetBehaviour != null)
-        modelTarget = modelTargetBehaviour.ModelTarget;
+        
+        
+        
         if (guideViewOrientation != GuideViewOrientation.NoGuideView)
         {
             int guideViewID = (int)guideViewOrientation;
@@ -104,19 +104,19 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
                 
             }
 
-            //if (rotationalDeviceTracker != null)
-            //{
-            //    rotationalDeviceTracker.Stop();
-            //}
+            if (rotationalDeviceTracker != null)
+            {
+                rotationalDeviceTracker.Stop();
+            }
 
-            //if (positionalDeviceTracker != null)
-            //{
-                
-            //    positionalDeviceTracker.Stop();
-            //    positionalDeviceTracker.Reset();
-            //    positionalDeviceTracker.ResetAnchors();
-                
-            //}
+            if (positionalDeviceTracker != null)
+            {
+
+                positionalDeviceTracker.Stop();
+                positionalDeviceTracker.Reset();
+                positionalDeviceTracker.ResetAnchors();
+
+            }
             if (objectTracker != null)
             {
                 objectTracker.Stop();
@@ -124,21 +124,6 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
 
         }
 
-    }
-    public void ReseTracking()
-    {
-        if (trackerManager == null)
-            trackerManager = TrackerManager.Instance;
-        if (trackerManager != null)
-        {
-            positionalDeviceTracker = trackerManager.GetTracker<PositionalDeviceTracker>();
-            if (positionalDeviceTracker != null)
-            {
-                positionalDeviceTracker.Reset();
-                positionalDeviceTracker.ResetAnchors();
-
-            }
-        }
     }
     public void StartTracking()
     {
@@ -161,16 +146,16 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
 
             }
 
-            //if (rotationalDeviceTracker != null)
-            //{
-            //    rotationalDeviceTracker.Start();
-            //}
+            if (rotationalDeviceTracker != null)
+            {
+                rotationalDeviceTracker.Start();
+            }
 
-            //if (positionalDeviceTracker != null)
-            //{
-            //    positionalDeviceTracker.Start();
-                
-            //}
+            if (positionalDeviceTracker != null)
+            {
+                positionalDeviceTracker.Start();
+
+            }
             if (objectTracker != null)
             {
                 objectTracker.Start();
@@ -178,5 +163,13 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
 
         }
     }
-
+    IEnumerator ResetTracking()
+    {
+        
+        StopTracking();
+        //reset the tracking status
+        modelTargetBehaviour.OnTrackerUpdate(TrackableBehaviour.Status.NO_POSE);
+        yield return new WaitForSeconds(0.2f);
+        StartTracking();
+    }
 }
