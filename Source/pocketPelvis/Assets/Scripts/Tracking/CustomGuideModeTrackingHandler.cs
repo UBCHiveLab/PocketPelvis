@@ -5,6 +5,7 @@ using Vuforia;
 
 public class CustomGuideModeTrackingHandler : DefaultTrackableEventHandler
 {
+    
     protected override void OnTrackingFound()
     {
         base.OnTrackingFound();
@@ -20,12 +21,16 @@ public class CustomGuideModeTrackingHandler : DefaultTrackableEventHandler
     #region CUSTOM_METHODS
     void SetCurrentProgress(Progress progress)
     {
+        if (LoNavigator.instance.currentProgress == Progress.notStarted)
+            return;
         LoNavigator.SetProgress(progress);
     }
     void FinishCurrentStep()
     {
         //save the progress of current step to finished
         LoNavigator.instance.saveProgress();
+        
     }
+
     #endregion
 }

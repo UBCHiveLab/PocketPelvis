@@ -142,6 +142,7 @@ public class LoNavigator : MonoBehaviour
             setCurrentLO(LearningObjectives.instance.learningObject.lastLO, LearningObjectives.instance.learningObject.lastStep);
 
         }
+        SetProgress(Progress.inProgress);
         displayLOUI();
     }
     /// <summary>
@@ -156,8 +157,9 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayLOIntroduction()
     {
+        SetProgress(Progress.notStarted);
         stepButtons.SetActive(false);
-
+        
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
         PanelManager.Instance.ShowPanel(PanelType.Introduction);
@@ -226,12 +228,14 @@ public class LoNavigator : MonoBehaviour
 
     public void GoToNextStep(StepControl control)
     {
+        SetProgress(Progress.inProgress);
         if (control == StepControl.Forward)
         {
             if (currentStep == INTRO_STEP)
             {
                 // if we are on the introduction step, then go to the next step in the current LO and display the LO content
                 setCurrentLO(currentLO, currentStep + 1);
+                
                 displayLOUI();
             }
             else if (buttons.Length > currentStep)
@@ -244,6 +248,7 @@ public class LoNavigator : MonoBehaviour
             {
                 // otherwise, if there is a LO after the current LO, go to the introduction of the next LO
                 setCurrentLO(currentLO + 1, INTRO_STEP);
+               
                 DisplayLOIntroduction();
             }
         }
@@ -254,6 +259,7 @@ public class LoNavigator : MonoBehaviour
             {
                 // if the previous step is the current LO's introduction, set that step to the current step and display the introduction
                 setCurrentLO(currentLO, prevStep);
+                
                 DisplayLOIntroduction();
             } else if (prevStep > INTRO_STEP && buttons.Length > prevStep)
             {
@@ -266,9 +272,10 @@ public class LoNavigator : MonoBehaviour
                 // otherwise, we have seen all the steps in the current LO, so go back to the last step in the previous LO, if possible
                 setCurrentLO(currentLO - 1, LearningObjectives.instance.learningObject.learningObjects[currentLO - 2].learningObjectAchievement.Count);
                 displayLOUI();
+                
             }
         }
-        SetProgress(Progress.inProgress);
+        
     }
     private void LoadInfoText()
     {

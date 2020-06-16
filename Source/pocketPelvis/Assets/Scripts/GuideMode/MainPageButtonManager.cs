@@ -43,7 +43,11 @@ public class MainPageButtonManager : MonoBehaviour
         else if(progress==Progress.inProgress)
         {
             StopCoroutine(WinMessage());
-            //PanelManager.Instance.ShowPanel(PanelType.Fit);
+            PanelManager.Instance.ShowPanel(PanelType.Fit);
+        }
+        else
+        {
+            StopCoroutine(WinMessage());
         }
     }
     IEnumerator WinMessage()
