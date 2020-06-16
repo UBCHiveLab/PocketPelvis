@@ -60,7 +60,7 @@ public class LoTexts
             }
 
         }
-        return GuideViewOrientation.Back;
+        return GuideViewOrientation.NoGuideView;
         
 
    }
@@ -69,6 +69,6 @@ public class LoTexts
         //determine if the string can be parsed
         if(System.Enum.IsDefined(typeof(GuideViewOrientation), text))
         return (GuideViewOrientation)System.Enum.Parse(typeof(GuideViewOrientation), text);
-        else return GuideViewOrientation.Back;
+        else return GuideViewOrientation.NoGuideView;
     }
 }

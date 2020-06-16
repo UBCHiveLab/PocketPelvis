@@ -78,10 +78,11 @@ public class LoNavigator : MonoBehaviour
 
         SetProgress += ChangeCurrentProgress;
         #endregion
-
+        
         LoadInfoText();
-        currentProgress = Progress.notStarted;
-
+        //currentProgress = Progress.notStarted;
+        
+        SetProgress(Progress.notStarted);
         // set listeners for the buttons that enable navigation through the LOs
         buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
         buttonForward.onClick.AddListener(() => GoToNextStep(StepControl.Forward));
@@ -164,6 +165,7 @@ public class LoNavigator : MonoBehaviour
 
     public void DisplayFitPanel()
     {
+        
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
     public void DisplayStepButtons()

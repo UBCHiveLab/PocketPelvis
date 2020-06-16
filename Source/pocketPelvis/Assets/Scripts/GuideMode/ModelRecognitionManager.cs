@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
+// due to model target guide view behaviour, the enum has to be sorted by alphabetic order
 public enum GuideViewOrientation
 {
-    Back,
-    Frontal,
-    TopDown,
-    BottomUp,
-    Frontal_TilledUp,
+    Back ,
     Back_BottomUp,
     Back_TilledUp,
+    BottomUp,
+    Front_TilledUp,
+    Frontal,
     Side,
-    MidSaggital,
-    AngledSide
+    TopDown,
+    NoGuideView
 }
 public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
 {
-    [SerializeField]
+    
     private ModelTargetBehaviour modelTargetBehaviour;
     private ModelTarget modelTarget;
 
+    private void Start()
+    {
+        modelTargetBehaviour = FindObjectOfType<ModelTargetBehaviour>();
+    }
 
- 
     public void SetGuideView(GuideViewOrientation guideViewOrientation)
     {
         //reset vuforia tracking
@@ -50,10 +53,18 @@ public class ModelRecognitionManager : Singleton<ModelRecognitionManager>
             }
         }
         
-        
+        if(modelTargetBehaviour != null)
         modelTarget = modelTargetBehaviour.ModelTarget;
-        modelTarget.SetActiveGuideViewIndex((int)guideViewOrientation);
-
-        
+        if (guideViewOrientation != GuideViewOrientation.NoGuideView)
+        {
+            int guideViewID = (int)guideViewOrientation;
+            modelTarget.SetActiveGuideViewIndex(guideViewID);
+            modelTargetBehaviour.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.GuideView2D;
+            
+        }
+        else
+        {
+            modelTargetBehaviour.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.NoGuideView;
+        }
     }
 }

@@ -40,10 +40,10 @@ public class MainPageButtonManager : MonoBehaviour
         {
             StartCoroutine(WinMessage());
         }
-        else
+        else if(progress==Progress.inProgress)
         {
             StopCoroutine(WinMessage());
-            PanelManager.Instance.ShowPanel(PanelType.Fit);
+            //PanelManager.Instance.ShowPanel(PanelType.Fit);
         }
     }
     IEnumerator WinMessage()
