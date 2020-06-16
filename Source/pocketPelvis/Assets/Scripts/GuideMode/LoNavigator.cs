@@ -120,15 +120,22 @@ public class LoNavigator : MonoBehaviour
     {
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
+            // if user is new, show the tutorial; put the user on the first step
+            // of the first learning objective
             setCurrentLO(1, 1);
             DisplayTutorialPage();
         }
         else
         {
+            // set the user's progress to the step and LO they were previously at, unless
+            // was last at the introduction. Then, go to the first step.
+            int lastStep = LearningObjectives.instance.learningObject.lastStep;
+            int stepToGoTo = lastStep == INTRO_STEP ? 1 : lastStep;
             setCurrentLO(
                 LearningObjectives.instance.learningObject.lastLO,
-                LearningObjectives.instance.learningObject.lastStep
+                stepToGoTo
             );
+
             displayLOUI();
         }
     }
