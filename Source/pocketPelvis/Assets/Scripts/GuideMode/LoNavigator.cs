@@ -279,18 +279,20 @@ public class LoNavigator : MonoBehaviour
     }
     private void LoadInfoText()
     {
-        string load;
-        string jsonSavePath = Application.dataPath + "/SaveData/LOText.json";
-        if (System.IO.File.Exists(jsonSavePath))
-        {
-            load = System.IO.File.ReadAllText(jsonSavePath);
-        }
-        else
-        {
-            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
-        }
+        //string load;
+        //string jsonSavePath = Application.dataPath + "/SaveData/LOText.json";
+        //if (System.IO.File.Exists(jsonSavePath))
+        //{
+        //    load = System.IO.File.ReadAllText(jsonSavePath);
+        //}
+        //else
+        //{
+        //    load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
+        //}
+        TextAsset load;
+        load = Resources.Load<TextAsset>("BasicData/LOText");
 
-        loTexts = JsonUtility.FromJson<LoTexts>(load);
+        loTexts = JsonUtility.FromJson<LoTexts>(load.text);
     }
 
     public void saveCurrentLO(int LO, int step)

@@ -24,11 +24,7 @@ public class LearningObjectives : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ResetLOs();
-            SaveLOs();
-        }
+       
         //Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
     }
     public void SaveLOs()
@@ -49,9 +45,13 @@ public class LearningObjectives : MonoBehaviour
         }
         else
         {
-            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
+            //load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
+            //Instead of loading file from data path
+            //loading empty save data from resoureces folder
+            TextAsset loadedData = Resources.Load<TextAsset>("BasicData/emptySaveData");
+            load = loadedData.text;
         }
-        
+
         learningObject= JsonUtility.FromJson<LearningObject>(load);
     }
     public void ResetLOs()
