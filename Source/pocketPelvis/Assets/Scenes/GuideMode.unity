@@ -67145,7 +67145,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 4236743763610907379}
-        m_MethodName: DisplayLoInfo
+        m_MethodName: DisplayFitPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

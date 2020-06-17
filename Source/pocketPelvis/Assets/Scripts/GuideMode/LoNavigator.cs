@@ -104,38 +104,45 @@ public class LoNavigator : MonoBehaviour
         string[] splitArray = array.Split(char.Parse("-"));
         int LO = int.Parse(splitArray[0]);
         int step = int.Parse(splitArray[1]);
+
         //update data
+        setCurrentLO(LO, step);
 
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
-            LearningObjectives.instance.learningObject.isNewUser = false;
-            LearningObjectives.instance.SaveLOs();
-            tutorialPage.SetActive(true);
+            DisplayTutorialPage();
+        } else
+        {
+            displayLOUI();
         }
-        setCurrentLO(LO, step);
-        displayLOUI();
     }
     public void LearningButton()
     {
-        Debug.Log("working");
         if (LearningObjectives.instance.learningObject.isNewUser)
         {
             setCurrentLO(1, 1);
-            LearningObjectives.instance.learningObject.isNewUser = false;
-            LearningObjectives.instance.SaveLOs();
-            tutorialPage.SetActive(true);
-            //StarButtonOnClick("1-1");
+            DisplayTutorialPage();
         }
         else
         {
-            /*int LO = LearningObjectives.instance.learningObject.lastLO;
-            int step = LearningObjectives.instance.learningObject.lastStep;
-            StarButtonOnClick(LO.ToString() + "-" + step.ToString());*/
-            setCurrentLO(LearningObjectives.instance.learningObject.lastLO, LearningObjectives.instance.learningObject.lastStep);
-
+            setCurrentLO(
+                LearningObjectives.instance.learningObject.lastLO,
+                LearningObjectives.instance.learningObject.lastStep
+            );
+            displayLOUI();
         }
-        displayLOUI();
     }
+
+    private void DisplayTutorialPage()
+    {
+        // prevent any panels from obstructing the tutorial page view
+        HideAllPanels();
+
+        LearningObjectives.instance.learningObject.isNewUser = false;
+        LearningObjectives.instance.SaveLOs();
+        tutorialPage.SetActive(true);
+    }
+
     /// <summary>
     ///  Reset all user record
     /// </summary>
