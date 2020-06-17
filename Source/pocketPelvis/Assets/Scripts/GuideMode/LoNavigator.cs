@@ -34,7 +34,7 @@ public class LoNavigator : MonoBehaviour
     [SerializeField]
     private Text introductionText, infoText, fitText;
     [SerializeField]
-    private Button buttonForward, buttonBackward;
+    private Button buttonForward, buttonBackward, infoButton, labelButton;
     [SerializeField]
     private GameObject stepButtons;
     
@@ -64,7 +64,6 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += resetProgress;
         displayLOUI += DisplayFitPanel;
-        displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanels;
         finishCurrentLO += saveProgress;
@@ -94,7 +93,6 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= resetProgress;
         displayLOUI -= DisplayFitPanel;
-        displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanels;
         finishCurrentLO -= saveProgress;
         finishCurrentLO -= displayFinishMessage;
@@ -148,8 +146,6 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayLOIntroduction()
     {
-        stepButtons.SetActive(false);
-
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
         PanelManager.Instance.ShowPanel(PanelType.Introduction);
@@ -159,16 +155,15 @@ public class LoNavigator : MonoBehaviour
     {
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
-    public void DisplayStepButtons()
+
+    private void DisplayStepButtons()
     {
-        //int LO = LearningObjectives.instance.learningObject.lastLO;
-        //int step = LearningObjectives.instance.learningObject.lastStep;
         int count = LearningObjectives.instance.learningObject.learningObjects[currentLO - 1]
             .learningObjectAchievement.Count;
         
         if (stepButtons != null)
         {
-            // looking throuhg all the step buttons and enable gameobjects based on number of steps it has for each LO
+            // looking through all the step buttons and enable gameobjects based on number of steps it has for each LO
             foreach (Transform loUI in stepButtons.transform)
             {
                 if (count > 0)
@@ -287,7 +282,7 @@ public class LoNavigator : MonoBehaviour
     public void ChangeInfoTextBasedOnLO(int LO, int step)
     {
         List<string> foundText = loTexts.FindInfoText(LO, step);
-        //Debug.Log(foundText);
+
         if (foundText != null) {
 
             infoText.text = foundText[0];
@@ -310,6 +305,7 @@ public class LoNavigator : MonoBehaviour
     }
     public void ButtonDisplayBasedOnLO(int LO, int step)
     {
+        // determine whether or not to display the forward and backward buttons
         GameObject backBttnGameObj = buttonBackward.gameObject;
         GameObject forwardBttnGameObj = buttonForward.gameObject;
 
@@ -328,6 +324,21 @@ public class LoNavigator : MonoBehaviour
                 backBttnGameObj.SetActive(true);
                 forwardBttnGameObj.SetActive(true);
             }
+        }
+
+        // when in the introduction, don't allow the info and label buttons
+        // to be clicked and don't show the step buttons
+        if (step == INTRO_STEP)
+        {
+            infoButton.interactable = false;
+            labelButton.interactable = false;
+            stepButtons.SetActive(false);
+        }
+        else
+        {
+            infoButton.interactable = true;
+            labelButton.interactable = true;
+            DisplayStepButtons();
         }
     }
     public void resetProgress(int LO, int step)

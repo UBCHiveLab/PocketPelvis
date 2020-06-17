@@ -44113,7 +44113,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 695750d66f3b11c429bf39c7e24f28c9, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 695750d66f3b11c429bf39c7e24f28c9, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -58331,7 +58331,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 083dbdf3b54e59d4c958b029e4e0cecc, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: 083dbdf3b54e59d4c958b029e4e0cecc, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -75761,6 +75761,8 @@ MonoBehaviour:
   fitText: {fileID: 4236743763640376582}
   buttonForward: {fileID: 4236743763467148492}
   buttonBackward: {fileID: 4236743762514862618}
+  infoButton: {fileID: 4236743763096003746}
+  labelButton: {fileID: 4236743762606305025}
   stepButtons: {fileID: 758424412}
 --- !u!224 &4236743763610907380
 RectTransform:
