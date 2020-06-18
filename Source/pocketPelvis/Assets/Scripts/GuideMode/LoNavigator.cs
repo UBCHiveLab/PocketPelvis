@@ -18,7 +18,6 @@ public class LoNavigator : MonoBehaviour
     public enum progress { notStarted, inProgress, win };
     public progress currentProgress;
 
-    public GameObject tutorialPage;
     public Text buttonTextV, buttonTextH;
 
     // public delegate classes
@@ -63,7 +62,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += resetProgress;
-        displayLOUI += DisplayFitPanel;
+        displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
 
         finishCurrentLO += HideAllPanels;
@@ -93,7 +92,7 @@ public class LoNavigator : MonoBehaviour
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= resetProgress;
-        displayLOUI -= DisplayFitPanel;
+        displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
         finishCurrentLO -= HideAllPanels;
         finishCurrentLO -= saveProgress;
@@ -113,6 +112,7 @@ public class LoNavigator : MonoBehaviour
             DisplayTutorialPage();
         } else
         {
+            PageManager.Instance.MakePageActive(PageType.Main);
             displayLOUI();
         }
     }
@@ -142,12 +142,12 @@ public class LoNavigator : MonoBehaviour
 
     private void DisplayTutorialPage()
     {
-        // prevent any panels from obstructing the tutorial page view
-        HideAllPanels();
+        // prevent panels from obstructing the tutorial page view
+        PanelManager.Instance.HideAllPanels();
 
         LearningObjectives.instance.learningObject.isNewUser = false;
         LearningObjectives.instance.SaveLOs();
-        tutorialPage.SetActive(true);
+        PageManager.Instance.MakePageActive(PageType.Tutorial);
     }
 
     /// <summary>
@@ -169,8 +169,9 @@ public class LoNavigator : MonoBehaviour
         PanelManager.Instance.ShowPanel(PanelType.Introduction);
     }
 
-    public void DisplayFitPanel()
+    public void DisplayLOContent()
     {
+        PageManager.Instance.MakePageActive(PageType.Main);
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
     public void DisplayStepButtons()
