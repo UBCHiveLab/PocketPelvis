@@ -10720,11 +10720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8602c236436e2f947a303fcc61c1df2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  learningObject:
-    isNewUser: 0
-    lastLO: 0
-    lastStep: 0
-    learningObjects: []
 --- !u!4 &1796692724
 Transform:
   m_ObjectHideFlags: 0
@@ -68274,6 +68269,7 @@ GameObject:
   - component: {fileID: 4236743763610907378}
   - component: {fileID: 4236743763610907379}
   - component: {fileID: 4236743763610907381}
+  - component: {fileID: 4236743763610907384}
   m_Layer: 5
   m_Name: UI-G 2
   m_TagString: Untagged
@@ -68322,7 +68318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ccce303c106c24cadbc09827179e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentProgress: 0
   buttonTextV: {fileID: 4236743763396339542}
   buttonTextH: {fileID: 4236743762199385961}
   introductionText: {fileID: 2118722318}
@@ -68330,7 +68325,7 @@ MonoBehaviour:
   fitText: {fileID: 4236743763640376582}
   buttonForward: {fileID: 4236743763467148492}
   buttonBackward: {fileID: 4236743762514862618}
-  stepButtons: {fileID: 758424412}
+  stepButtonContainer: {fileID: 758424412}
 --- !u!224 &4236743763610907380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -68419,6 +68414,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &4236743763610907384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236743763610907376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90a02c520e53c4f87a0244f854e309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4236743763612978338
 MonoBehaviour:
   m_ObjectHideFlags: 0
