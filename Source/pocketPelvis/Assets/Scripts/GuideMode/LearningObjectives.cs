@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class LearningObject
+public class UserSaveData
 {
     public bool isNewUser;
     public int currentLO;
     public int currentStep;
     public int furthestLO;
     public int furthestStep;
-    public List<LOs> learningObjects = new List<LOs>();
+    public List<LearningObjectiveData> learningObjectivesData = new List<LearningObjectiveData>();
 
 }
 
 [System.Serializable]
-public class LOs
+public class LearningObjectiveData
 {
-    public int id;
+    public int learningObjective;
     public string objective;
-    public List<bool> learningObjectAchievement = new List<bool>();
+    public List<bool> stepAchievementStatus = new List<bool>(); // tracks whether have achieved every step in the lo, except the introduction step, which can never be achieved
 }
 
 public class LearningObjectives : MonoBehaviour
 {
    
 
-    private LearningObject learningObject = new LearningObject();
+    private UserSaveData saveData = new UserSaveData();
     private string jsonSavePath;
     public static LearningObjectives instance;
     public const int INTRO_STEP = 0;
@@ -54,7 +54,7 @@ public class LearningObjectives : MonoBehaviour
 
     private void SaveLOs()
     {
-        string save = JsonUtility.ToJson(learningObject);
+        string save = JsonUtility.ToJson(saveData);
 
         System.IO.File.WriteAllText(jsonSavePath, save);
     }
@@ -72,122 +72,136 @@ public class LearningObjectives : MonoBehaviour
             load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
         }
         
-        learningObject= JsonUtility.FromJson<LearningObject>(load);
+        saveData = JsonUtility.FromJson<UserSaveData>(load);
     }
 
     public void ResetLOs()
     {
-        foreach(LOs lobject in learningObject.learningObjects)
+        foreach(LearningObjectiveData loData in saveData.learningObjectivesData)
         {
-            for(int i = 0; i < lobject.learningObjectAchievement.Count; i++)
+            for(int stepIndex = 0; stepIndex < loData.stepAchievementStatus.Count; stepIndex++)
             {
-                lobject.learningObjectAchievement[i] = false;
+                loData.stepAchievementStatus[stepIndex] = false;
             }
         }
-        learningObject.isNewUser = true;
-        learningObject.currentLO = 0;
-        learningObject.currentStep = 0;
-        learningObject.furthestLO = 0;
-        learningObject.furthestStep = 0;
+        saveData.isNewUser = true;
+        saveData.currentLO = 0;
+        saveData.currentStep = 0;
+        saveData.furthestLO = 0;
+        saveData.furthestStep = 0;
         SaveLOs();
     }
 
     public void UpdateLOProgress(int currentLO, int currentStep)
     {
         // when the user makes progress, they shouldn't be considered a new user
-        learningObject.isNewUser = false;
+        saveData.isNewUser = false;
 
-        learningObject.currentLO = currentLO;
-        learningObject.currentStep = currentStep;
+        saveData.currentLO = currentLO;
+        saveData.currentStep = currentStep;
 
-        if (currentLO > learningObject.furthestLO)
+        if (currentLO > saveData.furthestLO)
         {
             // if currently on a further lo, make this lo and the step the furthest we have been to.
             // if the current step is the intro step, make the furthest step the first step of the lo
-            learningObject.furthestLO = currentLO;
-            learningObject.furthestStep = currentStep == INTRO_STEP ? INTRO_STEP + 1 : currentStep;
+            saveData.furthestLO = currentLO;
+            saveData.furthestStep = currentStep == INTRO_STEP ? INTRO_STEP + 1 : currentStep;
 
-        } else if (currentLO == learningObject.furthestLO &&  currentStep > learningObject.furthestStep)
+        } else if (currentLO == saveData.furthestLO &&  currentStep > saveData.furthestStep)
         {
             // if on the same lo as the furthest one and we have gone to a further step, make this step the furthest.
-            learningObject.furthestStep = currentStep;
+            saveData.furthestStep = currentStep;
         }
 
         SaveLOs();
     }
 
-    public void AchieveLOStep(int loIndex, int stepIndex)
+    public void AchieveLOStep(int lo, int step)
     {
+        int loIndex = GetLOIndex(lo);
+        int stepIndex = GetStepIndex(step);
         if (!IsValidStepIndex(loIndex, stepIndex))
         {
             return;
         }
-        learningObject.learningObjects[loIndex].learningObjectAchievement[stepIndex] = true;
+        saveData.learningObjectivesData[loIndex].stepAchievementStatus[stepIndex] = true;
         SaveLOs();
     }
 
     public bool HaveBeenToStep(int lo, int step)
     {
         // either, we've been to all the steps of this lo before or we've been to this step before
-        return lo < learningObject.furthestLO || (lo == learningObject.furthestLO && step <= learningObject.furthestStep);
-    }
-
-    public int GetLearningObjectiveId(int loIndex)
-    {
-        return IsValidLOIndex(loIndex) ? learningObject.learningObjects[loIndex].id : 0;
+        return lo < saveData.furthestLO || (lo == saveData.furthestLO && step <= saveData.furthestStep);
     }
 
     public int GetNumberOfLearningObjectives()
     {
-        return learningObject.learningObjects.Count;
+        // the save data should contain data for each learning objective. Thus, loData count == lo count
+        return saveData.learningObjectivesData.Count;
     }
 
     public int GetCurrentLearningObjective()
     {
-        return learningObject.currentLO;
+        return saveData.currentLO;
     }
 
     public int GetCurrentStep()
     {
-        return learningObject.currentStep;
+        return saveData.currentStep;
     }
 
     public int GetFurthestLearningObjective()
     {
-        return learningObject.furthestLO;
+        return saveData.furthestLO;
     }
 
     public int GetFurthestStep()
     {
-        return learningObject.furthestStep;
+        return saveData.furthestStep;
     }
 
-    public int GetNumberOfSteps(int loIndex)
+    public int GetNumberOfSteps(int lo)
     {
-        return IsValidLOIndex(loIndex) ? learningObject.learningObjects[loIndex].learningObjectAchievement.Count : 0;
+        int loIndex = GetLOIndex(lo);
+        // there should be achievement save data for each step. Thus, stepAchievementStatus count == step count
+        return IsValidLOIndex(loIndex) ? saveData.learningObjectivesData[loIndex].stepAchievementStatus.Count : 0;
     }
 
     public bool IsNewUser()
     {
-        return learningObject.isNewUser;
+        return saveData.isNewUser;
     }
 
-    public bool HaveAchievedStep(int loIndex, int stepIndex)
+    public bool HaveAchievedStep(int lo, int step)
     {
-        return IsValidStepIndex(loIndex, stepIndex) ? learningObject.learningObjects[loIndex].learningObjectAchievement[stepIndex] : false;
+        int loIndex = GetLOIndex(lo);
+        int stepIndex = GetStepIndex(step);
+        return IsValidStepIndex(loIndex, stepIndex) ? saveData.learningObjectivesData[loIndex].stepAchievementStatus[stepIndex] : false;
     }
 
     private bool IsValidLOIndex(int loIndex)
     {
-        return loIndex > -1 && learningObject.learningObjects.Count > loIndex;
+        return loIndex > -1 && saveData.learningObjectivesData.Count > loIndex;
     }
 
     private bool IsValidStepIndex(int loIndex, int stepIndex)
     {
         if (IsValidLOIndex(loIndex))
         {
-            return stepIndex > -1 && learningObject.learningObjects[loIndex].learningObjectAchievement.Count > stepIndex;
+            return stepIndex > -1 && saveData.learningObjectivesData[loIndex].stepAchievementStatus.Count > stepIndex;
         }
         return false;
+    }
+
+    private int GetLOIndex(int lo)
+    {
+        return saveData.learningObjectivesData.FindIndex(loData => loData.learningObjective == lo);
+    }
+
+    private int GetStepIndex(int step)
+    {
+        // stepAchievmentStatus records the status of every step, except the intro step
+        // thus, step 1 = index 0, step 2 = index 1, ...
+        return step - 1;
     }
 }

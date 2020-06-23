@@ -21,33 +21,32 @@ public class AchievementSynchronizer : MonoBehaviour
     {
         // update the sprites indicating the user's progress through the learning objectives. The learning objective
         // step that the user last selected will be highlighted with an 'inProgress' or 'inProgressAndAchieved' sprite
-        for (int loIndex = 0; loIndex < loData.GetNumberOfLearningObjectives(); loIndex++)
+        for (int lo = 1; lo <= loData.GetNumberOfLearningObjectives(); lo++)
         {
-            Transform learningObjectiveTransform = transform.GetChild(loIndex);
-            int learningObjective = loData.GetLearningObjectiveId(loIndex);
+            // transform children are 0-base indexed
+            Transform learningObjectiveTransform = transform.GetChild(lo - 1);
 
-            for (int stepIndex = 0; stepIndex < loData.GetNumberOfSteps(loIndex); stepIndex++)
+            // the introduction step does not have an achievement associated with it, so start from step 1
+            for (int step = 1; step <= loData.GetNumberOfSteps(lo); step++)
             {
-                Transform loStepTransform = learningObjectiveTransform.GetChild(stepIndex);
+                Transform loStepTransform = learningObjectiveTransform.GetChild(step - 1);
                 Image currentImg = loStepTransform.GetComponent<Image>();
                 Button currentButton = loStepTransform.GetComponent<Button>();
 
-                int step = stepIndex + 1;
-
-                if (loData.HaveAchievedStep(loIndex, stepIndex))
+                if (loData.HaveAchievedStep(lo, step))
                 {
                     // the step of the LO has been achieved. Check if the step is 'inProgress' or not
-                    currentImg.sprite = StepIsInProgress(learningObjective, step) ? inProgressAndAchievedSprite : achievedSprite;
+                    currentImg.sprite = StepIsInProgress(lo, step) ? inProgressAndAchievedSprite : achievedSprite;
                     // we've been to this step before, so we can interact with the step's button
                     buttonInteractivityController.EnableButton(currentButton, currentImg);
                 }
                 else
                 {
                     // the step of the LO hasn't been achieved. Check if the step is 'inProgress' or not
-                    currentImg.sprite = StepIsInProgress(learningObjective, step) ? inProgressSprite : notDoneSprite;
+                    currentImg.sprite = StepIsInProgress(lo, step) ? inProgressSprite : notDoneSprite;
 
                     // allow the button for the learning objective be interacted with only if we've been to the step before
-                    if (loData.HaveBeenToStep(learningObjective, step))
+                    if (loData.HaveBeenToStep(lo, step))
                     {
                         buttonInteractivityController.EnableButton(currentButton, currentImg);
                     } else
