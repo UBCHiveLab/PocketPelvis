@@ -29,7 +29,7 @@ public class LoNavigator : MonoBehaviour
     [SerializeField]
     private Text introductionText, infoText, fitText;
     [SerializeField]
-    private Button buttonForward, buttonBackward;
+    private Button buttonForward, buttonBackward, buttonInfo, buttonLabel;
     [SerializeField]
     private GameObject stepButtonContainer;
 
@@ -58,7 +58,7 @@ public class LoNavigator : MonoBehaviour
         }
 
         setCurrentLO += ChangeInfoTextBasedOnLO;
-        setCurrentLO += ButtonDisplayBasedOnLO;
+        setCurrentLO += UpdateStepControls;
         setCurrentLO += UpdateLOProgress;
 
         displayLOUI += DisplayLOContent;
@@ -89,7 +89,7 @@ public class LoNavigator : MonoBehaviour
     private void OnDisable()
     {
         setCurrentLO -= ChangeInfoTextBasedOnLO;
-        setCurrentLO -= ButtonDisplayBasedOnLO;
+        setCurrentLO -= UpdateStepControls;
         setCurrentLO -= UpdateLOProgress;
         displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
@@ -341,26 +341,33 @@ public class LoNavigator : MonoBehaviour
         }
     }
 
-    private void ButtonDisplayBasedOnLO(int LO, int step)
+    private void UpdateStepControls(int LO, int step)
     {
         GameObject backBttnGameObj = buttonBackward.gameObject;
         GameObject forwardBttnGameObj = buttonForward.gameObject;
 
-        if (LO == 1 && step == LearningObjectives.INTRO_STEP)
+        // when not on the intro of the first LO, show the back navigation button. Otherwise, hide it.
+        bool showBackButton  = step != LearningObjectives.INTRO_STEP || LO != 1;
+
+        // when not on the last step of the last LO, show the forward navigation button. Otherwise, hide it
+        int lastLO = loData.GetNumberOfLearningObjectives();
+        bool showForwardButton = LO != lastLO || step != loData.GetNumberOfSteps(lastLO);
+
+        backBttnGameObj.SetActive(showBackButton);
+        forwardBttnGameObj.SetActive(showForwardButton);
+
+        // TODO: make it so that the info and label buttons are interactable only when the pelvis is being tracked
+        if (step == LearningObjectives.INTRO_STEP)
         {
-            backBttnGameObj.SetActive(false);
-        }
-        else if (LO == 10 && step == 3)
-        {
-            forwardBttnGameObj.SetActive(false);
+            // if on an LO introduction, make the info and label buttons unclickable and grayed out
+            buttonInteractivityController.DisableButton(buttonInfo, buttonInfo.GetComponent<Image>());
+            buttonInteractivityController.DisableButton(buttonLabel, buttonLabel.GetComponent<Image>());
         }
         else
         {
-            if (backBttnGameObj.activeSelf || forwardBttnGameObj.activeSelf)
-            {
-                backBttnGameObj.SetActive(true);
-                forwardBttnGameObj.SetActive(true);
-            }
+            // if not on an LO's intro, make the info and label buttons clickable and grayed out
+            buttonInteractivityController.EnableButton(buttonInfo, buttonInfo.GetComponent<Image>());
+            buttonInteractivityController.EnableButton(buttonLabel, buttonLabel.GetComponent<Image>());
         }
 
         // Make sure the step's button has the pressed down graphic
