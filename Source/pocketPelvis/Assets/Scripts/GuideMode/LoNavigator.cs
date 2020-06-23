@@ -192,7 +192,7 @@ public class LoNavigator : MonoBehaviour
             stepButtonContainer.SetActive(true);
         }
 
-        int numStepsInLO = loData.GetNumberOfSteps(GetStepIndex(currentLO));
+        int numStepsInLO = loData.GetNumberOfSteps(currentLO);
         int furthestLO = loData.GetFurthestLearningObjective();
         int furthestStep = loData.GetFurthestStep();
 
@@ -203,7 +203,7 @@ public class LoNavigator : MonoBehaviour
                 // the step is in the lo. Make that step's button visible
                 stepButtons[stepIndex].gameObject.SetActive(true);
 
-                if (stepIndex == GetStepIndex(currentStep))
+                if (stepIndex == GetStepButtonIndex(currentStep))
                 {
                     // this step is the current step, which has the pressed down graphic applied. Thus, nothing needs to be done
                     continue;
@@ -231,12 +231,12 @@ public class LoNavigator : MonoBehaviour
             return;
         }
 
-        int stepIndex = GetStepIndex(step);
+        int stepIndex = GetStepButtonIndex(step);
 
         if (prevStep != LearningObjectives.INTRO_STEP)
         {
             // stop pressing down on the previous step button
-            int prevStepIndex = GetStepIndex(prevStep);
+            int prevStepIndex = GetStepButtonIndex(prevStep);
             buttonInteractivityController.EnableButton(stepButtons[prevStepIndex]);
         }
 
@@ -248,7 +248,7 @@ public class LoNavigator : MonoBehaviour
 
     private void GoToNextStep(StepControl control)
     {
-        int numStepsInLO = loData.GetNumberOfSteps(GetStepIndex(currentLO));
+        int numStepsInLO = loData.GetNumberOfSteps(currentLO);
 
         if (control == StepControl.Forward)
         {
@@ -287,7 +287,7 @@ public class LoNavigator : MonoBehaviour
             else if (currentLO > 1)
             {
                 // otherwise, we have seen all the steps in the current LO, so go back to the last step in the previous LO, if possible
-                int prevLoLastStep = loData.GetNumberOfSteps(GetStepIndex(currentLO - 1));
+                int prevLoLastStep = loData.GetNumberOfSteps(currentLO - 1);
 
                 setCurrentLO(currentLO - 1, prevLoLastStep);
                 displayLOUI();
@@ -379,7 +379,7 @@ public class LoNavigator : MonoBehaviour
             // have achieved no additional progress since last save if only on the introductory step
             return;
         }
-        loData.AchieveLOStep(GetStepIndex(currentLO), GetStepIndex(currentStep));
+        loData.AchieveLOStep(currentLO, currentStep);
     }
 
     private void DisplayFinishMessage()
@@ -387,10 +387,12 @@ public class LoNavigator : MonoBehaviour
         int numLOs = loData.GetNumberOfLearningObjectives();
         for (int loIndex = 0; loIndex < numLOs; loIndex++)
         {
-            int numSteps = loData.GetNumberOfSteps(loIndex);
+            int learningObjective = loIndex + 1;
+            int numSteps = loData.GetNumberOfSteps(learningObjective);
             for (int stepInd = 0; stepInd < numSteps; stepInd++)
             {
-                if (loData.HaveAchievedStep(loIndex, stepInd))
+                int step = stepInd + 1;
+                if (loData.HaveAchievedStep(learningObjective, step))
                 {
                     PanelManager.Instance.ShowPanel(PanelType.WellDone);
                     return;
@@ -400,9 +402,9 @@ public class LoNavigator : MonoBehaviour
         PanelManager.Instance.ShowPanel(PanelType.AllDone);
     }
 
-    private int GetStepIndex(int step)
+    private int GetStepButtonIndex(int step)
     {
-        // since the lo and step indexes are 0-based, the index will be one less than the step number
+        // since stepButton array's indexes are 0-based, the index will be one less than the step number
         return step - 1;
     }
 }
