@@ -66,15 +66,15 @@ public class LoNavigator : MonoBehaviour
             buttonTextV.text = RESUME_LEARNING_TEXT;
             buttonTextH.text = RESUME_LEARNING_TEXT;
         }
-
+        #region DESUBSCRIBE_DELEGATE_METHODS
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += UpdateLOProgress;
-
+        setCurrentLO += SetCurrentGuideView;
         displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
         SetProgress += ChangeCurrentProgress;
-
+        #endregion
         LoadInfoText();
         SetProgress(Progress.notStarted);
 
@@ -103,16 +103,19 @@ public class LoNavigator : MonoBehaviour
 
         // displayLOUI -= DisplayLOContent;
         // displayLOUI -= DisplayStepButtons;
-        SetProgress -= ChangeCurrentProgress;
-        #endregion
+        
+        
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= UpdateLOProgress;
+        setCurrentLO -= SetCurrentGuideView;
         displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
+        SetProgress -= ChangeCurrentProgress;
         // finishCurrentLO -= HideAllPanels;
         // finishCurrentLO -= SaveProgress;
         // finishCurrentLO -= DisplayFinishMessage;
+        #endregion
     }
 
     public void StarButtonOnClick(string array)
