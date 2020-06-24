@@ -1,1 +1,102 @@
-{"isNewUser":true,"lastLO":0,"lastStep":0,"learningObjects":[{"objective":"Orientation of Pelvis","learningObjectAchievement":[false]},{"objective":"Bone and Ligament","learningObjectAchievement":[false,false,false,false,false,false,false]},{"objective":"Nerve and Vessel ","learningObjectAchievement":[false,false,false,false]},{"objective":"Pelvis Viscera and Peritoneal Covering","learningObjectAchievement":[false,false,false,false]},{"objective":"Pelvis Floor ","learningObjectAchievement":[false,false]},{"objective":"Urogenital and Anal Triangle ","learningObjectAchievement":[false,false]},{"objective":"Deep Perineal Pouch","learningObjectAchievement":[false,false]},{"objective":"Extent of Ischioanal Fossa","learningObjectAchievement":[false,false,false,false,false,false]},{"objective":"Superifical Perineal Pouch","learningObjectAchievement":[false,false]},{"objective":"Arterial and Nerve to Perineum","learningObjectAchievement":[false,false,false]}]}
+{
+	"isNewUser": true,
+	"currentLO": 0,
+	"currentStep": 0,
+	"furthestLO": 0,
+	"furthestStep": 0,
+	"learningObjectivesData": [
+		{
+			"learningObjective": 1,
+			"objective": "Orientation of Pelvis",
+			"stepAchievementStatus": [
+				false
+			]
+		},
+		{
+			"learningObjective": 2,
+			"objective": "Bone and Ligament",
+			"stepAchievementStatus": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 3,
+			"objective": "Nerve and Vessel",
+			"stepAchievementStatus": [
+				false,
+				false,
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 4,
+			"objective": "Pelvis Viscera and Peritoneal Covering",
+			"stepAchievementStatus": [
+				false,
+				false,
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 5,
+			"objective": "Pelvis Floor",
+			"stepAchievementStatus": [
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 6,
+			"objective": "Urogenital and Anal Triangle",
+			"stepAchievementStatus": [
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 7,
+			"objective": "Deep Perineal Pouch",
+			"stepAchievementStatus": [
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 8,
+			"objective": "Extent of Ischioanal Fossa",
+			"stepAchievementStatus": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 9,
+			"objective": "Superifical Perineal Pouch",
+			"stepAchievementStatus":[
+				false,
+				false
+			]
+		},
+		{
+			"learningObjective": 10,
+			"objective": "Arterial and Nerve to Perineum",
+			"stepAchievementStatus": [
+				false,
+				false,
+				false
+			]
+		}
+	]
+}

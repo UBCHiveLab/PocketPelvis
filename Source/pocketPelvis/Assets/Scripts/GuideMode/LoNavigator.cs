@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,20 +22,21 @@ public class LoNavigator : MonoBehaviour
     public Text buttonTextV, buttonTextH;
 
     // private variable
-    private bool watchedTutorial;
     [SerializeField]
     private Text introductionText, infoText, fitText;
     [SerializeField]
     private Button buttonForward, buttonBackward;
     [SerializeField]
-    private GameObject stepButtons;
-    
+    private GameObject stepButtonContainer;
+
+    private LearningObjectives loData;
     private LoTexts loTexts;
-    private Button[] buttons;
+    private List<Button> stepButtons;
     private int currentLO, currentStep;
+    private ButtonInteractivityController buttonInteractivityController;
 
     const int INTRO_STEP = 0;
-    #endregion  
+    #endregion
     #region DELEGATE_METHODS
     // public delegate classes
     public delegate void setCurrentLODelegate(int LO, int step);
@@ -46,25 +48,29 @@ public class LoNavigator : MonoBehaviour
     public delegate void SetProgressDelegate(Progress progress);
     public static SetProgressDelegate SetProgress;
     #endregion
+
+    const string START_LEARNING_TEXT = "START LEARNING";
+    const string RESUME_LEARNING_TEXT = "RESUME LEARNING";
+
     private void Start()
     {
         instance = this;
-        if (LearningObjectives.instance.learningObject.isNewUser)
+        loData = LearningObjectives.instance;
+        if (loData.IsNewUser())
         {
-            buttonTextV.text = "START LEARNING";
-            buttonTextH.text = "START LEARNING";
-            watchedTutorial = false;
+            buttonTextV.text = START_LEARNING_TEXT;
+            buttonTextH.text = START_LEARNING_TEXT;
         }
         else
         {
-            buttonTextV.text = "RESUME LEARNING";
-            buttonTextH.text = "RESUME LEARNING";
-            watchedTutorial = true;
+            buttonTextV.text = RESUME_LEARNING_TEXT;
+            buttonTextH.text = RESUME_LEARNING_TEXT;
         }
 
-        setCurrentLO += saveCurrentLO;
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
+        setCurrentLO += UpdateLOProgress;
+
         displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
         SetProgress += ChangeCurrentProgress;
@@ -72,33 +78,43 @@ public class LoNavigator : MonoBehaviour
         LoadInfoText();
         SetProgress(Progress.notStarted);
 
+        buttonInteractivityController = gameObject.GetComponentInParent<ButtonInteractivityController>();
+        stepButtons = stepButtonContainer.GetComponentsInChildren<Button>(true).ToList();
+
         // set listeners for the buttons that enable navigation through the LOs
         buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
         buttonForward.onClick.AddListener(() => GoToNextStep(StepControl.Forward));
     }
+
     private void Update()
     {
-        if (Input.GetKey(KeyCode.L) && currentStep != INTRO_STEP)
+        if (Input.GetKey(KeyCode.L) && currentStep != LearningObjectives.INTRO_STEP)
         {
             //finishCurrentLO();
         }
     }
-    public void TutorialWatched()
-    {
-        watchedTutorial = true;
-    }
+
     private void OnDisable()
     {
         #region DESUBSCRIBE_DELEGATE_METHODS
-        setCurrentLO -= saveCurrentLO;
-        setCurrentLO -= ChangeInfoTextBasedOnLO;
-        setCurrentLO -= ButtonDisplayBasedOnLO;
+        // setCurrentLO -= saveCurrentLO;
+        // setCurrentLO -= ChangeInfoTextBasedOnLO;
+        // setCurrentLO -= ButtonDisplayBasedOnLO;
 
-        displayLOUI -= DisplayLOContent;
-        displayLOUI -= DisplayStepButtons;
+        // displayLOUI -= DisplayLOContent;
+        // displayLOUI -= DisplayStepButtons;
         SetProgress -= ChangeCurrentProgress;
         #endregion
+        setCurrentLO -= ChangeInfoTextBasedOnLO;
+        setCurrentLO -= ButtonDisplayBasedOnLO;
+        setCurrentLO -= UpdateLOProgress;
+        displayLOUI -= DisplayLOContent;
+        displayLOUI -= DisplayStepButtons;
+        // finishCurrentLO -= HideAllPanels;
+        // finishCurrentLO -= SaveProgress;
+        // finishCurrentLO -= DisplayFinishMessage;
     }
+
     public void StarButtonOnClick(string array)
     {
         string[] splitArray = array.Split(char.Parse("-"));
@@ -108,18 +124,18 @@ public class LoNavigator : MonoBehaviour
         //update data
         setCurrentLO(LO, step);
 
-        if (LearningObjectives.instance.learningObject.isNewUser)
+        if (loData.IsNewUser())
         {
             DisplayTutorialPage();
         } else
         {
-            PageManager.Instance.MakePageActive(PageType.Main);
             displayLOUI();
         }
     }
+
     public void LearningButton()
     {
-        if (LearningObjectives.instance.learningObject.isNewUser)
+        if (loData.IsNewUser())
         {
             // if user is new, show the tutorial; put the user on the first step
             // of the first learning objective
@@ -130,10 +146,10 @@ public class LoNavigator : MonoBehaviour
         {
             // set the user's progress to the step and LO they were previously at, unless
             // was last at the introduction. Then, go to the first step.
-            int lastStep = LearningObjectives.instance.learningObject.lastStep;
-            int stepToGoTo = lastStep == INTRO_STEP ? 1 : lastStep;
+            int lastStep = loData.GetCurrentStep();
+            int stepToGoTo = lastStep == LearningObjectives.INTRO_STEP ? 1 : lastStep;
             setCurrentLO(
-                LearningObjectives.instance.learningObject.lastLO,
+                loData.GetCurrentLearningObjective(),
                 stepToGoTo
             );
 
@@ -141,139 +157,159 @@ public class LoNavigator : MonoBehaviour
         }
     }
 
-    private void DisplayTutorialPage()
-    {
-        // prevent panels from obstructing the tutorial page view
-        PanelManager.Instance.HideAllPanels();
-
-        LearningObjectives.instance.learningObject.isNewUser = false;
-        LearningObjectives.instance.SaveLOs();
-        PageManager.Instance.MakePageActive(PageType.Tutorial);
-    }
-
     /// <summary>
     ///  Reset all user record
     /// </summary>
     public void ResetUser()
     {
-        LearningObjectives.instance.ResetLOs();
-        buttonTextV.text = "START LEARNING";
-        buttonTextH.text = "START LEARNING";
-        watchedTutorial = false;
+        loData.ResetLOs();
+        buttonTextV.text = START_LEARNING_TEXT;
+        buttonTextH.text = START_LEARNING_TEXT;
     }
-    public void DisplayLOIntroduction()
+
+    public void OnClickStepButton(Button clickedButton)
+    {
+        // since arrays are 0-base indexed, the step of the clicked buttton will be the index of the button plus 1
+        int step = stepButtons.IndexOf(clickedButton) + 1;
+        setCurrentLO(currentLO, step);
+    }
+
+    private void DisplayTutorialPage()
+    {
+        // prevent panels from obstructing the tutorial page view
+        PanelManager.Instance.HideAllPanels();
+        PageManager.Instance.MakePageActive(PageType.Tutorial);
+    }
+
+    private void DisplayLOIntroduction()
     {
         SetProgress(Progress.notStarted);
-        stepButtons.SetActive(false);
+
+        stepButtonContainer.SetActive(false);
 
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
         PanelManager.Instance.ShowPanel(PanelType.Introduction);
     }
 
-    public void DisplayLOContent()
+    private void DisplayLOContent()
     {
         PageManager.Instance.MakePageActive(PageType.Main);
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
-    public void DisplayStepButtons()
+
+    private void DisplayStepButtons()
     {
-        //int LO = LearningObjectives.instance.learningObject.lastLO;
-        //int step = LearningObjectives.instance.learningObject.lastStep;
-        int count = LearningObjectives.instance.learningObject.learningObjects[currentLO - 1]
-            .learningObjectAchievement.Count;
-        
-        if (stepButtons != null)
+        if (stepButtons == null)
         {
-            // looking throuhg all the step buttons and enable gameobjects based on number of steps it has for each LO
-            foreach (Transform loUI in stepButtons.transform)
+            return;
+        }
+
+        if (!stepButtonContainer.activeSelf)
+        {
+            // make sure that the step button container is active, so can see the step buttons
+            stepButtonContainer.SetActive(true);
+        }
+
+        int numStepsInLO = loData.GetNumberOfSteps(currentLO);
+        int furthestLO = loData.GetFurthestLearningObjective();
+        int furthestStep = loData.GetFurthestStep();
+
+        for (int stepIndex = 0; stepIndex < stepButtons.Count; stepIndex++)
+        {
+            if (stepIndex < numStepsInLO)
             {
-                if (count > 0)
-                {
-                    loUI.gameObject.SetActive(true);
-                    count--;
-                }
-                else
-                {
-                    loUI.gameObject.SetActive(false);
-                }
+                // the step is in the lo. Make that step's button visible
+                stepButtons[stepIndex].gameObject.SetActive(true);
 
-            }
-            buttons = stepButtons.GetComponentsInChildren<Button>();
-            foreach (Button button in buttons)
+                if (stepIndex == GetStepButtonIndex(currentStep))
+                {
+                    // this step is the current step, which has the pressed down graphic applied. Thus, nothing needs to be done
+                    continue;
+                } else if (loData.HaveBeenToStep(currentLO, stepIndex + 1))
+                {
+                    // We've never been to this step before. So, make this step's button interactable
+                    buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+                } else
+                {
+                    // we've never been to this step before. So, make the this step's button non-interactable
+                    buttonInteractivityController.DisableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+                }
+            } else
             {
-                button.interactable = true;
+                // the step is not in the lo. Hide the button
+                stepButtons[stepIndex].gameObject.SetActive(false);
             }
-            if(currentStep != INTRO_STEP)
-            buttons[currentStep - 1].interactable = false;
-        }
-
-        if (!stepButtons.activeSelf)
-        {
-            stepButtons.SetActive(true);
         }
     }
-    public void PressDownStepButton(Button clickedButton)
+    private void PressDownStepButton(int step, int prevStep)
     {
-        foreach (Button button in buttons)
+        if (step == LearningObjectives.INTRO_STEP)
         {
-            button.interactable = true;
+            // there's no step buttons to press down in the introduction step
+            return;
         }
-        clickedButton.interactable = false;
+
+        int stepIndex = GetStepButtonIndex(step);
+
+        if (prevStep != LearningObjectives.INTRO_STEP)
+        {
+            // stop pressing down on the previous step button
+            int prevStepIndex = GetStepButtonIndex(prevStep);
+            buttonInteractivityController.EnableButton(stepButtons[prevStepIndex]);
+        }
+
+        // make sure that the current step button looks like it is interactable
+        buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+        // give the button the pressed down graphic
+        buttonInteractivityController.DisableButton(stepButtons[stepIndex]);
     }
 
-    public void OnClickStepButton(Button clickedButton)
-    {
-        // show the pressed down graphic and go to that button's step
-        PressDownStepButton(clickedButton);
-
-        // since arrays are 0-base indexed, the step of the clicked buttton will be the index of the button plus 1
-        int step = System.Array.IndexOf(buttons, clickedButton) + 1;
-        setCurrentLO(currentLO, step);
-    }
-
-    public void GoToNextStep(StepControl control)
+    private void GoToNextStep(StepControl control)
     {
         SetProgress(Progress.inProgress);
+        int numStepsInLO = loData.GetNumberOfSteps(currentLO);
+
         if (control == StepControl.Forward)
         {
-            if (currentStep == INTRO_STEP)
+            int nextStep = currentStep + 1;
+            if (currentStep == LearningObjectives.INTRO_STEP)
             {
                 // if we are on the introduction step, then go to the next step in the current LO and display the LO content
-                setCurrentLO(currentLO, currentStep + 1);
+                setCurrentLO(currentLO, nextStep);
                 displayLOUI();
             }
-            else if (buttons.Length > currentStep)
+            else if (numStepsInLO > currentStep)
             {
                 // if there are still steps that we haven't gone to in the current LO, go to the next step
-                PressDownStepButton(buttons[currentStep]);
-                setCurrentLO(currentLO, currentStep + 1);
+                setCurrentLO(currentLO, nextStep);
             }
-            else if (currentLO < LearningObjectives.instance.learningObject.learningObjects.Count)
+            else if (currentLO < loData.GetNumberOfLearningObjectives())
             {
                 // otherwise, if there is a LO after the current LO, go to the introduction of the next LO
-                setCurrentLO(currentLO + 1, INTRO_STEP);
+                setCurrentLO(currentLO + 1, LearningObjectives.INTRO_STEP);
                 DisplayLOIntroduction();
             }
         }
         else if (control == StepControl.Backward)
         {
             int prevStep = currentStep - 1;
-            if (prevStep == INTRO_STEP)
+            if (prevStep == LearningObjectives.INTRO_STEP)
             {
                 // if the previous step is the current LO's introduction, set that step to the current step and display the introduction
                 setCurrentLO(currentLO, prevStep);
                 DisplayLOIntroduction();
-            } else if (prevStep > INTRO_STEP && buttons.Length > prevStep)
+            } else if (prevStep > LearningObjectives.INTRO_STEP && numStepsInLO > prevStep)
             {
                 // the previous step is a step in the current LO, so go to that step
-                PressDownStepButton(buttons[prevStep - 1]);
                 setCurrentLO(currentLO, prevStep);
             }
             else if (currentLO > 1)
             {
                 // otherwise, we have seen all the steps in the current LO, so go back to the last step in the previous LO, if possible
-                setCurrentLO(currentLO - 1, LearningObjectives.instance.learningObject.learningObjects[currentLO - 2].learningObjectAchievement.Count);
+                int prevLoLastStep = loData.GetNumberOfSteps(currentLO - 1);
+
+                setCurrentLO(currentLO - 1, prevLoLastStep);
                 displayLOUI();
             }
         }
@@ -299,15 +335,14 @@ public class LoNavigator : MonoBehaviour
         ModelTrackingManager.Instance.SetGuideView(foundOrientation);
     }
 
-    public void saveCurrentLO(int LO, int step)
+    private void UpdateLOProgress(int LO, int step)
     {
         currentLO = LO;
         currentStep = step;
-        LearningObjectives.instance.learningObject.lastLO = LO;
-        LearningObjectives.instance.learningObject.lastStep = step;
-        LearningObjectives.instance.SaveLOs();
+        loData.UpdateLOProgress(currentLO, currentStep);
     }
-    public void ChangeInfoTextBasedOnLO(int LO, int step)
+
+    private void ChangeInfoTextBasedOnLO(int LO, int step)
     {
         List<string> foundText = loTexts.FindInfoText(LO, step);
         //Debug.Log(foundText);
@@ -325,18 +360,18 @@ public class LoNavigator : MonoBehaviour
 
             if (infoText.gameObject.activeInHierarchy)
             {
-                //force refreshing auto layout 
+                //force refreshing auto layout
                 LayoutRebuilder.ForceRebuildLayoutImmediate(infoText.rectTransform);
             }
-
         }
     }
-    public void ButtonDisplayBasedOnLO(int LO, int step)
+
+    private void ButtonDisplayBasedOnLO(int LO, int step)
     {
         GameObject backBttnGameObj = buttonBackward.gameObject;
         GameObject forwardBttnGameObj = buttonForward.gameObject;
 
-        if (LO == 1 && step == INTRO_STEP)
+        if (LO == 1 && step == LearningObjectives.INTRO_STEP)
         {
             backBttnGameObj.SetActive(false);
         }
@@ -352,30 +387,37 @@ public class LoNavigator : MonoBehaviour
                 forwardBttnGameObj.SetActive(true);
             }
         }
+
+        // Make sure the step's button has the pressed down graphic
+        PressDownStepButton(step, currentStep);
     }
-   
-   public void HideAllPanels()
+
+   private void HideAllPanels()
     {
         PanelManager.Instance.HideAllPanels();
     }
-    public void saveProgress()
+
+    private void SaveProgress()
     {
-        if (currentStep == INTRO_STEP)
+        if (currentStep == LearningObjectives.INTRO_STEP)
         {
             // have achieved no additional progress since last save if only on the introductory step
             return;
         }
-        LearningObjectives.instance.learningObject.learningObjects[currentLO - 1].learningObjectAchievement[currentStep - 1] = true;
-        LearningObjectives.instance.SaveLOs();
+        loData.AchieveLOStep(currentLO, currentStep);
     }
-    public void displayFinishMessage()
+
+    private void DisplayFinishMessage()
     {
-        foreach (LOs lo in LearningObjectives.instance.learningObject.learningObjects)
+        int numLOs = loData.GetNumberOfLearningObjectives();
+        for (int loIndex = 0; loIndex < numLOs; loIndex++)
         {
-            
-            foreach(bool isFinished in lo.learningObjectAchievement)
+            int learningObjective = loIndex + 1;
+            int numSteps = loData.GetNumberOfSteps(learningObjective);
+            for (int stepInd = 0; stepInd < numSteps; stepInd++)
             {
-                if (!isFinished)
+                int step = stepInd + 1;
+                if (loData.HaveAchievedStep(learningObjective, step))
                 {
                     PanelManager.Instance.ShowPanel(PanelType.WellDone);
                     return;
@@ -389,7 +431,13 @@ public class LoNavigator : MonoBehaviour
         currentProgress = progress;
         if (progress == Progress.win)
         {
-            saveProgress();
+            SaveProgress();
         }
+
+    }
+    private int GetStepButtonIndex(int step)
+    {
+        // since stepButton array's indexes are 0-based, the index will be one less than the step number
+        return step - 1;
     }
 }
