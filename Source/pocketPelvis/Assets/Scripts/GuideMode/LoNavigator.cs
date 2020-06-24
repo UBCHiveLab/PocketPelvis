@@ -216,8 +216,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
 
         int numStepsInLO = loData.GetNumberOfSteps(currentLO);
-        int furthestLO = loData.GetFurthestLearningObjective();
-        int furthestStep = loData.GetFurthestStep();
 
         for (int stepIndex = 0; stepIndex < stepButtons.Count; stepIndex++)
         {
