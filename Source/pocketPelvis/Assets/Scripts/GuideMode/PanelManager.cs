@@ -21,12 +21,14 @@ public class PanelManager : SceneSingleton<PanelManager>
     
     private List<PanelController> panelControllers;
     private PageManager pageManager;
+    private LearningObjectives loData;
 
     private void Awake()
     {
         //get all panel controllers component in children including inactive ones
         panelControllers = GetComponentsInChildren<PanelController>(true).ToList();
         pageManager = PageManager.Instance;
+        loData = LearningObjectives.instance;
     }
 
     public void HideAllPanels()
@@ -62,8 +64,11 @@ public class PanelManager : SceneSingleton<PanelManager>
 
         if (panelIsVisible && PanelIsOnMainPage())
         {
-            // if we are on the main page and no panel is visible, make the fit panel visible
-            ShowPanel(PanelType.Fit);
+            // if we are on the main page and no panel is visible, then make the default panel visible.
+            // When on an LO introduction, default panel == intro panel, otherwise default panel == fit panel
+            ShowPanel(
+                loData.GetCurrentStep() == LearningObjectives.INTRO_STEP ? PanelType.Introduction : PanelType.Fit
+            );
         }
     }
 
