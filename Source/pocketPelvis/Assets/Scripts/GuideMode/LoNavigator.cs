@@ -9,24 +9,16 @@ public enum StepControl
     Backward,
     Forward
 }
+public enum Progress { notStarted, inProgress, win };
 
 public class LoNavigator : MonoBehaviour
 {
     // singeleton instance
     public static LoNavigator instance;
 
-    public enum progress { notStarted, inProgress, win };
-    public progress currentProgress;
-
+    #region VARIABLES
+    public Progress currentProgress;
     public Text buttonTextV, buttonTextH;
-
-    // public delegate classes
-    public delegate void setCurrentLODelegate(int LO, int step);
-    public static event setCurrentLODelegate setCurrentLO;
-    public delegate void displayLOUIDelegate();
-    public static displayLOUIDelegate displayLOUI;
-    public delegate void finishCurrentLODelegate();
-    public static finishCurrentLODelegate finishCurrentLO;
 
     // private variable
     private bool watchedTutorial;
@@ -42,7 +34,18 @@ public class LoNavigator : MonoBehaviour
     private int currentLO, currentStep;
 
     const int INTRO_STEP = 0;
-
+    #endregion  
+    #region DELEGATE_METHODS
+    // public delegate classes
+    public delegate void setCurrentLODelegate(int LO, int step);
+    public static event setCurrentLODelegate setCurrentLO;
+    public delegate void displayLOUIDelegate();
+    public static displayLOUIDelegate displayLOUI;
+    //public delegate void finishCurrentLODelegate();
+    //public static finishCurrentLODelegate finishCurrentLO;
+    public delegate void SetProgressDelegate(Progress progress);
+    public static SetProgressDelegate SetProgress;
+    #endregion
     private void Start()
     {
         instance = this;
@@ -58,18 +61,16 @@ public class LoNavigator : MonoBehaviour
             buttonTextH.text = "RESUME LEARNING";
             watchedTutorial = true;
         }
+
         setCurrentLO += saveCurrentLO;
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
-        setCurrentLO += resetProgress;
         displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
+        SetProgress += ChangeCurrentProgress;
 
-        finishCurrentLO += HideAllPanels;
-        finishCurrentLO += saveProgress;
-        finishCurrentLO += displayFinishMessage;
         LoadInfoText();
-        currentProgress = progress.notStarted;
+        SetProgress(Progress.notStarted);
 
         // set listeners for the buttons that enable navigation through the LOs
         buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
@@ -79,7 +80,7 @@ public class LoNavigator : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.L) && currentStep != INTRO_STEP)
         {
-            finishCurrentLO();
+            //finishCurrentLO();
         }
     }
     public void TutorialWatched()
@@ -88,15 +89,15 @@ public class LoNavigator : MonoBehaviour
     }
     private void OnDisable()
     {
+        #region DESUBSCRIBE_DELEGATE_METHODS
         setCurrentLO -= saveCurrentLO;
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= ButtonDisplayBasedOnLO;
-        setCurrentLO -= resetProgress;
+
         displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
-        finishCurrentLO -= HideAllPanels;
-        finishCurrentLO -= saveProgress;
-        finishCurrentLO -= displayFinishMessage;
+        SetProgress -= ChangeCurrentProgress;
+        #endregion
     }
     public void StarButtonOnClick(string array)
     {
@@ -162,6 +163,7 @@ public class LoNavigator : MonoBehaviour
     }
     public void DisplayLOIntroduction()
     {
+        SetProgress(Progress.notStarted);
         stepButtons.SetActive(false);
 
         // set the introduction text for the lo's intro and make the intro panel visible
@@ -232,6 +234,7 @@ public class LoNavigator : MonoBehaviour
 
     public void GoToNextStep(StepControl control)
     {
+        SetProgress(Progress.inProgress);
         if (control == StepControl.Forward)
         {
             if (currentStep == INTRO_STEP)
@@ -290,6 +293,11 @@ public class LoNavigator : MonoBehaviour
 
         loTexts = JsonUtility.FromJson<LoTexts>(load);
     }
+    public void SetCurrentGuideView(int LO, int step)
+    {
+        GuideViewOrientation foundOrientation = loTexts.GetGuideViewOrientation(LO, step);
+        ModelTrackingManager.Instance.SetGuideView(foundOrientation);
+    }
 
     public void saveCurrentLO(int LO, int step)
     {
@@ -345,10 +353,7 @@ public class LoNavigator : MonoBehaviour
             }
         }
     }
-    public void resetProgress(int LO, int step)
-    {
-        currentProgress = progress.inProgress;
-    }
+   
    public void HideAllPanels()
     {
         PanelManager.Instance.HideAllPanels();
@@ -378,5 +383,13 @@ public class LoNavigator : MonoBehaviour
             }
         }
         PanelManager.Instance.ShowPanel(PanelType.AllDone);
+    }
+    public void ChangeCurrentProgress(Progress progress)
+    {
+        currentProgress = progress;
+        if (progress == Progress.win)
+        {
+            saveProgress();
+        }
     }
 }

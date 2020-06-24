@@ -9,6 +9,7 @@ public class LoText
     public string introductionText;
     public List<string> stepInfoText;
     public List<string> fitInfo;
+    public List<string> guideViewOrientation;
 }
 [System.Serializable]
 public class LoTexts
@@ -43,5 +44,31 @@ public class LoTexts
         }
 
         return "";
+    }
+    public GuideViewOrientation GetGuideViewOrientation(int LO, int step)
+    {
+        GuideViewOrientation result;
+        LoText foundLO = infoTexts[LO - 1];
+        if (foundLO != null && step <= foundLO.guideViewOrientation.Count && step != 0)
+        {
+            if (foundLO.guideViewOrientation[step - 1] != null)
+            {
+                result = ParseGuideViewOrientation(foundLO.guideViewOrientation[step - 1]);
+                Debug.Log("Current Guide View:" + result.ToString());
+
+                return result;
+            }
+
+        }
+        return GuideViewOrientation.NoGuideView;
+
+
+    }
+    private GuideViewOrientation ParseGuideViewOrientation(string text)
+    {
+        //determine if the string can be parsed
+        if (System.Enum.IsDefined(typeof(GuideViewOrientation), text))
+            return (GuideViewOrientation)System.Enum.Parse(typeof(GuideViewOrientation), text);
+        else return GuideViewOrientation.NoGuideView;
     }
 }

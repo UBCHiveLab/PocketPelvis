@@ -24,11 +24,6 @@ public class LearningObjectives : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ResetLOs();
-            SaveLOs();
-        }
         //Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
     }
     public void SaveLOs()
