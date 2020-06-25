@@ -320,18 +320,12 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     }
     private void LoadInfoText()
     {
-        string load;
-        string jsonSavePath = Application.dataPath + "/SaveData/LOText.json";
-        if (System.IO.File.Exists(jsonSavePath))
-        {
-            load = System.IO.File.ReadAllText(jsonSavePath);
-        }
-        else
-        {
-            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
-        }
+        //loading info text from resource folder
+        TextAsset load;
+        load = Resources.Load<TextAsset>("GuideModeData/LOText");
 
-        loTexts = JsonUtility.FromJson<LoTexts>(load);
+        if(load!=null)
+        loTexts = JsonUtility.FromJson<LoTexts>(load.text);
     }
     public void SetCurrentGuideView(int LO, int step)
     {

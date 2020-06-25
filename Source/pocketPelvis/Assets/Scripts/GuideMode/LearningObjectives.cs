@@ -65,7 +65,9 @@ public class LearningObjectives : MonoBehaviour
         }
         else
         {
-            load = System.IO.File.ReadAllText(Application.dataPath + "/SaveData/emptyData.json");
+            //loading empty save data from resoureces folder
+            TextAsset loadedData = Resources.Load<TextAsset>("BasicData/emptySaveData");
+            load = loadedData.text;
         }
 
         saveData = JsonUtility.FromJson<UserSaveData>(load);
