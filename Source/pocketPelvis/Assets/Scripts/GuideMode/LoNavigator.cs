@@ -17,6 +17,14 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     // singeleton instance
     public static LoNavigator instance;
 
+    IEnumerator WinMessage()
+    {
+        PanelManager.Instance.ShowPanel(PanelType.WellDone);
+        //display win panel and close it after 1 second
+        yield return new WaitForSeconds(1f);
+        PanelManager.Instance.ShowPanel(PanelType.Info);
+    }
+
     #region VARIABLES
     public Progress currentProgress;
     public Text buttonTextV, buttonTextH;
@@ -34,17 +42,13 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     private List<Button> stepButtons;
     private int currentLO, currentStep;
     private ButtonInteractivityController buttonInteractivityController;
-
-    const int INTRO_STEP = 0;
     #endregion
+
     #region DELEGATE_METHODS
-    // public delegate classes
     public delegate void setCurrentLODelegate(int LO, int step);
     public static event setCurrentLODelegate setCurrentLO;
     public delegate void displayLOUIDelegate();
     public static displayLOUIDelegate displayLOUI;
-    //public delegate void finishCurrentLODelegate();
-    //public static finishCurrentLODelegate finishCurrentLO;
     public delegate void SetProgressDelegate(Progress progress);
     public static SetProgressDelegate SetProgress;
     #endregion
@@ -67,6 +71,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
             buttonTextV.text = RESUME_LEARNING_TEXT;
             buttonTextH.text = RESUME_LEARNING_TEXT;
         }
+
         #region SUBSCRIBE_DELEGATE_METHODS
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += UpdateStepControls;
@@ -76,7 +81,9 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
         SetProgress += ChangeCurrentProgress;
+        SetProgress += DisplayWinMessage;
         #endregion
+
         LoadInfoText();
         SetProgress(Progress.notStarted);
 
@@ -88,25 +95,9 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         buttonForward.onClick.AddListener(() => GoToNextStep(StepControl.Forward));
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.L) && currentStep != LearningObjectives.INTRO_STEP)
-        {
-            //finishCurrentLO();
-        }
-    }
-
     private void OnDisable()
     {
         #region DESUBSCRIBE_DELEGATE_METHODS
-        // setCurrentLO -= saveCurrentLO;
-        // setCurrentLO -= ChangeInfoTextBasedOnLO;
-        // setCurrentLO -= ButtonDisplayBasedOnLO;
-
-        // displayLOUI -= DisplayLOContent;
-        // displayLOUI -= DisplayStepButtons;
-        
-        
         setCurrentLO -= ChangeInfoTextBasedOnLO;
         setCurrentLO -= UpdateStepControls;
         setCurrentLO -= UpdateLOProgress;
@@ -115,10 +106,10 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
         SetProgress -= ChangeCurrentProgress;
-        // finishCurrentLO -= HideAllPanels;
-        // finishCurrentLO -= SaveProgress;
-        // finishCurrentLO -= DisplayFinishMessage;
+        SetProgress -= DisplayWinMessage;
         #endregion
+
+        StopAllCoroutines();
     }
 
     public void StarButtonOnClick(string array)
@@ -313,6 +304,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         if(load!=null)
         loTexts = JsonUtility.FromJson<LoTexts>(load.text);
     }
+
     public void SetCurrentGuideView(int LO, int step)
     {
         GuideViewOrientation foundOrientation = loTexts.GetGuideViewOrientation(LO, step);
@@ -373,11 +365,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         PressDownStepButton(step, currentStep);
     }
 
-   private void HideAllPanels()
-    {
-        PanelManager.Instance.HideAllPanels();
-    }
-
     private void SaveProgress()
     {
         if (currentStep == LearningObjectives.INTRO_STEP)
@@ -387,7 +374,8 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
         loData.AchieveLOStep(currentLO, currentStep);
     }
-    // needs a better way to show all done panel
+
+    // TODO: need a better way to show all done panel
     private void DisplayFinishMessage()
     {
         int numLOs = loData.GetNumberOfLearningObjectives();
@@ -407,6 +395,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
         PanelManager.Instance.ShowPanel(PanelType.AllDone);
     }
+
     public void ChangeCurrentProgress(Progress progress)
     {
         currentProgress = progress;
@@ -416,6 +405,24 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
 
     }
+
+    private void DisplayWinMessage(Progress progress)
+    {
+        if (progress == Progress.win)
+        {
+            StartCoroutine(WinMessage());
+        }
+        else if (progress == Progress.inProgress)
+        {
+            StopCoroutine(WinMessage());
+            DisplayLOContent();
+        }
+        else
+        {
+            StopCoroutine(WinMessage());
+        }
+    }
+
     private int GetStepButtonIndex(int step)
     {
         // since stepButton array's indexes are 0-based, the index will be one less than the step number
