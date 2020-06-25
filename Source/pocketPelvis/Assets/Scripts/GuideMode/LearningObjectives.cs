@@ -43,11 +43,6 @@ public class LearningObjectives : MonoBehaviour
         LoadLOs();
     }
 
-    private void Update()
-    {
-        //Debug.Log("Current lo step:" + learningObject.lastLO + "-" + learningObject.lastStep);
-    }
-
     private void SaveLOs()
     {
         string save = JsonUtility.ToJson(saveData);
@@ -84,17 +79,21 @@ public class LearningObjectives : MonoBehaviour
             }
         }
         saveData.isNewUser = true;
-        saveData.currentLO = 0;
-        saveData.currentStep = 0;
+
+        // put the user on the first step of the first LO
+        saveData.currentLO = 1;
+        saveData.currentStep = INTRO_STEP + 1;
+
+        // the user has never seen any step of any LO yet, so make no LO the furthest
         saveData.furthestLO = 0;
-        saveData.furthestStep = 0;
+        saveData.furthestStep = INTRO_STEP;
         SaveLOs();
     }
 
     public void UpdateLOProgress(int currentLO, int currentStep)
     {
-        // when the user makes progress, they shouldn't be considered a new user
-        saveData.isNewUser = false;
+        // if the user has updated their save data before, then they shouldn't be considered a new user
+        saveData.isNewUser = saveData.furthestLO < 1;
 
         saveData.currentLO = currentLO;
         saveData.currentStep = currentStep;

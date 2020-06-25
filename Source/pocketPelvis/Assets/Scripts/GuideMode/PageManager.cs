@@ -7,8 +7,7 @@ public enum PageType
 {
     LOVertial,
     LOHorizontal,
-    Main,
-    Tutorial
+    Main
 }
 
 public class PageManager : SceneSingleton<PageManager>

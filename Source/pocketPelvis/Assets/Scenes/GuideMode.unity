@@ -450,7 +450,7 @@ PrefabInstance:
     - target: {fileID: 6781283575290489818, guid: 331102f8cb171924d8c9de4313181d84,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6781283575758848917, guid: 331102f8cb171924d8c9de4313181d84,
         type: 3}
@@ -466,6 +466,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781283576257967032, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.06201172
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781283576257967032, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0014648438
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781283575844362466, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StarLearningFromLastSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781283576626368792, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StarLearningFromLastSave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331102f8cb171924d8c9de4313181d84, type: 3}

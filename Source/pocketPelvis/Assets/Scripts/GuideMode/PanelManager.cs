@@ -12,7 +12,8 @@ public enum PanelType
     WellDone,
     Fit,
     Introduction,
-    User
+    User,
+    Tutorial
 }
 
 public class PanelManager : SceneSingleton<PanelManager>
@@ -40,7 +41,6 @@ public class PanelManager : SceneSingleton<PanelManager>
         HideAllPanels();
 
         PanelController foundPanel= FindPanelWithType(_panelType);
-
         if (foundPanel!=null)
         foundPanel.gameObject.SetActive(true);
     }

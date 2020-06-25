@@ -56,6 +56,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     {
         instance = this;
         loData = LearningObjectives.instance;
+
         if (loData.IsNewUser())
         {
             buttonTextV.text = START_LEARNING_TEXT;
@@ -129,37 +130,21 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         //update data
         setCurrentLO(LO, step);
         SetProgress(Progress.inProgress);
-        if (loData.IsNewUser())
-        {
-            DisplayTutorialPage();
-        } else
-        {
-            displayLOUI();
-        }
     }
 
-    public void LearningButton()
+    public void StarLearningFromLastSave()
     {
-        if (loData.IsNewUser())
-        {
-            // if user is new, show the tutorial; put the user on the first step
-            // of the first learning objective
-            setCurrentLO(1, 1);
-            DisplayTutorialPage();
-        }
-        else
-        {
-            // set the user's progress to the step and LO they were previously at, unless
-            // was last at the introduction. Then, go to the first step.
-            int lastStep = loData.GetCurrentStep();
-            int stepToGoTo = lastStep == LearningObjectives.INTRO_STEP ? 1 : lastStep;
-            setCurrentLO(
-                loData.GetCurrentLearningObjective(),
-                stepToGoTo
-            );
+        
+        // set the user's progress to the step and LO they were previously at, unless
+        // was last at the introduction. Then, go to the first step.
+        int lastStep = loData.GetCurrentStep();
+        int stepToGoTo = lastStep == LearningObjectives.INTRO_STEP ? LearningObjectives.INTRO_STEP + 1 : lastStep;
+        setCurrentLO(
+            loData.GetCurrentLearningObjective(),
+            stepToGoTo
+        );
 
-            displayLOUI();
-        }
+        displayLOUI();
         SetProgress(Progress.inProgress);
     }
 
@@ -180,13 +165,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         setCurrentLO(currentLO, step);
     }
 
-    private void DisplayTutorialPage()
-    {
-        // prevent panels from obstructing the tutorial page view
-        PanelManager.Instance.HideAllPanels();
-        PageManager.Instance.MakePageActive(PageType.Tutorial);
-    }
-
     private void DisplayLOIntroduction()
     {
         SetProgress(Progress.notStarted);
@@ -201,7 +179,14 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     private void DisplayLOContent()
     {
         PageManager.Instance.MakePageActive(PageType.Main);
-        PanelManager.Instance.ShowPanel(PanelType.Fit);
+
+        if (!loData.IsNewUser())
+        {
+            PanelManager.Instance.ShowPanel(PanelType.Fit);
+        } else
+        {
+            PanelManager.Instance.ShowPanel(PanelType.Tutorial);
+        }
     }
 
     private void DisplayStepButtons()
@@ -349,7 +334,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     private void ChangeInfoTextBasedOnLO(int LO, int step)
     {
         List<string> foundText = loTexts.FindInfoText(LO, step);
-        //Debug.Log(foundText);
         if (foundText != null) {
 
             infoText.text = foundText[0];
