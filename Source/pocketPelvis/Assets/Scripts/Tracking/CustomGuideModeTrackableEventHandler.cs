@@ -18,7 +18,7 @@ public class CustomGuideModeTrackableEventHandler : DefaultTrackableEventHandler
     #region CUSTOM_METHODS
     void SetCurrentProgress(Progress progress)
     {
-        if (LoNavigator.instance.currentProgress == Progress.notStarted)
+        if (LoNavigator.Instance.currentProgress == Progress.notStarted)
             return;
         LoNavigator.SetProgress(progress);
     }

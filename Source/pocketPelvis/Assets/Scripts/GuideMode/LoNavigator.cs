@@ -12,7 +12,7 @@ public enum StepControl
 }
 public enum Progress { notStarted, inProgress, win };
 
-public class LoNavigator : MonoBehaviour
+public class LoNavigator : SceneSingleton<LoNavigator>
 {
     // singeleton instance
     public static LoNavigator instance;
@@ -66,7 +66,7 @@ public class LoNavigator : MonoBehaviour
             buttonTextV.text = RESUME_LEARNING_TEXT;
             buttonTextH.text = RESUME_LEARNING_TEXT;
         }
-        #region DESUBSCRIBE_DELEGATE_METHODS
+        #region SUBSCRIBE_DELEGATE_METHODS
         setCurrentLO += ChangeInfoTextBasedOnLO;
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += UpdateLOProgress;
@@ -158,6 +158,7 @@ public class LoNavigator : MonoBehaviour
 
             displayLOUI();
         }
+        SetProgress(Progress.inProgress);
     }
 
     /// <summary>
@@ -409,7 +410,7 @@ public class LoNavigator : MonoBehaviour
         }
         loData.AchieveLOStep(currentLO, currentStep);
     }
-
+    // needs a better way to show all done panel
     private void DisplayFinishMessage()
     {
         int numLOs = loData.GetNumberOfLearningObjectives();
