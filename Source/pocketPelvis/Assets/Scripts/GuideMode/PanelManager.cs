@@ -12,8 +12,7 @@ public enum PanelType
     WellDone,
     Fit,
     Introduction,
-    UserVertical,
-    UserHorizontal
+    User
 }
 
 public class PanelManager : SceneSingleton<PanelManager>
