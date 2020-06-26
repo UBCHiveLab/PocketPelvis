@@ -5,8 +5,6 @@ using UnityEngine;
 
 public enum PageType
 {
-    HomeVertical,
-    HomeHorizontal,
     LOVertial,
     LOHorizontal,
     Main,
