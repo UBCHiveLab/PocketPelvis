@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,21 +18,14 @@ public class LoNavigator : SceneSingleton<LoNavigator>
 
     #region VARIABLES
     public Progress currentProgress;
-    public Text buttonTextV, buttonTextH;
 
     // private variable
     [SerializeField]
     private Text introductionText, infoText, fitText;
-    [SerializeField]
-    private Button buttonForward, buttonBackward;
-    [SerializeField]
-    private GameObject stepButtonContainer;
 
     private LearningObjectives loData;
     private LoTexts loTexts;
-    private List<Button> stepButtons;
     private int currentLO, currentStep;
-    private ButtonInteractivityController buttonInteractivityController;
 
     const int INTRO_STEP = 0;
     #endregion
@@ -49,41 +41,20 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     public static SetProgressDelegate SetProgress;
     #endregion
 
-    const string START_LEARNING_TEXT = "START LEARNING";
-    const string RESUME_LEARNING_TEXT = "RESUME LEARNING";
-
     private void Start()
     {
         instance = this;
         loData = LearningObjectives.instance;
-        if (loData.IsNewUser())
-        {
-            buttonTextV.text = START_LEARNING_TEXT;
-            buttonTextH.text = START_LEARNING_TEXT;
-        }
-        else
-        {
-            buttonTextV.text = RESUME_LEARNING_TEXT;
-            buttonTextH.text = RESUME_LEARNING_TEXT;
-        }
+
         #region SUBSCRIBE_DELEGATE_METHODS
         setCurrentLO += ChangeInfoTextBasedOnLO;
-        setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += UpdateLOProgress;
         setCurrentLO += SetCurrentGuideView;
         displayLOUI += DisplayLOContent;
-        displayLOUI += DisplayStepButtons;
         SetProgress += ChangeCurrentProgress;
         #endregion
         LoadInfoText();
         SetProgress(Progress.notStarted);
-
-        buttonInteractivityController = gameObject.GetComponentInParent<ButtonInteractivityController>();
-        stepButtons = stepButtonContainer.GetComponentsInChildren<Button>(true).ToList();
-
-        // set listeners for the buttons that enable navigation through the LOs
-        buttonBackward.onClick.AddListener(() => GoToNextStep(StepControl.Backward));
-        buttonForward.onClick.AddListener(() => GoToNextStep(StepControl.Forward));
     }
 
     private void Update()
@@ -103,14 +74,13 @@ public class LoNavigator : SceneSingleton<LoNavigator>
 
         // displayLOUI -= DisplayLOContent;
         // displayLOUI -= DisplayStepButtons;
-        
-        
+
+
         setCurrentLO -= ChangeInfoTextBasedOnLO;
-        setCurrentLO -= ButtonDisplayBasedOnLO;
+
         setCurrentLO -= UpdateLOProgress;
         setCurrentLO -= SetCurrentGuideView;
         displayLOUI -= DisplayLOContent;
-        displayLOUI -= DisplayStepButtons;
         SetProgress -= ChangeCurrentProgress;
         // finishCurrentLO -= HideAllPanels;
         // finishCurrentLO -= SaveProgress;
@@ -118,7 +88,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         #endregion
     }
 
-    public void StarButtonOnClick(string array)
+    public void OnClickStarButton(string array)
     {
         string[] splitArray = array.Split(char.Parse("-"));
         int LO = int.Parse(splitArray[0]);
@@ -130,7 +100,8 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         if (loData.IsNewUser())
         {
             DisplayTutorialPage();
-        } else
+        }
+        else
         {
             displayLOUI();
         }
@@ -161,23 +132,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         SetProgress(Progress.inProgress);
     }
 
-    /// <summary>
-    ///  Reset all user record
-    /// </summary>
-    public void ResetUser()
-    {
-        loData.ResetLOs();
-        buttonTextV.text = START_LEARNING_TEXT;
-        buttonTextH.text = START_LEARNING_TEXT;
-    }
-
-    public void OnClickStepButton(Button clickedButton)
-    {
-        // since arrays are 0-base indexed, the step of the clicked buttton will be the index of the button plus 1
-        int step = stepButtons.IndexOf(clickedButton) + 1;
-        setCurrentLO(currentLO, step);
-    }
-
     private void DisplayTutorialPage()
     {
         // prevent panels from obstructing the tutorial page view
@@ -189,7 +143,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     {
         SetProgress(Progress.notStarted);
 
-        stepButtonContainer.SetActive(false);
+        // stepButtonContainer.SetActive(false);
 
         // set the introduction text for the lo's intro and make the intro panel visible
         introductionText.text = loTexts.GetIntroductionForLO(currentLO);
@@ -202,72 +156,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         PanelManager.Instance.ShowPanel(PanelType.Fit);
     }
 
-    private void DisplayStepButtons()
-    {
-        if (stepButtons == null)
-        {
-            return;
-        }
-
-        if (!stepButtonContainer.activeSelf)
-        {
-            // make sure that the step button container is active, so can see the step buttons
-            stepButtonContainer.SetActive(true);
-        }
-
-        int numStepsInLO = loData.GetNumberOfSteps(currentLO);
-
-        for (int stepIndex = 0; stepIndex < stepButtons.Count; stepIndex++)
-        {
-            if (stepIndex < numStepsInLO)
-            {
-                // the step is in the lo. Make that step's button visible
-                stepButtons[stepIndex].gameObject.SetActive(true);
-
-                if (stepIndex == GetStepButtonIndex(currentStep))
-                {
-                    // this step is the current step, which has the pressed down graphic applied. Thus, nothing needs to be done
-                    continue;
-                } else if (loData.HaveBeenToStep(currentLO, stepIndex + 1))
-                {
-                    // We've never been to this step before. So, make this step's button interactable
-                    buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
-                } else
-                {
-                    // we've never been to this step before. So, make the this step's button non-interactable
-                    buttonInteractivityController.DisableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
-                }
-            } else
-            {
-                // the step is not in the lo. Hide the button
-                stepButtons[stepIndex].gameObject.SetActive(false);
-            }
-        }
-    }
-    private void PressDownStepButton(int step, int prevStep)
-    {
-        if (step == LearningObjectives.INTRO_STEP)
-        {
-            // there's no step buttons to press down in the introduction step
-            return;
-        }
-
-        int stepIndex = GetStepButtonIndex(step);
-
-        if (prevStep != LearningObjectives.INTRO_STEP)
-        {
-            // stop pressing down on the previous step button
-            int prevStepIndex = GetStepButtonIndex(prevStep);
-            buttonInteractivityController.EnableButton(stepButtons[prevStepIndex]);
-        }
-
-        // make sure that the current step button looks like it is interactable
-        buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
-        // give the button the pressed down graphic
-        buttonInteractivityController.DisableButton(stepButtons[stepIndex]);
-    }
-
-    private void GoToNextStep(StepControl control)
+    public void GoToNextStep(StepControl control)
     {
         SetProgress(Progress.inProgress);
         int numStepsInLO = loData.GetNumberOfSteps(currentLO);
@@ -322,8 +211,8 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         TextAsset load;
         load = Resources.Load<TextAsset>("GuideModeData/LOText");
 
-        if(load!=null)
-        loTexts = JsonUtility.FromJson<LoTexts>(load.text);
+        if (load != null)
+            loTexts = JsonUtility.FromJson<LoTexts>(load.text);
     }
     public void SetCurrentGuideView(int LO, int step)
     {
@@ -360,32 +249,6 @@ public class LoNavigator : SceneSingleton<LoNavigator>
                 LayoutRebuilder.ForceRebuildLayoutImmediate(infoText.rectTransform);
             }
         }
-    }
-
-    private void ButtonDisplayBasedOnLO(int LO, int step)
-    {
-        GameObject backBttnGameObj = buttonBackward.gameObject;
-        GameObject forwardBttnGameObj = buttonForward.gameObject;
-
-        if (LO == 1 && step == LearningObjectives.INTRO_STEP)
-        {
-            backBttnGameObj.SetActive(false);
-        }
-        else if (LO == 10 && step == 3)
-        {
-            forwardBttnGameObj.SetActive(false);
-        }
-        else
-        {
-            if (backBttnGameObj.activeSelf || forwardBttnGameObj.activeSelf)
-            {
-                backBttnGameObj.SetActive(true);
-                forwardBttnGameObj.SetActive(true);
-            }
-        }
-
-        // Make sure the step's button has the pressed down graphic
-        PressDownStepButton(step, currentStep);
     }
 
    private void HideAllPanels()
@@ -430,10 +293,5 @@ public class LoNavigator : SceneSingleton<LoNavigator>
             SaveProgress();
         }
 
-    }
-    private int GetStepButtonIndex(int step)
-    {
-        // since stepButton array's indexes are 0-based, the index will be one less than the step number
-        return step - 1;
     }
 }
