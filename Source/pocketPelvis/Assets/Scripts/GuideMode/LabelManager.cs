@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LabelManager : MonoBehaviour
+public class LabelManager : SceneSingleton<LabelManager>
 {
     [SerializeField]
     private LabelScript LabelScript;
@@ -29,9 +29,14 @@ public class LabelManager : MonoBehaviour
                 }
             }
         }
+        
     }
     public void ToggleAllLabels()
     {
         LabelScript.ToggleAllLabels();
+    }
+    public void EnableLabelsByText(SearchingTextType textType, params string[] texts)
+    {
+        LabelScript.EnableLabelsByText(textType, texts);
     }
 }

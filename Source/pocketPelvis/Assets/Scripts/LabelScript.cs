@@ -10,7 +10,11 @@ using System.Linq;
 
 
 
-
+public enum SearchingTextType
+{
+    upperText,
+    bottomText
+}
 
 
 
@@ -125,16 +129,46 @@ public class LabelScript : MonoBehaviour
     }
     public void showAllLabelText(bool value)
     {
-        ReloadAllLabelInChildren();
+        
         if(labels.Count>0)
         labels.ForEach(x => x.GetComponent<LabelTextManager>().showLabel(value));
         
     }
     public void ToggleAllLabels()
     {
-        ReloadAllLabelInChildren();
+        
         if (labels.Count > 0)
             labels.ForEach(x => x.GetComponent<LabelTextManager>().toggleLabel());
     }
+    // enable all the corresponding labels and change their index number
+    // might need a better algorithm 
+    public void EnableLabelsByText(SearchingTextType textType,params string[] texts)
+    {
+        labels.ForEach(x => x.gameObject.SetActive(false));
+        if (texts == null)
+            return;
+        var textList = texts.ToList();
+        List<LabelTextManager> foundLabels = new List<LabelTextManager>();
+        switch (textType)
+        {
+            case SearchingTextType.upperText:
+                foundLabels = labels.FindAll(a => textList.Any(b => b == a.thisLabel.upperText));
+                foundLabels.ForEach(x =>
+                {
+                    x.SetIndexNumber(textList.IndexOf(x.thisLabel.upperText));
+                    x.gameObject.SetActive(true);
+                });
 
+
+                break;
+            case SearchingTextType.bottomText:
+                foundLabels = labels.FindAll(a => textList.Any(b => b == a.thisLabel.bottomText));
+                foundLabels.ForEach(x => {
+                    x.SetIndexNumber(textList.IndexOf(x.thisLabel.bottomText));
+                    x.gameObject.SetActive(true);
+                });
+                break;
+        }
+        
+    }
 }

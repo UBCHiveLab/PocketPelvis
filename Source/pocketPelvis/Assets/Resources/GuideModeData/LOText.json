@@ -11,6 +11,11 @@
       ],
       "guideViewOrientation": [
         "Side"
+      ],
+      "labelTexts": [
+        {
+           "labelText": [ "" ] 
+        }
       ]
     },
     {
@@ -42,6 +47,53 @@
         "Back",
         "Back",
         "Back"
+      ],
+      "labelTexts": [
+        {
+          "labelText": [
+            "Ilium",
+            "Ischium",
+            "Pubis",
+            "Sacrum",
+            "Coccyx"
+          ]
+        },
+        {
+          "labelText": [
+            "Iliac crest",
+            "Anterior superior iliac spine (ASIS)",
+            "Anterior inferior iliac spine (AIIS)",
+            "Iliosacral articular surface",
+            "Pubic symphysis",
+            "Lumbosacral articular surface",
+            "Obturator foramen"
+          ]
+        },
+        {
+          "labelText": [
+            "Iliac crest",
+            "Posterior superior iliac spine (PSIS)",
+            "Posterior inferior iliac spine (PIIS)",
+            "Iliosacral articular surface",
+            "Pubic symphysis",
+            "Lumbosacral articular surface",
+            "Obturator foramen",
+            "Ischial spine",
+            "Ischial",
+            "tuberosity"
+          ]
+        },
+        {
+          "labelText": [
+            "Sacrotuberous ligament",
+            "Sacrospinous ligament",
+            "Sacroiliac ligament",
+            "Obturator membrane"
+          ]
+        },
+        { "labelText": [ "" ] },
+        { "labelText": [ "" ] },
+        { "labelText": [ "" ] }
       ]
     },
     {
@@ -61,6 +113,11 @@
       "guideViewOrientation": [
         "Frontal",
         "Frontal"
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ "" ]
+        }
       ]
     },
     {
@@ -83,6 +140,11 @@
         "MidSaggital",
         "MidSaggital",
         "MidSaggital"
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -98,6 +160,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -113,6 +180,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -128,6 +200,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -151,6 +228,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -166,6 +248,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     },
     {
@@ -183,6 +270,11 @@
       ],
       "guideViewOrientation": [
         ""
+      ],
+      "labelTexts": [
+        {
+          "labelText": [ [ "" ] ]
+        }
       ]
     }
    ]

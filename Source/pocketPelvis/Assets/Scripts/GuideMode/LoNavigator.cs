@@ -71,6 +71,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         setCurrentLO += ButtonDisplayBasedOnLO;
         setCurrentLO += UpdateLOProgress;
         setCurrentLO += SetCurrentGuideView;
+        setCurrentLO += SetLabels;
         displayLOUI += DisplayLOContent;
         displayLOUI += DisplayStepButtons;
         SetProgress += ChangeCurrentProgress;
@@ -109,6 +110,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         setCurrentLO -= ButtonDisplayBasedOnLO;
         setCurrentLO -= UpdateLOProgress;
         setCurrentLO -= SetCurrentGuideView;
+        setCurrentLO -= SetLabels;
         displayLOUI -= DisplayLOContent;
         displayLOUI -= DisplayStepButtons;
         SetProgress -= ChangeCurrentProgress;
@@ -126,7 +128,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
 
         //update data
         setCurrentLO(LO, step);
-
+        SetProgress(Progress.inProgress);
         if (loData.IsNewUser())
         {
             DisplayTutorialPage();
@@ -331,6 +333,11 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     {
         GuideViewOrientation foundOrientation = loTexts.GetGuideViewOrientation(LO, step);
         ModelTrackingManager.Instance.SetGuideView(foundOrientation);
+    }
+    public void SetLabels(int LO, int step)
+    {
+        string[] labelText = loTexts.GetLabelText(LO, step);
+        LabelManager.Instance.EnableLabelsByText(SearchingTextType.bottomText, labelText);
     }
 
     private void UpdateLOProgress(int LO, int step)
