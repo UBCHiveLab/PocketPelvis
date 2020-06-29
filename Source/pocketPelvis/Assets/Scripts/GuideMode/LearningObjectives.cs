@@ -62,11 +62,12 @@ public class LearningObjectives : MonoBehaviour
         if (System.IO.File.Exists(jsonSavePath))
         {
             load = System.IO.File.ReadAllText(jsonSavePath);
+            
         }
         else
         {
             //loading empty save data from resoureces folder
-            TextAsset loadedData = Resources.Load<TextAsset>("BasicData/emptySaveData");
+            TextAsset loadedData = Resources.Load<TextAsset>("GuideModeData/EmptySaveData");
             load = loadedData.text;
         }
 

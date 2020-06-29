@@ -10,7 +10,6 @@ public class LoText
     public List<string> stepInfoText;
     public List<string> fitInfo;
     public List<string> guideViewOrientation;
-    //public List<string[]> labelTexts;
     public List<LabelTexts> labelTexts;
 
 }
@@ -87,7 +86,7 @@ public class LoTexts
 
         if (infoText != null)
         {
-            if (infoText.labelTexts != null && infoText.labelTexts.Count >= step)
+            if (infoText.labelTexts != null && infoText.labelTexts.Count >= step && step != 0)
             {
                 labelText = infoText.labelTexts[step - 1].labelText;
 

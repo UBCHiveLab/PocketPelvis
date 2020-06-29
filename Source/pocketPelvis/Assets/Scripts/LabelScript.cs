@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+#endif
 using TMPro;
 using System;
 using System.Linq;
@@ -50,7 +52,7 @@ public class LabelScript : MonoBehaviour
     public void ChangeLabelPrefab()
     {
 
-
+#if UNITY_EDITOR
         //set prefab dirty
         if (labelPrefab == null)
         {
@@ -77,6 +79,7 @@ public class LabelScript : MonoBehaviour
             });
 
         }
+#endif
     }
 
 
