@@ -10,7 +10,15 @@ public class LoText
     public List<string> stepInfoText;
     public List<string> fitInfo;
     public List<string> guideViewOrientation;
+    public List<LabelTexts> labelTexts;
+
 }
+[System.Serializable]
+public class LabelTexts
+{
+    public string[] labelText;
+}
+
 [System.Serializable]
 public class LoTexts
 {
@@ -70,5 +78,24 @@ public class LoTexts
         if (System.Enum.IsDefined(typeof(GuideViewOrientation), text))
             return (GuideViewOrientation)System.Enum.Parse(typeof(GuideViewOrientation), text);
         else return GuideViewOrientation.NoGuideView;
+    }
+    public string[] GetLabelText(int LO, int step)
+    {
+        string[] labelText;
+        LoText infoText = infoTexts.Find(x => x.LO == LO);
+
+        if (infoText != null)
+        {
+            if (infoText.labelTexts != null && infoText.labelTexts.Count >= step && step != 0)
+            {
+                labelText = infoText.labelTexts[step - 1].labelText;
+
+                return labelText;
+            }
+
+        }
+
+        return null;
+
     }
 }

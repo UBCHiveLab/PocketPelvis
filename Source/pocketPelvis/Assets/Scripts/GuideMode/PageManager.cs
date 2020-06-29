@@ -17,6 +17,7 @@ public class PageManager : SceneSingleton<PageManager>
 {
     private PageController activePage;
     private List<PageController> pageControllers;
+    private DeviceOrientation currentDeviceOrientation;
 
     private void Awake()
     {
@@ -28,11 +29,20 @@ public class PageManager : SceneSingleton<PageManager>
     {
         if (activePage.pageType == PageType.LOVertial || activePage.pageType == PageType.LOHorizontal)
         {
-            PageType pageToActivate = PageType.LOVertial;
 
-            if(Input.deviceOrientation == DeviceOrientation.Portrait || Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown)
+            PageType pageToActivate;
+            if (Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown || Input.deviceOrientation == DeviceOrientation.Portrait)
+            {
+                pageToActivate = PageType.LOVertial;
+            }
+            else if(Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight)
             {
                 pageToActivate = PageType.LOHorizontal;
+            }
+            else
+            {
+                //do not change the page type if orientation is face up or down
+                pageToActivate = GetActivePageType();
             }
 
             MakePageActive(pageToActivate);

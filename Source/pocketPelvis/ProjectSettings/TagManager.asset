@@ -8,6 +8,7 @@ TagManager:
   - arObject_model
   - arObject_image
   - arObject_mount
+  - labelDot
   layers:
   - Default
   - TransparentFX
