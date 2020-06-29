@@ -38,6 +38,8 @@ public class LabelScript : MonoBehaviour
     public List<LabelTextManager> labels;
     private GameObject labelPrefab;
 
+    public bool toggleLabel = true;
+
     
     //Set default value for label maker
     private void Reset()
@@ -139,9 +141,12 @@ public class LabelScript : MonoBehaviour
     }
     public void ToggleAllLabels()
     {
-        
+
+        //if (labels.Count > 0)
+        //    labels.ForEach(x => x.GetComponent<LabelTextManager>().toggleLabel());
+        toggleLabel = !toggleLabel;
         if (labels.Count > 0)
-            labels.ForEach(x => x.GetComponent<LabelTextManager>().toggleLabel());
+            labels.ForEach(x => x.GetComponent<LabelTextManager>().showLabel(toggleLabel));
     }
     // enable all the corresponding labels and change their index number
     // might need a better algorithm 
