@@ -38,7 +38,7 @@ public class AchievementSynchronizer : MonoBehaviour
                     // the step of the LO has been achieved. Check if the step is 'inProgress' or not
                     currentImg.sprite = StepIsInProgress(lo, step) ? inProgressAndAchievedSprite : achievedSprite;
                     // we've been to this step before, so we can interact with the step's button
-                    buttonInteractivityController.EnableButton(currentButton, currentImg);
+                    buttonInteractivityController.EnableButton(currentButton);
                 }
                 else
                 {
@@ -48,10 +48,10 @@ public class AchievementSynchronizer : MonoBehaviour
                     // allow the button for the learning objective be interacted with only if we've been to the step before
                     if (loData.HaveBeenToStep(lo, step))
                     {
-                        buttonInteractivityController.EnableButton(currentButton, currentImg);
+                        buttonInteractivityController.EnableButton(currentButton);
                     } else
                     {
-                        buttonInteractivityController.DisableButton(currentButton, currentImg);
+                        buttonInteractivityController.DisableButton(currentButton);
                     }
                 }
             }

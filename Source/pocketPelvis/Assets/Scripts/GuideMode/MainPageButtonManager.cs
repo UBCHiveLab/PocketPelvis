@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class MainPageButtonManager : MonoBehaviour
 {
     [SerializeField]
-    Button InfoButton, LabelButton;
+    private Button infoButton, labelButton;
+    private ButtonInteractivityController interactivityController;
+
     // Start is called before the first frame update
     void Start()
     {
+        interactivityController = GetComponent<ButtonInteractivityController>();
+
         LoNavigator.SetProgress += ChangeBasedOnProgress;
         LoNavigator.SetProgress += DisplayWinMessage;
-        InfoButton.interactable = false;
-        LabelButton.interactable = false;
+        interactivityController.DisableButton(infoButton);
+        interactivityController.DisableButton(labelButton);
     }
     private void OnDisable()
     {
@@ -23,16 +27,17 @@ public class MainPageButtonManager : MonoBehaviour
     }
     public void ChangeBasedOnProgress(Progress progress)
     {
+        // when tracking the pelvis model, allow the info and label buttons to be interacted with
         if (progress == Progress.win)
         {
-            InfoButton.interactable = true;
-            LabelButton.interactable = true;
+            interactivityController.EnableButton(infoButton);
+            interactivityController.EnableButton(labelButton);
 
         }
         else
         {
-            InfoButton.interactable = false;
-            LabelButton.interactable = false;
+            interactivityController.DisableButton(infoButton);
+            interactivityController.DisableButton(labelButton);
         }
     }
     public void DisplayWinMessage(Progress progress)

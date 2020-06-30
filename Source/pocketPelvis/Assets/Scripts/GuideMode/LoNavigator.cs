@@ -68,7 +68,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
         #region SUBSCRIBE_DELEGATE_METHODS
         setCurrentLO += ChangeInfoTextBasedOnLO;
-        setCurrentLO += ButtonDisplayBasedOnLO;
+        setCurrentLO += UpdateStepControls;
         setCurrentLO += UpdateLOProgress;
         setCurrentLO += SetCurrentGuideView;
         setCurrentLO += SetLabels;
@@ -107,7 +107,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         
         
         setCurrentLO -= ChangeInfoTextBasedOnLO;
-        setCurrentLO -= ButtonDisplayBasedOnLO;
+        setCurrentLO -= UpdateStepControls;
         setCurrentLO -= UpdateLOProgress;
         setCurrentLO -= SetCurrentGuideView;
         setCurrentLO -= SetLabels;
@@ -233,11 +233,11 @@ public class LoNavigator : SceneSingleton<LoNavigator>
                 } else if (loData.HaveBeenToStep(currentLO, stepIndex + 1))
                 {
                     // We've never been to this step before. So, make this step's button interactable
-                    buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+                    buttonInteractivityController.EnableButton(stepButtons[stepIndex]);
                 } else
                 {
                     // we've never been to this step before. So, make the this step's button non-interactable
-                    buttonInteractivityController.DisableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+                    buttonInteractivityController.DisableButton(stepButtons[stepIndex]);
                 }
             } else
             {
@@ -255,18 +255,19 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
 
         int stepIndex = GetStepButtonIndex(step);
+        bool tintStepButton = false;
 
         if (prevStep != LearningObjectives.INTRO_STEP)
         {
             // stop pressing down on the previous step button
             int prevStepIndex = GetStepButtonIndex(prevStep);
-            buttonInteractivityController.EnableButton(stepButtons[prevStepIndex]);
+            buttonInteractivityController.EnableButton(stepButtons[prevStepIndex], tintStepButton);
         }
 
         // make sure that the current step button looks like it is interactable
-        buttonInteractivityController.EnableButton(stepButtons[stepIndex], stepButtons[stepIndex].GetComponent<Image>());
+        buttonInteractivityController.EnableButton(stepButtons[stepIndex]);
         // give the button the pressed down graphic
-        buttonInteractivityController.DisableButton(stepButtons[stepIndex]);
+        buttonInteractivityController.DisableButton(stepButtons[stepIndex], tintStepButton);
     }
 
     private void GoToNextStep(StepControl control)
@@ -369,27 +370,20 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         }
     }
 
-    private void ButtonDisplayBasedOnLO(int LO, int step)
+    private void UpdateStepControls(int LO, int step)
     {
         GameObject backBttnGameObj = buttonBackward.gameObject;
         GameObject forwardBttnGameObj = buttonForward.gameObject;
 
-        if (LO == 1 && step == LearningObjectives.INTRO_STEP)
-        {
-            backBttnGameObj.SetActive(false);
-        }
-        else if (LO == 10 && step == 3)
-        {
-            forwardBttnGameObj.SetActive(false);
-        }
-        else
-        {
-            if (backBttnGameObj.activeSelf || forwardBttnGameObj.activeSelf)
-            {
-                backBttnGameObj.SetActive(true);
-                forwardBttnGameObj.SetActive(true);
-            }
-        }
+        // when not on the intro of the first LO, show the back navigation button. Otherwise, hide it.
+        bool showBackButton = step != LearningObjectives.INTRO_STEP || LO != 1;
+
+        // when not on the last step of the last LO, show the forward navigation button. Otherwise, hide it.
+        int lastLO = loData.GetNumberOfLearningObjectives();
+        bool showForwardButton = LO != lastLO || step != loData.GetNumberOfSteps(lastLO);
+
+        backBttnGameObj.SetActive(showBackButton);
+        forwardBttnGameObj.SetActive(showForwardButton);
 
         // Make sure the step's button has the pressed down graphic
         PressDownStepButton(step, currentStep);

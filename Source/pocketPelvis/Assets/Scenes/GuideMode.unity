@@ -1722,6 +1722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagers
       objectReference: {fileID: 0}
+    - target: {fileID: 8006861765954394261, guid: 9cf00e9d55864614e9a1e36aae5070c4,
+        type: 3}
+      propertyPath: LabelScript
+      value: 
+      objectReference: {fileID: 2081318611}
     - target: {fileID: 8006861766370675741, guid: 9cf00e9d55864614e9a1e36aae5070c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1787,10 +1792,15 @@ PrefabInstance:
       propertyPath: LabelButton
       value: 
       objectReference: {fileID: 582149875}
-    - target: {fileID: 8006861765954394261, guid: 9cf00e9d55864614e9a1e36aae5070c4,
+    - target: {fileID: 8006861766118999292, guid: 9cf00e9d55864614e9a1e36aae5070c4,
         type: 3}
-      propertyPath: LabelScript
+      propertyPath: infoButton
       value: 
-      objectReference: {fileID: 2081318611}
+      objectReference: {fileID: 1331840879}
+    - target: {fileID: 8006861766118999292, guid: 9cf00e9d55864614e9a1e36aae5070c4,
+        type: 3}
+      propertyPath: labelButton
+      value: 
+      objectReference: {fileID: 582149875}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf00e9d55864614e9a1e36aae5070c4, type: 3}

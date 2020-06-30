@@ -8,21 +8,21 @@ public class ButtonInteractivityController : MonoBehaviour
     private readonly Color DISABLED_TINT = new Color(106.0f / 255.0f, 106.0f / 255.0f, 106.0f / 255.0f, 105 / 255.0f);
     private readonly Color ENABLED_TINT = new Color(1, 1, 1, 1);
 
-    public void DisableButton(Button button, Image buttonImage = null)
+    public void DisableButton(Button button, bool applyTint = true)
     {
         button.interactable = false;
-        if (buttonImage != null)
+        if (applyTint)
         {
-            buttonImage.color = DISABLED_TINT;
+            button.targetGraphic.color = DISABLED_TINT;
         }
     }
 
-    public void EnableButton(Button button, Image buttonImage = null)
+    public void EnableButton(Button button, bool applyTint = true)
     {
         button.interactable = true;
-        if (buttonImage != null)
+        if (applyTint)
         {
-            buttonImage.color = ENABLED_TINT;
+            button.targetGraphic.color = ENABLED_TINT;
         }
     }
 }
