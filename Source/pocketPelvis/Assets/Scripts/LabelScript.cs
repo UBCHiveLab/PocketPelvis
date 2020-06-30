@@ -24,7 +24,7 @@ public enum SearchingTextType
 public class LabelScript : MonoBehaviour
 {
     
-    public Color textColor=Color.black;
+    public Color textColor;
     
     public string upperText, bottomText;
     public bool showAllLabel=true;

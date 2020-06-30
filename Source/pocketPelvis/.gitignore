@@ -60,3 +60,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Guide Mode progress save file
+/[Aa]ssets/SaveData/saveAchievements.json
