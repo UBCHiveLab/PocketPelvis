@@ -1,33 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
+﻿/// <summary>
 /// Created by Silver Xu, 2020
 /// Scene singleton that stores all delegate classes
 /// </summary>
 public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
 {
     public delegate void ModelTrackingDelegate(bool trackingStatus);
-    public event ModelTrackingDelegate ModelTrackingEvent;
-    
-    //Todo: Define User Progress Data
+    public event ModelTrackingDelegate OnModelTrackingStatusChanged;
+
     public delegate void UpdateProgressDelegate(UserProgressData updateData);
-    public event UpdateProgressDelegate UpdateProgressEvent;
+    public event UpdateProgressDelegate OnUserProgressUpdated;
 
     public delegate void StepAchievedDelegate();
-    public event StepAchievedDelegate StepAchievedEvent;
+    public event StepAchievedDelegate OnAllStepsAchieved;
 
-    public void PublishModelTraackingEvent(bool trackingStatus)
+    public void PublishModelTrackingChangedEvent(bool trackingStatus)
     {
-        ModelTrackingEvent(trackingStatus);
+        OnModelTrackingStatusChanged(trackingStatus);
     }
-    public void PublishUpdateProgress(UserProgressData updateData)
+    public void PublishUpdateUserProgress(UserProgressData updatedData)
     {
-        UpdateProgressEvent(updateData);
+        OnUserProgressUpdated(updatedData);
     }
-    public void PublishAllStepAchieved()
+    public void PublishAllStepsAchieved()
     {
-        StepAchievedEvent();
+        OnAllStepsAchieved();
     }
 }

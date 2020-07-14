@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// TODO: Remove file when finish refactoring
+
+/*
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -429,3 +432,4 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         return step - 1;
     }
 }
+*/
