@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,3 +68,4 @@ public class AchievementSynchronizer : MonoBehaviour
         return (stepIsIntro || stepIsSelected) && learningObjective == loData.GetCurrentLearningObjective();
     }
 }
+*/

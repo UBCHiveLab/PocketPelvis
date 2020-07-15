@@ -7,7 +7,7 @@ enum StepControl
     Current
 }
 
-public class StepControlNavigator : AbstractNavigationButtonBehaviour
+public class StepControlNavigator : AbstractOnClickButtonBehaviour
 {
     [SerializeField]
     private StepControl buttonControl;
@@ -44,6 +44,6 @@ public class StepControlNavigator : AbstractNavigationButtonBehaviour
             }
         }
 
-        GoToStep(nextLO, nextStep);
+        saveDataManager.UpdateUserProgress(nextLO, nextStep);
     }
 }

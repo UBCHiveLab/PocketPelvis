@@ -19,14 +19,28 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
         eventManager = GuideModeEventManager.Instance;
 
         #if UNITY_EDITOR
-                saveDataPath = Application.dataPath + "/SaveData/" + SAVE_DATA_PATH;
+            saveDataPath = Application.dataPath + "/SaveData/" + SAVE_DATA_PATH;
         #elif UNITY_ANDROID || UNITY_IOS
-                        saveDataPath = Application.persistentDataPath + SAVE_DATA_PATH;
+            saveDataPath = Application.persistentDataPath + SAVE_DATA_PATH;
         #endif
 
         LoadSaveData();
+    }
 
+    private void OnEnable()
+    {
+        // watch for changes to the model tracking status
         eventManager.OnModelTrackingStatusChanged += AchieveCurrentStep;
+    }
+
+    private void OnDisable()
+    {
+        if (eventManager != null)
+        {
+            // if the event manager and all references to its events haven't been destroyed already,
+            // stop watching for changes to the model tracking status
+            eventManager.OnModelTrackingStatusChanged -= AchieveCurrentStep;
+        }
     }
 
     private void LoadSaveData()
@@ -81,7 +95,7 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
         int loIndex = GetLOIndex(lo);
         int stepIndex = loIndex < 0 || step <= INTRO_STEP || step > saveData.loAchievements[loIndex].stepAchievementStatus.Count ?
             -1 : // if the lo or the lo's step cannot be found in the save data, set the step index to -1
-            step - 1; // otherwise, the steps that can be achieved are step 1, 2, ..., but the stepAchievementStatus is 0-base indexed. So, step 1 index = 0, step 2 index = 1, ...
+            step - 1; // steps that can be achieved: 1, 2, ..., but stepAchievementStatus is 0-base indexed. So, step 1 index = 0, step 2 index = 1, ...
 
         return new int[] { loIndex, stepIndex };
     }
