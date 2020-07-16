@@ -259,41 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c977f4e48c209aa49a222b9b9c1630e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mTrackableBehaviour: {fileID: 0}
-  m_PreviousStatus: 0
-  m_NewStatus: 0
 --- !u!114 &172915595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,18 +308,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &181779691 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6781283576626368792, guid: 331102f8cb171924d8c9de4313181d84,
-    type: 3}
-  m_PrefabInstance: {fileID: 255473528}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &255473528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,16 +430,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1185593894}
-    - target: {fileID: 4252143629214548547, guid: 331102f8cb171924d8c9de4313181d84,
-        type: 3}
-      propertyPath: startButtonVertical
-      value: 
-      objectReference: {fileID: 181779691}
-    - target: {fileID: 4252143629214548547, guid: 331102f8cb171924d8c9de4313181d84,
-        type: 3}
-      propertyPath: startButtonHorizontal
-      value: 
-      objectReference: {fileID: 1640726011}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331102f8cb171924d8c9de4313181d84, type: 3}
 --- !u!1 &257618341
@@ -770,18 +713,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400f2b360b158ff4b90d091d7f964440, type: 3}
---- !u!114 &1640726011 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6781283575844362466, guid: 331102f8cb171924d8c9de4313181d84,
-    type: 3}
-  m_PrefabInstance: {fileID: 255473528}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1873318650
 GameObject:
   m_ObjectHideFlags: 0

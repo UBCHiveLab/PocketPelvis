@@ -102,33 +102,6 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
     #endregion PRIVATE_METHODS
 
     #region PUBLIC_GETTER_METHODS
-    public bool AreAllStepsAchieved()
-    {
-        bool allStepsAchieved = true;
-        bool allStepsVisited = false;
-        int loIndex = 0;
-        int stepIndex = 0;
-        int stepsInLO = saveData.loAchievements[loIndex].stepAchievementStatus.Count;
-
-        while (allStepsAchieved && !allStepsVisited)
-        {
-            // set the achievement status to the achievement status of the current step
-            allStepsAchieved = saveData.loAchievements[loIndex].stepAchievementStatus[stepIndex];
-            if (stepIndex == stepsInLO)
-            {
-                // we checked the achievement status of all the steps in the current learning objective; go to the next lo
-                loIndex++;
-                stepIndex = 0;
-                stepsInLO = saveData.loAchievements[loIndex].stepAchievementStatus.Count;
-
-                // if we've seen all the steps in all the learning objectives, then the loIndex == number of learning objectives in the save data
-                allStepsVisited = loIndex == saveData.loAchievements.Count;
-            }
-        }
-
-        return allStepsAchieved;
-    }
-
     public int GetCurrentLO()
     {
         return saveData.userProgress.currentLO;

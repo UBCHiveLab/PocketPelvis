@@ -5,9 +5,8 @@ public enum PanelType
 {
     Menu,
     Info,
-    AllDone,
-    WellDone,
-    Fit,
+    FitInstructions,
+    IsTrackingModel,
     Introduction,
     User,
     Tutorial
@@ -61,9 +60,9 @@ public class PanelManager : SceneSingleton<PanelManager>
         if (panelIsVisible && PanelIsOnMainPage())
         {
             // if we are on the main page and no panel is visible, then make the default panel visible.
-            // When on an LO introduction, default panel == intro panel, otherwise default panel == fit panel
+            // When on an LO introduction, default panel == intro panel, otherwise default panel == fit instruction panel
             ShowPanel(
-                loData.GetCurrentStep() == SaveDataManager.INTRO_STEP ? PanelType.Introduction : PanelType.Fit
+                loData.GetCurrentStep() == SaveDataManager.INTRO_STEP ? PanelType.Introduction : PanelType.FitInstructions
             );
         }
     }

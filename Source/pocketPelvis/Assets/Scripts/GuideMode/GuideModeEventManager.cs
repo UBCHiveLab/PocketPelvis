@@ -10,9 +10,6 @@ public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
     public delegate void UpdateProgressDelegate(UserProgressData updateData);
     public event UpdateProgressDelegate OnUserProgressUpdated;
 
-    public delegate void StepAchievedDelegate();
-    public event StepAchievedDelegate OnAllStepsAchieved;
-
     public void PublishModelTrackingChangedEvent(bool trackingStatus)
     {
         OnModelTrackingStatusChanged(trackingStatus);
@@ -20,9 +17,5 @@ public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
     public void PublishUpdateUserProgress(UserProgressData updatedData)
     {
         OnUserProgressUpdated(updatedData);
-    }
-    public void PublishAllStepsAchieved()
-    {
-        OnAllStepsAchieved();
     }
 }
