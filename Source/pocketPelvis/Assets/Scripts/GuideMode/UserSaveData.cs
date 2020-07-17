@@ -16,6 +16,7 @@ public struct UserProgressData
     public int currentStep;
     public int furthestLO;
     public int furthestStep;
+    public int stepsInCurrentLO;
 }
 
 [System.Serializable]

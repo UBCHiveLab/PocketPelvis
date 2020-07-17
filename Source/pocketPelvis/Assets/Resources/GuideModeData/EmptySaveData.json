@@ -4,7 +4,8 @@
 		"currentLO": 0,
 		"currentStep": 0,
 		"furthestLO": 0,
-		"furthestStep": 0
+		"furthestStep": 0,
+		"stepsInCurrentLO": 0
 	},
 	"loAchievements": [
 		{

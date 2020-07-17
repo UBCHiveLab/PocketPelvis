@@ -45,21 +45,9 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
 
     private void LoadSaveData()
     {
-        string jsonSaveData;
-
-        if (System.IO.File.Exists(saveDataPath))
-        {
-
-            // Load learning objects from saved json file
-            jsonSaveData = System.IO.File.ReadAllText(saveDataPath);
-
-        }
-        else
-        {
-            // Load empty save data from resources folder
-            TextAsset loadedData = Resources.Load<TextAsset>(EMPTY_SAVE_DATA_PATH);
-            jsonSaveData = loadedData.text;
-        }
+        string jsonSaveData = System.IO.File.Exists(saveDataPath) ?
+            System.IO.File.ReadAllText(saveDataPath) : // Load learning objects from saved json file
+            GetEmptySaveData(); // Load empty save data from resources folder
 
         saveData = JsonUtility.FromJson<UserSaveData>(jsonSaveData);
     }
@@ -70,19 +58,30 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
         System.IO.File.WriteAllText(saveDataPath, jsonSaveData);
     }
 
+    private string GetEmptySaveData()
+    {
+        TextAsset loadedData = Resources.Load<TextAsset>(EMPTY_SAVE_DATA_PATH);
+        return loadedData.text;
+    }
+
     private void AchieveCurrentStep(bool achievedStep)
     {
         if (!achievedStep)
         {
-            // the step was not achieved, so leave the current step's achievement status as "unachieved"
+            // the current step was not achieved. So, leave the current step's achievement status as "unachieved"
             return;
         }
 
         int[] loIndices = GetLOIndices(saveData.userProgress.currentLO, saveData.userProgress.currentStep);
         int loIndex = loIndices[LO_INDEX];
         int stepIndex = loIndices[STEP_INDEX];
-        saveData.loAchievements[loIndex].stepAchievementStatus[stepIndex] = achievedStep;
-        SaveData();
+
+        if (loIndex >= 0 && stepIndex >= 0)
+        {
+            // if the lo and step indicies are valid indices, then update the achievement status of the current step
+            saveData.loAchievements[loIndex].stepAchievementStatus[stepIndex] = achievedStep;
+            SaveData();
+        }
     }
 
     private int GetLOIndex(int lo)
@@ -127,22 +126,8 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
     #region EVENT_TRIGGERS
     public void ResetSaveData()
     {
-        saveData.userProgress.isNewUser = true;
-
-        // put the user on the first step of the first LO
-        saveData.userProgress.currentLO = FIRST_LO;
-        saveData.userProgress.currentStep = INTRO_STEP + 1;
-
-        // the user has never seen any step of any LO yet, so make no LO the furthest
-        saveData.userProgress.furthestLO = FIRST_LO - 1;
-        saveData.userProgress.furthestStep = INTRO_STEP;
-
-        // make it so that the user has achieved no LO steps
-        saveData.loAchievements.ForEach(
-            loData => loData.stepAchievementStatus.ForEach(
-                achievementStatus => achievementStatus = false
-            )
-        );
+        // overwrite the existing saveData object with all the values of empty data
+        saveData = JsonUtility.FromJson<UserSaveData>(GetEmptySaveData());
 
         SaveData();
         eventManager.PublishUpdateUserProgress(saveData.userProgress);
@@ -151,17 +136,20 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
     public void UpdateUserProgress(int currentLO, int currentStep)
     {
         int[] loIndices = GetLOIndices(currentLO, currentStep);
-        if (loIndices[STEP_INDEX] < 0)
+        int loIndex = loIndices[LO_INDEX];
+        if (loIndex < 0 || (loIndices[STEP_INDEX] < 0 && currentStep != INTRO_STEP))
         {
-            // if the step index is negative, then either the currentLO or currentStep is not in the save data. Don't update progress
+            // if the lo or step index is negative, then there is no save data for either the currentLO or currentStep.
+            // There is no save data for the intro step, so if the step index is negative and the current step is not the intro step, then the step is invalid.
             return;
         }
 
         // if the user has updated their save data before, then they shouldn't be considered a new user
-        saveData.userProgress.isNewUser = saveData.userProgress.furthestLO < FIRST_LO;
+        saveData.userProgress.isNewUser = saveData.userProgress.currentLO < FIRST_LO;
 
         saveData.userProgress.currentLO = currentLO;
         saveData.userProgress.currentStep = currentStep;
+        saveData.userProgress.stepsInCurrentLO = saveData.loAchievements[loIndex].stepAchievementStatus.Count;
 
         if (currentLO > saveData.userProgress.furthestLO)
         {

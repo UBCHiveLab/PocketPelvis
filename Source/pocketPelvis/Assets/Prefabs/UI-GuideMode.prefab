@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 6781283574817980515}
   - component: {fileID: 6781283574817980514}
   - component: {fileID: 6781283574817980541}
-  - component: {fileID: 1423857469}
+  - component: {fileID: 6410653689411040665}
   m_Layer: 5
   m_Name: Star5-2
   m_TagString: Untagged
@@ -483,7 +483,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1423857469
+--- !u!114 &6410653689411040665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,11 +492,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574817980543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 2
+  selectedLO: 5
 --- !u!1 &6781283574826175475
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 6781283574826175479}
   - component: {fileID: 6781283574826175478}
   - component: {fileID: 6781283574826175473}
-  - component: {fileID: 1731038150}
+  - component: {fileID: 6051318092246563141}
   m_Layer: 5
   m_Name: Star10-3
   m_TagString: Untagged
@@ -626,7 +626,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1731038150
+--- !u!114 &6051318092246563141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -635,11 +635,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574826175475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 3
+  selectedLO: 10
 --- !u!1 &6781283574846677838
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 6781283574846677874}
   - component: {fileID: 6781283574846677837}
   - component: {fileID: 6781283574846677836}
-  - component: {fileID: 2066330580}
+  - component: {fileID: 4613582445544711683}
   m_Layer: 5
   m_Name: Star10-1
   m_TagString: Untagged
@@ -769,7 +769,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2066330580
+--- !u!114 &4613582445544711683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -778,11 +778,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574846677838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 1
+  selectedLO: 10
 --- !u!1 &6781283574852259332
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 6781283574852259336}
   - component: {fileID: 6781283574852259339}
   - component: {fileID: 6781283574852259338}
-  - component: {fileID: 1162760394}
+  - component: {fileID: 3901061981997463629}
   m_Layer: 5
   m_Name: Star10-3
   m_TagString: Untagged
@@ -912,7 +912,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1162760394
+--- !u!114 &3901061981997463629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -921,11 +921,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574852259332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 3
+  selectedLO: 10
 --- !u!1 &6781283574853504334
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 6781283574853504370}
   - component: {fileID: 6781283574853504333}
   - component: {fileID: 6781283574853504332}
-  - component: {fileID: 1296917659}
+  - component: {fileID: 2679048745361231732}
   m_Layer: 5
   m_Name: Star10-2
   m_TagString: Untagged
@@ -1055,7 +1055,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1296917659
+--- !u!114 &2679048745361231732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1064,11 +1064,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574853504334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 2
+  selectedLO: 10
 --- !u!1 &6781283574868615037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 6781283574868615009}
   - component: {fileID: 6781283574868615008}
   - component: {fileID: 6781283574868615011}
-  - component: {fileID: 1613014861}
+  - component: {fileID: 3433828606246826697}
   m_Layer: 5
   m_Name: Star2-1
   m_TagString: Untagged
@@ -1198,7 +1198,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1613014861
+--- !u!114 &3433828606246826697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1207,11 +1207,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574868615037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 1
+  selectedLO: 2
 --- !u!1 &6781283574872632745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 6781283574872632749}
   - component: {fileID: 6781283574872632748}
   - component: {fileID: 6781283574872632751}
-  - component: {fileID: 2006119994}
+  - component: {fileID: 8161155884390392725}
   m_Layer: 5
   m_Name: Star2-5
   m_TagString: Untagged
@@ -1341,7 +1341,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2006119994
+--- !u!114 &8161155884390392725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1350,11 +1350,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574872632745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 5
+  selectedLO: 2
 --- !u!1 &6781283574886221861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 6781283574907170006}
   - component: {fileID: 6781283574907170001}
   - component: {fileID: 6781283574907170000}
-  - component: {fileID: 1370064882}
+  - component: {fileID: 7834286230338384243}
   m_Layer: 5
   m_Name: Star4-1
   m_TagString: Untagged
@@ -1687,7 +1687,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1370064882
+--- !u!114 &7834286230338384243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1696,11 +1696,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574907170002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 1
+  selectedLO: 4
 --- !u!1 &6781283574917695242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 6781283574941256311}
   - component: {fileID: 6781283574941256310}
   - component: {fileID: 6781283574941256305}
-  - component: {fileID: 1200323383}
+  - component: {fileID: 5273112850883444616}
   m_Layer: 5
   m_Name: Star2-7
   m_TagString: Untagged
@@ -2180,7 +2180,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1200323383
+--- !u!114 &5273112850883444616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2189,11 +2189,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574941256307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 7
+  selectedLO: 2
 --- !u!1 &6781283574941572993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,7 +2206,7 @@ GameObject:
   - component: {fileID: 6781283574941572997}
   - component: {fileID: 6781283574941572996}
   - component: {fileID: 6781283574941572999}
-  - component: {fileID: 1520967683}
+  - component: {fileID: 2426184589160239648}
   m_Layer: 5
   m_Name: Star9-2
   m_TagString: Untagged
@@ -2323,7 +2323,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1520967683
+--- !u!114 &2426184589160239648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2332,11 +2332,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574941572993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 2
+  selectedLO: 9
 --- !u!1 &6781283574953484473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2424,7 @@ GameObject:
   - component: {fileID: 6781283574962646015}
   - component: {fileID: 6781283574962646014}
   - component: {fileID: 6781283574962646009}
-  - component: {fileID: 1061737755}
+  - component: {fileID: 221005229362548349}
   m_Layer: 5
   m_Name: Star9-1
   m_TagString: Untagged
@@ -2541,7 +2541,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1061737755
+--- !u!114 &221005229362548349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2550,11 +2550,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283574962646011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 1
+  selectedLO: 9
 --- !u!1 &6781283574965921702
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,7 +3094,7 @@ GameObject:
   - component: {fileID: 6781283575078881779}
   - component: {fileID: 6781283575078881778}
   - component: {fileID: 6781283575078881741}
-  - component: {fileID: 1711338175}
+  - component: {fileID: 5535016557510433302}
   m_Layer: 5
   m_Name: Star8-2
   m_TagString: Untagged
@@ -3211,7 +3211,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1711338175
+--- !u!114 &5535016557510433302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3220,11 +3220,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575078881743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 2
+  selectedLO: 8
 --- !u!1 &6781283575124545460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,7 +3311,7 @@ GameObject:
   - component: {fileID: 6781283575134647503}
   - component: {fileID: 6781283575134647502}
   - component: {fileID: 6781283575134647497}
-  - component: {fileID: 511927570}
+  - component: {fileID: 2238154827697584001}
   m_Layer: 5
   m_Name: Star2-3
   m_TagString: Untagged
@@ -3428,7 +3428,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &511927570
+--- !u!114 &2238154827697584001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3437,11 +3437,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575134647499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 3
+  selectedLO: 2
 --- !u!1 &6781283575177993075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,7 +3454,7 @@ GameObject:
   - component: {fileID: 6781283575177993079}
   - component: {fileID: 6781283575177993078}
   - component: {fileID: 6781283575177993073}
-  - component: {fileID: 1006768037}
+  - component: {fileID: 2533422931349641685}
   m_Layer: 5
   m_Name: Star2-2
   m_TagString: Untagged
@@ -3571,7 +3571,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1006768037
+--- !u!114 &2533422931349641685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3580,11 +3580,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575177993075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 2
+  selectedLO: 2
 --- !u!1 &6781283575203865615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,7 +3834,7 @@ GameObject:
   - component: {fileID: 6781283575254135674}
   - component: {fileID: 6781283575254135669}
   - component: {fileID: 6781283575254135668}
-  - component: {fileID: 1194633426}
+  - component: {fileID: 5828816804102734296}
   m_Layer: 5
   m_Name: Star5-1
   m_TagString: Untagged
@@ -3951,7 +3951,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1194633426
+--- !u!114 &5828816804102734296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3960,11 +3960,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575254135670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 1
+  selectedLO: 5
 --- !u!1 &6781283575270560400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,7 +3977,7 @@ GameObject:
   - component: {fileID: 6781283575270560404}
   - component: {fileID: 6781283575270560407}
   - component: {fileID: 6781283575270560406}
-  - component: {fileID: 427947270}
+  - component: {fileID: 6237940731117616724}
   m_Layer: 5
   m_Name: Star5-2
   m_TagString: Untagged
@@ -4094,7 +4094,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &427947270
+--- !u!114 &6237940731117616724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4103,11 +4103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575270560400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 2
+  selectedLO: 5
 --- !u!1 &6781283575290489818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,7 +4171,7 @@ GameObject:
   - component: {fileID: 6781283575298842839}
   - component: {fileID: 6781283575298842838}
   - component: {fileID: 6781283575298842833}
-  - component: {fileID: 569125867}
+  - component: {fileID: 5806881391427718937}
   m_Layer: 5
   m_Name: Star4-2
   m_TagString: Untagged
@@ -4288,7 +4288,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &569125867
+--- !u!114 &5806881391427718937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4297,11 +4297,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575298842835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 2
+  selectedLO: 4
 --- !u!1 &6781283575304034413
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,7 +4525,7 @@ GameObject:
   - component: {fileID: 6781283575313311159}
   - component: {fileID: 6781283575313311158}
   - component: {fileID: 6781283575313311153}
-  - component: {fileID: 1014524634}
+  - component: {fileID: 7917681969446742711}
   m_Layer: 5
   m_Name: Star4-1
   m_TagString: Untagged
@@ -4642,7 +4642,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1014524634
+--- !u!114 &7917681969446742711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4651,11 +4651,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575313311155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 1
+  selectedLO: 4
 --- !u!1 &6781283575339864757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,7 +4747,7 @@ GameObject:
   - component: {fileID: 6781283575341616459}
   - component: {fileID: 6781283575341616458}
   - component: {fileID: 6781283575341616453}
-  - component: {fileID: 429932665}
+  - component: {fileID: 1975064151679312233}
   m_Layer: 5
   m_Name: Star4-3
   m_TagString: Untagged
@@ -4864,7 +4864,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &429932665
+--- !u!114 &1975064151679312233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4873,11 +4873,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575341616455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 3
+  selectedLO: 4
 --- !u!1 &6781283575371983262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,7 +4890,7 @@ GameObject:
   - component: {fileID: 6781283575371983234}
   - component: {fileID: 6781283575371983261}
   - component: {fileID: 6781283575371983260}
-  - component: {fileID: 1585885014}
+  - component: {fileID: 2781579717318884830}
   m_Layer: 5
   m_Name: Star8-2
   m_TagString: Untagged
@@ -5007,7 +5007,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1585885014
+--- !u!114 &2781579717318884830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5016,11 +5016,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575371983262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 2
+  selectedLO: 8
 --- !u!1 &6781283575389651147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,7 +5033,7 @@ GameObject:
   - component: {fileID: 6781283575389651151}
   - component: {fileID: 6781283575389651150}
   - component: {fileID: 6781283575389651145}
-  - component: {fileID: 1089142582}
+  - component: {fileID: 2512772341710060960}
   m_Layer: 5
   m_Name: Star8-3
   m_TagString: Untagged
@@ -5150,7 +5150,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1089142582
+--- !u!114 &2512772341710060960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5159,11 +5159,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575389651147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 3
+  selectedLO: 8
 --- !u!1 &6781283575399892211
 GameObject:
   m_ObjectHideFlags: 0
@@ -5176,7 +5176,7 @@ GameObject:
   - component: {fileID: 6781283575399892215}
   - component: {fileID: 6781283575399892214}
   - component: {fileID: 6781283575399892209}
-  - component: {fileID: 1629637865}
+  - component: {fileID: 4047709913851138820}
   m_Layer: 5
   m_Name: Star7-2
   m_TagString: Untagged
@@ -5293,7 +5293,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1629637865
+--- !u!114 &4047709913851138820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5302,11 +5302,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575399892211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 2
+  selectedLO: 7
 --- !u!1 &6781283575402704182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,7 +5319,7 @@ GameObject:
   - component: {fileID: 6781283575402704186}
   - component: {fileID: 6781283575402704181}
   - component: {fileID: 6781283575402704180}
-  - component: {fileID: 496205859}
+  - component: {fileID: 5608775853213207230}
   m_Layer: 5
   m_Name: Star3-1
   m_TagString: Untagged
@@ -5436,7 +5436,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &496205859
+--- !u!114 &5608775853213207230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5445,11 +5445,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575402704182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 1
+  selectedLO: 3
 --- !u!1 &6781283575410766066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,7 +5591,7 @@ GameObject:
   - component: {fileID: 6781283575441595541}
   - component: {fileID: 6781283575441595540}
   - component: {fileID: 6781283575441595543}
-  - component: {fileID: 622495293}
+  - component: {fileID: 4583504799543702058}
   m_Layer: 5
   m_Name: Star7-1
   m_TagString: Untagged
@@ -5708,7 +5708,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &622495293
+--- !u!114 &4583504799543702058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5717,11 +5717,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575441595537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 1
+  selectedLO: 7
 --- !u!1 &6781283575448468840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,7 +5734,7 @@ GameObject:
   - component: {fileID: 6781283575448468844}
   - component: {fileID: 6781283575448468847}
   - component: {fileID: 6781283575448468846}
-  - component: {fileID: 370395304}
+  - component: {fileID: 5100098168989760383}
   m_Layer: 5
   m_Name: Star2-4
   m_TagString: Untagged
@@ -5851,7 +5851,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &370395304
+--- !u!114 &5100098168989760383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5860,11 +5860,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575448468840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 4
+  selectedLO: 2
 --- !u!1 &6781283575453418176
 GameObject:
   m_ObjectHideFlags: 0
@@ -5956,7 +5956,7 @@ GameObject:
   - component: {fileID: 6781283575460096708}
   - component: {fileID: 6781283575460096711}
   - component: {fileID: 6781283575460096710}
-  - component: {fileID: 442761728}
+  - component: {fileID: 8078702421086512583}
   m_Layer: 5
   m_Name: Star8-1
   m_TagString: Untagged
@@ -6073,7 +6073,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &442761728
+--- !u!114 &8078702421086512583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6082,11 +6082,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575460096704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 1
+  selectedLO: 8
 --- !u!1 &6781283575493050995
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,7 +6099,7 @@ GameObject:
   - component: {fileID: 6781283575493050999}
   - component: {fileID: 6781283575493050998}
   - component: {fileID: 6781283575493050993}
-  - component: {fileID: 1243245166}
+  - component: {fileID: 1548414562481973981}
   m_Layer: 5
   m_Name: Star9-2
   m_TagString: Untagged
@@ -6216,7 +6216,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1243245166
+--- !u!114 &1548414562481973981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6225,11 +6225,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575493050995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 2
+  selectedLO: 9
 --- !u!1 &6781283575498381035
 GameObject:
   m_ObjectHideFlags: 0
@@ -6682,7 +6682,7 @@ GameObject:
   - component: {fileID: 6781283575575698655}
   - component: {fileID: 6781283575575698654}
   - component: {fileID: 6781283575575698649}
-  - component: {fileID: 613796494}
+  - component: {fileID: 8093149177611299423}
   m_Layer: 5
   m_Name: Star6-1
   m_TagString: Untagged
@@ -6799,7 +6799,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &613796494
+--- !u!114 &8093149177611299423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6808,11 +6808,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575575698651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 1
+  selectedLO: 6
 --- !u!1 &6781283575584280136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6825,7 +6825,7 @@ GameObject:
   - component: {fileID: 6781283575584280140}
   - component: {fileID: 6781283575584280143}
   - component: {fileID: 6781283575584280142}
-  - component: {fileID: 939114014}
+  - component: {fileID: 8501544896078776242}
   m_Layer: 5
   m_Name: Star7-1
   m_TagString: Untagged
@@ -6942,7 +6942,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &939114014
+--- !u!114 &8501544896078776242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6951,11 +6951,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575584280136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 1
+  selectedLO: 7
 --- !u!1 &6781283575593597082
 GameObject:
   m_ObjectHideFlags: 0
@@ -6968,7 +6968,7 @@ GameObject:
   - component: {fileID: 6781283575593597086}
   - component: {fileID: 6781283575593597081}
   - component: {fileID: 6781283575593597080}
-  - component: {fileID: 40082899}
+  - component: {fileID: 2264018376328923134}
   m_Layer: 5
   m_Name: Star9-1
   m_TagString: Untagged
@@ -7085,7 +7085,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &40082899
+--- !u!114 &2264018376328923134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7094,11 +7094,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575593597082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 1
+  selectedLO: 9
 --- !u!1 &6781283575656502078
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,7 +7111,7 @@ GameObject:
   - component: {fileID: 6781283575656502050}
   - component: {fileID: 6781283575656502077}
   - component: {fileID: 6781283575656502076}
-  - component: {fileID: 454728944}
+  - component: {fileID: 4795931017523521873}
   m_Layer: 5
   m_Name: Star2-4
   m_TagString: Untagged
@@ -7228,7 +7228,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &454728944
+--- !u!114 &4795931017523521873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7237,11 +7237,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575656502078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 4
+  selectedLO: 2
 --- !u!1 &6781283575658586894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7328,7 +7328,7 @@ GameObject:
   - component: {fileID: 6781283575664480141}
   - component: {fileID: 6781283575664480140}
   - component: {fileID: 6781283575664480143}
-  - component: {fileID: 2137677847}
+  - component: {fileID: 3863328369179544293}
   m_Layer: 5
   m_Name: Star6-1
   m_TagString: Untagged
@@ -7445,7 +7445,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2137677847
+--- !u!114 &3863328369179544293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7454,11 +7454,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575664480137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 1
+  selectedLO: 6
 --- !u!1 &6781283575677627258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7471,7 +7471,7 @@ GameObject:
   - component: {fileID: 6781283575677627262}
   - component: {fileID: 6781283575677627257}
   - component: {fileID: 6781283575677627256}
-  - component: {fileID: 928617090}
+  - component: {fileID: 6624451698279481994}
   m_Layer: 5
   m_Name: Star3-2
   m_TagString: Untagged
@@ -7588,7 +7588,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &928617090
+--- !u!114 &6624451698279481994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7597,11 +7597,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575677627258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 2
+  selectedLO: 3
 --- !u!1 &6781283575682939705
 GameObject:
   m_ObjectHideFlags: 0
@@ -7614,7 +7614,7 @@ GameObject:
   - component: {fileID: 6781283575682939709}
   - component: {fileID: 6781283575682939708}
   - component: {fileID: 6781283575682939711}
-  - component: {fileID: 824146714}
+  - component: {fileID: 5799836338037030330}
   m_Layer: 5
   m_Name: Star4-4
   m_TagString: Untagged
@@ -7731,7 +7731,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &824146714
+--- !u!114 &5799836338037030330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7740,11 +7740,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575682939705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 4
+  selectedLO: 4
 --- !u!1 &6781283575722692739
 GameObject:
   m_ObjectHideFlags: 0
@@ -7757,7 +7757,7 @@ GameObject:
   - component: {fileID: 6781283575722692743}
   - component: {fileID: 6781283575722692742}
   - component: {fileID: 6781283575722692737}
-  - component: {fileID: 1779293080}
+  - component: {fileID: 2658323038750040467}
   m_Layer: 5
   m_Name: Star3-2
   m_TagString: Untagged
@@ -7874,7 +7874,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1779293080
+--- !u!114 &2658323038750040467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7883,11 +7883,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575722692739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 2
+  selectedLO: 3
 --- !u!1 &6781283575738526837
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,7 +7900,7 @@ GameObject:
   - component: {fileID: 6781283575738526841}
   - component: {fileID: 6781283575738526840}
   - component: {fileID: 6781283575738526843}
-  - component: {fileID: 1724659718}
+  - component: {fileID: 8034293276156382863}
   m_Layer: 5
   m_Name: Star6-2
   m_TagString: Untagged
@@ -8017,7 +8017,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1724659718
+--- !u!114 &8034293276156382863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8026,11 +8026,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575738526837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 2
+  selectedLO: 6
 --- !u!1 &6781283575739019731
 GameObject:
   m_ObjectHideFlags: 0
@@ -8043,7 +8043,7 @@ GameObject:
   - component: {fileID: 6781283575739019735}
   - component: {fileID: 6781283575739019734}
   - component: {fileID: 6781283575739019729}
-  - component: {fileID: 409237986}
+  - component: {fileID: 3534515302125968027}
   m_Layer: 5
   m_Name: Star2-2
   m_TagString: Untagged
@@ -8160,7 +8160,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &409237986
+--- !u!114 &3534515302125968027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8169,11 +8169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575739019731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 2
+  selectedLO: 2
 --- !u!1 &6781283575753757924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8186,7 +8186,7 @@ GameObject:
   - component: {fileID: 6781283575753757928}
   - component: {fileID: 6781283575753757931}
   - component: {fileID: 6781283575753757930}
-  - component: {fileID: 1078083755}
+  - component: {fileID: 7903162910980084903}
   m_Layer: 5
   m_Name: Star1-1
   m_TagString: Untagged
@@ -8303,7 +8303,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1078083755
+--- !u!114 &7903162910980084903
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8312,11 +8312,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575753757924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 1
   selectedStep: 1
+  selectedLO: 1
 --- !u!1 &6781283575758848916
 GameObject:
   m_ObjectHideFlags: 0
@@ -8460,7 +8460,7 @@ GameObject:
   - component: {fileID: 6781283575794365368}
   - component: {fileID: 6781283575794365371}
   - component: {fileID: 6781283575794365370}
-  - component: {fileID: 171910563}
+  - component: {fileID: 5170284376538567000}
   m_Layer: 5
   m_Name: Star10-2
   m_TagString: Untagged
@@ -8577,7 +8577,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &171910563
+--- !u!114 &5170284376538567000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8586,11 +8586,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575794365364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 2
+  selectedLO: 10
 --- !u!1 &6781283575844362492
 GameObject:
   m_ObjectHideFlags: 0
@@ -8957,7 +8957,7 @@ GameObject:
   - component: {fileID: 6781283575863400593}
   - component: {fileID: 6781283575863400592}
   - component: {fileID: 6781283575863400595}
-  - component: {fileID: 569865973}
+  - component: {fileID: 7183828228632392700}
   m_Layer: 5
   m_Name: Star8-4
   m_TagString: Untagged
@@ -9074,7 +9074,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &569865973
+--- !u!114 &7183828228632392700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9083,11 +9083,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575863400557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 4
+  selectedLO: 8
 --- !u!1 &6781283575880897536
 GameObject:
   m_ObjectHideFlags: 0
@@ -9311,7 +9311,7 @@ GameObject:
   - component: {fileID: 6781283575909654197}
   - component: {fileID: 6781283575909654196}
   - component: {fileID: 6781283575909654199}
-  - component: {fileID: 293050575}
+  - component: {fileID: 2751750063049204830}
   m_Layer: 5
   m_Name: Star1-1
   m_TagString: Untagged
@@ -9428,7 +9428,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &293050575
+--- !u!114 &2751750063049204830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9437,11 +9437,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575909654193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 1
   selectedStep: 1
+  selectedLO: 1
 --- !u!1 &6781283575915362845
 GameObject:
   m_ObjectHideFlags: 0
@@ -9454,7 +9454,7 @@ GameObject:
   - component: {fileID: 6781283575915362817}
   - component: {fileID: 6781283575915362816}
   - component: {fileID: 6781283575915362819}
-  - component: {fileID: 93776428}
+  - component: {fileID: 7201710004125244575}
   m_Layer: 5
   m_Name: Star3-1
   m_TagString: Untagged
@@ -9571,7 +9571,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &93776428
+--- !u!114 &7201710004125244575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9580,11 +9580,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575915362845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 1
+  selectedLO: 3
 --- !u!1 &6781283575924746765
 GameObject:
   m_ObjectHideFlags: 0
@@ -9597,7 +9597,7 @@ GameObject:
   - component: {fileID: 6781283575924746801}
   - component: {fileID: 6781283575924746800}
   - component: {fileID: 6781283575924746803}
-  - component: {fileID: 435455102}
+  - component: {fileID: 6429156326468683838}
   m_Layer: 5
   m_Name: Star3-3
   m_TagString: Untagged
@@ -9714,7 +9714,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &435455102
+--- !u!114 &6429156326468683838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9723,11 +9723,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575924746765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 3
+  selectedLO: 3
 --- !u!1 &6781283575931355203
 GameObject:
   m_ObjectHideFlags: 0
@@ -10022,7 +10022,7 @@ GameObject:
   - component: {fileID: 6781283575972233146}
   - component: {fileID: 6781283575972233141}
   - component: {fileID: 6781283575972233140}
-  - component: {fileID: 2047339162}
+  - component: {fileID: 7165587866440891143}
   m_Layer: 5
   m_Name: Star4-3
   m_TagString: Untagged
@@ -10139,7 +10139,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2047339162
+--- !u!114 &7165587866440891143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10148,11 +10148,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283575972233142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 3
+  selectedLO: 4
 --- !u!1 &6781283576017684112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10447,7 +10447,7 @@ GameObject:
   - component: {fileID: 6781283576043918820}
   - component: {fileID: 6781283576043918823}
   - component: {fileID: 6781283576043918822}
-  - component: {fileID: 62273741}
+  - component: {fileID: 3779558249133702913}
   m_Layer: 5
   m_Name: Star2-6
   m_TagString: Untagged
@@ -10564,7 +10564,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &62273741
+--- !u!114 &3779558249133702913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10573,11 +10573,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576043918816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 6
+  selectedLO: 2
 --- !u!1 &6781283576054621112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10591,7 +10591,6 @@ GameObject:
   - component: {fileID: 6781283576054621113}
   - component: {fileID: 6781283576054621114}
   - component: {fileID: 6781283576054621117}
-  - component: {fileID: 6781283576054621104}
   m_Layer: 5
   m_Name: UI-GuideMode
   m_TagString: Untagged
@@ -10692,18 +10691,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &6781283576054621104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6781283576054621112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f90a02c520e53c4f87a0244f854e309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6781283576056966656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10716,7 +10703,7 @@ GameObject:
   - component: {fileID: 6781283576056966660}
   - component: {fileID: 6781283576056966663}
   - component: {fileID: 6781283576056966662}
-  - component: {fileID: 989405806}
+  - component: {fileID: 3616996793482430837}
   m_Layer: 5
   m_Name: Star3-4
   m_TagString: Untagged
@@ -10833,7 +10820,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &989405806
+--- !u!114 &3616996793482430837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10842,11 +10829,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576056966656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 4
+  selectedLO: 3
 --- !u!1 &6781283576080460165
 GameObject:
   m_ObjectHideFlags: 0
@@ -10934,7 +10921,7 @@ GameObject:
   - component: {fileID: 6781283576097784759}
   - component: {fileID: 6781283576097784758}
   - component: {fileID: 6781283576097784753}
-  - component: {fileID: 1829011082}
+  - component: {fileID: 8151354274491692453}
   m_Layer: 5
   m_Name: Star5-1
   m_TagString: Untagged
@@ -11051,7 +11038,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1829011082
+--- !u!114 &8151354274491692453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11060,11 +11047,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576097784755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 1
+  selectedLO: 5
 --- !u!1 &6781283576103915334
 GameObject:
   m_ObjectHideFlags: 0
@@ -11077,7 +11064,7 @@ GameObject:
   - component: {fileID: 6781283576103915338}
   - component: {fileID: 6781283576103915333}
   - component: {fileID: 6781283576103915332}
-  - component: {fileID: 2109502241}
+  - component: {fileID: 1121797785714547896}
   m_Layer: 5
   m_Name: Star8-5
   m_TagString: Untagged
@@ -11194,7 +11181,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2109502241
+--- !u!114 &1121797785714547896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11203,11 +11190,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576103915334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 5
+  selectedLO: 8
 --- !u!1 &6781283576107801345
 GameObject:
   m_ObjectHideFlags: 0
@@ -11220,7 +11207,7 @@ GameObject:
   - component: {fileID: 6781283576107801349}
   - component: {fileID: 6781283576107801348}
   - component: {fileID: 6781283576107801351}
-  - component: {fileID: 1966114266}
+  - component: {fileID: 5712802230049590857}
   m_Layer: 5
   m_Name: Star2-7
   m_TagString: Untagged
@@ -11337,7 +11324,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1966114266
+--- !u!114 &5712802230049590857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11346,11 +11333,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576107801345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 7
+  selectedLO: 2
 --- !u!1 &6781283576113423190
 GameObject:
   m_ObjectHideFlags: 0
@@ -11438,7 +11425,7 @@ GameObject:
   - component: {fileID: 6781283576115513860}
   - component: {fileID: 6781283576115513863}
   - component: {fileID: 6781283576115513862}
-  - component: {fileID: 318162096}
+  - component: {fileID: 1373339798436968916}
   m_Layer: 5
   m_Name: Star4-4
   m_TagString: Untagged
@@ -11555,7 +11542,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &318162096
+--- !u!114 &1373339798436968916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11564,11 +11551,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576115513856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 4
+  selectedLO: 4
 --- !u!1 &6781283576117233612
 GameObject:
   m_ObjectHideFlags: 0
@@ -11632,7 +11619,7 @@ GameObject:
   - component: {fileID: 6781283576120978412}
   - component: {fileID: 6781283576120978415}
   - component: {fileID: 6781283576120978414}
-  - component: {fileID: 1673412801}
+  - component: {fileID: 4886955905758468463}
   m_Layer: 5
   m_Name: Star7-2
   m_TagString: Untagged
@@ -11749,7 +11736,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1673412801
+--- !u!114 &4886955905758468463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11758,11 +11745,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576120978408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 2
+  selectedLO: 7
 --- !u!1 &6781283576141063832
 GameObject:
   m_ObjectHideFlags: 0
@@ -11849,7 +11836,7 @@ GameObject:
   - component: {fileID: 6781283576141369636}
   - component: {fileID: 6781283576141369639}
   - component: {fileID: 6781283576141369638}
-  - component: {fileID: 1858839657}
+  - component: {fileID: 3718823890953999203}
   m_Layer: 5
   m_Name: Star2-6
   m_TagString: Untagged
@@ -11966,7 +11953,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1858839657
+--- !u!114 &3718823890953999203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11975,11 +11962,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576141369632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 6
+  selectedLO: 2
 --- !u!1 &6781283576154759707
 GameObject:
   m_ObjectHideFlags: 0
@@ -11992,7 +11979,7 @@ GameObject:
   - component: {fileID: 6781283576154759711}
   - component: {fileID: 6781283576154759710}
   - component: {fileID: 6781283576154759705}
-  - component: {fileID: 556939904}
+  - component: {fileID: 3929439286039695299}
   m_Layer: 5
   m_Name: Star6-2
   m_TagString: Untagged
@@ -12109,7 +12096,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &556939904
+--- !u!114 &3929439286039695299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12118,11 +12105,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576154759707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 2
+  selectedLO: 6
 --- !u!1 &6781283576155654834
 GameObject:
   m_ObjectHideFlags: 0
@@ -12369,7 +12356,7 @@ GameObject:
   - component: {fileID: 6781283576242698972}
   - component: {fileID: 6781283576242698975}
   - component: {fileID: 6781283576242698974}
-  - component: {fileID: 2062174749}
+  - component: {fileID: 1666061528758476460}
   m_Layer: 5
   m_Name: Star8-6
   m_TagString: Untagged
@@ -12486,7 +12473,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2062174749
+--- !u!114 &1666061528758476460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12495,11 +12482,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576242698968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 6
+  selectedLO: 8
 --- !u!1 &6781283576257337787
 GameObject:
   m_ObjectHideFlags: 0
@@ -12512,7 +12499,7 @@ GameObject:
   - component: {fileID: 6781283576257337791}
   - component: {fileID: 6781283576257337790}
   - component: {fileID: 6781283576257337785}
-  - component: {fileID: 336046224}
+  - component: {fileID: 343134617175397080}
   m_Layer: 5
   m_Name: Star8-5
   m_TagString: Untagged
@@ -12629,7 +12616,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &336046224
+--- !u!114 &343134617175397080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12638,11 +12625,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576257337787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 5
+  selectedLO: 8
 --- !u!1 &6781283576257967035
 GameObject:
   m_ObjectHideFlags: 0
@@ -12787,7 +12774,7 @@ GameObject:
   - component: {fileID: 6781283576271173731}
   - component: {fileID: 6781283576271173730}
   - component: {fileID: 6781283576271173757}
-  - component: {fileID: 235866223}
+  - component: {fileID: 3822905272070206489}
   m_Layer: 5
   m_Name: Star8-6
   m_TagString: Untagged
@@ -12904,7 +12891,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &235866223
+--- !u!114 &3822905272070206489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12913,11 +12900,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576271173759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 6
+  selectedLO: 8
 --- !u!1 &6781283576287951409
 GameObject:
   m_ObjectHideFlags: 0
@@ -13080,7 +13067,7 @@ GameObject:
   - component: {fileID: 6781283576304900808}
   - component: {fileID: 6781283576304900811}
   - component: {fileID: 6781283576304900810}
-  - component: {fileID: 1719569032}
+  - component: {fileID: 2136528768755516666}
   m_Layer: 5
   m_Name: Star8-3
   m_TagString: Untagged
@@ -13197,7 +13184,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1719569032
+--- !u!114 &2136528768755516666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13206,11 +13193,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576304900804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 3
+  selectedLO: 8
 --- !u!1 &6781283576332641485
 GameObject:
   m_ObjectHideFlags: 0
@@ -13223,7 +13210,7 @@ GameObject:
   - component: {fileID: 6781283576332641521}
   - component: {fileID: 6781283576332641520}
   - component: {fileID: 6781283576332641523}
-  - component: {fileID: 447993311}
+  - component: {fileID: 2457080612065094698}
   m_Layer: 5
   m_Name: Star8-1
   m_TagString: Untagged
@@ -13340,7 +13327,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &447993311
+--- !u!114 &2457080612065094698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13349,11 +13336,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576332641485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 1
+  selectedLO: 8
 --- !u!1 &6781283576388256004
 GameObject:
   m_ObjectHideFlags: 0
@@ -13445,7 +13432,7 @@ GameObject:
   - component: {fileID: 6781283576502659969}
   - component: {fileID: 6781283576502659968}
   - component: {fileID: 6781283576502659971}
-  - component: {fileID: 1496218311}
+  - component: {fileID: 3676176940438834184}
   m_Layer: 5
   m_Name: Star10-1
   m_TagString: Untagged
@@ -13562,7 +13549,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1496218311
+--- !u!114 &3676176940438834184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13571,11 +13558,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576502659997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 1
+  selectedLO: 10
 --- !u!1 &6781283576516060585
 GameObject:
   m_ObjectHideFlags: 0
@@ -13667,7 +13654,7 @@ GameObject:
   - component: {fileID: 6781283576522807246}
   - component: {fileID: 6781283576522807241}
   - component: {fileID: 6781283576522807240}
-  - component: {fileID: 1279317056}
+  - component: {fileID: 1961476541374508536}
   m_Layer: 5
   m_Name: Star2-1
   m_TagString: Untagged
@@ -13784,7 +13771,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1279317056
+--- !u!114 &1961476541374508536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13793,11 +13780,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576522807242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 1
+  selectedLO: 2
 --- !u!1 &6781283576533666965
 GameObject:
   m_ObjectHideFlags: 0
@@ -13885,7 +13872,7 @@ GameObject:
   - component: {fileID: 6781283576546938862}
   - component: {fileID: 6781283576546938857}
   - component: {fileID: 6781283576546938856}
-  - component: {fileID: 1939391430}
+  - component: {fileID: 6382282313814636242}
   m_Layer: 5
   m_Name: Star2-3
   m_TagString: Untagged
@@ -14002,7 +13989,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1939391430
+--- !u!114 &6382282313814636242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14011,11 +13998,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576546938858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 3
+  selectedLO: 2
 --- !u!1 &6781283576558700993
 GameObject:
   m_ObjectHideFlags: 0
@@ -14028,7 +14015,7 @@ GameObject:
   - component: {fileID: 6781283576558700997}
   - component: {fileID: 6781283576558700996}
   - component: {fileID: 6781283576558700999}
-  - component: {fileID: 496019025}
+  - component: {fileID: 4010409178235160198}
   m_Layer: 5
   m_Name: Star4-2
   m_TagString: Untagged
@@ -14145,7 +14132,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &496019025
+--- !u!114 &4010409178235160198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14154,11 +14141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576558700993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 2
+  selectedLO: 4
 --- !u!1 &6781283576563135973
 GameObject:
   m_ObjectHideFlags: 0
@@ -14461,7 +14448,7 @@ GameObject:
   - component: {fileID: 6781283576603645843}
   - component: {fileID: 6781283576603645842}
   - component: {fileID: 6781283576603645805}
-  - component: {fileID: 2135890865}
+  - component: {fileID: 2107301495766886975}
   m_Layer: 5
   m_Name: Star8-4
   m_TagString: Untagged
@@ -14578,7 +14565,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2135890865
+--- !u!114 &2107301495766886975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14587,11 +14574,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576603645807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 4
+  selectedLO: 8
 --- !u!1 &6781283576626368794
 GameObject:
   m_ObjectHideFlags: 0
@@ -14822,7 +14809,7 @@ GameObject:
   - component: {fileID: 6781283576705152306}
   - component: {fileID: 6781283576705152269}
   - component: {fileID: 6781283576705152268}
-  - component: {fileID: 431086930}
+  - component: {fileID: 108714140453426209}
   m_Layer: 5
   m_Name: Star2-5
   m_TagString: Untagged
@@ -14939,7 +14926,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &431086930
+--- !u!114 &108714140453426209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14948,11 +14935,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576705152270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 5
+  selectedLO: 2
 --- !u!1 &6781283576718546435
 GameObject:
   m_ObjectHideFlags: 0
@@ -15308,7 +15295,7 @@ GameObject:
   - component: {fileID: 6781283576764451013}
   - component: {fileID: 6781283576764451012}
   - component: {fileID: 6781283576764451015}
-  - component: {fileID: 1195429875}
+  - component: {fileID: 2515383088152571936}
   m_Layer: 5
   m_Name: Star3-4
   m_TagString: Untagged
@@ -15425,7 +15412,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1195429875
+--- !u!114 &2515383088152571936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15434,11 +15421,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576764451009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 4
+  selectedLO: 3
 --- !u!1 &6781283576823226947
 GameObject:
   m_ObjectHideFlags: 0
@@ -15451,7 +15438,7 @@ GameObject:
   - component: {fileID: 6781283576823226951}
   - component: {fileID: 6781283576823226950}
   - component: {fileID: 6781283576823226945}
-  - component: {fileID: 1912307136}
+  - component: {fileID: 3195487337690488893}
   m_Layer: 5
   m_Name: Star3-3
   m_TagString: Untagged
@@ -15568,7 +15555,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1912307136
+--- !u!114 &3195487337690488893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15577,11 +15564,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6781283576823226947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 3
+  selectedLO: 3
 --- !u!1 &6781283576830530981
 GameObject:
   m_ObjectHideFlags: 0
@@ -15749,7 +15736,7 @@ GameObject:
   - component: {fileID: 7264312222712671959}
   - component: {fileID: 7264312222712671958}
   - component: {fileID: 7264312222712671957}
-  - component: {fileID: 476510514359880395}
+  - component: {fileID: 7170624672461538850}
   m_Layer: 5
   m_Name: Star2-6
   m_TagString: Untagged
@@ -15866,7 +15853,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &476510514359880395
+--- !u!114 &7170624672461538850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15875,11 +15862,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312222712671955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 6
+  selectedLO: 2
 --- !u!1 &7264312222764228823
 GameObject:
   m_ObjectHideFlags: 0
@@ -16013,7 +16000,7 @@ GameObject:
   - component: {fileID: 7264312222839933909}
   - component: {fileID: 7264312222839933908}
   - component: {fileID: 7264312222839933907}
-  - component: {fileID: 8167872782511195412}
+  - component: {fileID: 5485921962274780196}
   m_Layer: 5
   m_Name: Star6-1
   m_TagString: Untagged
@@ -16130,7 +16117,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8167872782511195412
+--- !u!114 &5485921962274780196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16139,11 +16126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312222839933905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 1
+  selectedLO: 6
 --- !u!1 &7264312222904253965
 GameObject:
   m_ObjectHideFlags: 0
@@ -16236,7 +16223,7 @@ GameObject:
   - component: {fileID: 7264312222937515778}
   - component: {fileID: 7264312222937515777}
   - component: {fileID: 7264312222937515776}
-  - component: {fileID: 6569397814023499359}
+  - component: {fileID: 1465407469802615467}
   m_Layer: 5
   m_Name: Star2-7
   m_TagString: Untagged
@@ -16353,7 +16340,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6569397814023499359
+--- !u!114 &1465407469802615467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16362,11 +16349,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312222937515790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 7
+  selectedLO: 2
 --- !u!1 &7264312222975955891
 GameObject:
   m_ObjectHideFlags: 0
@@ -16380,6 +16367,7 @@ GameObject:
   - component: {fileID: 7264312222975955894}
   - component: {fileID: 7264312222975955893}
   - component: {fileID: 1041975808}
+  - component: {fileID: 6989901543071673138}
   m_Layer: 5
   m_Name: Step7
   m_TagString: Untagged
@@ -16404,7 +16392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1122, y: -78.5}
+  m_AnchoredPosition: {x: 1122.0879, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312222975955895
@@ -16462,7 +16450,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -16483,18 +16471,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312222975955894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312222975955893}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1041975808
@@ -16509,8 +16486,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 7
+--- !u!114 &6989901543071673138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312222975955891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 7
 --- !u!1 &7264312222987595129
 GameObject:
   m_ObjectHideFlags: 0
@@ -16523,7 +16514,7 @@ GameObject:
   - component: {fileID: 7264312222987595133}
   - component: {fileID: 7264312222987595132}
   - component: {fileID: 7264312222987595131}
-  - component: {fileID: 2199561440530350936}
+  - component: {fileID: 8267615011803935543}
   m_Layer: 5
   m_Name: Star8-5
   m_TagString: Untagged
@@ -16640,7 +16631,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2199561440530350936
+--- !u!114 &8267615011803935543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16649,11 +16640,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312222987595129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 5
+  selectedLO: 8
 --- !u!1 &7264312222997050250
 GameObject:
   m_ObjectHideFlags: 0
@@ -16711,7 +16702,7 @@ GameObject:
   - component: {fileID: 7264312222999113469}
   - component: {fileID: 7264312222999113468}
   - component: {fileID: 7264312222999113467}
-  - component: {fileID: 864538986402347090}
+  - component: {fileID: 2926138661221930791}
   m_Layer: 5
   m_Name: Star5-1
   m_TagString: Untagged
@@ -16828,7 +16819,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &864538986402347090
+--- !u!114 &2926138661221930791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16837,11 +16828,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312222999113465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 1
+  selectedLO: 5
 --- !u!1 &7264312223018226317
 GameObject:
   m_ObjectHideFlags: 0
@@ -16891,7 +16882,7 @@ GameObject:
   - component: {fileID: 7264312223033329388}
   - component: {fileID: 7264312223033329387}
   - component: {fileID: 7264312223033329386}
-  - component: {fileID: 6672205903289587498}
+  - component: {fileID: 632627642917190352}
   m_Layer: 5
   m_Name: Star4-1
   m_TagString: Untagged
@@ -17008,7 +16999,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6672205903289587498
+--- !u!114 &632627642917190352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17017,11 +17008,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223033329384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 1
+  selectedLO: 4
 --- !u!1 &7264312223055000084
 GameObject:
   m_ObjectHideFlags: 0
@@ -17100,7 +17091,7 @@ GameObject:
   - component: {fileID: 7264312223059848503}
   - component: {fileID: 7264312223059848502}
   - component: {fileID: 7264312223059848501}
-  - component: {fileID: 3777353548781640829}
+  - component: {fileID: 1588346705580647782}
   m_Layer: 5
   m_Name: Star4-2
   m_TagString: Untagged
@@ -17217,7 +17208,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3777353548781640829
+--- !u!114 &1588346705580647782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17226,11 +17217,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223059848499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 2
+  selectedLO: 4
 --- !u!1 &7264312223061888379
 GameObject:
   m_ObjectHideFlags: 0
@@ -17243,7 +17234,7 @@ GameObject:
   - component: {fileID: 7264312223061888383}
   - component: {fileID: 7264312223061888382}
   - component: {fileID: 7264312223061888381}
-  - component: {fileID: 2776589407761306960}
+  - component: {fileID: 5329020442319446612}
   m_Layer: 5
   m_Name: Star9-1
   m_TagString: Untagged
@@ -17360,7 +17351,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2776589407761306960
+--- !u!114 &5329020442319446612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17369,11 +17360,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223061888379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 1
+  selectedLO: 9
 --- !u!1 &7264312223102558736
 GameObject:
   m_ObjectHideFlags: 0
@@ -17386,7 +17377,7 @@ GameObject:
   - component: {fileID: 7264312223102558740}
   - component: {fileID: 7264312223102558739}
   - component: {fileID: 7264312223102558738}
-  - component: {fileID: 272283412966759446}
+  - component: {fileID: 4319000780376345218}
   m_Layer: 5
   m_Name: Star3-4
   m_TagString: Untagged
@@ -17503,7 +17494,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &272283412966759446
+--- !u!114 &4319000780376345218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17512,11 +17503,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223102558736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 4
+  selectedLO: 3
 --- !u!1 &7264312223105375781
 GameObject:
   m_ObjectHideFlags: 0
@@ -17529,7 +17520,7 @@ GameObject:
   - component: {fileID: 7264312223105375801}
   - component: {fileID: 7264312223105375800}
   - component: {fileID: 7264312223105375783}
-  - component: {fileID: 4755445845403894015}
+  - component: {fileID: 3830708034951130868}
   m_Layer: 5
   m_Name: Star8-6
   m_TagString: Untagged
@@ -17646,7 +17637,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4755445845403894015
+--- !u!114 &3830708034951130868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17655,11 +17646,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223105375781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 6
+  selectedLO: 8
 --- !u!1 &7264312223115975959
 GameObject:
   m_ObjectHideFlags: 0
@@ -17672,7 +17663,7 @@ GameObject:
   - component: {fileID: 7264312223115975979}
   - component: {fileID: 7264312223115975978}
   - component: {fileID: 7264312223115975977}
-  - component: {fileID: 6893429273039013806}
+  - component: {fileID: 7005905122566449227}
   m_Layer: 5
   m_Name: Star6-2
   m_TagString: Untagged
@@ -17789,7 +17780,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6893429273039013806
+--- !u!114 &7005905122566449227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17798,11 +17789,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223115975959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 6
   selectedStep: 2
+  selectedLO: 6
 --- !u!1 &7264312223121442723
 GameObject:
   m_ObjectHideFlags: 0
@@ -17932,7 +17923,7 @@ GameObject:
   - component: {fileID: 7264312223153206481}
   - component: {fileID: 7264312223153206480}
   - component: {fileID: 7264312223153206495}
-  - component: {fileID: 8756403518176545534}
+  - component: {fileID: 1030275922528270006}
   m_Layer: 5
   m_Name: Star8-1
   m_TagString: Untagged
@@ -18049,7 +18040,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8756403518176545534
+--- !u!114 &1030275922528270006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18058,11 +18049,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223153206493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 1
+  selectedLO: 8
 --- !u!1 &7264312223213499584
 GameObject:
   m_ObjectHideFlags: 0
@@ -18154,7 +18145,7 @@ GameObject:
   - component: {fileID: 7264312223247783205}
   - component: {fileID: 7264312223247783204}
   - component: {fileID: 7264312223247783203}
-  - component: {fileID: 4903445203920293430}
+  - component: {fileID: 5059967827060744442}
   m_Layer: 5
   m_Name: Star7-2
   m_TagString: Untagged
@@ -18271,7 +18262,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4903445203920293430
+--- !u!114 &5059967827060744442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18280,11 +18271,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223247783201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 2
+  selectedLO: 7
 --- !u!1 &7264312223268921765
 GameObject:
   m_ObjectHideFlags: 0
@@ -18334,7 +18325,7 @@ GameObject:
   - component: {fileID: 7264312223278697528}
   - component: {fileID: 7264312223278697511}
   - component: {fileID: 7264312223278697510}
-  - component: {fileID: 2952500105732176639}
+  - component: {fileID: 1725765123260827067}
   m_Layer: 5
   m_Name: Star5-2
   m_TagString: Untagged
@@ -18451,7 +18442,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2952500105732176639
+--- !u!114 &1725765123260827067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18460,11 +18451,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223278697508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 5
   selectedStep: 2
+  selectedLO: 5
 --- !u!1 &7264312223280340807
 GameObject:
   m_ObjectHideFlags: 0
@@ -18477,7 +18468,7 @@ GameObject:
   - component: {fileID: 7264312223280340827}
   - component: {fileID: 7264312223280340826}
   - component: {fileID: 7264312223280340825}
-  - component: {fileID: 3657204117192556773}
+  - component: {fileID: 983412353269430}
   m_Layer: 5
   m_Name: Star8-4
   m_TagString: Untagged
@@ -18594,7 +18585,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3657204117192556773
+--- !u!114 &983412353269430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18603,11 +18594,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223280340807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 4
+  selectedLO: 8
 --- !u!1 &7264312223280809392
 GameObject:
   m_ObjectHideFlags: 0
@@ -18951,7 +18942,7 @@ GameObject:
   - component: {fileID: 7264312223407900811}
   - component: {fileID: 7264312223407900810}
   - component: {fileID: 7264312223407900809}
-  - component: {fileID: 993060106223691315}
+  - component: {fileID: 8818896555920231255}
   m_Layer: 5
   m_Name: Star4-3
   m_TagString: Untagged
@@ -19068,7 +19059,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &993060106223691315
+--- !u!114 &8818896555920231255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19077,11 +19068,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223407900919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 3
+  selectedLO: 4
 --- !u!1 &7264312223466002696
 GameObject:
   m_ObjectHideFlags: 0
@@ -19136,7 +19127,7 @@ GameObject:
   - component: {fileID: 7264312223543768255}
   - component: {fileID: 7264312223543768254}
   - component: {fileID: 7264312223543768253}
-  - component: {fileID: 1910497342454955245}
+  - component: {fileID: 1655055717830420401}
   m_Layer: 5
   m_Name: Star8-2
   m_TagString: Untagged
@@ -19253,7 +19244,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1910497342454955245
+--- !u!114 &1655055717830420401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19262,11 +19253,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223543768251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 2
+  selectedLO: 8
 --- !u!1 &7264312223551166775
 GameObject:
   m_ObjectHideFlags: 0
@@ -19335,8 +19326,8 @@ MonoBehaviour:
   toolbarButtonContainer: {fileID: 5539255618904075623}
   backwardButton: {fileID: 6781283574923457362}
   forwardButton: {fileID: 6781283575858957700}
-  startButtonHorizontal: {fileID: 6781283575844362466}
-  startButtonVertical: {fileID: 6781283576626368792}
+  startButtonHorizontalTxt: {fileID: 6781283575044179489}
+  startButtonVerticalTxt: {fileID: 6781283576191858206}
 --- !u!1 &7264312223588736554
 GameObject:
   m_ObjectHideFlags: 0
@@ -19467,7 +19458,7 @@ GameObject:
   - component: {fileID: 7264312223626111478}
   - component: {fileID: 7264312223626111477}
   - component: {fileID: 7264312223626111476}
-  - component: {fileID: 1480354027926251837}
+  - component: {fileID: 7964061586025787136}
   m_Layer: 5
   m_Name: Star3-2
   m_TagString: Untagged
@@ -19584,7 +19575,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1480354027926251837
+--- !u!114 &7964061586025787136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19593,11 +19584,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223626111474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 2
+  selectedLO: 3
 --- !u!1 &7264312223735787757
 GameObject:
   m_ObjectHideFlags: 0
@@ -19726,7 +19717,7 @@ GameObject:
   - component: {fileID: 7264312223798092358}
   - component: {fileID: 7264312223798092357}
   - component: {fileID: 7264312223798092356}
-  - component: {fileID: 1502563567648818008}
+  - component: {fileID: 1350534366872740415}
   m_Layer: 5
   m_Name: Star3-1
   m_TagString: Untagged
@@ -19843,7 +19834,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1502563567648818008
+--- !u!114 &1350534366872740415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19852,11 +19843,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223798092354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 1
+  selectedLO: 3
 --- !u!1 &7264312223812675748
 GameObject:
   m_ObjectHideFlags: 0
@@ -19946,7 +19937,7 @@ GameObject:
   - component: {fileID: 7264312223895462373}
   - component: {fileID: 7264312223895462372}
   - component: {fileID: 7264312223895462371}
-  - component: {fileID: 8255677425836701689}
+  - component: {fileID: 4763188451028908859}
   m_Layer: 5
   m_Name: Star2-3
   m_TagString: Untagged
@@ -20063,7 +20054,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8255677425836701689
+--- !u!114 &4763188451028908859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20072,11 +20063,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312223895462369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 3
+  selectedLO: 2
 --- !u!1 &7264312223911457348
 GameObject:
   m_ObjectHideFlags: 0
@@ -20169,6 +20160,7 @@ GameObject:
   - component: {fileID: 7264312223929485693}
   - component: {fileID: 7264312223929485692}
   - component: {fileID: 1503534159}
+  - component: {fileID: 5111327359242882452}
   m_Layer: 5
   m_Name: Step5
   m_TagString: Untagged
@@ -20193,7 +20185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 791.5, y: -78.5}
+  m_AnchoredPosition: {x: 791.44543, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312223929485694
@@ -20251,7 +20243,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -20272,18 +20264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312223929485693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312223929485692}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1503534159
@@ -20298,8 +20279,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 5
+--- !u!114 &5111327359242882452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312223929485690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 5
 --- !u!1 &7264312223936176768
 GameObject:
   m_ObjectHideFlags: 0
@@ -20510,6 +20505,7 @@ GameObject:
   - component: {fileID: 7264312223967857022}
   - component: {fileID: 7264312223967857021}
   - component: {fileID: 1808774238}
+  - component: {fileID: 4245604199736043623}
   m_Layer: 5
   m_Name: Step1
   m_TagString: Untagged
@@ -20534,7 +20530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130, y: -78.5}
+  m_AnchoredPosition: {x: 130.16061, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312223967857023
@@ -20592,7 +20588,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -20613,18 +20609,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312223967857022}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312223967857021}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1808774238
@@ -20639,8 +20624,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 1
+--- !u!114 &4245604199736043623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312223967857019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 1
 --- !u!1 &7264312223989606166
 GameObject:
   m_ObjectHideFlags: 0
@@ -20811,7 +20810,7 @@ GameObject:
   - component: {fileID: 7264312224030918695}
   - component: {fileID: 7264312224030918694}
   - component: {fileID: 7264312224030918693}
-  - component: {fileID: 4155418970332187668}
+  - component: {fileID: 7938962857787525253}
   m_Layer: 5
   m_Name: Star1-1
   m_TagString: Untagged
@@ -20928,7 +20927,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4155418970332187668
+--- !u!114 &7938962857787525253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20937,11 +20936,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224030918691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 1
   selectedStep: 1
+  selectedLO: 1
 --- !u!1 &7264312224032660527
 GameObject:
   m_ObjectHideFlags: 0
@@ -20955,6 +20954,7 @@ GameObject:
   - component: {fileID: 7264312224032660514}
   - component: {fileID: 7264312224032660513}
   - component: {fileID: 2146655327}
+  - component: {fileID: 8171388731378984583}
   m_Layer: 5
   m_Name: Step6
   m_TagString: Untagged
@@ -20979,7 +20979,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 957, y: -78.5}
+  m_AnchoredPosition: {x: 956.76666, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312224032660515
@@ -21037,7 +21037,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -21058,18 +21058,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312224032660514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312224032660513}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2146655327
@@ -21084,8 +21073,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 6
+--- !u!114 &8171388731378984583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312224032660527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 6
 --- !u!1 &7264312224042026141
 GameObject:
   m_ObjectHideFlags: 0
@@ -21135,7 +21138,7 @@ GameObject:
   - component: {fileID: 7264312224063482790}
   - component: {fileID: 7264312224063482789}
   - component: {fileID: 7264312224063482788}
-  - component: {fileID: 874481933827287410}
+  - component: {fileID: 4556042760498115250}
   m_Layer: 5
   m_Name: Star2-1
   m_TagString: Untagged
@@ -21252,7 +21255,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &874481933827287410
+--- !u!114 &4556042760498115250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21261,11 +21264,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224063482786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 1
+  selectedLO: 2
 --- !u!1 &7264312224090446092
 GameObject:
   m_ObjectHideFlags: 0
@@ -21395,7 +21398,7 @@ GameObject:
   - component: {fileID: 7264312224177354944}
   - component: {fileID: 7264312224177354959}
   - component: {fileID: 7264312224177354958}
-  - component: {fileID: 2661648417367661338}
+  - component: {fileID: 2422560593670702123}
   m_Layer: 5
   m_Name: Star2-4
   m_TagString: Untagged
@@ -21512,7 +21515,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2661648417367661338
+--- !u!114 &2422560593670702123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21521,11 +21524,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224177354956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 4
+  selectedLO: 2
 --- !u!1 &7264312224180212512
 GameObject:
   m_ObjectHideFlags: 0
@@ -21539,6 +21542,7 @@ GameObject:
   - component: {fileID: 7264312224180212515}
   - component: {fileID: 7264312224180212514}
   - component: {fileID: 1294841618}
+  - component: {fileID: 2655519153031974340}
   m_Layer: 5
   m_Name: Step2
   m_TagString: Untagged
@@ -21563,7 +21567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 295.5, y: -78.5}
+  m_AnchoredPosition: {x: 295.4818, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312224180212516
@@ -21621,7 +21625,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -21642,18 +21646,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312224180212515}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312224180212514}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1294841618
@@ -21668,8 +21661,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 2
+--- !u!114 &2655519153031974340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312224180212512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 2
 --- !u!1 &7264312224196040929
 GameObject:
   m_ObjectHideFlags: 0
@@ -21682,7 +21689,7 @@ GameObject:
   - component: {fileID: 7264312224196040933}
   - component: {fileID: 7264312224196040932}
   - component: {fileID: 7264312224196040931}
-  - component: {fileID: 7319269930127312114}
+  - component: {fileID: 7215916151846197185}
   m_Layer: 5
   m_Name: Star2-2
   m_TagString: Untagged
@@ -21799,7 +21806,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7319269930127312114
+--- !u!114 &7215916151846197185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21808,11 +21815,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224196040929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 2
+  selectedLO: 2
 --- !u!1 &7264312224204654719
 GameObject:
   m_ObjectHideFlags: 0
@@ -21950,7 +21957,7 @@ GameObject:
   - component: {fileID: 7264312224286178256}
   - component: {fileID: 7264312224286178271}
   - component: {fileID: 7264312224286178270}
-  - component: {fileID: 3419556460472510545}
+  - component: {fileID: 8994018726661504907}
   m_Layer: 5
   m_Name: Star8-3
   m_TagString: Untagged
@@ -22067,7 +22074,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3419556460472510545
+--- !u!114 &8994018726661504907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22076,11 +22083,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224286178268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 8
   selectedStep: 3
+  selectedLO: 8
 --- !u!1 &7264312224287492858
 GameObject:
   m_ObjectHideFlags: 0
@@ -22093,7 +22100,7 @@ GameObject:
   - component: {fileID: 7264312224287492862}
   - component: {fileID: 7264312224287492861}
   - component: {fileID: 7264312224287492860}
-  - component: {fileID: 7867691041677346223}
+  - component: {fileID: 5639823477655869375}
   m_Layer: 5
   m_Name: Star3-3
   m_TagString: Untagged
@@ -22210,7 +22217,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7867691041677346223
+--- !u!114 &5639823477655869375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22219,11 +22226,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224287492858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 3
   selectedStep: 3
+  selectedLO: 3
 --- !u!1 &7264312224313252108
 GameObject:
   m_ObjectHideFlags: 0
@@ -22236,7 +22243,7 @@ GameObject:
   - component: {fileID: 7264312224313252096}
   - component: {fileID: 7264312224313252111}
   - component: {fileID: 7264312224313252110}
-  - component: {fileID: 7112881229242899929}
+  - component: {fileID: 2826717930102104806}
   m_Layer: 5
   m_Name: Star10-1
   m_TagString: Untagged
@@ -22353,7 +22360,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7112881229242899929
+--- !u!114 &2826717930102104806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22362,11 +22369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224313252108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 1
+  selectedLO: 10
 --- !u!1 &7264312224317289698
 GameObject:
   m_ObjectHideFlags: 0
@@ -22417,6 +22424,7 @@ GameObject:
   - component: {fileID: 7264312224321359613}
   - component: {fileID: 7264312224321359612}
   - component: {fileID: 1386807446}
+  - component: {fileID: 4893579147355572996}
   m_Layer: 5
   m_Name: Step3
   m_TagString: Untagged
@@ -22441,7 +22449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 461, y: -78.5}
+  m_AnchoredPosition: {x: 460.80304, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312224321359614
@@ -22499,7 +22507,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -22520,18 +22528,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312224321359613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312224321359612}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1386807446
@@ -22546,8 +22543,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 3
+--- !u!114 &4893579147355572996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312224321359610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 3
 --- !u!1 &7264312224324564992
 GameObject:
   m_ObjectHideFlags: 0
@@ -22718,6 +22729,7 @@ GameObject:
   - component: {fileID: 7264312224440599740}
   - component: {fileID: 7264312224440599739}
   - component: {fileID: 1408248296}
+  - component: {fileID: 5776822913859328953}
   m_Layer: 5
   m_Name: Step4
   m_TagString: Untagged
@@ -22742,7 +22754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626, y: -78.5}
+  m_AnchoredPosition: {x: 626.1242, y: -78.5}
   m_SizeDelta: {x: 160.32121, y: 157}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7264312224440599741
@@ -22800,7 +22812,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -22821,18 +22833,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7264312224440599740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClickStepButton
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 7264312224440599739}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1408248296
@@ -22847,8 +22848,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 0
   selectedStep: 4
+--- !u!114 &5776822913859328953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264312224440599737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4070bdb85388e59439dfff4e77592559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
+  stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
+  step: 4
 --- !u!1 &7264312224459779956
 GameObject:
   m_ObjectHideFlags: 0
@@ -22861,7 +22876,7 @@ GameObject:
   - component: {fileID: 7264312224459779848}
   - component: {fileID: 7264312224459779959}
   - component: {fileID: 7264312224459779958}
-  - component: {fileID: 3481448416841197490}
+  - component: {fileID: 2522370990900647630}
   m_Layer: 5
   m_Name: Star10-2
   m_TagString: Untagged
@@ -22978,7 +22993,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3481448416841197490
+--- !u!114 &2522370990900647630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22987,11 +23002,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224459779956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 2
+  selectedLO: 10
 --- !u!1 &7264312224470702242
 GameObject:
   m_ObjectHideFlags: 0
@@ -23041,7 +23056,7 @@ GameObject:
   - component: {fileID: 7264312224496836629}
   - component: {fileID: 7264312224496836628}
   - component: {fileID: 7264312224496836627}
-  - component: {fileID: 5776419239880661426}
+  - component: {fileID: 4892773892815941450}
   m_Layer: 5
   m_Name: Star2-5
   m_TagString: Untagged
@@ -23158,7 +23173,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5776419239880661426
+--- !u!114 &4892773892815941450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23167,11 +23182,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224496836625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 2
   selectedStep: 5
+  selectedLO: 2
 --- !u!1 &7264312224521961087
 GameObject:
   m_ObjectHideFlags: 0
@@ -23334,7 +23349,7 @@ GameObject:
   - component: {fileID: 7264312224584007338}
   - component: {fileID: 7264312224584007337}
   - component: {fileID: 7264312224584007336}
-  - component: {fileID: 4527968542882099277}
+  - component: {fileID: 2384577842902089060}
   m_Layer: 5
   m_Name: Star7-1
   m_TagString: Untagged
@@ -23451,7 +23466,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4527968542882099277
+--- !u!114 &2384577842902089060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23460,11 +23475,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224584007318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 7
   selectedStep: 1
+  selectedLO: 7
 --- !u!1 &7264312224669964245
 GameObject:
   m_ObjectHideFlags: 0
@@ -23589,7 +23604,7 @@ GameObject:
   - component: {fileID: 7264312224759854810}
   - component: {fileID: 7264312224759854809}
   - component: {fileID: 7264312224759854808}
-  - component: {fileID: 5929562514228372656}
+  - component: {fileID: 3442636702214460316}
   m_Layer: 5
   m_Name: Star4-4
   m_TagString: Untagged
@@ -23706,7 +23721,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5929562514228372656
+--- !u!114 &3442636702214460316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23715,11 +23730,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224759854790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 4
   selectedStep: 4
+  selectedLO: 4
 --- !u!1 &7264312224771524478
 GameObject:
   m_ObjectHideFlags: 0
@@ -23811,7 +23826,7 @@ GameObject:
   - component: {fileID: 7264312224779914538}
   - component: {fileID: 7264312224779914537}
   - component: {fileID: 7264312224779914536}
-  - component: {fileID: 8030111214536300664}
+  - component: {fileID: 3137984629396421216}
   m_Layer: 5
   m_Name: Star10-3
   m_TagString: Untagged
@@ -23928,7 +23943,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8030111214536300664
+--- !u!114 &3137984629396421216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23937,11 +23952,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224779914518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 10
   selectedStep: 3
+  selectedLO: 10
 --- !u!1 &7264312224783038335
 GameObject:
   m_ObjectHideFlags: 0
@@ -23954,7 +23969,7 @@ GameObject:
   - component: {fileID: 7264312224783038323}
   - component: {fileID: 7264312224783038322}
   - component: {fileID: 7264312224783038321}
-  - component: {fileID: 5482365491063380187}
+  - component: {fileID: 873201575321709245}
   m_Layer: 5
   m_Name: Star9-2
   m_TagString: Untagged
@@ -24071,7 +24086,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5482365491063380187
+--- !u!114 &873201575321709245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24080,8 +24095,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7264312224783038335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8369cece56bc11b488017cd9ec282d3f, type: 3}
+  m_Script: {fileID: 11500000, guid: aa38708017693d84a835b443b4134297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLearningObjective: 9
   selectedStep: 2
+  selectedLO: 9

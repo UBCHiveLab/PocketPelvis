@@ -16,8 +16,11 @@ public class StepControlNavigator : AbstractOnClickButtonBehaviour
     {
         int currentLO = saveDataManager.GetCurrentLO();
         int currentStep = saveDataManager.GetCurrentStep();
-        int nextLO = currentLO;
+
+        // make sure that the nextLO is valid. When data is loaded from a fresh save, the currentLO == 0, which is not a valid lo
+        int nextLO = currentLO >= SaveDataManager.FIRST_LO ? currentLO : SaveDataManager.FIRST_LO;
         int nextStep = currentStep;
+
         if (buttonControl == StepControl.Backward)
         {
             if (currentStep == SaveDataManager.INTRO_STEP)
