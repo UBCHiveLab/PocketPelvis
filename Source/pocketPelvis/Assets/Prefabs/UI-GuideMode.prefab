@@ -19390,9 +19390,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepButtonContainer: {fileID: 7264312223055000084}
-  toolbarButtonContainer: {fileID: 5539255618904075623}
   backwardButton: {fileID: 6781283574923457362}
   forwardButton: {fileID: 6781283575858957700}
+  infoButton: {fileID: 6781283576563135978}
+  labelButton: {fileID: 6781283574899031625}
   startButtonHorizontalTxt: {fileID: 6781283575044179489}
   startButtonVerticalTxt: {fileID: 6781283576191858206}
 --- !u!1 &7264312223588736554

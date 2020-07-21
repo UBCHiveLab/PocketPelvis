@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PageUIUpdater : MonoBehaviour
@@ -8,9 +6,7 @@ public class PageUIUpdater : MonoBehaviour
     [SerializeField]
     private GameObject stepButtonContainer;
     [SerializeField]
-    private GameObject toolbarButtonContainer;
-    [SerializeField]
-    private Button backwardButton, forwardButton;
+    private Button backwardButton, forwardButton, infoButton, labelButton;
     [SerializeField]
     private Text startButtonHorizontalTxt, startButtonVerticalTxt;
     // TODO: add loText field
@@ -47,10 +43,9 @@ public class PageUIUpdater : MonoBehaviour
         }
     }
 
-    // TODO: possibily think of better names for these methods, to allow ppl to distinguish between them better
+    /// <summary> Update the UI to reflect the user's current progress </summary>
     private void UpdateUI(UserProgressData currentProgress)
     {
-        // update the UI to reflect the user's current progress
         startButtonHorizontalTxt.text = currentProgress.isNewUser ? START_TXT : RESUME_TXT;
         startButtonVerticalTxt.text = currentProgress.isNewUser ? START_TXT : RESUME_TXT;
 
@@ -58,41 +53,46 @@ public class PageUIUpdater : MonoBehaviour
         stepButtonContainer.SetActive(currentProgress.currentStep != SaveDataManager.INTRO_STEP);
 
         // when not on the first LO's intro, enable the back navigation button on the main page. Otherwise, disable it.
-        if (currentProgress.currentLO != SaveDataManager.FIRST_LO || currentProgress.currentStep != SaveDataManager.INTRO_STEP)
-        {
-            ButtonInteractivityController.EnableButton(backwardButton);
-        }
-        else
-        {
-            ButtonInteractivityController.DisableButton(backwardButton);
-        }
+        bool showBackButton = currentProgress.currentLO != SaveDataManager.FIRST_LO || currentProgress.currentStep != SaveDataManager.INTRO_STEP;
+        ButtonInteractivityController.SetButtonInteractivity(backwardButton, showBackButton);
 
         // when not on the last LO's last step, enable the forward navigation button on the main page. Otherwise, disable it.
         int lastLO = 10; // TODO: get acutal lastLO from loText file
-        if (currentProgress.currentLO != lastLO || currentProgress.currentStep != currentProgress.stepsInCurrentLO)
-        {
-            ButtonInteractivityController.EnableButton(forwardButton);
-        }
-        else
-        {
-            ButtonInteractivityController.DisableButton(forwardButton);
-        }
+        bool showForwardButton = currentProgress.currentLO != lastLO || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
+        ButtonInteractivityController.SetButtonInteractivity(forwardButton, showForwardButton);
 
         if (currentProgress.furthestLO >= SaveDataManager.FIRST_LO)
         {
             // if the user has selected a learning objective, display the main page
             pageManager.MakePageActive(PageType.Main);
 
+            // determine the proper panel to display, based on the user's current progress
+            PanelType defaultPanel, panelToShow;
+            defaultPanel = panelToShow = PanelType.FitInstructions;
+
             if (currentProgress.isNewUser)
             {
-                panelManager.ShowPanel(PanelType.Tutorial);
+                panelToShow = PanelType.Tutorial;
             }
+            else if (currentProgress.currentStep == SaveDataManager.INTRO_STEP)
+            {
+                defaultPanel = panelToShow = PanelType.Introduction;
+            }
+
+            panelManager.SetDefaultPanelType(defaultPanel);
+            panelManager.ShowPanel(panelToShow);
         }
     }
 
-    private void UpdateUI(bool trackingState)
+    /// <summary> Update the UI to show whether the pelvis model is currently being tracked or not </summary>
+    private void UpdateUI(bool isTrackingModel)
     {
-        // TODO: update the UI to show whether the pelvis model is currently being tracked or not
-        Debug.Log("TODO: update UI to reflect model tracking status changed");
+        // only allow the label and info buttons to be interacted with while the pelvis model is being tracked
+        ButtonInteractivityController.SetButtonInteractivity(infoButton, isTrackingModel);
+        ButtonInteractivityController.SetButtonInteractivity(labelButton, isTrackingModel);
+
+        // When no other panels are showing, if the model is being tracked, show the model tracking indicator; otherwise, tell user how to align the model
+        panelManager.SetDefaultPanelType(isTrackingModel ? PanelType.IsTrackingModel : PanelType.FitInstructions);
+        panelManager.TogglePanel(PanelType.IsTrackingModel);
     }
 }

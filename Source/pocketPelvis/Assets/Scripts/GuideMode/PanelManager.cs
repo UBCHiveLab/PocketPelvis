@@ -14,22 +14,27 @@ public enum PanelType
 
 public class PanelManager : SceneSingleton<PanelManager>
 {
-    
     private List<PanelController> panelControllers;
     private PageManager pageManager;
-    private SaveDataManager loData;
+    private PanelType defaultPanel;
 
     private void Awake()
     {
         //get all panel controllers component in children including inactive ones
         panelControllers = GetComponentsInChildren<PanelController>(true).ToList();
         pageManager = PageManager.Instance;
-        loData = SaveDataManager.Instance;
+        defaultPanel = PanelType.FitInstructions;
+    }
+
+    /// <summary> Set the panel to show when no panels are being shown on the main page </summary>
+    public void SetDefaultPanelType(PanelType type)
+    {
+        defaultPanel = type;
     }
 
     public void HideAllPanels()
     {
-        panelControllers.ForEach(x => x.gameObject.SetActive(false));
+        panelControllers.ForEach(controller => controller.gameObject.SetActive(false));
     }
 
     public void ShowPanel(PanelType _panelType)
@@ -38,7 +43,9 @@ public class PanelManager : SceneSingleton<PanelManager>
 
         PanelController foundPanel= FindPanelWithType(_panelType);
         if (foundPanel!=null)
-        foundPanel.gameObject.SetActive(true);
+        {
+            foundPanel.gameObject.SetActive(true);
+        }
     }
 
     public void TogglePanel(PanelType _panelType)
@@ -57,26 +64,15 @@ public class PanelManager : SceneSingleton<PanelManager>
         // set the panel's visibilty to the opposite of what it was before
         foundPanel.gameObject.SetActive(!panelIsVisible);
 
-        if (panelIsVisible && PanelIsOnMainPage())
+        if (panelIsVisible && PageType.Main == pageManager.GetActivePageType())
         {
             // if we are on the main page and no panel is visible, then make the default panel visible.
-            // When on an LO introduction, default panel == intro panel, otherwise default panel == fit instruction panel
-            ShowPanel(
-                loData.GetCurrentStep() == SaveDataManager.INTRO_STEP ? PanelType.Introduction : PanelType.FitInstructions
-            );
+            ShowPanel(defaultPanel);
         }
-    }
-
-    private bool PanelIsOnMainPage()
-    {
-        // if the main page is currently active, then the panel will
-        // be displayed on the main page
-        return pageManager.GetActivePageType() == PageType.Main;
     }
 
     private PanelController FindPanelWithType(PanelType type)
     {
         return panelControllers.Find(panel => panel.panelType == type);
     }
-
 }

@@ -38,18 +38,12 @@ public class StarButtonsSpriteUpdater : MonoBehaviour
 
                 // update the step's sprite to match the user's latest progress through the learning objectives
                 loStepImg.sprite = StepIsInProgress(userProgress, lo, step) ?
-                    stepAchieved ? inProgressAndAchievedSprite : inProgressAndAchievedSprite :
+                    stepAchieved ? inProgressAndAchievedSprite : inProgressSprite :
                     stepAchieved ? achievedSprite : notDoneSprite;
 
                 // allow the button for the learning objective be interacted with only if we've been to the step before
-                if (lo < userProgress.furthestLO || (lo == userProgress.furthestLO && step <= userProgress.furthestStep))
-                {
-                    ButtonInteractivityController.EnableButton(loStepButton);
-                }
-                else
-                {
-                    ButtonInteractivityController.DisableButton(loStepButton);
-                }
+                bool haveSeenStep = lo < userProgress.furthestLO || (lo == userProgress.furthestLO && step <= userProgress.furthestStep);
+                ButtonInteractivityController.SetButtonInteractivity(loStepButton, haveSeenStep);
 
                 stepIndex++;
             });

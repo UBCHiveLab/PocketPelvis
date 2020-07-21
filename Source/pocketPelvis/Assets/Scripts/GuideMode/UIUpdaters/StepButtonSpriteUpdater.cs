@@ -41,18 +41,10 @@ public class StepButtonSpriteUpdater : MonoBehaviour
         stepButton.gameObject.SetActive(step <= currentProgress.stepsInCurrentLO);
         buttonImage.sprite = step == currentProgress.currentStep ? currentStepSprite : stepSprite;
 
-        if (
-            currentProgress.currentLO < currentProgress.furthestLO ||
-            (currentProgress.furthestLO == currentProgress.currentLO && step <= currentProgress.furthestStep)
-        )
-        {
-            // we've been to this step before; make this step's button interactable
-            ButtonInteractivityController.EnableButton(stepButton);
-        } 
-        else
-        {
-            // we've never been to this step before or this step is the current step; make it so you can't interact with this step's button
-            ButtonInteractivityController.DisableButton(stepButton);
-        }
+        bool haveBeenToStep = currentProgress.currentLO < currentProgress.furthestLO ||
+            (currentProgress.furthestLO == currentProgress.currentLO && step <= currentProgress.furthestStep);
+
+        // if we've been to this step before, make the step's button interactable. Otherwise, disable it;l
+        ButtonInteractivityController.SetButtonInteractivity(stepButton, haveBeenToStep);
     }
 }
