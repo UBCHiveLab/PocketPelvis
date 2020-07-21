@@ -1,9 +1,18 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(StepProperties))]
 public class StepSelector : AbstractOnClickButtonBehaviour
 {
-    [SerializeField]
-    protected int selectedStep = SaveDataManager.INTRO_STEP;
+    private int selectedLearningObjective;
+    private int selectedStep;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        StepProperties stepProperties = GetComponent<StepProperties>();
+        selectedLearningObjective = stepProperties.GetLearningObjective();
+        selectedStep = stepProperties.GetStep();
+    }
 
     protected override void OnClickButton()
     {
@@ -13,6 +22,9 @@ public class StepSelector : AbstractOnClickButtonBehaviour
             return;
         }
 
-        saveDataManager.UpdateUserProgress(saveDataManager.GetCurrentLO(), selectedStep);
+        // some steps aren't associated with any LO. In this case, get the current LO.
+        int loToGoTo = selectedLearningObjective < SaveDataManager.FIRST_LO ? saveDataManager.GetCurrentLO() : selectedLearningObjective;
+
+        saveDataManager.UpdateUserProgress(loToGoTo, selectedStep);
     }
 }

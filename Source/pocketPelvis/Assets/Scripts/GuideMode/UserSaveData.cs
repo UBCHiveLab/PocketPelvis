@@ -5,7 +5,6 @@ public struct UserSaveData
 {
     public UserProgressData userProgress;
     public List<LOAchievementData> loAchievements;
-
 }
 
 [System.Serializable]

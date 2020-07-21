@@ -117,9 +117,17 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
         return loIndex < 0 ? 0 : saveData.loAchievements[loIndex].stepAchievementStatus.Count;
     }
 
-    public UserSaveData GetCurrentSaveState()
+    public bool IsStepAchieved(int lo, int step)
     {
-        return saveData;
+        int[] loIndicies = GetLOIndices(lo, step);
+        int loIndex = loIndicies[LO_INDEX];
+        int stepIndex = loIndicies[STEP_INDEX];
+        return loIndex < 0 || stepIndex < 0 ? false : saveData.loAchievements[loIndex].stepAchievementStatus[stepIndex];
+    }
+
+    public UserProgressData GetCurrentUserProgress()
+    {
+        return saveData.userProgress;
     }
     #endregion PUBLIC_GETTER_METHODS
 
