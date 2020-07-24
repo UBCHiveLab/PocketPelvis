@@ -25,10 +25,6 @@ public class StepButtonSpriteUpdater : MonoBehaviour
 
         // watch for changes to the user's progress so that the button's sprite is updated accordingly
         eventManager.OnUserProgressUpdated += UpdateSprite;
-
-        // updates may be sent right before the step button updater was awoken. Make sure that everything is correct by updating with the most rescent data
-        UserProgressData currentProgress = SaveDataManager.Instance.GetCurrentUserProgress();
-        UpdateSprite(currentProgress);
     }
 
     private void OnDestroy()

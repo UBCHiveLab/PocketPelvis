@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,11 +13,13 @@ public class PageManager : SceneSingleton<PageManager>
 {
     private PageController activePage;
     private List<PageController> pageControllers;
-    private DeviceOrientation currentDeviceOrientation;
 
     private void Awake()
     {
         pageControllers = GetComponentsInChildren<PageController>(true).ToList();
+
+        // make sure that the only active page is activePage
+        pageControllers.ForEach(controller => controller.gameObject.SetActive(false));
         MakePageActive(PageType.LOVertial);
     }
 
@@ -26,13 +27,12 @@ public class PageManager : SceneSingleton<PageManager>
     {
         if (activePage.pageType == PageType.LOVertial || activePage.pageType == PageType.LOHorizontal)
         {
-
             PageType pageToActivate;
             if (Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown || Input.deviceOrientation == DeviceOrientation.Portrait)
             {
                 pageToActivate = PageType.LOVertial;
             }
-            else if(Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight)
+            else if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft || Input.deviceOrientation == DeviceOrientation.LandscapeRight)
             {
                 pageToActivate = PageType.LOHorizontal;
             }
@@ -57,7 +57,6 @@ public class PageManager : SceneSingleton<PageManager>
 
         if (activePage != null)
         {
-
             if (activePage.pageType == pageType)
             {
                 return;

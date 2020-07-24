@@ -37,7 +37,11 @@ public class StarButtonSpriteUpdater : MonoBehaviour
 
         // updates may be sent while the sprite updater was not enabled. Make sure that the sprite is correct by updating with the latest data
         UserProgressData userProgress = saveDataManager.GetCurrentUserProgress();
-        UpdateSprite(userProgress);
+
+        if (!userProgress.Equals(default(UserProgressData))) {
+            // userProgress contains loaded save data, update the sprites. Otherwise, do nothing, as we don't know the user's current progress
+            UpdateSprite(userProgress);
+        }
     }
 
     private void OnDisable()

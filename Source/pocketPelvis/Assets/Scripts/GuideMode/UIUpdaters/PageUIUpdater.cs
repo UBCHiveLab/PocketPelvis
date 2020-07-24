@@ -61,11 +61,8 @@ public class PageUIUpdater : MonoBehaviour
         bool showForwardButton = currentProgress.currentLO != lastLO || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
         ButtonInteractivityController.SetButtonInteractivity(forwardButton, showForwardButton);
 
-        if (currentProgress.furthestLO >= SaveDataManager.FIRST_LO)
+        if (PageType.Main == pageManager.GetActivePageType())
         {
-            // if the user has selected a learning objective, display the main page
-            pageManager.MakePageActive(PageType.Main);
-
             // determine the proper panel to display, based on the user's current progress
             PanelType defaultPanel, panelToShow;
             defaultPanel = panelToShow = PanelType.FitInstructions;

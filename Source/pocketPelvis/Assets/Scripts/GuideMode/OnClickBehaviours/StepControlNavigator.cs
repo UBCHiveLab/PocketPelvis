@@ -17,8 +17,7 @@ public class StepControlNavigator : AbstractOnClickButtonBehaviour
         int currentLO = saveDataManager.GetCurrentLO();
         int currentStep = saveDataManager.GetCurrentStep();
 
-        // make sure that the nextLO is valid. When data is loaded from a fresh save, the currentLO == 0, which is not a valid lo
-        int nextLO = currentLO >= SaveDataManager.FIRST_LO ? currentLO : SaveDataManager.FIRST_LO;
+        int nextLO = currentLO;
         int nextStep = currentStep;
 
         if (buttonControl == StepControl.Backward)
@@ -47,6 +46,8 @@ public class StepControlNavigator : AbstractOnClickButtonBehaviour
             }
         }
 
+        // activate the main page before updating the user progress. This ensures that the main page gets the user progress updates.
+        PageManager.Instance.MakePageActive(PageType.Main);
         saveDataManager.UpdateUserProgress(nextLO, nextStep);
     }
 }

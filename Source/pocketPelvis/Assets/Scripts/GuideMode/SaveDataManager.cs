@@ -6,7 +6,7 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
     private UserSaveData saveData;
     private GuideModeEventManager eventManager;
 
-    private const string SAVE_DATA_PATH = "/GuideMode/userSaveData.json";
+    private const string SAVE_DATA_PATH = "/GuideMode/UserSaveData.json";
     private const string EMPTY_SAVE_DATA_PATH = "GuideModeData/EmptySaveData";
     private const int LO_INDEX = 0;
     private const int STEP_INDEX = 1;
@@ -50,6 +50,9 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
             GetEmptySaveData(); // Load empty save data from resources folder
 
         saveData = JsonUtility.FromJson<UserSaveData>(jsonSaveData);
+
+        // let all observers know that the save data has been loaded
+        eventManager.PublishUpdateUserProgress(saveData.userProgress);
     }
 
     private void SaveData()
@@ -152,8 +155,8 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
             return;
         }
 
-        // if the user has updated their save data before, then they shouldn't be considered a new user
-        saveData.userProgress.isNewUser = saveData.userProgress.currentLO < FIRST_LO;
+        // if the user has never updated their save data before, then they should be considered a new user
+        saveData.userProgress.isNewUser = saveData.userProgress.isNewUser && currentLO == FIRST_LO && currentStep == INTRO_STEP + 1;
 
         saveData.userProgress.currentLO = currentLO;
         saveData.userProgress.currentStep = currentStep;

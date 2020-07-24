@@ -1,11 +1,11 @@
 {
 	"userProgress": {
 		"isNewUser": true,
-		"currentLO": 0,
-		"currentStep": 0,
+		"currentLO": 1,
+		"currentStep": 1,
 		"furthestLO": 0,
 		"furthestStep": 0,
-		"stepsInCurrentLO": 0
+		"stepsInCurrentLO": 1
 	},
 	"loAchievements": [
 		{

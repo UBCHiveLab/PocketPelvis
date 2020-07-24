@@ -18667,7 +18667,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 7
 --- !u!1 &7264312222987595129
 GameObject:
   m_ObjectHideFlags: 0
@@ -23002,7 +23001,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 5
 --- !u!1 &7264312223936176768
 GameObject:
   m_ObjectHideFlags: 0
@@ -23361,7 +23359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 1
 --- !u!1 &7264312223989606166
 GameObject:
   m_ObjectHideFlags: 0
@@ -23855,7 +23852,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 6
 --- !u!1 &7264312224042026141
 GameObject:
   m_ObjectHideFlags: 0
@@ -24519,7 +24515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 2
 --- !u!1 &7264312224196040929
 GameObject:
   m_ObjectHideFlags: 0
@@ -25539,7 +25534,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 3
 --- !u!1 &7264312224324564992
 GameObject:
   m_ObjectHideFlags: 0
@@ -25858,7 +25852,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStepSprite: {fileID: 21300000, guid: cb989a4e68152ba4a8f23513a01dcab9, type: 3}
   stepSprite: {fileID: 21300000, guid: f44e886b1691a28438eb77c527df88d7, type: 3}
-  step: 4
 --- !u!1 &7264312224459779956
 GameObject:
   m_ObjectHideFlags: 0
