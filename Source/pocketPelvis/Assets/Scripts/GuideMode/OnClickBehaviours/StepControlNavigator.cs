@@ -25,25 +25,33 @@ public class StepControlNavigator : AbstractOnClickButtonBehaviour
             if (currentStep == SaveDataManager.INTRO_STEP)
             {
                 // if the user is currently on the intro step, then go to the last step of the previous lo
-                nextLO = --currentLO;
+                nextLO--;
                 nextStep = saveDataManager.GetNumStepsInLO(nextLO);
-            } else
+            }
+            else
             {
                 // go to the previous step in the current learning objective
-                nextStep = --currentStep;
+                nextStep--;
             }
-        } else if (buttonControl == StepControl.Forward)
+        }
+        else if (buttonControl == StepControl.Forward)
         {
             if (currentStep == saveDataManager.GetNumStepsInLO(currentLO))
             {
                 // if the user is currently on the last step of the current lo, go to the intro step of the next lo
-                nextLO = ++currentLO;
+                nextLO++;
                 nextStep = SaveDataManager.INTRO_STEP;
-            } else
+            }
+            else
             {
                 // go to the next step in the current learning objective
-                nextStep = ++currentStep;
+                nextStep++;
             }
+        }
+        else
+        {
+           // if resuming the user's progress from the current lo and step, don't make the user see the intro step again. Instead, go to the first step of the lo
+            nextStep = nextStep == SaveDataManager.INTRO_STEP ? nextStep + 1 : nextStep;
         }
 
         // activate the main page before updating the user progress. This ensures that the main page gets the user progress updates.
