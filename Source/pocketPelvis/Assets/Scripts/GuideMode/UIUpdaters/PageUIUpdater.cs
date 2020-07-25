@@ -49,9 +49,6 @@ public class PageUIUpdater : MonoBehaviour
         startButtonHorizontalTxt.text = currentProgress.isNewUser ? START_TXT : RESUME_TXT;
         startButtonVerticalTxt.text = currentProgress.isNewUser ? START_TXT : RESUME_TXT;
 
-        // when the user isn't on the intro step, show the step buttons on the main page
-        stepButtonContainer.SetActive(currentProgress.currentStep != SaveDataManager.INTRO_STEP);
-
         // when not on the first LO's intro, enable the back navigation button on the main page. Otherwise, disable it.
         bool showBackButton = currentProgress.currentLO != SaveDataManager.FIRST_LO || currentProgress.currentStep != SaveDataManager.INTRO_STEP;
         ButtonInteractivityController.SetButtonInteractivity(backwardButton, showBackButton);
@@ -63,6 +60,9 @@ public class PageUIUpdater : MonoBehaviour
 
         if (PageType.Main == pageManager.GetActivePageType())
         {
+            // when the user isn't on the intro step, show the step buttons on the main page
+            stepButtonContainer.SetActive(currentProgress.currentStep != SaveDataManager.INTRO_STEP);
+
             // determine the proper panel to display, based on the user's current progress
             PanelType defaultPanel, panelToShow;
             defaultPanel = panelToShow = PanelType.FitInstructions;
