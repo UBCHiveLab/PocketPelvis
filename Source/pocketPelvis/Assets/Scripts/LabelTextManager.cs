@@ -133,6 +133,10 @@ public class LabelTextManager : MonoBehaviour
         showLabel(!thisLabel.isLabelDisplayed);
 
     }
+    public void ReloadLabelComponents()
+    {
+        
+    }
     public void DeleteLabel()
     {
         LabelScript parent = this.GetComponentInParent<LabelScript>();

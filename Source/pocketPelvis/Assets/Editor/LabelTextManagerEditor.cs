@@ -103,7 +103,7 @@ public class LabelTextManagerEditor : Editor
         if(dotGroupProperty.objectReferenceValue == null)
             dotGroupProperty.objectReferenceValue = (GameObject)EditorGUILayout.ObjectField("Dot Group Game Object", dotGroupProperty.objectReferenceValue, typeof(GameObject), true);
         if (textGroupProperty.objectReferenceValue == null)
-            textGroupProperty.objectReferenceValue = (GameObject)EditorGUILayout.ObjectField("Dot Group Game Object", textGroupProperty.objectReferenceValue, typeof(GameObject), true);
+            textGroupProperty.objectReferenceValue = (GameObject)EditorGUILayout.ObjectField("Text Group Game Object", textGroupProperty.objectReferenceValue, typeof(GameObject), true);
         serializedObject.ApplyModifiedProperties();
         #endregion
 

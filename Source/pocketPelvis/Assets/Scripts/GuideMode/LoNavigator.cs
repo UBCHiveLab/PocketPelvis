@@ -38,7 +38,7 @@ public class LoNavigator : SceneSingleton<LoNavigator>
     private GameObject stepButtonContainer;
 
     private LearningObjectives loData;
-    private LoTexts loTexts;
+    private LOTexts loTexts;
     private List<Button> stepButtons;
     private int currentLO, currentStep;
     private ButtonInteractivityController buttonInteractivityController;
@@ -302,18 +302,18 @@ public class LoNavigator : SceneSingleton<LoNavigator>
         load = Resources.Load<TextAsset>("GuideModeData/LOText");
 
         if(load!=null)
-        loTexts = JsonUtility.FromJson<LoTexts>(load.text);
+        loTexts = JsonUtility.FromJson<LOTexts>(load.text);
     }
 
     public void SetCurrentGuideView(int LO, int step)
     {
-        GuideViewOrientation foundOrientation = loTexts.GetGuideViewOrientation(LO, step);
-        ModelTrackingManager.Instance.SetGuideView(foundOrientation);
+        //GuideViewOrientation foundOrientation = loTexts.GetGuideViewOrientation(LO, step);
+        //ModelTrackingManager.Instance.SetGuideView(foundOrientation);
     }
     public void SetLabels(int LO, int step)
     {
-        string[] labelText = loTexts.GetLabelText(LO, step);
-        LabelManager.Instance.EnableLabelsByText(SearchingTextType.bottomText, labelText);
+        //string[] labelText = loTexts.GetLabelText(LO, step);
+        //LabelManager.Instance.EnableLabelsByText(SearchingTextType.bottomText, labelText);
     }
 
     private void UpdateLOProgress(int LO, int step)
@@ -325,25 +325,25 @@ public class LoNavigator : SceneSingleton<LoNavigator>
 
     private void ChangeInfoTextBasedOnLO(int LO, int step)
     {
-        List<string> foundText = loTexts.FindInfoText(LO, step);
-        if (foundText != null) {
+        //List<string> foundText = loTexts.FindInfoText(LO, step);
+        //if (foundText != null) {
 
-            infoText.text = foundText[0];
-            if (foundText[1] != "")
-            {
-                fitText.text = "Please fit the 3D pelvis with the 2D shape!\n" + foundText[1];
-            }
-            else
-            {
-                fitText.text = "Please fit the 3D pelvis with the 2D shape!";
-            }
+        //    infoText.text = foundText[0];
+        //    if (foundText[1] != "")
+        //    {
+        //        fitText.text = "Please fit the 3D pelvis with the 2D shape!\n" + foundText[1];
+        //    }
+        //    else
+        //    {
+        //        fitText.text = "Please fit the 3D pelvis with the 2D shape!";
+        //    }
 
-            if (infoText.gameObject.activeInHierarchy)
-            {
-                //force refreshing auto layout
-                LayoutRebuilder.ForceRebuildLayoutImmediate(infoText.rectTransform);
-            }
-        }
+        //    if (infoText.gameObject.activeInHierarchy)
+        //    {
+        //        //force refreshing auto layout
+        //        LayoutRebuilder.ForceRebuildLayoutImmediate(infoText.rectTransform);
+        //    }
+        //}
     }
 
     private void UpdateStepControls(int LO, int step)

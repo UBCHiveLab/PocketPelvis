@@ -12,8 +12,8 @@ public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
     public event ModelTrackingDelegate ModelTrackingEvent;
     
     //Todo: Define User Progress Data
-    public delegate void UpdateProgressDelegate(UserProgressData updateData);
-    public event UpdateProgressDelegate UpdateProgressEvent;
+    //public delegate void UpdateProgressDelegate(UserProgressData updateData);
+    //public event UpdateProgressDelegate UpdateProgressEvent;
 
     public delegate void StepAchievedDelegate();
     public event StepAchievedDelegate StepAchievedEvent;
@@ -22,10 +22,10 @@ public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
     {
         ModelTrackingEvent(trackingStatus);
     }
-    public void PublishUpdateProgress(UserProgressData updateData)
-    {
-        UpdateProgressEvent(updateData);
-    }
+    //public void PublishUpdateProgress(UserProgressData updateData)
+    //{
+    //    UpdateProgressEvent(updateData);
+    //}
     public void PublishAllStepAchieved()
     {
         StepAchievedEvent();
