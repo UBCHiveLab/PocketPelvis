@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class LoTextParser
+using System;
+public class LOTextParser
 {
-    public LoTexts infoTexts;
+    public LOTexts loTexts;
 
-    private LoTexts PareseLoText()
+    private LOTexts PareseLoText()
     {
         TextAsset load;
-        load = Resources.Load<TextAsset>("GuideModeData/LOText");
-        LoTexts loadTexts = null;
+        load = Resources.Load<TextAsset>("GuideModeData/LOTexts");
+        LOTexts loadTexts = null;
         if (load != null)
         {
-            loadTexts = JsonUtility.FromJson<LoTexts>(load.text);
+            loadTexts = JsonUtility.FromJson<LOTexts>(load.text);
         }
         return loadTexts;
     }
@@ -21,9 +21,11 @@ public class LoTextParser
     public static GuideViewOrientation ParseGuideViewOrientation(string text)
     {
         //determine if the string can be parsed
+        // could use Enum.TryParse when using .NET4
         if (System.Enum.IsDefined(typeof(GuideViewOrientation), text))
             return (GuideViewOrientation)System.Enum.Parse(typeof(GuideViewOrientation), text);
         else return GuideViewOrientation.NoGuideView;
+
     }
     
 }

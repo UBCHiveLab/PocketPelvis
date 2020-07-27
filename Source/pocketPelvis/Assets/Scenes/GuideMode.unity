@@ -1638,5 +1638,110 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.index
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.upperText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.bottomText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.dotPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.dotPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.dotPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textWindowPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textWindowPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textWindowPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.isLabelDisplayed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.dotSize
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textWindowSize
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.lineWidthMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textColor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textColor.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textColor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: thisLabel.textColor.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: textColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: textColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: textColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164129895609604544, guid: 7224dbd078fb3c149b94d8bf881d5ce2,
+        type: 3}
+      propertyPath: textColor.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7224dbd078fb3c149b94d8bf881d5ce2, type: 3}
