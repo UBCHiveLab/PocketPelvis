@@ -9,11 +9,13 @@ public class PageUIUpdater : MonoBehaviour
     private Button backwardButton, forwardButton, infoButton, labelButton;
     [SerializeField]
     private Text startButtonHorizontalTxt, startButtonVerticalTxt;
-    // TODO: add loText field
+    
+    private LOTexts loTexts;
 
     private GuideModeEventManager eventManager;
     private PageManager pageManager;
     private PanelManager panelManager;
+    private LOTextParser lOTextParser;
 
     // TODO: maybe add these to the loText file?
     private const string START_TXT = "START LEARNING";
@@ -24,6 +26,11 @@ public class PageUIUpdater : MonoBehaviour
         eventManager = GuideModeEventManager.Instance;
         pageManager = PageManager.Instance;
         panelManager = PanelManager.Instance;
+        lOTextParser = LOTextParser.Instance;
+        if (lOTextParser != null)
+        {
+            loTexts = lOTextParser.loTexts;
+        }
     }
 
     private void OnEnable()
@@ -54,7 +61,7 @@ public class PageUIUpdater : MonoBehaviour
         ButtonInteractivityController.SetButtonInteractivity(backwardButton, showBackButton);
 
         // when not on the last LO's last step, enable the forward navigation button on the main page. Otherwise, disable it.
-        int lastLO = 10; // TODO: get acutal lastLO from loText file
+        int lastLO = loTexts.GetLastLO();
         bool showForwardButton = currentProgress.currentLO != lastLO || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
         ButtonInteractivityController.SetButtonInteractivity(forwardButton, showForwardButton);
 

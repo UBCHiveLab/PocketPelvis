@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ public enum GuideViewOrientation
     TopDown,
     NoGuideView
 }
-
+/*
 public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
 {
 
