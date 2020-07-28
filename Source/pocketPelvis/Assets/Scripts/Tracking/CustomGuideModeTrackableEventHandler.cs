@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,21 +9,21 @@ public class CustomGuideModeTrackableEventHandler : DefaultTrackableEventHandler
     {
         base.OnTrackingFound();
         //set progress to win
-        SetCurrentProgress(Progress.win);
+        //SetCurrentProgress(Progress.win);
     }
     protected override void OnTrackingLost()
     {
         base.OnTrackingLost();
-        SetCurrentProgress(Progress.inProgress);
+        //SetCurrentProgress(Progress.inProgress);
     }
     #region CUSTOM_METHODS
-    void SetCurrentProgress(Progress progress)
-    {
-        if (LoNavigator.Instance.currentProgress == Progress.notStarted)
-            return;
-        LoNavigator.SetProgress(progress);
-    }
+    //void SetCurrentProgress(Progress progress)
+    //{
+    //    if (LoNavigator.Instance.currentProgress == Progress.notStarted)
+    //        return;
+    //    LoNavigator.SetProgress(progress);
+    //}
 
     #endregion
 }
-*/
+

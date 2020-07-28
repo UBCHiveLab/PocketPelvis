@@ -166,8 +166,7 @@ public class LabelScript : MonoBehaviour
                     x.SetIndexNumber(textList.IndexOf(x.thisLabel.upperText));
                     x.gameObject.SetActive(true);
                 });
-
-
+                
                 break;
             case SearchingTextType.bottomText:
                 foundLabels = labels.FindAll(a => textList.Any(b => b == a.thisLabel.bottomText));
