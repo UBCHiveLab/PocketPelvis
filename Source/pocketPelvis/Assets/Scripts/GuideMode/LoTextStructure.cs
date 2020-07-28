@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 [System.Serializable]
-public class LOText
+public struct LOText
 {
     public int lOindex;
     public string introductionText;
@@ -12,7 +10,7 @@ public class LOText
 
 }
 [System.Serializable]
-public class StepText
+public struct StepText
 {
     public int stepIndex;
     public string stepInfoText;
@@ -28,22 +26,17 @@ public class LOTexts
 
     public StepText GetStepText(int LO, int step)
     {
-        // look for lo index and step index, if exists return the step text
-        StepText stepText = loTexts.FirstOrDefault(lo => lo.lOindex == LO).stepTexts.FirstOrDefault(st => st.stepIndex == step);
-        if (stepText != null)
-        {
-            return stepText;
-        }
-        return null;
+        // look for lo index and step index, if exists return the step text; otherwise, return StepText's default value
+        List<StepText> stepTexts = loTexts.FirstOrDefault(lo => lo.lOindex == LO).stepTexts;
+        return stepTexts != null ? stepTexts.FirstOrDefault(st => st.stepIndex == step) : default(StepText);
     }
 
     public string GetIntroductionForLO(int LO)
     {
         LOText loText = loTexts.FirstOrDefault(lo => lo.lOindex == LO);
-        if (loText != null)
-            return loText.introductionText;
-        return "";
+        return !loText.Equals(default(LOText)) ? loText.introductionText : "";
     }
+
     public int GetLastLO()
     {
         // return the number of LO in the list

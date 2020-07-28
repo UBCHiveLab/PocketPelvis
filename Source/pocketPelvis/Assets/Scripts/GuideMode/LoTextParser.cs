@@ -1,23 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
+
 public class LOTextParser
 {
     public LOTexts loTexts;
 
-    //private static readonly LOTextParser INSTANCE = new LOTextParser();
-    //public static LOTextParser Instance
-    //{
-    //    get
-    //    {
-    //        return INSTANCE;
-    //    }
-    //}
     public LOTextParser()
     {
         loTexts = PareseLoText();
     }
+
     private LOTexts PareseLoText()
     {
         TextAsset load;
