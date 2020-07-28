@@ -44,4 +44,10 @@ public class LOTexts
             return loText.introductionText;
         return "";
     }
+    public int GetLastLO()
+    {
+        // return the number of LO in the list
+        return loTexts.Count();
+    }
+
 }

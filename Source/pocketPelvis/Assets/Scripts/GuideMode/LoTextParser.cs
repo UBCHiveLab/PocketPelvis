@@ -6,14 +6,28 @@ public class LOTextParser
 {
     public LOTexts loTexts;
 
+    private static readonly LOTextParser INSTANCE = new LOTextParser();
+    public static LOTextParser Instance
+    {
+        get
+        {
+            return INSTANCE;
+        }
+    }
+    private LOTextParser()
+    {
+        loTexts = PareseLoText();
+    }
     private LOTexts PareseLoText()
     {
         TextAsset load;
         load = Resources.Load<TextAsset>("GuideModeData/LOTexts");
         LOTexts loadTexts = null;
+        
         if (load != null)
         {
             loadTexts = JsonUtility.FromJson<LOTexts>(load.text);
+       
         }
         return loadTexts;
     }

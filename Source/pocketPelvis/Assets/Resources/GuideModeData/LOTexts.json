@@ -1,5 +1,5 @@
 {
-  "LOText": [
+  "loTexts": [
     {
       "lOindex": 1,
       "introductionText": "Learning Objective 1: Orientation of the pelvis",
@@ -108,8 +108,8 @@
           "fitInfoText": "Sacral plexus",
           "guideViewOrientation": "Frontal",
           "labelTexts": [
-              "Sacral plexus",
-              "Pudendal nerve"
+            "Sacral plexus",
+            "Pudendal nerve"
           ]
         },
         {
@@ -171,7 +171,7 @@
     },
     {
       "lOindex": 5,
-      "introductionText":"Learning Objective 5: Pelvic floor \nStep 1: Pelvic floor - Male pelvis \nStep 2: Pelvic floor - Female pelvis",
+      "introductionText": "Learning Objective 5: Pelvic floor \nStep 1: Pelvic floor - Male pelvis \nStep 2: Pelvic floor - Female pelvis",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -191,7 +191,7 @@
     },
     {
       "lOindex": 6,
-      "introductionText":"Learning Objective 6: Urogenital and anal triangles \nStep 1: Urogenital triangle and structures \nStep 2: Anal triangle and structures",
+      "introductionText": "Learning Objective 6: Urogenital and anal triangles \nStep 1: Urogenital triangle and structures \nStep 2: Anal triangle and structures",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -211,7 +211,7 @@
     },
     {
       "lOindex": 7,
-      "introductionText":"Learning Objective 7: Deep perineal pouch \nStep 1: Male deep perineal pouch \nStep 2: Female deep perineal pouch",    
+      "introductionText": "Learning Objective 7: Deep perineal pouch \nStep 1: Male deep perineal pouch \nStep 2: Female deep perineal pouch",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -226,12 +226,12 @@
           "fitInfoText": "Female deep perineal pouch",
           "guideViewOrientation": "",
           "labelTexts": []
-        }  
+        }
       ]
     },
     {
       "lOindex": 8,
-      "introductionText":"Learning Objective 8: Ischioanal fossa \nStep 1: Function of the ischianal fossa \nStep 2: Apexes of  the ischioanal fossa \nStep 3: Roof of the ischioanal fossa \nStep 4: Lateral walls of the ischioanal fossa \nStep 5: Medial walls of the ischioanal fossa \nStep 6: Floor of the ischioanal fossa",    
+      "introductionText": "Learning Objective 8: Ischioanal fossa \nStep 1: Function of the ischianal fossa \nStep 2: Apexes of  the ischioanal fossa \nStep 3: Roof of the ischioanal fossa \nStep 4: Lateral walls of the ischioanal fossa \nStep 5: Medial walls of the ischioanal fossa \nStep 6: Floor of the ischioanal fossa",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -279,7 +279,7 @@
     },
     {
       "lOindex": 9,
-      "introductionText":"Learning Objective 9: Superficial perineal pouch \nStep 1: Male superficial perineal pouch \nStep 2: Female superficial perineal pouch",    
+      "introductionText": "Learning Objective 9: Superficial perineal pouch \nStep 1: Male superficial perineal pouch \nStep 2: Female superficial perineal pouch",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -294,12 +294,12 @@
           "fitInfoText": "Female superficial perineal pouch",
           "guideViewOrientation": "",
           "labelTexts": []
-        }  
+        }
       ]
     },
     {
       "lOindex": 10,
-      "introductionText":"Learning Objective 10: Perineum arterial and nerve supply \nStep 1: Pudendal nerve- Innervation of the perineum \nStep 2: Male pudendal artery and branches \nStep 3: Female pudendal artery and branches",    
+      "introductionText": "Learning Objective 10: Perineum arterial and nerve supply \nStep 1: Pudendal nerve- Innervation of the perineum \nStep 2: Male pudendal artery and branches \nStep 3: Female pudendal artery and branches",
       "stepTexts": [
         {
           "stepIndex": 1,
@@ -321,7 +321,7 @@
           "fitInfoText": "Female pudendal artery",
           "guideViewOrientation": "",
           "labelTexts": []
-        }  
+        }
       ]
     }
   ]
