@@ -8,7 +8,7 @@ public class PageUIUpdater : MonoBehaviour
     [SerializeField]
     private Button backwardButton, forwardButton, infoButton, labelButton;
     [SerializeField]
-    private Text startButtonHorizontalTxt, startButtonVerticalTxt,introTxt,fitTxt,infoTxt;
+    private Text startButtonHorizontalTxt, startButtonVerticalTxt, introTxt, fitTxt, infoTxt;
     
     private LOTexts loTexts;
 
@@ -16,7 +16,6 @@ public class PageUIUpdater : MonoBehaviour
     private PageManager pageManager;
     private PanelManager panelManager;
     private LabelManager labelManager;
-    private LOTextParser lOTextParser;
 
     // TODO: maybe add these to the loText file?
     private const string START_TXT = "START LEARNING";
@@ -28,11 +27,7 @@ public class PageUIUpdater : MonoBehaviour
         pageManager = PageManager.Instance;
         panelManager = PanelManager.Instance;
         labelManager = LabelManager.Instance;
-        lOTextParser = new LOTextParser();
-        if (lOTextParser != null)
-        {
-            loTexts = lOTextParser.loTexts;
-        }
+        loTexts = new LOTextParser().loTexts;
     }
 
     private void OnEnable()
@@ -63,8 +58,7 @@ public class PageUIUpdater : MonoBehaviour
         ButtonInteractivityController.SetButtonInteractivity(backwardButton, showBackButton);
 
         // when not on the last LO's last step, enable the forward navigation button on the main page. Otherwise, disable it.
-        int lastLO = loTexts.GetLastLO();
-        bool showForwardButton = currentProgress.currentLO != lastLO || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
+        bool showForwardButton = currentProgress.currentLO != loTexts.GetLastLO() || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
         ButtonInteractivityController.SetButtonInteractivity(forwardButton, showForwardButton);
 
         if (PageType.Main == pageManager.GetActivePageType())
@@ -72,7 +66,7 @@ public class PageUIUpdater : MonoBehaviour
             // when the user isn't on the intro step, show the step buttons on the main page
             stepButtonContainer.SetActive(currentProgress.currentStep != SaveDataManager.INTRO_STEP);
 
-            // determine the proper panel to display, based on the user's current progress
+            // determine the proper panel and panel text to display, based on the user's current progress
             PanelType defaultPanel, panelToShow;
             defaultPanel = panelToShow = PanelType.FitInstructions;
 
@@ -89,16 +83,14 @@ public class PageUIUpdater : MonoBehaviour
             else
             {
                 StepText stepText = loTexts.GetStepText(currentProgress.currentLO, currentProgress.currentStep);
-                if (stepText != null)
-                {
-                    // Update fit text
-                    fitTxt.text = "Please fit the 3D pelvis with the 2D shape! " + stepText.fitInfoText;
-                    // Update Info Text
-                    infoTxt.text = stepText.stepInfoText;
-                    // Enable Corresponding Labels
-                    labelManager.EnableLabelsByText(SearchingTextType.bottomText, stepText.labelTexts.ToArray());
-                    // TODO: Set guide view
-                }
+                // Update fit text
+                fitTxt.text = "Please fit the 3D pelvis with the 2D shape! " + stepText.fitInfoText;
+                // Update Info Text
+                infoTxt.text = stepText.stepInfoText;
+                // Enable Corresponding Labels
+                string[] labelTexts = stepText.labelTexts != null ? stepText.labelTexts.ToArray() : null;
+                labelManager.EnableLabelsByText(SearchingTextType.bottomText, labelTexts);
+                // TODO: Set guide view
             }
 
             panelManager.SetDefaultPanelType(defaultPanel);
