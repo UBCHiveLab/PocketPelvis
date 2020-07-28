@@ -216,6 +216,93 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors: []
+--- !u!1 &103051433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103051435}
+  - component: {fileID: 103051434}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &103051434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103051433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1942c34bfb364ea4a96af8261aefc77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lOTexts:
+    loTexts:
+    - lOindex: 1
+      introductionText: 'Learning Objective 1: Orientation of the pelvis'
+      stepTexts:
+      - stepIndex: 1
+        stepInfoText: The anterior superior iliac spine (ASIS) lies in the same plane
+          as the pubic symphysis in normal anatomical position.
+        fitInfoText: 
+        guideViewOrientation: side
+        labelTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+    - lOindex: 2
+      introductionText: 
+      stepTexts: []
+--- !u!4 &103051435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103051433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 1077.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &172915592
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +580,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1531983564}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1042816809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6781283575949872206, guid: 331102f8cb171924d8c9de4313181d84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751471641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1531983564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -577,6 +676,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400f2b360b158ff4b90d091d7f964440, type: 3}
+--- !u!114 &1607078799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7264312223911457350, guid: 331102f8cb171924d8c9de4313181d84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751471641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1751471641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,6 +805,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4252143629214548547, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: infoTxt
+      value: 
+      objectReference: {fileID: 2127996880}
+    - target: {fileID: 4252143629214548547, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: introTxt
+      value: 
+      objectReference: {fileID: 1607078799}
+    - target: {fileID: 4252143629214548547, guid: 331102f8cb171924d8c9de4313181d84,
+        type: 3}
+      propertyPath: fitTxt
+      value: 
+      objectReference: {fileID: 1042816809}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331102f8cb171924d8c9de4313181d84, type: 3}
 --- !u!1 &1873318650
@@ -806,6 +932,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3164129895322485482}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127996880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6781283575453418182, guid: 331102f8cb171924d8c9de4313181d84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751471641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3164129895322485482
 PrefabInstance:
   m_ObjectHideFlags: 0

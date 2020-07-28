@@ -8,13 +8,14 @@ public class PageUIUpdater : MonoBehaviour
     [SerializeField]
     private Button backwardButton, forwardButton, infoButton, labelButton;
     [SerializeField]
-    private Text startButtonHorizontalTxt, startButtonVerticalTxt;
+    private Text startButtonHorizontalTxt, startButtonVerticalTxt,introTxt,fitTxt,infoTxt;
     
     private LOTexts loTexts;
 
     private GuideModeEventManager eventManager;
     private PageManager pageManager;
     private PanelManager panelManager;
+    private LabelManager labelManager;
     private LOTextParser lOTextParser;
 
     // TODO: maybe add these to the loText file?
@@ -26,7 +27,8 @@ public class PageUIUpdater : MonoBehaviour
         eventManager = GuideModeEventManager.Instance;
         pageManager = PageManager.Instance;
         panelManager = PanelManager.Instance;
-        lOTextParser = LOTextParser.Instance;
+        labelManager = LabelManager.Instance;
+        lOTextParser = new LOTextParser();
         if (lOTextParser != null)
         {
             loTexts = lOTextParser.loTexts;
@@ -80,7 +82,23 @@ public class PageUIUpdater : MonoBehaviour
             }
             else if (currentProgress.currentStep == SaveDataManager.INTRO_STEP)
             {
+                // Update Intro Text
+                introTxt.text = loTexts.GetIntroductionForLO(currentProgress.currentLO);
                 defaultPanel = panelToShow = PanelType.Introduction;
+            }
+            else
+            {
+                StepText stepText = loTexts.GetStepText(currentProgress.currentLO, currentProgress.currentStep);
+                if (stepText != null)
+                {
+                    // Update fit text
+                    fitTxt.text = "Please fit the 3D pelvis with the 2D shape! " + stepText.fitInfoText;
+                    // Update Info Text
+                    infoTxt.text = stepText.stepInfoText;
+                    // Enable Corresponding Labels
+                    labelManager.EnableLabelsByText(SearchingTextType.bottomText, stepText.labelTexts.ToArray());
+                    // TODO: Set guide view
+                }
             }
 
             panelManager.SetDefaultPanelType(defaultPanel);
