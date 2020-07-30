@@ -9,20 +9,18 @@ public class CustomGuideModeTrackableEventHandler : DefaultTrackableEventHandler
     {
         base.OnTrackingFound();
         //set progress to win
-        //SetCurrentProgress(Progress.win);
+        ChangeTrackingStatus(true);
     }
     protected override void OnTrackingLost()
     {
         base.OnTrackingLost();
-        //SetCurrentProgress(Progress.inProgress);
+        ChangeTrackingStatus(false);
     }
     #region CUSTOM_METHODS
-    //void SetCurrentProgress(Progress progress)
-    //{
-    //    if (LoNavigator.Instance.currentProgress == Progress.notStarted)
-    //        return;
-    //    LoNavigator.SetProgress(progress);
-    //}
+    private void ChangeTrackingStatus(bool trackingStatus)
+    {
+        GuideModeEventManager.Instance.PublishModelTrackingChangedEvent(trackingStatus);
+    }
 
     #endregion
 }
