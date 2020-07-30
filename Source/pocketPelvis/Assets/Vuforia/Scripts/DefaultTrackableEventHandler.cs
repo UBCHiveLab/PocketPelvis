@@ -55,9 +55,15 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         m_PreviousStatus = previousStatus;
         m_NewStatus = newStatus;
 
+        //if (newStatus == TrackableBehaviour.Status.DETECTED ||
+        //    newStatus == TrackableBehaviour.Status.TRACKED ||
+        //    newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+        //{
+        //    Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+        //    OnTrackingFound();
+        //}
         if (newStatus == TrackableBehaviour.Status.DETECTED ||
-            newStatus == TrackableBehaviour.Status.TRACKED ||
-            newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+            newStatus == TrackableBehaviour.Status.TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             OnTrackingFound();

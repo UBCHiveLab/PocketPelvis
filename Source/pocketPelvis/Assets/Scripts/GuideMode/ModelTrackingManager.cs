@@ -16,7 +16,7 @@ public enum GuideViewOrientation
     TopDown,
     NoGuideView
 }
-/*
+
 public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
 {
 
@@ -24,42 +24,30 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
     private ModelTarget modelTarget;
     private ITrackerManager trackerManager;
     private DeviceTracker deviceTracker;
-    private RotationalDeviceTracker rotationalDeviceTracker;
     private PositionalDeviceTracker positionalDeviceTracker;
     private ObjectTracker objectTracker;
+    bool deviceTrackerEnabled;
 
     private void Start()
     {
         modelTargetBehaviour = FindObjectOfType<ModelTargetBehaviour>();
-        //reset vuforia tracking
         trackerManager = TrackerManager.Instance;
         if (trackerManager != null)
         {
-            deviceTracker = trackerManager.GetTracker<DeviceTracker>();
-            rotationalDeviceTracker = trackerManager.GetTracker<RotationalDeviceTracker>();
-            positionalDeviceTracker = trackerManager.GetTracker<PositionalDeviceTracker>();
-            objectTracker = trackerManager.GetTracker<ObjectTracker>();
-
+            LoadTrackers();
         }
+       
+        // Stop Tracking when the app just initialized
+        StopTracking();
     }
-    private void OnEnable()
-    {
-        LoNavigator.SetProgress += SetTrackingStatus;
-    }
-    private void OnDisable()
-    {
-        LoNavigator.SetProgress -= SetTrackingStatus;
-    }
+
     public void SetGuideView(GuideViewOrientation guideViewOrientation)
     {
-        if (modelTargetBehaviour != null)
-            modelTarget = modelTargetBehaviour.ModelTarget;
+        
+        modelTarget = modelTarget != null? modelTarget: modelTargetBehaviour.ModelTarget;
 
-        //restart tracking before set up guide view
-
-
-        //ReseTracking();
-
+        // stop tracking before set up guide view
+        StopTracking();
 
 
         if (guideViewOrientation != GuideViewOrientation.NoGuideView)
@@ -67,6 +55,8 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
             int guideViewID = (int)guideViewOrientation;
             modelTarget.SetActiveGuideViewIndex(guideViewID);
             modelTargetBehaviour.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.GuideView2D;
+            // start tracking if there is guide view
+            StartTracking();
 
         }
         else
@@ -74,97 +64,84 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
             modelTargetBehaviour.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.NoGuideView;
         }
     }
-    void SetTrackingStatus(Progress progress)
-    {
-        if (progress == Progress.notStarted)
-        {
-            StopTracking();
-        }
-        else
-        {
-            StartTracking();
-        }
-    }
+
     //stop all ar trackers
     public void StopTracking()
     {
-        if (trackerManager == null)
-            trackerManager = TrackerManager.Instance;
+
+        trackerManager = trackerManager != null ? trackerManager : TrackerManager.Instance;
         if (trackerManager != null)
         {
-            if (deviceTracker == null || rotationalDeviceTracker == null || positionalDeviceTracker == null)
+            if (deviceTracker == null  || positionalDeviceTracker == null)
             {
-                deviceTracker = trackerManager.GetTracker<DeviceTracker>();
-                rotationalDeviceTracker = trackerManager.GetTracker<RotationalDeviceTracker>();
-                positionalDeviceTracker = trackerManager.GetTracker<PositionalDeviceTracker>();
-                objectTracker = trackerManager.GetTracker<ObjectTracker>();
+                LoadTrackers();
             }
 
             if (deviceTracker != null)
             {
+
                 deviceTracker.Stop();
 
             }
 
-            if (rotationalDeviceTracker != null)
-            {
-                rotationalDeviceTracker.Stop();
-            }
-
-            if (positionalDeviceTracker != null)
-            {
-
-                positionalDeviceTracker.Stop();
-                positionalDeviceTracker.Reset();
-                positionalDeviceTracker.ResetAnchors();
-
-            }
             if (objectTracker != null)
             {
                 objectTracker.Stop();
             }
+            if (positionalDeviceTracker != null)
+            {
+                //Debug.Log(positionalDeviceTracker.IsActive);
+                positionalDeviceTracker.Stop();
+                //positionalDeviceTracker.Reset();
+                //positionalDeviceTracker.ResetAnchors();
+
+            }
 
         }
+        
 
     }
    //start all ar trackers
     public void StartTracking()
     {
 
-        if (trackerManager == null)
-            trackerManager = TrackerManager.Instance;
+        trackerManager = trackerManager != null ? trackerManager : TrackerManager.Instance;
         if (trackerManager != null)
         {
-            if (deviceTracker == null || rotationalDeviceTracker == null || positionalDeviceTracker == null)
+            if (deviceTracker == null || positionalDeviceTracker == null)
             {
-                deviceTracker = trackerManager.GetTracker<DeviceTracker>();
-                rotationalDeviceTracker = trackerManager.GetTracker<RotationalDeviceTracker>();
-                positionalDeviceTracker = trackerManager.GetTracker<PositionalDeviceTracker>();
-                objectTracker = trackerManager.GetTracker<ObjectTracker>();
+                LoadTrackers();
             }
-
             if (deviceTracker != null)
             {
+                
                 deviceTracker.Start();
-
+                
             }
-
-            if (rotationalDeviceTracker != null)
-            {
-                rotationalDeviceTracker.Start();
-            }
-
-            if (positionalDeviceTracker != null)
-            {
-                positionalDeviceTracker.Start();
-
-            }
+            
             if (objectTracker != null)
             {
                 objectTracker.Start();
             }
 
+            if (positionalDeviceTracker != null)
+            {
+                
+                positionalDeviceTracker.Start();
+                positionalDeviceTracker.Reset();
+                positionalDeviceTracker.ResetAnchors();
+            }
+
+
         }
     }
+
+
+
+    private void LoadTrackers()
+    {
+        deviceTracker = trackerManager.GetTracker<DeviceTracker>();
+        positionalDeviceTracker = trackerManager.GetTracker<PositionalDeviceTracker>();
+        objectTracker = trackerManager.GetTracker<ObjectTracker>();
+    }
 }
-*/

@@ -16,6 +16,7 @@ public class PageUIUpdater : MonoBehaviour
     private PageManager pageManager;
     private PanelManager panelManager;
     private LabelManager labelManager;
+    private ModelTrackingManager modelTrackingManager;
 
     // TODO: maybe add these to the loText file?
     private const string START_TXT = "START LEARNING";
@@ -27,6 +28,7 @@ public class PageUIUpdater : MonoBehaviour
         pageManager = PageManager.Instance;
         panelManager = PanelManager.Instance;
         labelManager = LabelManager.Instance;
+        modelTrackingManager = ModelTrackingManager.Instance;
         loTexts = new LOTextParser().loTexts;
     }
 
@@ -69,7 +71,8 @@ public class PageUIUpdater : MonoBehaviour
             // determine the proper panel and panel text to display, based on the user's current progress
             PanelType defaultPanel, panelToShow;
             defaultPanel = panelToShow = PanelType.FitInstructions;
-
+            // set guide view to empty
+            modelTrackingManager.SetGuideView(GuideViewOrientation.NoGuideView);
             if (currentProgress.isNewUser)
             {
                 panelToShow = PanelType.Tutorial;
@@ -90,7 +93,8 @@ public class PageUIUpdater : MonoBehaviour
                 // Enable Corresponding Labels
                 string[] labelTexts = stepText.labelTexts != null ? stepText.labelTexts.ToArray() : null;
                 labelManager.EnableLabelsByText(SearchingTextType.bottomText, labelTexts);
-                // TODO: Set guide view
+                // Set guide view
+                modelTrackingManager.SetGuideView(LOTextParser.ParseGuideViewOrientation(stepText.guideViewOrientation));
             }
 
             panelManager.SetDefaultPanelType(defaultPanel);

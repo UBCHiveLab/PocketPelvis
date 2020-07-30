@@ -51,6 +51,7 @@ public class PanelManager : SceneSingleton<PanelManager>
     public void TogglePanel(PanelType _panelType)
     {
         PanelController foundPanel = FindPanelWithType(_panelType);
+        PageType activePageType = pageManager.GetActivePageType();
 
         if (foundPanel == null)
         {
@@ -61,14 +62,20 @@ public class PanelManager : SceneSingleton<PanelManager>
 
         HideAllPanels();
 
-        // set the panel's visibilty to the opposite of what it was before
-        foundPanel.gameObject.SetActive(!panelIsVisible);
-
-        if (panelIsVisible && PageType.Main == pageManager.GetActivePageType())
+        // if we are on the main page, set the panel's visibilty to the opposite of what it was before
+        if (PageType.Main == activePageType)
         {
-            // if we are on the main page and no panel is visible, then make the default panel visible.
-            ShowPanel(defaultPanel);
+            foundPanel.gameObject.SetActive(!panelIsVisible);
+
+            if (panelIsVisible)
+            {
+                // if we are on the main page and no panel is visible, then make the default panel visible.
+                ShowPanel(defaultPanel);
+            }
         }
+        
+
+        
     }
 
     private PanelController FindPanelWithType(PanelType type)
