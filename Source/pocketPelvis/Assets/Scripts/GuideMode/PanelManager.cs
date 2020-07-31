@@ -15,19 +15,17 @@ public enum PanelType
 public class PanelManager : SceneSingleton<PanelManager>
 {
     private List<PanelController> panelControllers;
-    private PageManager pageManager;
-    private PanelType defaultPanel;
+    private PanelType? defaultPanel;
 
     private void Awake()
     {
         //get all panel controllers component in children including inactive ones
         panelControllers = GetComponentsInChildren<PanelController>(true).ToList();
-        pageManager = PageManager.Instance;
-        defaultPanel = PanelType.FitInstructions;
+        defaultPanel = null;
     }
 
     /// <summary> Set the panel to show when no panels are being shown on the main page </summary>
-    public void SetDefaultPanelType(PanelType type)
+    public void SetDefaultPanelType(PanelType? type)
     {
         defaultPanel = type;
     }
@@ -51,7 +49,6 @@ public class PanelManager : SceneSingleton<PanelManager>
     public void TogglePanel(PanelType _panelType)
     {
         PanelController foundPanel = FindPanelWithType(_panelType);
-        PageType activePageType = pageManager.GetActivePageType();
 
         if (foundPanel == null)
         {
@@ -65,11 +62,10 @@ public class PanelManager : SceneSingleton<PanelManager>
         // set the panel's visibilty to the opposite of what it was before
         foundPanel.gameObject.SetActive(!panelIsVisible);
 
-        if (PageType.Main == activePageType && panelIsVisible)
+        if (panelIsVisible && defaultPanel != null)
         {
-
-            // if we are on the main page and no panel is visible, then make the default panel visible.
-            ShowPanel(defaultPanel);
+            // if no panel is visible and there is a default panel, then make the default panel visible.
+            ShowPanel((PanelType) defaultPanel);
         }
     }
 
