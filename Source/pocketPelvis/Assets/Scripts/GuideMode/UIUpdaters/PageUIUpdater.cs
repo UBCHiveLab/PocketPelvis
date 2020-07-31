@@ -20,6 +20,7 @@ public class PageUIUpdater : MonoBehaviour
 
     private const string START_TXT = "START LEARNING";
     private const string RESUME_TXT = "RESUME LEARNING";
+    private const string PLEASE_FIT_TXT = "Please fit the 3D pelvis with the 2D shape! ";
 
     private void Awake()
     {
@@ -62,43 +63,49 @@ public class PageUIUpdater : MonoBehaviour
         bool showForwardButton = currentProgress.currentLO != loTexts.GetLastLO() || currentProgress.currentStep != currentProgress.stepsInCurrentLO;
         ButtonInteractivityController.SetButtonInteractivity(forwardButton, showForwardButton);
 
+        PanelType? defaultPanel = null;
+
         if (PageType.Main == pageManager.GetActivePageType())
         {
             // when the user isn't on the intro step, show the step buttons on the main page
             stepButtonContainer.SetActive(currentProgress.currentStep != SaveDataManager.INTRO_STEP);
 
-            // determine the proper panel and panel text to display, based on the user's current progress
-            PanelType defaultPanel, panelToShow;
-            defaultPanel = panelToShow = PanelType.FitInstructions;
-            // set guide view to empty
-            modelTrackingManager.SetGuideView(GuideViewOrientation.NoGuideView);
+            // determine the proper panel, panel text, and pelvis outline to display, based on the user's current progress
+            GuideViewOrientation pelvisOutline = GuideViewOrientation.NoGuideView;
+            PanelType panelToShow;
+
+            if (currentProgress.currentStep == SaveDataManager.INTRO_STEP)
+            {
+                defaultPanel = panelToShow = PanelType.Introduction;
+                introTxt.text = loTexts.GetIntroductionForLO(currentProgress.currentLO);
+            } else
+            {
+                defaultPanel = panelToShow = PanelType.FitInstructions;
+                StepText stepText = loTexts.GetStepText(currentProgress.currentLO, currentProgress.currentStep);
+
+                // Get the step's fit and info text
+                fitTxt.text = PLEASE_FIT_TXT + stepText.fitInfoText;
+                infoTxt.text = stepText.stepInfoText;
+
+                // Enable the step's corresponding model labels
+                string[] labelTexts = stepText.labelTexts != null ? stepText.labelTexts.ToArray() : null;
+                labelManager.EnableLabelsByText(SearchingTextType.bottomText, labelTexts);
+
+                // Determine which pelvis model outline to show, so that the user knows how they are supposed to align the model
+                pelvisOutline = LOTextParser.ParseGuideViewOrientation(stepText.guideViewOrientation);
+            }
+
+            // now that we know which content to display for the step, show the tutorial, if the user is new
             if (currentProgress.isNewUser)
             {
                 panelToShow = PanelType.Tutorial;
             }
-            else if (currentProgress.currentStep == SaveDataManager.INTRO_STEP)
-            {
-                // Update Intro Text
-                introTxt.text = loTexts.GetIntroductionForLO(currentProgress.currentLO);
-                defaultPanel = panelToShow = PanelType.Introduction;
-            }
-            else
-            {
-                StepText stepText = loTexts.GetStepText(currentProgress.currentLO, currentProgress.currentStep);
-                // Update fit text
-                fitTxt.text = "Please fit the 3D pelvis with the 2D shape! " + stepText.fitInfoText;
-                // Update Info Text
-                infoTxt.text = stepText.stepInfoText;
-                // Enable Corresponding Labels
-                string[] labelTexts = stepText.labelTexts != null ? stepText.labelTexts.ToArray() : null;
-                labelManager.EnableLabelsByText(SearchingTextType.bottomText, labelTexts);
-                // Determine which pelvis model outline to show, so that the user knows how they are supposed to align the model
-                modelTrackingManager.SetGuideView(LOTextParser.ParseGuideViewOrientation(stepText.guideViewOrientation));
-            }
 
-            panelManager.SetDefaultPanelType(defaultPanel);
+            modelTrackingManager.SetGuideViewOrientation(pelvisOutline);
             panelManager.ShowPanel(panelToShow);
         }
+
+        panelManager.SetDefaultPanelType(defaultPanel);
     }
 
     /// <summary> Update the UI to show whether the pelvis model is currently being tracked or not </summary>

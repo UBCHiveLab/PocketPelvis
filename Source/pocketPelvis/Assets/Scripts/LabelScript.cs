@@ -1,24 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.SceneManagement;
-#if UNITY_EDITOR
-using UnityEditor.SceneManagement;
-#endif
-using TMPro;
-using System;
 using System.Linq;
-
-
 
 public enum SearchingTextType
 {
     upperText,
     bottomText
 }
-
-
 
 [RequireComponent(typeof(MeshCollider))]
 public class LabelScript : MonoBehaviour
@@ -40,12 +29,10 @@ public class LabelScript : MonoBehaviour
 
     public bool toggleLabel = true;
 
-    
     //Set default value for label maker
     private void Reset()
     {
-
-        labelPrefab = Resources.Load<GameObject>("Prefabs/Label") as GameObject;
+        labelPrefab = Resources.Load<GameObject>("Prefabs/Label");
         labels = new List<LabelTextManager>();
         upperText = "";
         bottomText = "";
@@ -53,15 +40,13 @@ public class LabelScript : MonoBehaviour
 
     public void ChangeLabelPrefab()
     {
-
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         //set prefab dirty
         if (labelPrefab == null)
         {
-            labelPrefab = Resources.Load<GameObject>("Prefabs/Label") as GameObject;
+            labelPrefab = Resources.Load<GameObject>("Prefabs/Label");
         }
         LabelTextManager prefabLabelManager = labelPrefab.GetComponent<LabelTextManager>();
-
 
         Undo.RecordObject(labelPrefab.transform, "make change to the line width, txetwindow and dot size");
         prefabLabelManager.SetDotSize(dotSize);
@@ -71,28 +56,22 @@ public class LabelScript : MonoBehaviour
         PrefabUtility.RecordPrefabInstancePropertyModifications(labelPrefab.transform);
 
         //change line width, color, window size and text size in exsisting labels
-        if (labels.Count > 0)
-        {
-            labels.ForEach(x => {
-                x.SetDotSize(dotSize);
-                x.SetTextWindowSize(textWindowSize);
-                x.SetLineWidth(lineWidthMultiplier);
-                x.SetTextColor(textColor);
-            });
-
-        }
-#endif
+        labels.ForEach(label => {
+            label.SetDotSize(dotSize);
+            label.SetTextWindowSize(textWindowSize);
+            label.SetLineWidth(lineWidthMultiplier);
+            label.SetTextColor(textColor);
+        });
+        #endif
     }
-
 
     public void AddLabel(Vector3 dotPosition, Vector3 surfaceNormal)
     {
-
         if (!string.IsNullOrEmpty(bottomText))
         {
             if (labelPrefab == null)
-                labelPrefab = Resources.Load<GameObject>("Prefabs/Label") as GameObject;
-            GameObject newlabel = Instantiate(labelPrefab, this.transform);
+                labelPrefab = Resources.Load<GameObject>("Prefabs/Label");
+            GameObject newlabel = Instantiate(labelPrefab, transform);
             LabelTextManager newLabelManager = newlabel.GetComponent<LabelTextManager>();
 
             if (index == 0)
@@ -104,50 +83,42 @@ public class LabelScript : MonoBehaviour
                 dotPosition, textWindowPosition, showAllLabel);
             labels.Add(newLabelManager);
         }
-
     }
 
     public void DeleteLastLabel()
     {
-
         if (labels.Count > 0)
         {
             LabelTextManager lastLabel = labels[labels.Count - 1];
             lastLabel.DeleteLabel();
             
         }
-        
     }
+
     public void ReloadAllLabelInChildren()
     {
         labels = GetComponentsInChildren<LabelTextManager>(true).ToList();
         labels.ForEach(x => x.ReloadLabel());
         Debug.Log(labels.Count + " labels found");
-        
     }
+
     public void ChangePosition(int i)
     {
-
         labels[i].SetTextWindowPosition(textWindowPosition);
         labels[i].SetDotPosition(dotPosition);
-
     }
+
     public void showAllLabelText(bool value)
     {
-        
-        if(labels.Count>0)
-        labels.ForEach(x => x.GetComponent<LabelTextManager>().showLabel(value));
-        
+        labels.ForEach(label => label.GetComponent<LabelTextManager>().showLabel(value));
     }
+
     public void ToggleAllLabels()
     {
-
-        //if (labels.Count > 0)
-        //    labels.ForEach(x => x.GetComponent<LabelTextManager>().toggleLabel());
         toggleLabel = !toggleLabel;
-        if (labels.Count > 0)
-            labels.ForEach(x => x.GetComponent<LabelTextManager>().showLabel(toggleLabel));
+        labels.ForEach(label => label.GetComponent<LabelTextManager>().showLabel(toggleLabel));
     }
+
     // enable all the corresponding labels and change their index number
     // might need a better algorithm 
     public void EnableLabelsByText(SearchingTextType textType,params string[] texts)
@@ -166,7 +137,6 @@ public class LabelScript : MonoBehaviour
                     x.SetIndexNumber(textList.IndexOf(x.thisLabel.upperText));
                     x.gameObject.SetActive(true);
                 });
-                
                 break;
             case SearchingTextType.bottomText:
                 foundLabels = labels.FindAll(a => textList.Any(b => b == a.thisLabel.bottomText));
@@ -176,6 +146,5 @@ public class LabelScript : MonoBehaviour
                 });
                 break;
         }
-        
     }
 }
