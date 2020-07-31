@@ -62,20 +62,15 @@ public class PanelManager : SceneSingleton<PanelManager>
 
         HideAllPanels();
 
-        // if we are on the main page, set the panel's visibilty to the opposite of what it was before
-        if (PageType.Main == activePageType)
+        // set the panel's visibilty to the opposite of what it was before
+        foundPanel.gameObject.SetActive(!panelIsVisible);
+
+        if (PageType.Main == activePageType && panelIsVisible)
         {
-            foundPanel.gameObject.SetActive(!panelIsVisible);
 
-            if (panelIsVisible)
-            {
-                // if we are on the main page and no panel is visible, then make the default panel visible.
-                ShowPanel(defaultPanel);
-            }
+            // if we are on the main page and no panel is visible, then make the default panel visible.
+            ShowPanel(defaultPanel);
         }
-        
-
-        
     }
 
     private PanelController FindPanelWithType(PanelType type)
