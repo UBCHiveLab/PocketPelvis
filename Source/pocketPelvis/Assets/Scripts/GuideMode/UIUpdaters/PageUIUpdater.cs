@@ -18,7 +18,6 @@ public class PageUIUpdater : MonoBehaviour
     private LabelManager labelManager;
     private ModelTrackingManager modelTrackingManager;
 
-    // TODO: maybe add these to the loText file?
     private const string START_TXT = "START LEARNING";
     private const string RESUME_TXT = "RESUME LEARNING";
 
@@ -93,7 +92,7 @@ public class PageUIUpdater : MonoBehaviour
                 // Enable Corresponding Labels
                 string[] labelTexts = stepText.labelTexts != null ? stepText.labelTexts.ToArray() : null;
                 labelManager.EnableLabelsByText(SearchingTextType.bottomText, labelTexts);
-                // Set guide view
+                // Determine which pelvis model outline to show, so that the user knows how they are supposed to align the model
                 modelTrackingManager.SetGuideView(LOTextParser.ParseGuideViewOrientation(stepText.guideViewOrientation));
             }
 
@@ -109,8 +108,14 @@ public class PageUIUpdater : MonoBehaviour
         ButtonInteractivityController.SetButtonInteractivity(infoButton, isTrackingModel);
         ButtonInteractivityController.SetButtonInteractivity(labelButton, isTrackingModel);
 
-        // When no other panels are showing, if the model is being tracked, show the model tracking indicator; otherwise, tell user how to align the model
-        panelManager.SetDefaultPanelType(isTrackingModel ? PanelType.IsTrackingModel : PanelType.FitInstructions);
-        panelManager.TogglePanel(PanelType.IsTrackingModel);
+        if (PageType.Main == pageManager.GetActivePageType())
+        {
+            // when the step buttons are not active, then the user is on the introduction step
+            PanelType notTrackingPanel = stepButtonContainer.activeSelf ? PanelType.FitInstructions : PanelType.Introduction;
+
+            // When no other panels are showing, if the model is being tracked, show the model tracking indicator; otherwise, show the step's regular default panel
+            panelManager.SetDefaultPanelType(isTrackingModel ? PanelType.IsTrackingModel : notTrackingPanel);
+            panelManager.TogglePanel(PanelType.IsTrackingModel);
+        }
     }
 }
