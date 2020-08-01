@@ -13,14 +13,35 @@ public class PageManager : SceneSingleton<PageManager>
 {
     private PageController activePage;
     private List<PageController> pageControllers;
+    private LOTexts loTexts;
+    private GuideModeEventManager eventManager;
 
     private void Awake()
     {
+        eventManager = GuideModeEventManager.Instance;
+        loTexts = new LOTextParser().loTexts;
         pageControllers = GetComponentsInChildren<PageController>(true).ToList();
 
         // make sure that the only active page is activePage
         pageControllers.ForEach(controller => controller.gameObject.SetActive(false));
         MakePageActive(PageType.LOVertial);
+    }
+
+    private void OnEnable()
+    {
+        // watch for changes to data that requires the active page to be modified
+        eventManager.OnModelTrackingStatusChanged += UpdateActivePageUI;
+        eventManager.OnUserProgressUpdated += UpdateActivePageUI;
+    }
+
+    private void OnDisable()
+    {
+        if (eventManager != null)
+        {
+            // if the event manager and any references to it's events haven't already been destroyed, unsubscribe to all events
+            eventManager.OnModelTrackingStatusChanged -= UpdateActivePageUI;
+            eventManager.OnUserProgressUpdated -= UpdateActivePageUI;
+        }
     }
 
     private void Update()
@@ -39,11 +60,21 @@ public class PageManager : SceneSingleton<PageManager>
             else
             {
                 //do not change the page type if orientation is face up or down
-                pageToActivate = GetActivePageType();
+                pageToActivate = activePage.pageType;
             }
 
             MakePageActive(pageToActivate);
         }
+    }
+
+    private void UpdateActivePageUI(UserProgressData currentProgress)
+    {
+        activePage.UpdateUI(currentProgress, loTexts);
+    }
+
+    private void UpdateActivePageUI(bool isTrackingModel)
+    {
+        activePage.UpdateUI(isTrackingModel);
     }
 
     public void MakePageActive(PageType pageType)
@@ -69,10 +100,5 @@ public class PageManager : SceneSingleton<PageManager>
         // Activate new page
         pageToActivate.gameObject.SetActive(true);
         activePage = pageToActivate;
-    }
-
-    public PageType GetActivePageType()
-    {
-        return activePage.pageType;
     }
 }
