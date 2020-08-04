@@ -4,15 +4,15 @@
 /// </summary>
 public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
 {
-    public delegate void ModelTrackingDelegate(bool trackingStatus);
+    public delegate void ModelTrackingDelegate(bool isTrackingModel);
     public event ModelTrackingDelegate OnModelTrackingStatusChanged;
 
-    public delegate void UpdateProgressDelegate(UserProgressData updateData);
+    public delegate void UpdateProgressDelegate(UserProgressData updatedData);
     public event UpdateProgressDelegate OnUserProgressUpdated;
 
-    public void PublishModelTrackingChangedEvent(bool trackingStatus)
+    public void PublishModelTrackingChangedEvent(bool isTrackingModel)
     {
-        OnModelTrackingStatusChanged(trackingStatus);
+        OnModelTrackingStatusChanged(isTrackingModel);
     }
     public void PublishUpdateUserProgress(UserProgressData updatedData)
     {
