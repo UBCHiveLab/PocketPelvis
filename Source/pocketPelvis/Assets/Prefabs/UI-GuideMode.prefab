@@ -21926,6 +21926,7 @@ MonoBehaviour:
   forwardButton: {fileID: 6781283575858957700}
   infoButton: {fileID: 6781283576563135978}
   labelButton: {fileID: 6781283574899031625}
+  menuButton: {fileID: 6781283575311684852}
   startButtonHorizontalTxt: {fileID: 6781283575044179489}
   startButtonVerticalTxt: {fileID: 6781283576191858206}
   introTxt: {fileID: 7264312223911457350}
