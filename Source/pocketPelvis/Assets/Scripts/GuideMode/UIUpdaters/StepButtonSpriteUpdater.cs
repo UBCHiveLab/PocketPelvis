@@ -13,6 +13,7 @@ public class StepButtonSpriteUpdater : MonoBehaviour
     private Image buttonImage;
 
     private int step;
+    private bool haveBeenToStep;
 
     private void Awake()
     {
@@ -22,17 +23,20 @@ public class StepButtonSpriteUpdater : MonoBehaviour
 
         StepProperties stepProperties = GetComponent<StepProperties>();
         step = stepProperties.GetStep();
+        haveBeenToStep = false;
 
         // watch for changes to the user's progress so that the button's sprite is updated accordingly
         eventManager.OnUserProgressUpdated += UpdateSprite;
+        eventManager.OnModelTrackingStatusChanged += UpdateButtonInteractivityWithTrackingStatus;
     }
 
     private void OnDestroy()
     {
-        // stop watching for changes to the user's progress
+        // stop watching for changes to the pelvis model's tracking status and the user's progress
         if (eventManager != null)
         {
             eventManager.OnUserProgressUpdated -= UpdateSprite;
+            eventManager.OnModelTrackingStatusChanged -= UpdateButtonInteractivityWithTrackingStatus;
         } 
     }
 
@@ -41,10 +45,22 @@ public class StepButtonSpriteUpdater : MonoBehaviour
         stepButton.gameObject.SetActive(step <= currentProgress.stepsInCurrentLO); // show the step button if the step is in the current lo
         buttonImage.sprite = step == currentProgress.currentStep ? currentStepSprite : stepSprite;
 
-        bool haveBeenToStep = currentProgress.currentLO < currentProgress.furthestLO ||
+        haveBeenToStep = currentProgress.currentLO < currentProgress.furthestLO ||
             (currentProgress.furthestLO == currentProgress.currentLO && step <= currentProgress.furthestStep);
 
         // if we've been to this step before, make the step's button interactable. Otherwise, disable it
-        ButtonInteractivityController.SetButtonInteractivity(stepButton, haveBeenToStep);
+        SetStepButtonInteractivity(haveBeenToStep);
+    }
+
+    private void UpdateButtonInteractivityWithTrackingStatus(bool isTrackingModel)
+    {
+        // while the model is being tracked, prevent the user from going to a new step by disabling the step button.
+        // thus, the button will be interactable when the model isn't being tracked and the user has been to the step
+        SetStepButtonInteractivity(!isTrackingModel && haveBeenToStep);
+    }
+
+    private void SetStepButtonInteractivity(bool isInteractable)
+    {
+        ButtonInteractivityController.SetButtonInteractivity(stepButton, isInteractable);
     }
 }

@@ -6,7 +6,7 @@ public class PageUIUpdater : MonoBehaviour
     [SerializeField]
     private GameObject stepButtonContainer;
     [SerializeField]
-    private Button backwardButton, forwardButton, infoButton, labelButton;
+    private Button backwardButton, forwardButton, infoButton, labelButton, menuButton;
     [SerializeField]
     private Text startButtonHorizontalTxt, startButtonVerticalTxt, introTxt, fitTxt, infoTxt;
     
@@ -114,6 +114,11 @@ public class PageUIUpdater : MonoBehaviour
         // only allow the label and info buttons to be interacted with while the pelvis model is being tracked
         ButtonInteractivityController.SetButtonInteractivity(infoButton, isTrackingModel);
         ButtonInteractivityController.SetButtonInteractivity(labelButton, isTrackingModel);
+
+        // prevent the user from going to a new step while the pelvis model is being tracked by disabling the menu and navigation buttons while the model is tracked
+        ButtonInteractivityController.SetButtonInteractivity(backwardButton, !isTrackingModel);
+        ButtonInteractivityController.SetButtonInteractivity(forwardButton, !isTrackingModel);
+        ButtonInteractivityController.SetButtonInteractivity(menuButton, !isTrackingModel);
 
         if (PageType.Main == pageManager.GetActivePageType())
         {
