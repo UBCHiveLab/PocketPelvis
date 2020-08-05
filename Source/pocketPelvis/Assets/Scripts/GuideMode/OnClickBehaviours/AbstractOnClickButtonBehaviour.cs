@@ -9,7 +9,7 @@ public abstract class AbstractOnClickButtonBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
-        // initialize the class' fields and add set the onclick listener to the button
+        // initialize the class' fields and set the onclick listener for the button
         button = GetComponent<Button>();
         saveDataManager = SaveDataManager.Instance;
 

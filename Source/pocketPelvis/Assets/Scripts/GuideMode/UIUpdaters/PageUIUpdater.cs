@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PageUIUpdater : MonoBehaviour
 {
     [SerializeField]
-    private GameObject stepButtonContainer;
+    private GameObject stepButtonContainer, trackingIndicatorContainer;
     [SerializeField]
     private Button backwardButton, forwardButton, infoButton, labelButton, menuButton;
     [SerializeField]
@@ -99,6 +99,7 @@ public class PageUIUpdater : MonoBehaviour
             if (currentProgress.isNewUser)
             {
                 panelToShow = PanelType.Tutorial;
+                trackingIndicatorContainer.SetActive(true); // need to show the tracking indicator for the tutorial
             }
 
             modelTrackingManager.SetGuideViewOrientation(pelvisOutline);
@@ -120,14 +121,13 @@ public class PageUIUpdater : MonoBehaviour
         ButtonInteractivityController.SetButtonInteractivity(forwardButton, !isTrackingModel);
         ButtonInteractivityController.SetButtonInteractivity(menuButton, !isTrackingModel);
 
-        if (PageType.Main == pageManager.GetActivePageType())
-        {
-            // when the step buttons are not active, then the user is on the introduction step
-            PanelType notTrackingPanel = stepButtonContainer.activeSelf ? PanelType.FitInstructions : PanelType.Introduction;
+        trackingIndicatorContainer.SetActive(isTrackingModel);
 
-            // When no other panels are showing, if the model is being tracked, show the model tracking indicator; otherwise, show the step's regular default panel
-            panelManager.SetDefaultPanelType(isTrackingModel ? PanelType.IsTrackingModel : notTrackingPanel);
-            panelManager.TogglePanel(PanelType.IsTrackingModel);
+        if (isTrackingModel)
+        {
+            // hide all panels and make no panel the default, so can see the whole pelvis when tracking starts
+            panelManager.HideAllPanels();
+            panelManager.SetDefaultPanelType(null);
         }
     }
 }
