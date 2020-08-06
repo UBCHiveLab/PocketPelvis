@@ -91,7 +91,6 @@ public class LabelScript : MonoBehaviour
         {
             LabelTextManager lastLabel = labels[labels.Count - 1];
             lastLabel.DeleteLabel();
-            
         }
     }
 
@@ -108,15 +107,15 @@ public class LabelScript : MonoBehaviour
         labels[i].SetDotPosition(dotPosition);
     }
 
-    public void showAllLabelText(bool value)
+    public void ShowAllLabelText(bool value)
     {
-        labels.ForEach(label => label.GetComponent<LabelTextManager>().showLabel(value));
+        labels.ForEach(label => label.GetComponent<LabelTextManager>().ShowLabel(value));
     }
 
     public void ToggleAllLabels()
     {
         toggleLabel = !toggleLabel;
-        labels.ForEach(label => label.GetComponent<LabelTextManager>().showLabel(toggleLabel));
+        ShowAllLabelText(toggleLabel);
     }
 
     // enable all the corresponding labels and change their index number

@@ -61,7 +61,7 @@ public class LabelScriptEditor : Editor
         mytarget.showAllLabel = EditorGUILayout.Toggle("Show All Label Text", mytarget.showAllLabel);
         if (GUI.changed)
         {
-            mytarget.showAllLabelText(mytarget.showAllLabel);
+            mytarget.ShowAllLabelText(mytarget.showAllLabel);
         }
         EditorGUI.EndChangeCheck();
 

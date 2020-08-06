@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
 
@@ -88,7 +86,7 @@ public class LabelTextManagerEditor : Editor
         #region Display_Label_Toggle
         mytarget.thisLabel.isLabelDisplayed = EditorGUILayout.Toggle("Display Label", mytarget.thisLabel.isLabelDisplayed);
         if (GUI.changed)
-            mytarget.showLabel(mytarget.thisLabel.isLabelDisplayed);
+            mytarget.ShowLabel(mytarget.thisLabel.isLabelDisplayed);
         #endregion
         #region Serialized_Field
         //In case the object reference is missing, user will need assign scene objects again
