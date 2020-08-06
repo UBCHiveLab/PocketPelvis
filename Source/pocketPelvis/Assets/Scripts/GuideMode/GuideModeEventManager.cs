@@ -12,10 +12,18 @@ public class GuideModeEventManager : SceneSingleton<GuideModeEventManager>
 
     public void PublishModelTrackingChangedEvent(bool isTrackingModel)
     {
-        OnModelTrackingStatusChanged(isTrackingModel);
+        if (OnModelTrackingStatusChanged != null)
+        {
+            // if there are subscribers to the event, tell the subscribers that the event has occurred
+            OnModelTrackingStatusChanged(isTrackingModel);
+        }
     }
     public void PublishUpdateUserProgress(UserProgressData updatedData)
     {
-        OnUserProgressUpdated(updatedData);
+        if (OnUserProgressUpdated != null)
+        {
+            // if there are subscribers to the event, tell the subscribers that the event has occurred
+            OnUserProgressUpdated(updatedData);
+        }
     }
 }
