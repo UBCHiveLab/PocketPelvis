@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using System;
 
@@ -25,8 +23,6 @@ public class Label
 
 public class LabelTextManager : MonoBehaviour
 {
-    
-
     public Label thisLabel;
 
     [SerializeField]
@@ -61,10 +57,9 @@ public class LabelTextManager : MonoBehaviour
         //SetTextColor(textColor);
 
         //display label 
-        showLabel(isLabelDisplayed);
+        ShowLabel(isLabelDisplayed);
     }
-   
-    
+
     /// <summary>
     /// two string will be passed to the function and set the label text
     /// </summary>
@@ -91,26 +86,31 @@ public class LabelTextManager : MonoBehaviour
         textGroup.transform.position = position;
         thisLabel.textWindowPosition = position;
     }
+
     public void SetTextWindowSize(float size)
     {
         thisLabel.textWindowSize = size;
         textGroup.transform.localScale = new Vector3(size, size, size);
     }
+
     public void SetDotSize(float size)
     {
         thisLabel.dotSize = size;
         dotGroup.transform.localScale = new Vector3(size, size, size);
     }
+
     public void SetDotPosition(Vector3 position)
     {
         dotGroup.transform.position = position;
         thisLabel.dotPosition = position;
     }
+
     public void SetLineWidth(float widthMultiplier)
     {
         thisLabel.lineWidthMultiplier = widthMultiplier;
         line.widthMultiplier = widthMultiplier;
     }
+
     public void SetTextColor(Color color)
     {
         thisLabel.textColor = color;
@@ -118,25 +118,19 @@ public class LabelTextManager : MonoBehaviour
         upperTextmesh.color = color;
         bottomTextmesh.color = color;
         indexTextmesh.color = color;
-
-        
     }
 
-    public void showLabel(bool isActive)
+    public void ShowLabel(bool isActive)
     {
         textGroup.SetActive(isActive);
         thisLabel.isLabelDisplayed = isActive;
     }
 
-    public void toggleLabel()
+    public void ToggleLabel()
     {
-        showLabel(!thisLabel.isLabelDisplayed);
+        ShowLabel(!thisLabel.isLabelDisplayed);
+    }
 
-    }
-    public void ReloadLabelComponents()
-    {
-        
-    }
     public void DeleteLabel()
     {
         LabelScript parent = this.GetComponentInParent<LabelScript>();
@@ -144,6 +138,7 @@ public class LabelTextManager : MonoBehaviour
             parent.labels.Remove(this);
         DestroyImmediate(this.gameObject);
     }
+
     public void ReloadLabel()
     {
         thisLabel.index = int.Parse(indexTextmesh.text);
@@ -153,5 +148,4 @@ public class LabelTextManager : MonoBehaviour
         thisLabel.textWindowPosition = textGroup.transform.position;
         thisLabel.isLabelDisplayed = textGroup.activeSelf;
     }
- 
 }

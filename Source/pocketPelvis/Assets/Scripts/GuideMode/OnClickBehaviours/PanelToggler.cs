@@ -7,8 +7,8 @@ public class PanelToggler : AbstractOnClickButtonBehaviour
 
     protected override void Awake()
     {
-        panelManager = PanelManager.Instance;
         base.Awake();
+        panelManager = PanelManager.Instance;
     }
 
     protected override void OnClickButton()

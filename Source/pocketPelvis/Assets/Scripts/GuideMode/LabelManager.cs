@@ -18,16 +18,17 @@ public class LabelManager : SceneSingleton<LabelManager>
                 if (hit.transform.tag == "labelDot")
                 {
                     var labelHit = hit.transform.GetComponentInParent<LabelTextManager>();
-                    labelHit.toggleLabel();
+                    labelHit.ToggleLabel();
                 }
             }
         }
-        
     }
+
     public void ToggleAllLabels()
     {
         LabelScript.ToggleAllLabels();
     }
+
     public void EnableLabelsByText(SearchingTextType textType, params string[] texts)
     {
         LabelScript.EnableLabelsByText(textType, texts);
