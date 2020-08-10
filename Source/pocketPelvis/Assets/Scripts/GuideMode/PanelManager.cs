@@ -6,7 +6,6 @@ public enum PanelType
     Menu,
     Info,
     FitInstructions,
-    IsTrackingModel,
     Introduction,
     User,
     Tutorial
