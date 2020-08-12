@@ -22,7 +22,7 @@ public class StepSelector : AbstractOnClickButtonBehaviour
         // some steps aren't associated with any LO. In this case, get the current LO.
         int loToGoTo = selectedLearningObjective < SaveDataManager.FIRST_LO ? saveDataManager.GetCurrentLO() : selectedLearningObjective;
 
-        // activate the main page before updating the user progress. This ensures that the main page gets the user progress updates.
+        // when selecting a step, we want to go to the main page and put the user on the selected step
         pageManager.MakePageActive(PageType.Main);
         saveDataManager.UpdateUserProgress(loToGoTo, selectedStep);
     }

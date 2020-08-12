@@ -16,6 +16,8 @@ public class PageManager : SceneSingleton<PageManager>
     private LOTexts loTexts;
     private GuideModeEventManager eventManager;
 
+    private bool isTrackingModel;
+
     private void Awake()
     {
         eventManager = GuideModeEventManager.Instance;
@@ -25,6 +27,8 @@ public class PageManager : SceneSingleton<PageManager>
         // make sure that the only active page is activePage
         pageControllers.ForEach(controller => controller.gameObject.SetActive(false));
         MakePageActive(PageType.LOVertial);
+
+        isTrackingModel = false;
     }
 
     private void OnEnable()
@@ -75,6 +79,7 @@ public class PageManager : SceneSingleton<PageManager>
     private void UpdateActivePageUI(bool isTrackingModel)
     {
         activePage.UpdateUI(isTrackingModel);
+        this.isTrackingModel = isTrackingModel;
     }
 
     public void MakePageActive(PageType pageType)
@@ -100,5 +105,10 @@ public class PageManager : SceneSingleton<PageManager>
         // Activate new page
         pageToActivate.gameObject.SetActive(true);
         activePage = pageToActivate;
+
+        // Since all Guide Mode events will have only updated the previous active page, make sure that the current active page
+        // reflects the current model tracking status and user progress
+        UpdateActivePageUI(isTrackingModel);
+        UpdateActivePageUI(SaveDataManager.Instance.GetCurrentUserProgress());
     }
 }

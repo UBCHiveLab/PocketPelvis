@@ -54,7 +54,7 @@ public class StepControlNavigator : AbstractOnClickButtonBehaviour
             nextStep = nextStep == SaveDataManager.INTRO_STEP ? nextStep + 1 : nextStep;
         }
 
-        // activate the main page before updating the user progress. This ensures that the main page gets the user progress updates.
+        // when using the navigation buttons, we want to go to the main page and put the user on the lo and step that they navigated to
         PageManager.Instance.MakePageActive(PageType.Main);
         saveDataManager.UpdateUserProgress(nextLO, nextStep);
     }
