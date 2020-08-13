@@ -38,7 +38,7 @@ public class PanelManager : SceneSingleton<PanelManager>
     {
         HideAllPanels();
 
-        PanelController foundPanel= FindPanelWithType(_panelType);
+        PanelController foundPanel = FindPanelWithType(_panelType);
         if (foundPanel!=null)
         {
             foundPanel.gameObject.SetActive(true);

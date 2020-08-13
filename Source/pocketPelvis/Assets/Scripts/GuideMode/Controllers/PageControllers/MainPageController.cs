@@ -96,6 +96,11 @@ public class MainPageController : AbstractPageController
             // make no panel the default and hide all panels, so no panel obstructs the pelvis when tracking starts
             panelManager.SetDefaultPanelType(null);
             panelManager.HideAllPanels();
+        } else
+        {
+            // if not tracking the model, then tell the user how to align the model with the fit instructions
+            panelManager.SetDefaultPanelType(PanelType.FitInstructions);
+            panelManager.ShowPanel(PanelType.FitInstructions);
         }
     }
 }
