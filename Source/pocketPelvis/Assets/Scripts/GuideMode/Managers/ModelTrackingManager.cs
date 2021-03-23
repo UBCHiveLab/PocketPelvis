@@ -22,6 +22,8 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
     private PositionalDeviceTracker positionalDeviceTracker;
     private ObjectTracker objectTracker;
 
+    public int guideViewID;
+
     private void Start()
     {
         modelTargetBehaviour = FindObjectOfType<ModelTargetBehaviour>();
@@ -44,7 +46,7 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
 
         if (guideViewOrientation != GuideViewOrientation.NoGuideView)
         {
-            int guideViewID = (int)guideViewOrientation;
+            guideViewID = (int)guideViewOrientation;
             modelTarget.SetActiveGuideViewIndex(guideViewID);
             modelTargetBehaviour.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.GuideView2D;
 
