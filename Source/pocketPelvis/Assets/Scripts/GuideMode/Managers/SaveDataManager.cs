@@ -21,9 +21,11 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
 
         #if UNITY_EDITOR
             saveDataPath = Application.dataPath + "/SaveData/" + SAVE_DATA_PATH;
-#elif UNITY_ANDROID || UNITY_IOS
+#elif UNITY_ANDROID 
             saveDataPath = Application.persistentDataPath + "SAVE_DATA_PATH";
             //saveDataPath = Path.Combine(Application.persistantDataPath，“SAVE_DATA_PATH”);
+#elif UNITY_IOS
+            saveDataPath = Application.persistentDataPath + "/SaveData" + SAVE_DATA_PATH;
 #endif
 
         LoadSaveData();
