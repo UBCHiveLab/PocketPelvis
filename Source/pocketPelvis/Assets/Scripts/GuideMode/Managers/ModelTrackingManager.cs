@@ -22,6 +22,7 @@ public class ModelTrackingManager : SceneSingleton<ModelTrackingManager>
     private PositionalDeviceTracker positionalDeviceTracker;
     private ObjectTracker objectTracker;
 
+
     private void Start()
     {
         modelTargetBehaviour = FindObjectOfType<ModelTargetBehaviour>();

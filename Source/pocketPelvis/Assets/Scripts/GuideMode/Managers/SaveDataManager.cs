@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.IO;
 
 public class SaveDataManager : SceneSingleton<SaveDataManager>
 {
@@ -20,9 +21,12 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
 
         #if UNITY_EDITOR
             saveDataPath = Application.dataPath + "/SaveData/" + SAVE_DATA_PATH;
-        #elif UNITY_ANDROID || UNITY_IOS
-            saveDataPath = Application.persistentDataPath + SAVE_DATA_PATH;
-        #endif
+#elif UNITY_ANDROID 
+            saveDataPath = Application.persistentDataPath + "SAVE_DATA_PATH";
+            //saveDataPath = Path.Combine(Application.persistantDataPath，“SAVE_DATA_PATH”);
+#elif UNITY_IOS
+            saveDataPath = Application.persistentDataPath + "/SaveData" + SAVE_DATA_PATH;
+#endif
 
         LoadSaveData();
     }
@@ -63,7 +67,7 @@ public class SaveDataManager : SceneSingleton<SaveDataManager>
 
     private string GetEmptySaveData()
     {
-        TextAsset loadedData = Resources.Load<TextAsset>(EMPTY_SAVE_DATA_PATH);
+        TextAsset loadedData = Resources.Load<TextAsset>(EMPTY_SAVE_DATA_PATH) as TextAsset;
         return loadedData.text;
     }
 
