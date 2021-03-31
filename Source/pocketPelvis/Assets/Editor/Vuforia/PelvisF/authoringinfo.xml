@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo>
+<TargetSet version="14.0" toolVersion="9.7.4">
+<ModelTarget name="PelvisF" targetId="7e799f0c1fc948c7b32d6f82680a4903" version="11.1" toolVersion="9.7.4" bbox="1.541562 -0.840032 -0.758672 3.639308 0.762098 0.883136" previewImage="7e799f0c1fc948c7b32d6f82680a4903_preview.jpg"/>
+
+</TargetSet>
+
+<Assembly name="PelvisFs_assembly" assemblyId="57eaf233544e4675921fb6c3525b3f6b">
+<Part name="PelvisF" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="Frontal" translation="2.65842 -0.116725 3.95327" rotation="AD: 0.9999999998441991 0.0014177991700197702 -0.012530880833860553 192.909" image="PelvisF_Frontal.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="TopDown" translation="2.6576 -0.0704721 3.85122" rotation="AD: -0.9999999999913711 -0.002375332520185824 0.0024405437656777754 91.5519" image="PelvisF_TopDown.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="Side" translation="0.130329 0.196016 1.31539" rotation="AD: 0.9991837164762869 0.05777528250522165 -0.9805439827435815 184.812" image="PelvisF_Side.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="Back" translation="-2.46401 -0.0149289 3.78421" rotation="AD: -0.03447595137928871 0.9996447318998816 45.714020121727714 180.002" image="PelvisF_Back.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="BottomUp" translation="-2.42345 0.202955 4.04604" rotation="AD: 0.0010595400212650898 1.423696845699951 -1.4049165262772256 180.062" image="PelvisF_BottomUp.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="Front_TilledUp" translation="2.44994 0.0483319 3.95889" rotation="AD: 0.9999999941328999 0.005389893936979728 0.02076799868734804 150.909" image="PelvisF_Front_TilledUp.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="Back_BottomUp" translation="-2.50153 0.0362062 4.09138" rotation="AD: -0.03735534636487936 1.126350729620451 2.167416159560065 180.911" image="PelvisF_Back_BottomUp.png" trained="no">
+
+</EntryPoint>
+<EntryPoint name="Back_TilledUp" translation="-2.49924 -0.144051 4.03743" rotation="AD: -0.017701323304398556 -1.0927853257411293 2.477894126294397 179.67" image="PelvisF_Back_TilledUp.png" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARInfo>
