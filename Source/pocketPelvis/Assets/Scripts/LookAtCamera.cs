@@ -26,7 +26,7 @@ public class LookAtCamera : MonoBehaviour
         if(!cameraTransform) cameraTransform = Camera.main.transform;
 
         direction = cameraTransform.position - transform.position;
-        rotation = Quaternion.LookRotation(invert ? - direction : direction, Vector3.up);
+        rotation = Quaternion.LookRotation(invert ? - direction : direction, Vector3.back);
         transform.rotation = rotation;
         enabled = update;
     }

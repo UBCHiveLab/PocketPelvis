@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Nerve
   m_Shader: {fileID: 4800000, guid: 102ae67d75d24bf49b90cba8fedb7360, type: 3}
   m_ShaderKeywords: 
@@ -75,7 +76,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0.2
     - _SrcBlend: 1
-    - _Transparency: 0
+    - _Transparency: 0.4
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
